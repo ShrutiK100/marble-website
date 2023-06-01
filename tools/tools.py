@@ -71,19 +71,16 @@ class Tools:
 
 
 
-
-
-
-
-
-
     def build_node_section(self,start, end):
 
         node_group = ""
+        buffer_group = ""
 
-        node_item = 1
+
+        node_item = start
 
         json_tree = self.test_read_json()
+        # json_tree = self.get_node_registry()
         json_tree_subset = dict(itertools.islice(json_tree.items(), start, end))
 
 
@@ -96,7 +93,9 @@ class Tools:
             node_section_template = node_section_template.replace("NODE_DESCRIPTION_COLUMN_ID", "nodeDescriptionColumn" + str(node_item))
             node_section_template = node_section_template.replace("NODE_NAME_ID", "nodeName" + str(node_item))
             node_section_template = node_section_template.replace("NODE_DESCRIPTION_ID", "nodeDescription" + str(node_item))
-            node_section_template = node_section_template.replace("NODE_LINK_ID", "nodeLink" + str(node_item))
+            node_section_template = node_section_template.replace("NODE_LINK_IMG_ID", "nodeLink" + str(node_item))
+            node_section_template = node_section_template.replace("NODE_LINK_TEXT_ID", "nodeLink" + str(node_item + 1))
+            node_section_template = node_section_template.replace("NODE_LINK_DESC_ID", "nodeLink" + str(node_item + 2))
 
 
             node_name = key
@@ -114,15 +113,14 @@ class Tools:
             node_group = node_group + node_section_template
 
             node_item = node_item + 1
-            # start=start = 1
 
-
+      
         return node_group
 
 
 
 
-    def build_row_section(self, accordion:bool, json_tree_length):
+    def build_row_section(self, json_tree_length, accordion:bool):
 
         if accordion:
             if json_tree_length >4:
@@ -151,37 +149,51 @@ class Tools:
     def build_node_content(self):
 
         json_tree = self.test_read_json()
+        # json_tree = self.get_node_registry()
 
-        tree_length = len(json_tree)
-
-        # node_intro_row_template = self.read_template('row_section_template.html')
         node_accordion_row = ""
         node_remainder_row = ""
 
+
+
         if len(json_tree) < 5:
             node_group = self.build_node_section(0, len(json_tree))
-            node_row_section = self.build_row_section(False, len(json_tree) )
+            node_row_section = self.build_row_section(len(json_tree), False )
             node_intro_row = node_row_section.replace('NODE_GROUP', node_group)
 
         else:
+            node_inner_content = ""
             node_intro_group = self.build_node_section(0, 4)
-            node_row = self.build_row_section(False, 4)
+            node_row = self.build_row_section(4, False)
             node_intro_row = node_row.replace('NODE_GROUP', node_intro_group)
+            node_accordion_row_section = self.build_row_section(len(json_tree), True)
 
-            for x in range(0, int(len(json_tree)/4) ):
-                node_accordion_row_section = self.build_row_section(True, len(json_tree))
 
-                for y in range(4, len(json_tree)):
 
-                    node_accordion_group = self.build_node_section(y, y+4)
+            for y in range(4, len(json_tree) - len(json_tree) % 4, 4):
 
-                node_accordion_row = node_accordion_row_section.replace("ACCORDION_BODY_CONTENT", node_accordion_group)
+                node_inner_row_section = self.build_row_section(len(json_tree), False)
+                node_accordion_group = self.build_node_section(y, y + 4)
+                node_accordion_inner_row = node_inner_row_section.replace('NODE_GROUP', node_accordion_group)
+                node_inner_content = node_inner_content  + node_accordion_inner_row
 
-        if len(json_tree) % 4 > 0:
-            node_remainder_row_section = self.build_row_section(True, len(json_tree) % 4)
-            node_remainder_group = self.build_node_section(len(json_tree)  - (len(json_tree) % 4), len(json_tree) )
+            if len(json_tree) % 4 > 0:
 
-            node_remainder_row = node_remainder_row_section.replace("ACCORDION_BODY_CONTENT", node_remainder_group)
+                node_remainder_inner_row_section = self.build_row_section(len(json_tree), False)
+                node_remainder_group = self.build_node_section(len(json_tree) - (len(json_tree) % 4), len(json_tree))
+
+                # buffer_group = self.build_node_section(1, 4 - len(json_tree) % 4, True)
+                # node_remainder_group = node_remainder_group + buffer_group
+
+
+                node_remainder_inner_row = node_remainder_inner_row_section.replace('NODE_GROUP', node_remainder_group)
+                node_inner_content = node_inner_content + node_remainder_inner_row
+
+
+
+
+
+            node_accordion_row = node_accordion_row_section.replace("ACCORDION_BODY_CONTENT", node_inner_content)
 
         node_content = node_intro_row + node_accordion_row + node_remainder_row
 
@@ -203,12 +215,3 @@ class Tools:
 
 
 
-
-
-    def parse_json(self):
-        json_tree = self.test_read_json()
-        for key, value in json_tree.items():
-
-
-            print("key=" + key)
-            print("value=" + value['url'])
