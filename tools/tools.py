@@ -84,12 +84,6 @@ class Tools:
         json_tree_subset = dict(itertools.islice(json_tree.items(), start, end))
 
 
-
-
-
-
-
-
         for key, value in json_tree_subset.items():
             node_section_template = self.read_template('node-section-template.html')
 
@@ -99,7 +93,9 @@ class Tools:
             node_section_template = node_section_template.replace("NODE_DESCRIPTION_COLUMN_ID", "nodeDescriptionColumn" + str(node_item))
             node_section_template = node_section_template.replace("NODE_NAME_ID", "nodeName" + str(node_item))
             node_section_template = node_section_template.replace("NODE_DESCRIPTION_ID", "nodeDescription" + str(node_item))
-            node_section_template = node_section_template.replace("NODE_LINK_ID", "nodeLink" + str(node_item))
+            node_section_template = node_section_template.replace("NODE_LINK_IMG_ID", "nodeLink" + str(node_item))
+            node_section_template = node_section_template.replace("NODE_LINK_TEXT_ID", "nodeLink" + str(node_item + 1))
+            node_section_template = node_section_template.replace("NODE_LINK_DESC_ID", "nodeLink" + str(node_item + 2))
 
 
             node_name = key
@@ -118,42 +114,7 @@ class Tools:
 
             node_item = node_item + 1
 
-        """
-        if buffer:
-            remainder_num = 4 - len(json_tree) % 4
-
-            node_item = len(json_tree) + 1
-
-            for x in range(1, remainder_num):
-                node_section_template = self.read_template('node-section-template.html')
-
-                node_section_template = node_section_template.replace("NODE_CONTENT_ID", "nodeContent" + str(node_item))
-                node_section_template = node_section_template.replace("NODE_LOGO_COLUMN_ID",
-                                                                      "nodeLogoColumn" + str(node_item))
-                node_section_template = node_section_template.replace("NODE_LOGO_ID", "nodeLogo" + str(node_item))
-                node_section_template = node_section_template.replace("NODE_DESCRIPTION_COLUMN_ID",
-                                                                      "nodeDescriptionColumn" + str(node_item))
-                node_section_template = node_section_template.replace("NODE_NAME_ID", "nodeName" + str(node_item))
-                node_section_template = node_section_template.replace("NODE_DESCRIPTION_ID",
-                                                                      "nodeDescription" + str(node_item))
-                node_section_template = node_section_template.replace("NODE_LINK_ID", "nodeLink" + str(node_item))
-
-                node_section_template = node_section_template.replace('NODE_NAME', "")
-                node_section_template = node_section_template.replace('NODE_DESCRIPTION', "")
-                node_section_template = node_section_template.replace('NODE_LINK', "")
-                node_section_template = node_section_template.replace('NODE_LOGO_PATH', "")
-
-                node_section_template = node_section_template.replace('<p><a class="btn btn-secondary" id="NODE_LINK_ID" href="NODE_LINK">View details &raquo;</a></p>', "")
-                # node_section_template = node_section_template.replace('View details &raquo;', "")
-
-
-                buffer_group = buffer_group + node_section_template
-
-
-                node_item = node_item + 1
-
-            node_group = node_group + buffer_group
-            """
+      
         return node_group
 
 
