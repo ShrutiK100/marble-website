@@ -74,7 +74,6 @@ class Tools:
     def build_node_section(self,start, end):
 
         node_group = ""
-        buffer_group = ""
 
 
         node_item = start
@@ -85,7 +84,7 @@ class Tools:
 
 
         for key, value in json_tree_subset.items():
-            node_section_template = self.read_template('node-section-template.html')
+            node_section_template = self.read_template('../templates/node-section-template.html')
 
             node_section_template = node_section_template.replace("NODE_CONTENT_ID", "nodeContent" + str(node_item))
             node_section_template = node_section_template.replace("NODE_LOGO_COLUMN_ID", "nodeLogoColumn" + str(node_item))
@@ -114,7 +113,7 @@ class Tools:
 
             node_item = node_item + 1
 
-      
+
         return node_group
 
 
@@ -126,14 +125,14 @@ class Tools:
             if json_tree_length >4:
                 row_num = json_tree_length / 4
                 for x in range(0,int(row_num)):
-                    node_accordion_row_template = self.read_template('row-accordion-section-template.html')
+                    node_accordion_row_template = self.read_template('../templates/row-accordion-section-template.html')
 
                     node_row = node_accordion_row_template.replace('ACCORDION_ID', 'accordion' + str(x+1))
                     node_row = node_row.replace('ACCORDION_HEADER_ID', 'accordionHeader' + str(x+1))
                     node_row = node_row.replace('ACCORDION_COLLAPSE_ID','accordionCollapse' + str(x+1))
             else:
                 for x in range(0, json_tree_length):
-                    node_accordion_row_template = self.read_template('row-accordion-section-template.html')
+                    node_accordion_row_template = self.read_template('../templates/row-accordion-section-template.html')
 
                     node_row = node_accordion_row_template.replace('ACCORDION_ID', 'accordion' + str(x + 1))
                     node_row = node_row.replace('ACCORDION_HEADER_ID', 'accordionHeader' + str(x + 1))
@@ -141,7 +140,7 @@ class Tools:
 
 
         else:
-            node_intro_row_template = self.read_template('row-section-template.html')
+            node_intro_row_template = self.read_template('../templates/row-section-template.html')
             node_row = node_intro_row_template.replace("NODE_INTRO_ROW_ID", "nodeRow1")
 
         return node_row
@@ -182,16 +181,9 @@ class Tools:
                 node_remainder_inner_row_section = self.build_row_section(len(json_tree), False)
                 node_remainder_group = self.build_node_section(len(json_tree) - (len(json_tree) % 4), len(json_tree))
 
-                # buffer_group = self.build_node_section(1, 4 - len(json_tree) % 4, True)
-                # node_remainder_group = node_remainder_group + buffer_group
-
 
                 node_remainder_inner_row = node_remainder_inner_row_section.replace('NODE_GROUP', node_remainder_group)
                 node_inner_content = node_inner_content + node_remainder_inner_row
-
-
-
-
 
             node_accordion_row = node_accordion_row_section.replace("ACCORDION_BODY_CONTENT", node_inner_content)
 
@@ -202,7 +194,7 @@ class Tools:
 
 
     def build_homepage(self):
-        homepage_template = self.read_template('index-template.html')
+        homepage_template = self.read_template('../templates/index-template.html')
         node_content = self.build_node_content()
 
         homepage_template = homepage_template.replace('NODE_CONTENT', node_content)
@@ -212,6 +204,60 @@ class Tools:
         homepage = homepage_bs4.prettify()
 
         self.save_html("index-test.html", homepage)
+
+
+
+
+
+
+
+    def get_service_link(self, service_links_array):
+
+        service_link_rel = ""
+        service_link_href = ""
+
+
+        for x in range(0, len(service_links_array)):
+
+            if("text/html" in service_links_array[x]['type']):
+
+                service_link_rel = service_links_array[x]['rel']
+                service_link_href = service_links_array[x]['href']
+
+
+
+
+
+
+    def build_services(self):
+
+        json_tree = self.test_read_json()
+
+        for key, value in json_tree.items():
+            services_template = self.read_template('services-template.html')
+
+
+
+            node_name = key
+            url = value['url']
+            affiliation = value['affiliation']
+            description = value['description']
+            icon_url = value['icon_url']
+            services_array = value['services']
+
+            service_name = services_array['name']
+            service_url = services_array['url']
+            service_type = services_array['type']
+            service_documentation = services_array['documentation']
+            service_description = services_array['description']
+            service_links_array = services_array['links']
+
+
+
+
+
+
+    def
 
 
 
