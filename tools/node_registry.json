@@ -109,10 +109,32 @@
                 "description": "GeoServer is a server that allows users to view and edit geospatial data."
             }, {
                 "name": "weaver",
-                "url": "https://infomatics-dcs.pavics.ca/weaver",
+
                 "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
+
+                "description": "An OGC-API flavored Execution Management Service",
+                "links": [
+                    {
+                        "rel": "service",
+                        "type": "application/json",
+                        "href": "https://${PAVICS_FQDN_PUBLIC}/${WEAVER_MANAGER_NAME}/"
+                    },
+                    {
+                        "rel": "service-desc",
+                        "type": "text/html",
+                        "href": "https://pavics-weaver.readthedocs.io/"
+                    },
+                    {
+                        "rel": "service-doc",
+                        "type": "application/json",
+                        "href": "https://${PAVICS_FQDN_PUBLIC}/${WEAVER_MANAGER_NAME}/"
+                    },
+                    {
+                        "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                        "type": "application/json",
+                        "href": "https://${PAVICS_FQDN_PUBLIC}/${WEAVER_MANAGER_NAME}/conformance/"
+                    }
+                ]
             }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
