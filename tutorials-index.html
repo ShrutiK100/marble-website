@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="../node-modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../node-modules/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet">
+  <link href="../css/daccs-css.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div class="row">
+<div id="menu" class="container-fluid"></div>
+</div>
+<div class="row">
+<div id="tutorials" class="container-fluid"></div>
+</div>
+<!--
+<div class="row">
+  <div class="col-12">
+
+<div class="embed-responsive">
+
+<iframe id="tutorialsContent"  class="embed-responsive-item"  src="tutorials/index.html"  ></iframe>
+</div>
+    </div>
+
+</div>-->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+  <script>
+      $(document).ready(function () {
+        $('#menu').load('../menu.html');
+        $('#tutorials').load('index.html');
+
+      });
+  </script>
+</body>
+</html>
