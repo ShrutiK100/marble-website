@@ -370,7 +370,7 @@ function buildHomePage(){
     homepageTemplate = homepageTemplate.replace("NODE_CONTENT", nodeContent);
     homepage = html.prettyPrint(homepageTemplate, {indent_size:2});
 
-    saveHTML("..", "index-test.html", homepage);
+    saveHTML("..", "index.html", homepage);
 }
 
 
