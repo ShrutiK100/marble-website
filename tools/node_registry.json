@@ -11,23 +11,61 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
-        "last_updated": "2023-05-04T17:09:07+0000",
-        "version": "1.26.0",
-        "status": "offline"
+    "last_updated": "2023-05-04T17:09:07+0000",
+    "version": "1.26.0",
+    "status": "offline"
     },
     "PCIC":{
         "url": "http://daccs-pcic.example.com",
@@ -41,19 +79,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.uic.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.uvic.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -71,19 +147,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.crim.ca/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.crim.ca/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -101,41 +215,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.pavics.ca/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-
-                "type": ["ems"],
-
-                "description": "An OGC-API flavored Execution Management Service",
-                "links": [
-                    {
-                        "rel": "service",
-                        "type": "application/json",
-                        "href": "https://${PAVICS_FQDN_PUBLIC}/${WEAVER_MANAGER_NAME}/"
-                    },
-                    {
-                        "rel": "service-desc",
-                        "type": "text/html",
-                        "href": "https://pavics-weaver.readthedocs.io/"
-                    },
-                    {
-                        "rel": "service-doc",
-                        "type": "application/json",
-                        "href": "https://${PAVICS_FQDN_PUBLIC}/${WEAVER_MANAGER_NAME}/"
-                    },
-                    {
-                        "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
-                        "type": "application/json",
-                        "href": "https://${PAVICS_FQDN_PUBLIC}/${WEAVER_MANAGER_NAME}/conformance/"
-                    }
-                ]
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -153,19 +283,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -183,19 +351,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.uic.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.uvic.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -213,19 +419,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.crim.ca/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.crim.ca/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -243,19 +487,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.pavics.ca/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.pavics.ca/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -273,19 +555,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -303,19 +623,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.uic.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.uvic.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -333,19 +691,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.crim.ca/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.crim.ca/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -363,19 +759,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.pavics.ca/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.pavics.ca/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -394,19 +828,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.toronto.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
@@ -424,19 +896,57 @@
         },
         "contact": "somesupport@example.com",
         "services": [
-            {
-                "name": "geoserver",
-                "url": "https://infomatics-dcs.cs.uic.edu/geoserver",
-                "type": ["geoserver"],
-                "documentation": "https://docs.geoserver.org/",
-                "description": "GeoServer is a server that allows users to view and edit geospatial data."
-            }, {
-                "name": "weaver",
-                "url": "https://infomatics-dcs.cs.uvic.edu/weaver",
-                "type": ["ems"],
-                "documentation": "https://pavics-weaver.readthedocs.io",
-                "description": "An OGC-API flavored Execution Management Service"
-            }
+          {
+            "name": "geoserver",
+            "keywords": [
+              "data",
+              "service-wps",
+              "service-wms",
+              "service-wfs"
+            ],
+            "description": "GeoServer is a server that allows users to view and edit geospatial data.",
+            "links": [
+              {
+                "rel": "self",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/geoserver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://docs.geoserver.org/"
+              }
+            ]
+          },
+          {
+            "name": "weaver",
+            "keywords": [
+              "service-ogcapi_processes"
+            ],
+            "description": "An OGC-API flavored Execution Management Service",
+            "links": [
+              {
+                "rel": "self",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "service-doc",
+                "type": "text/html",
+                "href": "https://pavics-weaver.readthedocs.io/"
+              },
+              {
+                "rel": "service-desc",
+                "type": "text/html",
+                "href": "https://daccs-uoft.example.com/weaver/"
+              },
+              {
+                "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                "type": "application/json",
+                "href": "https://daccs-uoft.example.com/weaver/conformance/"
+              }
+            ]
+          }
         ],
         "last_updated": "2023-05-04T17:09:07+0000",
         "version": "1.26.0",
