@@ -2,38 +2,35 @@
 
 function getNodeRegistry(){
     var fs = require('fs');
-    const fetch = require('node-fetch');
-    var https = require('https');
-    const request = require('request');
-    const jsonURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.schema.json";
+    const https = require("https");
+    const githubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.schema.json";
     const jsonFile = "node_registry.json";
     var jsonData;
-    let options = {json:true}
+    let jsonContent;
+
 
     //Uncomment for getting json from github
     /*
-    request(jsonURL, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-         jsonData = JSON.parse(body);
-         //console.log(jsonData);
-         buildHomePage(jsonData);
+    return new Promise((resolve, reject) => {
 
-      }
-      else
-      {
-          console.log(error);
-      }
-    })
-        */
+        https.get(githubURL, (res) => {
+          let data = '';
+          res.on('data', (rd) => data = data + rd);
+          res.on('end', () => resolve(data));
+          res.on('error', reject);
+        });
+
+    });
+    */
+
 
 
 
     //Uncomment for reading json from local file
-
-    let jsonContent = fs.readFileSync(jsonFile);
+    jsonContent = fs.readFileSync(jsonFile);
     jsonData = JSON.parse(jsonContent);
-
     return jsonData
+
 
 
 }
@@ -358,19 +355,35 @@ function readTemplate(filepath, filename){
 
 
 function buildHomePage(){
-    //Put jsonTree as parameter when reading json from github
+    let jsonTree
+    let homepage = "";
+    let homepageTemplate = "";
+    let nodeContent = "";
     var html = require("html");
 
-    let jsonTree = getNodeRegistry();
 
-    let homepage = "";
-    let homepageTemplate = getHTMLTemplate("../templates", "index-template.html");
-    let nodeContent = buildNodeContent(jsonTree);
+
+
+    jsonTree = getNodeRegistry();
+
+    //Uncomment when getting json from github
+    /*
+    jsonTree.then(function(result) {
+   //console.log(result) // "Some User token"
+    });
+    */
+
+
+
+
+    homepageTemplate = getHTMLTemplate("../templates", "index-template.html");
+    nodeContent = buildNodeContent(jsonTree);
 
     homepageTemplate = homepageTemplate.replace("NODE_CONTENT", nodeContent);
     homepage = html.prettyPrint(homepageTemplate, {indent_size:2});
 
-    saveHTML("..", "index.html", homepage);
+    return homepage;
+    //saveHTML("..", "index.html", homepage);
 }
 
 
@@ -379,9 +392,20 @@ function buildHomePage(){
 
 
 
+function main(){
 
 
-//getNodeRegistry();
 
-//buildNodeContent();
-buildHomePage();
+    //Uncomment when going live
+    let dynamicNodeContent = getNodeRegistry();
+
+
+    //console.log(dynamicNodeContent);
+    //let dynamicNodeContent = buildHomePage();
+
+    //return dynamicNodeContent;
+
+}
+
+main();
+
