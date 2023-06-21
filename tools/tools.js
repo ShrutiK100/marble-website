@@ -1,13 +1,69 @@
-
+const express = require('express');
+const app = express();
 
 function getNodeRegistry(){
-    var fs = require('fs');
-    const https = require("https");
-    const githubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.schema.json";
+    const fs = require('fs');
+    //const https = require("https");
+    const request = require("request");
+    const githubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.json";
+    const testGithubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.schema.json";
     const jsonFile = "node_registry.json";
-    var jsonData;
+    let jsonData;
     let jsonContent;
 
+
+    //Uncomment for getting json from github
+
+    /*
+    request(testGithubURL, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+         jsonData = JSON.parse(body);
+         buildHomePage(jsonData);
+
+
+      }
+    });
+     */
+
+
+
+    /*
+    $.getJSON(testGithubURL), function(data){
+        jsonData = JSON.parse(data);
+        console.log(jsonData);
+        //buildHomePage(jsonData);
+    }
+
+     */
+
+
+
+
+    //Uncomment for reading json from local file
+/*
+    $.getJSON(jsonFile), function(data){
+        jsonData = JSON.parse(data);
+        console.log(jsonData);
+        //buildHomePage(jsonData);
+    }
+    */
+
+    jsonContent = fs.readFileSync(jsonFile);
+    jsonData = JSON.parse(jsonContent);
+    return jsonData
+
+
+
+
+
+}
+
+
+
+
+function getNodeInfo(){
+    const githubNodeInfoURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_info.json";
+    var jsonData;
 
     //Uncomment for getting json from github
     /*
@@ -23,37 +79,6 @@ function getNodeRegistry(){
     });
     */
 
-
-
-
-    //Uncomment for reading json from local file
-    jsonContent = fs.readFileSync(jsonFile);
-    jsonData = JSON.parse(jsonContent);
-    return jsonData
-
-
-
-}
-
-
-
-
-function getNodeInfo(){
-    const githubNodeInfoURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_info.json";
-    var jsonData;
-
-    request(githubNodeInfoURL, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-         jsonData = JSON.parse(body);
-         //console.log(jsonData);
-         buildNodeContent(jsonData);
-
-      }
-      else
-      {
-          console.log(error);
-      }
-    })
 }
 
 
@@ -325,6 +350,123 @@ function buildNodeContent(jsonTree){
 }
 
 
+
+
+
+
+
+function buildNodeContentTest(){
+    fetch("myText.txt")
+  .then((res) => res.text())
+  .then((text) => {
+    // do something with "text"
+   })
+  .catch((e) => console.error(e));
+
+}
+
+
+
+
+
+
+
+function buildNodeContentHelper(jsonTree){
+
+
+    let rowNum = 0;
+
+    let nodeGroupHTML = "";
+    let nodeRowRemainderHTML = "";
+    let rowShellHTML = "";
+    let accordionRowHTML = "";
+    let nodeSectionHTML = "";
+    let innerRowHTML = "";
+
+    let nodeAccordionRow = "";
+
+    let nodeInnerContent = "";
+    let nodeAccordionInnerRowHTML = "";
+    let innerNodeGroupHTML = "";
+    let accordionInnerShellRowHTML = "";
+    let nodeIntroRow = "";
+    let nodeIntroGroup = "";
+    let nodeIntroContentRow  = "";
+
+
+
+    let remainderInnerShellRow = "";
+    let remainderNodeGroup = "";
+    let remainderInnerRowHTML  = "";
+
+    let nodeContent = "";
+
+
+    let jsonTreeSize = Object.keys(jsonTree).length;
+
+    if (jsonTreeSize < 5){
+
+        rowShellHTML = buildRowSection(jsonTreeSize,0,4, false);
+        nodeGroupHTML = buildNodeSection(jsonTree, 0, 4);
+
+        nodeIntroRow = rowShellHTML.replace('NODE_GROUP', nodeGroupHTML);
+
+
+    }
+    else{
+
+
+        //Build first row (static)
+        rowShellHTML = buildRowSection(jsonTreeSize,0,4, false);
+        nodeGroupHTML = buildNodeSection(jsonTree, 0, 4);
+
+        nodeIntroRow = rowShellHTML.replace("NODE_GROUP", nodeGroupHTML);
+
+        accordionRowHTML = buildRowSection(jsonTreeSize, 0, 4,true );
+
+
+        //Build all other rows for the accordion section
+        //Inner rows of accordion section are non-accordion
+        for(let n = 4; n < (jsonTreeSize - (jsonTreeSize % 4)); n += 4 ){
+
+
+            accordionInnerShellRowHTML = buildRowSection(jsonTreeSize, n, (n + 4), false);
+            innerNodeGroupHTML = buildNodeSection(jsonTree, n, (n + 4));
+
+            nodeAccordionInnerRowHTML = accordionInnerShellRowHTML.replace("NODE_GROUP", innerNodeGroupHTML);
+            nodeInnerContent = nodeInnerContent + nodeAccordionInnerRowHTML;
+
+
+
+
+        }
+
+        if(jsonTreeSize % 4 > 0){
+
+            remainderInnerShellRow = buildRowSection(jsonTreeSize, (jsonTreeSize - (jsonTreeSize % 4)), jsonTreeSize, false );
+            remainderNodeGroup = buildNodeSection(jsonTree, (jsonTreeSize - (jsonTreeSize % 4)), jsonTreeSize);
+            remainderInnerRowHTML = remainderInnerShellRow .replace("NODE_GROUP", remainderNodeGroup);
+            nodeInnerContent = nodeInnerContent + remainderInnerRowHTML;
+        }
+
+        nodeAccordionRow = accordionRowHTML.replace("ACCORDION_BODY_CONTENT", nodeInnerContent);
+
+
+
+    }
+
+    nodeContent = nodeIntroRow + nodeAccordionRow;
+
+    return nodeContent;
+
+
+}
+
+
+
+
+
+
 function saveHTML(filepath, filename, content){
 
     const fs = require('fs');
@@ -355,57 +497,108 @@ function readTemplate(filepath, filename){
 
 
 function buildHomePage(){
+    //When getting json from github add jsonTree as a function parameter
+
+    //Comment out when getting json from github
     let jsonTree
+
     let homepage = "";
     let homepageTemplate = "";
     let nodeContent = "";
-    var html = require("html");
+    const html = require("html");
 
 
 
-
+    //Comment out when getting json from github
     jsonTree = getNodeRegistry();
 
-    //Uncomment when getting json from github
-    /*
-    jsonTree.then(function(result) {
-   //console.log(result) // "Some User token"
-    });
-    */
-
-
-
+    nodeContent = buildNodeContent(jsonTree);
 
     homepageTemplate = getHTMLTemplate("../templates", "index-template.html");
-    nodeContent = buildNodeContent(jsonTree);
 
     homepageTemplate = homepageTemplate.replace("NODE_CONTENT", nodeContent);
     homepage = html.prettyPrint(homepageTemplate, {indent_size:2});
 
-    return homepage;
+
     //saveHTML("..", "index.html", homepage);
+    
+    //return homepage;
+    return nodeContent;
+
 }
 
 
 
+async function testGetNodeRegistry(){
+    let jsonTree
+    let homepage = "";
+    let homepageTemplate = "";
+    let nodeContent = "";
+    const html = require("html");
+
+
+    let dynamicNodeContent = await getNodeRegistry();
+    //console.log(dynamicNodeContent);
+    homepageTemplate = getHTMLTemplate("../templates", "index-template.html");
+    //nodeContent = buildNodeContent(jsonTree);
+
+    //homepageTemplate = homepageTemplate.replace("NODE_CONTENT", nodeContent);
+    homepage = html.prettyPrint(homepageTemplate, {indent_size:2});
+
+    return homepage;
+}
+
+
+
+function readFileTest(){
+    var reader = new FileReader();
+    let content = reader.readAsText("../templates/row-section-template.html");
+    console.log(content);
+}
 
 
 
 
 function main(){
 
+    //buildHomePage();
 
+   // let testJSON;
+
+   // testJSON = testGetNodeRegistry();
 
     //Uncomment when going live
-    let dynamicNodeContent = getNodeRegistry();
+    //let dynamicNodeContent =  getNodeRegistry();
+    //testJSON = dynamicNodeContent.then(function(result) {
+
+   //console.log(result) // "Some User token"
+
+    //});
+
 
 
     //console.log(dynamicNodeContent);
-    //let dynamicNodeContent = buildHomePage();
 
-    //return dynamicNodeContent;
+    let dynamicNodeContent = buildHomePage();
+
+    return dynamicNodeContent;
+
+
 
 }
 
-main();
+//main();
+//getNodeRegistry();
+//readFileTest();
+
+
+
+
+app.get('/', function(request,response){
+    let nodeContent = main();
+    console.log(response);
+    console.log(nodeContent);
+    response.text(nodeContent);
+    //return response.json(nodeContent);
+})
 
