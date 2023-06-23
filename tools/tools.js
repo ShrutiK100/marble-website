@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
-
+//import exampleData from  "node_registry.js";
+//const express = require('express');
+//const app = express();
 function getNodeRegistry(){
-    const fs = require('fs');
+    //const fs = require('fs');
     //const https = require("https");
-    const request = require("request");
+    //const request = require("request");
     const githubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.json";
     const testGithubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.schema.json";
     const jsonFile = "node_registry.json";
@@ -25,7 +25,19 @@ function getNodeRegistry(){
     });
      */
 
+  /*
+            fetch('/')
+            .then(response => {
+                console.log(response);
+                console.log(response.text());
+                 return response.text();
 
+            })
+            .then(data => {//console.log(data);
+                nodeContentDisplay.insertAdjacentHTML("beforeend", data)
+            })
+            .catch(err => console.log(err))
+          */
 
     /*
     $.getJSON(testGithubURL), function(data){
@@ -33,10 +45,16 @@ function getNodeRegistry(){
         console.log(jsonData);
         //buildHomePage(jsonData);
     }
+    return jsonData;
 
      */
 
+/*$.getJSON("http://127.0.0.1:8080/horizon-update", callbackFuncWithData);
 
+function callbackFuncWithData(data)
+{
+ // do some thing with data
+}*/
 
 
     //Uncomment for reading json from local file
@@ -48,10 +66,11 @@ function getNodeRegistry(){
     }
     */
 
-    jsonContent = fs.readFileSync(jsonFile);
-    jsonData = JSON.parse(jsonContent);
-    return jsonData
+    //jsonContent = fs.readFileSync(jsonFile);
+    //jsonData = JSON.parse(exampleData);
+    //return jsonData
 
+    fetch('js/node_registry.json').then(resp => resp.json()).then(resp => buildHomePage(resp));
 
 
 
@@ -84,10 +103,12 @@ function getNodeInfo(){
 
 
 function getHTMLTemplate(folder, filename){
-    var fs = require('fs');
+    //var fs = require('fs');
 
-    let templateContent = fs.readFileSync(folder + "/" + filename, 'utf8');
+    //let templateContent = fs.readFileSync(folder + "/" + filename, 'utf8');
+    let templateContent = fetch(folder + '/' + filename).then(resp => resp.text())
 
+    //let template =  templateContent
 
     return templateContent;
 
@@ -97,7 +118,33 @@ function getHTMLTemplate(folder, filename){
 
 
 
-function buildRowSection(jsonTreeLength, start, end, accordion){
+
+
+function buildRowSectionHelper(jsonTree, start, end, accordion){
+
+    let jsonTreeLength = Object.keys(jsonTree).length;
+
+    if(accordion){
+        fetch('templates/row-accordion-section-template.html').then(resp => resp.text()).then(rowTemplate => buildRowSection(jsonTreeLength, rowTemplate, start, end, accordion ));
+
+    }
+    else{
+         fetch('templates/row-section-template.html').then(resp => resp.text()).then(rowTemplate => buildRowSection(jsonTreeLength, rowTemplate, start, end, accordion ));
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function buildRowSection(jsonTreeLength, template, start, end, accordion){
     let rowNum = 0;
     let rowSectionTemplate = "";
     let rowAccordionSectionTemplate = '';
@@ -111,54 +158,187 @@ function buildRowSection(jsonTreeLength, start, end, accordion){
 
 
     if(accordion){
+        //rowAccordionSectionTemplate = getHTMLTemplate('../templates', 'row-accordion-section-template.html');
+        /*
+        rowAccordionSectionTemplate = template;
+        accordionID = "accordion" + (1);
+        accordionHeaderID = "accordionHeader" + (1);
+        accordionCollapseID = "accordionCollapse" + (1);
+
+        rowSection = rowAccordionSectionTemplate.replaceAll("{{ACCORDION_ID}}", accordionID );
+        rowSection = rowSection.replaceAll("{{ACCORDION_HEADER_ID}}", accordionHeaderID);
+        rowSection = rowSection.replaceAll("{{ACCORDION_COLLAPSE_ID}}", accordionCollapseID);
+        */
+
         if (jsonTreeLength > 4) {
 
             rowNum = jsonTreeLength / 4
 
             for(let x = 0; x < rowNum; x++){
-                rowAccordionSectionTemplate = getHTMLTemplate('../templates', 'row-accordion-section-template.html');
+                //rowAccordionSectionTemplate = getHTMLTemplate('../templates', 'row-accordion-section-template.html');
+                rowAccordionSectionTemplate = template;
                 accordionID = "accordion" + (x+1);
                 accordionHeaderID = "accordionHeader" + (x+1);
                 accordionCollapseID = "accordionCollapse" + (x+1);
 
-                rowSection = rowAccordionSectionTemplate.replaceAll("ACCORDION_ID", accordionID );
-                rowSection = rowSection.replaceAll("ACCORDION_HEADER_ID", accordionHeaderID);
-                rowSection = rowSection.replaceAll("ACCORDION_COLLAPSE_ID", accordionCollapseID);
+                rowSection = rowAccordionSectionTemplate.replaceAll("{{ACCORDION_ID}}", accordionID );
+                rowSection = rowSection.replaceAll("{{ACCORDION_HEADER_ID}}", accordionHeaderID);
+                rowSection = rowSection.replaceAll("{{ACCORDION_COLLAPSE_ID}}", accordionCollapseID);
 
             }
 
         }
         else{
             for(let y = 0; y < jsonTreeLength; y ++){
-                rowAccordionSectionTemplate = getHTMLTemplate('../templates', 'row-accordion-section-template.html');
+                //rowAccordionSectionTemplate = getHTMLTemplate('../templates', 'row-accordion-section-template.html');
+                rowAccordionSectionTemplate = template;
                 accordionID = "accordion" + (y+1);
                 accordionHeaderID = "accordionHeader" + (y+1);
                 accordionCollapseID = "accordionCollapse" + (y+1);
 
-                rowSection = rowAccordionSectionTemplate.replaceAll("ACCORDION_ID", accordionID );
-                rowSection = rowSection.replaceAll("ACCORDION_HEADER_ID", accordionHeaderID);
-                rowSection = rowSection.replaceAll("ACCORDION_COLLAPSE_ID", accordionCollapseID);
+                rowSection = rowAccordionSectionTemplate.replaceAll("{{ACCORDION_ID}}", accordionID );
+                rowSection = rowSection.replaceAll("{{ACCORDION_HEADER_ID}}", accordionHeaderID);
+                rowSection = rowSection.replaceAll("{{ACCORDION_COLLAPSE_ID}}", accordionCollapseID);
             }
 
         }
 
+
     }
     else{
-        rowIntroSectionTemplate = getHTMLTemplate('../templates', 'row-section-template.html');
+        //rowIntroSectionTemplate = getHTMLTemplate('../templates', 'row-section-template.html');
+        rowIntroSectionTemplate = template;
         rowSection = rowIntroSectionTemplate.replace("NODE_INTRO_ROW_ID", "introRow" + start);
 
 
     }
 
+    const elem = document.getElementById('nodeContentDisplay');
+	elem.innerHTML = rowSection;
 
-    return rowSection;
+    //return rowSection;
 
 }
 
 
 
 
-function buildNodeSection(jsonTree, start, end){
+
+function buildNodeSectionHelper(jsonTree, start, end){
+    let jsonTreeSize = Object.keys(jsonTree).length;
+    let accordionBodyRow = document.getElementById("ACCORDION_BODY_CONTENT");
+    let rowIndex = start / 4;
+    let divRowContainer;
+    let divRowPT5;
+    let divColLg2_1;
+    let divColLg2_2;
+    let divColLg2_3;
+/*
+    <div className="container">
+        <div className="row pt-5" id="{{NODE_INTRO_ROW_ID}}">
+            <div className="col-lg-2"></div>
+            <div className="col-lg-2" id="{{NODE_CONTENT_CELL_ID}}"></div>
+
+            <div className="col-lg-2"></div>
+
+        </div>
+        <!-- End inner row for DACCS node row 1 -->
+    </div>
+    */
+
+    //ew_row.className = "aClassName";
+    //g = document.createElement('div');
+    // g.setAttribute("id", "Div1");
+
+    //document.querySelector('[id*="MobileAreaCode"]');
+
+
+    // if(jsonTreeSize < 5){
+    divRowContainer = document.createElement("div");
+    divRowContainer.className = "container";
+
+    divRowPT5 = document.createElement("div");
+    divRowPT5.className = "row pt-5";
+    divRowPT5.setAttribute("id", "nodeGroupRow" + rowIndex );
+
+    divRowContainer.appendChild(divRowPT5);
+
+    divColLg2_1 = document.createElement("div");
+    divColLg2_1.className = "col-lg-2";
+
+
+    divColLg2_2 = document.createElement("div");
+    divColLg2_2.className = "col-lg-2";
+    divColLg2_2.setAttribute("id","nodeGroupContent" + rowIndex);
+
+
+    divColLg2_3 = document.createElement("div");
+    divColLg2_3.className = "col-lg-2";
+
+    divRowPT5.appendChild(divColLg2_1);
+    divRowPT5.appendChild(divColLg2_2);
+    divRowPT5.appendChild(divColLg2_3);
+
+    accordionBodyRow.appendChild(divRowContainer);
+
+   fetch('templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, start, end, rowIndex, accordion ));
+
+
+
+
+
+
+/*
+    }
+    else{
+
+        let rowNum = jsonTreeSize / 4;
+
+        for(let j = 0; j < rowNum; j++){
+
+            divRowContainer = document.createElement("div");
+            divRowContainer.className = "container";
+
+            divRowPT5 = document.createElement("div");
+            divRowPT5.className = "row pt-5";
+            divRowPT5.setAttribute("id", "nodeGroupRow" + j );
+
+            divRowContainer.appendChild(divRowPT5);
+
+            divColLg2_1 = document.createElement("div");
+            divColLg2_1.className = "col-lg-2";
+
+
+            divColLg2_2 = document.createElement("div");
+            divColLg2_2.className = "col-lg-2";
+            divColLg2_2.setAttribute("id","nodeGroupContent" + j);
+
+
+            divColLg2_3 = document.createElement("div");
+            divColLg2_3.className = "col-lg-2";
+
+            divRowPT5.appendChild(divColLg2_1);
+            divRowPT5.appendChild(divColLg2_2);
+            divRowPT5.appendChild(divColLg2_3);
+
+            accordionBodyRow.appendChild(divRowContainer);
+
+           fetch('templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildRowSection(jsonTreeSize, nodeTemplate, start, end, accordion ));
+
+
+        }
+
+    }
+    */
+
+
+
+}
+
+
+
+function buildNodeSection(jsonTree, template, start, end, rowIndex, accordion){
+    let divElem;
     let nodeSectionTemplate = '';
 
 
@@ -199,7 +379,8 @@ function buildNodeSection(jsonTree, start, end){
 
     for (let t = start; t < end; t++){
 
-        nodeSectionTemplate = getHTMLTemplate('../templates', 'node-section-template.html');
+        //nodeSectionTemplate = getHTMLTemplate('../templates', 'node-section-template.html');
+        nodeSectionTemplate = template;
 
 
         nodeContentID = "nodeContent" + t;
@@ -250,11 +431,17 @@ function buildNodeSection(jsonTree, start, end){
 
     finalHTML = nodeSection;
 
-
+    divElem  = document.getElementById("nodeGroupContent" + rowIndex);
+    divElem.innerHTML = finalHTML;
 
     return finalHTML
 
 }
+
+
+
+
+
 
 
 
@@ -293,7 +480,8 @@ function buildNodeContent(jsonTree){
 
     if (jsonTreeSize < 5){
 
-        rowShellHTML = buildRowSection(jsonTreeSize,0,4, false);
+        //rowShellHTML = buildRowSectionHelper(jsonTreeSize,0,4, false);
+        buildRowSectionHelper(jsonTreeSize,0,4, false);
         nodeGroupHTML = buildNodeSection(jsonTree, 0, 4);
 
         nodeIntroRow = rowShellHTML.replace('NODE_GROUP', nodeGroupHTML);
@@ -304,12 +492,14 @@ function buildNodeContent(jsonTree){
 
 
         //Build first row (static)
-        rowShellHTML = buildRowSection(jsonTreeSize,0,4, false);
+        //rowShellHTML = buildRowSectionHelper(jsonTreeSize,0,4, false);
+        buildRowSectionHelper(jsonTreeSize,0,4, false);
         nodeGroupHTML = buildNodeSection(jsonTree, 0, 4);
 
         nodeIntroRow = rowShellHTML.replace("NODE_GROUP", nodeGroupHTML);
 
-        accordionRowHTML = buildRowSection(jsonTreeSize, 0, 4,true );
+        //accordionRowHTML = buildRowSectionHelper(jsonTreeSize, 0, 4,true );
+        buildRowSectionHelper(jsonTreeSize, 0, 4,true );
 
 
         //Build all other rows for the accordion section
@@ -317,7 +507,8 @@ function buildNodeContent(jsonTree){
         for(let n = 4; n < (jsonTreeSize - (jsonTreeSize % 4)); n += 4 ){
 
 
-            accordionInnerShellRowHTML = buildRowSection(jsonTreeSize, n, (n + 4), false);
+            //accordionInnerShellRowHTML = buildRowSectionHelper(jsonTreeSize, n, (n + 4), false);
+            //buildRowSectionHelper(jsonTreeSize, n, (n + 4), false);
             innerNodeGroupHTML = buildNodeSection(jsonTree, n, (n + 4));
 
             nodeAccordionInnerRowHTML = accordionInnerShellRowHTML.replace("NODE_GROUP", innerNodeGroupHTML);
@@ -330,7 +521,7 @@ function buildNodeContent(jsonTree){
 
         if(jsonTreeSize % 4 > 0){
 
-            remainderInnerShellRow = buildRowSection(jsonTreeSize, (jsonTreeSize - (jsonTreeSize % 4)), jsonTreeSize, false );
+            remainderInnerShellRow = buildRowSectionHelper(jsonTreeSize,  (jsonTreeSize - (jsonTreeSize % 4)), jsonTreeSize, false );
             remainderNodeGroup = buildNodeSection(jsonTree, (jsonTreeSize - (jsonTreeSize % 4)), jsonTreeSize);
             remainderInnerRowHTML = remainderInnerShellRow .replace("NODE_GROUP", remainderNodeGroup);
             nodeInnerContent = nodeInnerContent + remainderInnerRowHTML;
@@ -355,112 +546,7 @@ function buildNodeContent(jsonTree){
 
 
 
-function buildNodeContentTest(){
-    fetch("myText.txt")
-  .then((res) => res.text())
-  .then((text) => {
-    // do something with "text"
-   })
-  .catch((e) => console.error(e));
 
-}
-
-
-
-
-
-
-
-function buildNodeContentHelper(jsonTree){
-
-
-    let rowNum = 0;
-
-    let nodeGroupHTML = "";
-    let nodeRowRemainderHTML = "";
-    let rowShellHTML = "";
-    let accordionRowHTML = "";
-    let nodeSectionHTML = "";
-    let innerRowHTML = "";
-
-    let nodeAccordionRow = "";
-
-    let nodeInnerContent = "";
-    let nodeAccordionInnerRowHTML = "";
-    let innerNodeGroupHTML = "";
-    let accordionInnerShellRowHTML = "";
-    let nodeIntroRow = "";
-    let nodeIntroGroup = "";
-    let nodeIntroContentRow  = "";
-
-
-
-    let remainderInnerShellRow = "";
-    let remainderNodeGroup = "";
-    let remainderInnerRowHTML  = "";
-
-    let nodeContent = "";
-
-
-    let jsonTreeSize = Object.keys(jsonTree).length;
-
-    if (jsonTreeSize < 5){
-
-        rowShellHTML = buildRowSection(jsonTreeSize,0,4, false);
-        nodeGroupHTML = buildNodeSection(jsonTree, 0, 4);
-
-        nodeIntroRow = rowShellHTML.replace('NODE_GROUP', nodeGroupHTML);
-
-
-    }
-    else{
-
-
-        //Build first row (static)
-        rowShellHTML = buildRowSection(jsonTreeSize,0,4, false);
-        nodeGroupHTML = buildNodeSection(jsonTree, 0, 4);
-
-        nodeIntroRow = rowShellHTML.replace("NODE_GROUP", nodeGroupHTML);
-
-        accordionRowHTML = buildRowSection(jsonTreeSize, 0, 4,true );
-
-
-        //Build all other rows for the accordion section
-        //Inner rows of accordion section are non-accordion
-        for(let n = 4; n < (jsonTreeSize - (jsonTreeSize % 4)); n += 4 ){
-
-
-            accordionInnerShellRowHTML = buildRowSection(jsonTreeSize, n, (n + 4), false);
-            innerNodeGroupHTML = buildNodeSection(jsonTree, n, (n + 4));
-
-            nodeAccordionInnerRowHTML = accordionInnerShellRowHTML.replace("NODE_GROUP", innerNodeGroupHTML);
-            nodeInnerContent = nodeInnerContent + nodeAccordionInnerRowHTML;
-
-
-
-
-        }
-
-        if(jsonTreeSize % 4 > 0){
-
-            remainderInnerShellRow = buildRowSection(jsonTreeSize, (jsonTreeSize - (jsonTreeSize % 4)), jsonTreeSize, false );
-            remainderNodeGroup = buildNodeSection(jsonTree, (jsonTreeSize - (jsonTreeSize % 4)), jsonTreeSize);
-            remainderInnerRowHTML = remainderInnerShellRow .replace("NODE_GROUP", remainderNodeGroup);
-            nodeInnerContent = nodeInnerContent + remainderInnerRowHTML;
-        }
-
-        nodeAccordionRow = accordionRowHTML.replace("ACCORDION_BODY_CONTENT", nodeInnerContent);
-
-
-
-    }
-
-    nodeContent = nodeIntroRow + nodeAccordionRow;
-
-    return nodeContent;
-
-
-}
 
 
 
@@ -485,43 +571,47 @@ function saveHTML(filepath, filename, content){
 
 
 
-function readTemplate(filepath, filename){
-    let folderpath = "../" + filepath + "/"  + filename;
-
-    $.get(folderpath, function (result){
-        //console.log(result)
-        return result;
-    });
-}
 
 
-
-function buildHomePage(){
+function buildHomePage(jsonTree){
     //When getting json from github add jsonTree as a function parameter
 
     //Comment out when getting json from github
-    let jsonTree
+   // let jsonTree
 
     let homepage = "";
     let homepageTemplate = "";
     let nodeContent = "";
-    const html = require("html");
+    //const html = require("html");
+    let jsonTreeSize = Object.keys(jsonTree).length;
+
+    /*
+    if(jsonTreeSize < 5){
+
+        fetch('templates/row-section-template.html').then(resp => resp.text()).then(template => buildNodeContent(jsonTree, template ));
+
+    }
+    else{
+
+    }*/
 
 
 
     //Comment out when getting json from github
-    jsonTree = getNodeRegistry();
+    //jsonTree = getNodeRegistry();
 
     nodeContent = buildNodeContent(jsonTree);
 
     homepageTemplate = getHTMLTemplate("../templates", "index-template.html");
 
     homepageTemplate = homepageTemplate.replace("NODE_CONTENT", nodeContent);
-    homepage = html.prettyPrint(homepageTemplate, {indent_size:2});
+    //homepage = html.prettyPrint(homepageTemplate, {indent_size:2});
+    homepage = homepageTemplate;
 
 
     //saveHTML("..", "index.html", homepage);
-    
+
+
     //return homepage;
     return nodeContent;
 
@@ -580,7 +670,7 @@ function main(){
     //console.log(dynamicNodeContent);
 
     let dynamicNodeContent = buildHomePage();
-
+    console.log(dynamicNodeContent);
     return dynamicNodeContent;
 
 
@@ -591,14 +681,16 @@ function main(){
 //getNodeRegistry();
 //readFileTest();
 
+function testJSON(jsonContent){
+console.log(jsonContent);
+}
 
 
+document.addEventListener("DOMContentLoaded", function(){
+	let x=10;
+    //fetch('js/node_registry.json').then(resp => resp.json()).then(resp => testJSON(resp))
+    //fetch('templates/row-section-template.html').then(resp => resp.text()).then(jsonTree => buildHomePage(jsonTree))
 
-app.get('/', function(request,response){
-    let nodeContent = main();
-    console.log(response);
-    console.log(nodeContent);
-    response.text(nodeContent);
-    //return response.json(nodeContent);
-})
+    getNodeRegistry();
 
+});
