@@ -3,11 +3,18 @@
 <head>
   <link href="/node-modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="/node-modules/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://static.fontawesome.com/css/fontawesome-app.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+
   <link href="/css/daccs-css.css" rel="stylesheet">
   <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+<div id="menu"></div>
+<!--
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
 
@@ -60,12 +67,6 @@
           <span class="fab fa-instagram"></span>
 
 
-          <!--
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          -->
 
         </div>
 
@@ -74,7 +75,7 @@
       </div>
   </div>
 </nav>
-
+-->
 <!-- end menu-->
 
 
@@ -172,12 +173,12 @@
 
     </div>
   <div class="col-4">  </div>
-</div> <!-- End page title and summary -->
+</div> <!-- End project title and summary -->
 
 
+<div id="nodeContentDisplay"></div>
 
 
-NODE_CONTENT
 
 
 
@@ -206,20 +207,18 @@ NODE_CONTENT
         <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
              role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <text class="fs-3 fw-normal align-middle">Data Catalog</text>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-      imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <text class="fs-3 fw-normal align-middle">Weaver</text>
+        <p>Create your workflows and use our software to execute them.</p>
+        <p><a class="btn btn-secondary" href="weaver.html">View details &raquo;</a></p>
       </div><!-- /.col-lg-2 -->
 
       <div class="col-lg-2">
         <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
              role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <text class="fs-3 fw-normal align-middle">Data Discovery</text>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-      imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <text class="fs-3 fw-normal align-middle">THREDDS Data Server</text>
+        <p>Let us worry about the data storage while you carry your work with you.</p>
+        <p><a class="btn btn-secondary" href="thredds.html">View details &raquo;</a></p>
       </div><!-- /.col-lg-2 -->
 
       <div class="col-lg-2">
@@ -327,8 +326,22 @@ NODE_CONTENT
 
 
   <script src="/node-modules/bootstrap/dist/js/bootstrap.bundle.min.js" ></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script><script type="module" src="./script.js"></script>
 
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script type="module" src="./js/tools.js"></script>
+  <!--<script type="text/javascript" src="js/app.js"></script>-->
+  <script>
+
+        $(document).ready(function () {
+          $('#menu').load('menu.html');
+          import fontAwesome from "https://cdn.skypack.dev/font-awesome@4.7.0";
+          //let nodeContent = main();
+          //document.getElementById('nodeContentDisplay').innerHTML = nodeContent;
+
+        });
+    </script>
+</script>
 
 </body>
 </html>
