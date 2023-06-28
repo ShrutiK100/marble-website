@@ -1,18 +1,19 @@
 <div class="row"> <!-- Start  ACCORDION_ID row -->
 
-  <div class="accordion" id="ACCORDION_ID">
+    <div class="accordion" id="{{ACCORDION_ID}}">
 
-  <div class="accordion-item"> <!-- Start ACCORDION_ID item -->
-    <h2 class="accordion-header" id="ACCORDION_HEADER_ID">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ACCORDION_COLLAPSE_ID" aria-expanded="false" aria-controls="ACCORDION_COLLAPSE_ID">
-        <div class="text-center ">View More <span class="bi bi-chevron-down"></span></div>
-      </button>
-    </h2>
-    <div id="ACCORDION_COLLAPSE_ID" class="accordion-collapse collapse" aria-labelledby="ACCORDION_HEADER_ID" data-bs-parent="#ACCORDION_ID">
-      <div class="accordion-body">
-        ACCORDION_BODY_CONTENT
-      </div>
-    </div>
-  </div> <!-- End ACCORDION_ID item -->
+      <div class="accordion-item"> <!-- Start ACCORDION_ID item -->
+        <h2 class="accordion-header" id="{{ACCORDION_HEADER_ID}}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ACCORDION_COLLAPSE_ID}}" aria-expanded="false" aria-controls="{{ACCORDION_COLLAPSE_ID}}">
+            <div class="text-center ">View More <span class="bi bi-chevron-down"></span></div>
+          </button>
+        </h2>
+        <div id="{{ACCORDION_COLLAPSE_ID}}" class="accordion-collapse collapse" aria-labelledby="{{ACCORDION_HEADER_ID}}" data-bs-parent="#{{ACCORDION_ID}}">
+          <div class="accordion-body" id="ACCORDION_BODY_CONTENT">
 
-</div> <!-- End hidden ACCORDION_ID row -->
+          </div>
+        </div>
+      </div> <!-- End ACCORDION_ID item -->
+
+    </div> <!-- End hidden ACCORDION_ID row -->
+</div>
