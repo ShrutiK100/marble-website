@@ -22,6 +22,7 @@ function getNodeRegistry(){
 
 
 
+
 function getNodeInfo(){
     const githubNodeInfoURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_info.json";
 
@@ -79,17 +80,22 @@ function buildRowSection(jsonTree, jsonTreeLength, template, start, end, accordi
         rowSection = rowSection.replaceAll("{{ACCORDION_HEADER_ID}}", accordionHeaderID);
         rowSection = rowSection.replaceAll("{{ACCORDION_COLLAPSE_ID}}", accordionCollapseID);
         finalRowHTML = finalRowHTML + rowSection;
+        innerRowContentDiv.innerHTML = finalRowHTML;
+        const elem = document.getElementById('accordionContentDisplay');
+        elem.appendChild(innerRowContentDiv.content);
     }
     else{
         rowIntroSectionTemplate = template;
         rowSection = rowIntroSectionTemplate.replace("{{NODE_INTRO_ROW_ID}}", "introRow" + start);
         rowSection = rowSection.replace("{{NODE_CONTENT_CELL_ID}}", "introRowNodeGroup" + start);
         finalRowHTML = finalRowHTML + rowSection;
+
+        innerRowContentDiv.innerHTML = finalRowHTML;
+        const elem = document.getElementById('nodeContentDisplay');
+        elem.appendChild(innerRowContentDiv.content);
     }
 
-    innerRowContentDiv.innerHTML = finalRowHTML;
-    const elem = document.getElementById('nodeContentDisplay');
-    elem.appendChild(innerRowContentDiv.content);
+
 
 
     buildNodeSectionHelper(jsonTree, start, end, template, accordion)
@@ -108,7 +114,7 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
     let rowNum;
     let rowRemainder;
     let rowIndex = start / 4;
-    
+
     let divRowContainer;
     let divRowPT5;
     let divColLg2_1;
@@ -240,8 +246,7 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
 
 
 
-   fetch('templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, bufferColumn, start, end, rowIndex, accordion));
-
+    fetch('templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, bufferColumn, start, end, rowIndex, accordion));
 
 
 }
