@@ -278,8 +278,9 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
     let staticBodyDiv;
     let accordionBodyDiv;
 
-    let testRow;
+    let nodeGroupRow;
     let testRowStatic;
+    let bufferColumn;
 
     let innerNodeRowContainer =  document.createElement("template");
 
@@ -315,7 +316,8 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
     rowRemainder = Math.floor(jsonTreeSize % 4);
 
 
-
+    bufferColumn = document.createElement("div");
+    bufferColumn.className = "col-lg-2";
 
 
 
@@ -324,9 +326,9 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
     if(accordion){
         for(let t = 0; t < rowNum; t++){
 
-            testRow = document.createElement("div");
-            testRow.className = "row";
-            testRow.setAttribute("id", "testRow" + t);
+            nodeGroupRow = document.createElement("div");
+            //nodeGroupRow.className = "row";
+            nodeGroupRow.setAttribute("id", "nodeGroupRow" + t);
 
             divRowContainer = document.createElement("div");
             divRowContainer.className = "container";
@@ -342,34 +344,36 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
             divColLg2_1.className = "col-lg-2";
 
             divColLg2_2 = document.createElement("div");
-            divColLg2_2.className = "col-lg-2";
+            //divColLg2_2.className = "container";
             divColLg2_2.setAttribute("id","accordionNodeContent" + t );
 
             divColLg2_3 = document.createElement("div");
             divColLg2_3.className = "col-lg-2";
 
             divRowPT5.appendChild(divColLg2_1);
-            divRowPT5.appendChild(divColLg2_2);
-            divRowPT5.appendChild(divColLg2_3);
+            //divRowPT5.appendChild(nodeGroupRow);
+            //divRowPT5.appendChild(divColLg2_3);
 
 
-            innerNodeRowSection = divRowContainer;
+            //innerNodeRowSection = divRowContainer;
             //innerNodeRowSection.setAttribute("id",   "accordionInnerRow" + t );
             //innerNodeRowSection.setAttribute("id", "accordionNodeContent" + t );
 
             //finalInnerAccordionRows = finalInnerAccordionRows + innerNodeRowSection;
             //innerNodeRowContainer.innerHTML = innerNodeRowSection;
+
+            //divColLg2_2.append(nodeGroupRow);
             accordionBodyDiv = document.getElementById("ACCORDION_BODY_CONTENT");
-            //accordionBodyDiv.append(innerNodeRowSection);
-            accordionBodyDiv.appendChild(testRow);
+
+            accordionBodyDiv.appendChild(divRowContainer);
         }
 
         if(rowRemainder > 0){
             remainderIndex = rowNum + 1;
 
-            testRow = document.createElement("div");
-            testRow.className = "row";
-            testRow.setAttribute("id", "testRow"  + remainderIndex);
+            nodeGroupRow = document.createElement("div");
+            //nodeGroupRow.className = "row";
+            nodeGroupRow.setAttribute("id", "nodeGroupRow"  + remainderIndex);
 
 
 
@@ -387,15 +391,15 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
             divColLg2_1.className = "col-lg-2";
 
             divColLg2_2 = document.createElement("div");
-            divColLg2_2.className = "col-lg-2";
+            //divColLg2_2.className = "container";
             divColLg2_2.setAttribute("id","accordionNodeContent" + remainderIndex );
 
             divColLg2_3 = document.createElement("div");
             divColLg2_3.className = "col-lg-2";
 
             divRowPT5.appendChild(divColLg2_1);
-            divRowPT5.appendChild(divColLg2_2);
-            divRowPT5.appendChild(divColLg2_3);
+           // divRowPT5.appendChild(nodeGroupRow);
+            //divRowPT5.appendChild(divColLg2_3);
 
 
             innerNodeRowRemainder = divRowContainer;
@@ -403,9 +407,10 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
             //innerNodeRowRemainder.setAttribute("id", "accordionNodeContent" + remainderIndex );
 
             //finalInnerAccordionRows = finalInnerAccordionRows + innerNodeRowRemainder;
+            //divColLg2_2.append(nodeGroupRow);
             accordionBodyDiv = document.getElementById("ACCORDION_BODY_CONTENT");
-            //accordionBodyDiv.appendChild(innerNodeRowRemainder);
-            accordionBodyDiv.appendChild(testRow);
+
+            accordionBodyDiv.appendChild(divRowContainer);
         }
 
 
@@ -415,9 +420,9 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
     }
     else
     {
-        testRowStatic = document.createElement("div");
-        testRowStatic.className = "row";
-        testRowStatic.setAttribute("id", "testRowStatic");
+        nodeGroupRow = document.createElement("div");
+        //nodeGroupRow.className = "row";
+        nodeGroupRow.setAttribute("id", "nodeGroupRowStatic");
 
 
         divRowContainer = document.createElement("div");
@@ -425,7 +430,7 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
 
         divRowPT5 = document.createElement("div");
         divRowPT5.className = "row pt-5";
-        divRowPT5.setAttribute("id", "rowPt5" );
+        divRowPT5.setAttribute("id", "staticNodeRow" );
 
         divRowContainer.appendChild(divRowPT5);
 
@@ -434,23 +439,27 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
         divColLg2_1.className = "col-lg-2";
 
         divColLg2_2 = document.createElement("div");
-        divColLg2_2.className = "col-lg-2";
+        //divColLg2_2.className = "container";
         divColLg2_2.setAttribute("id","colLg2"  );
 
         divColLg2_3 = document.createElement("div");
         divColLg2_3.className = "col-lg-2";
 
         divRowPT5.appendChild(divColLg2_1);
-        divRowPT5.appendChild(divColLg2_2);
-        divRowPT5.appendChild(divColLg2_3);
+        //divRowPT5.appendChild(nodeGroupRow);
+        //divRowPT5.appendChild(divColLg2_3);
 
-        innerNodeRowSection = divRowContainer;
-        innerNodeRowSection.setAttribute("id",   "staticInnerRow1"  );
-        innerNodeRowSection.setAttribute("id", "staticNodeContent1"  );
+        //innerNodeRowSection = divRowContainer;
+        //innerNodeRowSection.setAttribute("id",   "staticInnerRow1"  );
+        //innerNodeRowSection.setAttribute("id", "staticNodeContent1"  );
 
-        staticBodyDiv = document.getElementById("introRowNodeGroup0");
+        //divColLg2_2.appendChild(nodeGroupRow);
+        staticBodyDiv = document.getElementById("introRow0");
         //staticBodyDiv.appendChild(innerNodeRowSection);
-        staticBodyDiv.appendChild(testRowStatic);
+        staticBodyDiv.appendChild(divColLg2_1);
+
+
+
 
 
     }
@@ -468,7 +477,7 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
 */
 
 
-   fetch('templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, start, end, rowIndex, accordion));
+   fetch('templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, bufferColumn, start, end, rowIndex, accordion));
 
 
 
@@ -524,7 +533,7 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
 
 
 
-function buildNodeSection(jsonTree, template, start, end, rowIndex, accordion){
+function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex, accordion){
     let jsonTreeSize = Object.keys(jsonTree).length;
     let divElem;
     let nodeSectionTemplate = '';
@@ -566,6 +575,8 @@ function buildNodeSection(jsonTree, template, start, end, rowIndex, accordion){
     let staticNodeContentCell;
     let nodeSectionContent = "";
     let nodeGroup;
+    let accordionNodeGroupStart;
+    let accordionNodeGroupEnd;
 
 
     let nodeContentInnerTemplate = document.createElement("template");
@@ -574,8 +585,10 @@ function buildNodeSection(jsonTree, template, start, end, rowIndex, accordion){
     let rowRemainder = Math.floor(jsonTreeSize % 4);
 
     if(accordion){
-        for(let n = 0; n< rowNum; n++){
-            nodeGroup = buildNodeGroup(jsonTree, template, 4, (jsonTreeSize - rowRemainder), rowIndex, accordion);
+        accordionNodeGroupStart =  4;
+        for(let n = 1; n< rowNum; n++){
+            accordionNodeGroupEnd = accordionNodeGroupStart + 4;
+            nodeGroup = buildNodeGroup(jsonTree, template, accordionNodeGroupStart, accordionNodeGroupEnd, rowIndex, accordion);
             /*
             for (let t = 4; t < (jsonTreeSize - rowRemainder); t += 4){
 
@@ -633,9 +646,13 @@ function buildNodeSection(jsonTree, template, start, end, rowIndex, accordion){
             nodeContentInnerTemplate.innerHTML = nodeGroup;
 
             //accordionNodeContentCell = document.getElementById("accordionNodeContent" + n);
-            accordionNodeContentCell = document.getElementById("testRow" + n);
+            //accordionNodeContentCell = document.getElementById("nodeGroupRow" + n);
+            accordionNodeContentCell = document.getElementById("accordionInnerRow" + n);
+            accordionNodeContentCell.append(bufferColumn);
             accordionNodeContentCell.append(nodeContentInnerTemplate.content);
+            accordionNodeContentCell.append(bufferColumn);
 
+            accordionNodeGroupStart  = accordionNodeGroupStart + 4
 
         }
 
@@ -645,8 +662,11 @@ function buildNodeSection(jsonTree, template, start, end, rowIndex, accordion){
             nodeContentInnerTemplate.innerHTML = nodeGroup;
 
             //accordionNodeContentCell = document.getElementById("accordionNodeContent" + (rowNum + 1));
-            accordionNodeContentCell = document.getElementById("testRow" + (rowNum + 1));
+            //accordionNodeContentCell = document.getElementById("nodeGroupRow" + (rowNum + 1));
+            accordionNodeContentCell = document.getElementById("accordionInnerRow" + (rowNum + 1));
+            accordionNodeContentCell.append(bufferColumn);
             accordionNodeContentCell.append(nodeContentInnerTemplate.content);
+            accordionNodeContentCell.append(bufferColumn);
 
         }
 
@@ -656,8 +676,11 @@ function buildNodeSection(jsonTree, template, start, end, rowIndex, accordion){
          nodeContentInnerTemplate.innerHTML = nodeGroup;
 
         //staticNodeContentCell = document.getElementById("staticNodeContent1"  );
-        staticNodeContentCell = document.getElementById("testRowStatic"  );
-        staticNodeContentCell.append(nodeContentInnerTemplate.content);
+        //staticNodeContentCell = document.getElementById("staticNodeRow"  );
+        staticNodeContentCell = document.getElementById("introRow0"  );
+        //staticNodeContentCell.appendChild(bufferColumn);
+        staticNodeContentCell.appendChild(nodeContentInnerTemplate.content);
+        staticNodeContentCell.appendChild(bufferColumn);
 
     }
 
@@ -730,14 +753,22 @@ function buildNodeGroup(jsonTree, template, start, end, rowIndex, accordion){
     let rowNum = Math.floor(jsonTreeSize / 4);
     let remainder = Math.floor(jsonTreeSize % 4);
 
+    /*
     if(remainder > 0) {
         interval = 1;
     }
     else{
     interval = 4;
+    }*/
+/*
+    if(accordion){
+        interval = 4;
     }
+    else{
+        interval = 1;
+    }*/
 
-    for (let t = start; t < end; t += interval){
+    for (let t = start; t < end; t ++){
 
         //nodeSectionTemplate = getHTMLTemplate('../templates', 'node-section-template.html');
         nodeSectionTemplate = template;
