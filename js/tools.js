@@ -104,29 +104,23 @@ function buildRowSection(jsonTree, jsonTreeLength, template, start, end, accordi
 //Calls buildNodeSection to create the node content
 function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
     let jsonTreeSize = Object.keys(jsonTree).length;
-    let accordionBodyRow;
-    let staticBodyRow;
+
     let rowNum;
     let rowRemainder;
     let rowIndex = start / 4;
-    let finalInnerAccordionRows = "";
-
-
-
+    
     let divRowContainer;
     let divRowPT5;
     let divColLg2_1;
     let divColLg2_2;
     let divColLg2_3;
 
-    let innerNodeRowSection;
-    let innerNodeRowRemainder;
     let remainderIndex;
     let staticBodyDiv;
     let accordionBodyDiv;
 
     let nodeGroupRow;
-    let testRowStatic;
+
     let bufferColumn;
 
 
@@ -257,45 +251,8 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
 //Adds the node content to the containing rows
 function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex, accordion){
     let jsonTreeSize = Object.keys(jsonTree).length;
-    let divElem;
-    let nodeSectionTemplate = '';
-
-
-    let rowSectionTemplate = '';
-    let nodeAccordionSectionTemplate = '';
-    let rowAccordionSectionTemplate = '';
-    let rowAccordionContent = "";
-    let nodeSection = "";
-    let rowAccordionSection = "";
-    let finalHTML = "";
-
-    let nodeContentID = "" ;
-    let nodeLogoColumnID = "" ;
-    let nodeLinkImgID = "" ;
-    let nodeLogoID = "" ;
-    let nodeDescriptionColumnID = "";
-    let nodeLinkTextID = "" ;
-    let nodeNameID = "" ;
-    let nodeLinkDescriptionID = "" ;
-    let nodeDescriptionID = "" ;
-    let nodeLinkID = "" ;
-
-    let nodeName = "";
-
-    let nodeURL = "";
-    let nodeAffiliation = "";
-    let nodeDescription = "";
-    let nodeIconURL = "";
-    let nodeLocation = "";
-    let nodeContact = "";
-    let nodeServices = "";
-    let nodeLastUpdated = "";
-    let nodeVersion = "";
-    let nodeStatus = "";
-
     let accordionNodeContentCell;
     let staticNodeContentCell;
-    let nodeSectionContent = "";
     let nodeGroup;
     let accordionNodeGroupStart;
     let accordionNodeGroupEnd;
@@ -364,16 +321,9 @@ function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex
 function buildNodeGroup(jsonTree, template, start, end, rowIndex, accordion){
 
     let jsonTreeSize = Object.keys(jsonTree).length;
-    let divElem;
     let nodeSectionTemplate = '';
 
-
-    let rowSectionTemplate = '';
-    let nodeAccordionSectionTemplate = '';
-    let rowAccordionSectionTemplate = '';
-    let rowAccordionContent = "";
     let nodeSection = "";
-    let rowAccordionSection = "";
     let finalHTML = "";
 
     let nodeContentID = "" ;
@@ -399,16 +349,8 @@ function buildNodeGroup(jsonTree, template, start, end, rowIndex, accordion){
     let nodeLastUpdated = "";
     let nodeVersion = "";
     let nodeStatus = "";
-    let interval;
 
-    let accordionNodeContentCell;
     let nodeSectionContent = "";
-
-
-    let nodeContentInnerTemplate = document.createElement("template");
-
-    let rowNum = Math.floor(jsonTreeSize / 4);
-    let remainder = Math.floor(jsonTreeSize % 4);
 
 
 
@@ -480,34 +422,6 @@ function buildNodeGroup(jsonTree, template, start, end, rowIndex, accordion){
 function buildHomePage(jsonTree){
 
 
-    let rowNum = 0;
-
-    let nodeGroupHTML = "";
-    let nodeRowRemainderHTML = "";
-    let rowShellHTML = "";
-    let accordionRowHTML = "";
-    let nodeSectionHTML = "";
-    let innerRowHTML = "";
-
-    let nodeAccordionRow = "";
-
-    let nodeInnerContent = "";
-    let nodeAccordionInnerRowHTML = "";
-    let innerNodeGroupHTML = "";
-    let accordionInnerShellRowHTML = "";
-    let nodeIntroRow = "";
-    let nodeIntroGroup = "";
-    let nodeIntroContentRow  = "";
-
-
-
-    let remainderInnerShellRow = "";
-    let remainderNodeGroup = "";
-    let remainderInnerRowHTML  = "";
-
-    let nodeContent = "";
-    let nodeContentDiv;
-
 
     let jsonTreeSize = Object.keys(jsonTree).length;
 
@@ -531,20 +445,6 @@ function buildHomePage(jsonTree){
 }
 
 
-
-
-
-function main(){
-
-
-
-    let dynamicNodeContent = buildHomePage();
-    console.log(dynamicNodeContent);
-    return dynamicNodeContent;
-
-
-
-}
 
 
 
