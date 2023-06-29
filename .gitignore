@@ -165,3 +165,7 @@ cython_debug/
 
 # Node files
 node_modules/
+
+# Project specific files
+examples/
+fetch-example/
