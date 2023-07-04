@@ -1,3 +1,7 @@
+.footer{
+	font-size:10px;
+}
+
 
 .logo-box{
 width:179px;
@@ -12,6 +16,18 @@ a.href-text{
 color: black;
 text-decoration:none;
 }
+
+
+.bird-icon{
+
+	width:300px;
+	height:300px;
+
+}
+
+
+
+
 
 
 .node-link-div{
