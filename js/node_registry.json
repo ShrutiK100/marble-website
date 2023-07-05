@@ -4,7 +4,7 @@
         "date_added": "2023-05-04T17:09:07+0000",
         "affiliation": "University of Toronto",
         "description": "This is the best node there is!",
-        "icon_url": "logos/UT-circular-crest-logo-179.jpeg",
+        "icon_url": "images/logos/UT-circular-crest-logo-179.jpeg",
         "location": {
             "longitude": -79.39,
             "latitude": 43.65
@@ -72,7 +72,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "University of Victoria British Columbia",
         "description": "This node is an island!",
-        "icon_url": "logos/pcic-logo-scaled.png",
+        "icon_url": "images/logos/pcic-logo-scaled.png",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -140,7 +140,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "Computer Research Institute of Montreal ",
         "description": "This node is Quebecois!",
-        "icon_url": "logos/crim-logo-color-cropped-transparent-179.png",
+        "icon_url": "images/logos/crim-logo-color-cropped-transparent-179.png",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -208,7 +208,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "Power Analytics and Visualization for Climate Science",
         "description": "This node is also Quebecois!",
-        "icon_url": "logos/pavics_no_text.svg",
+        "icon_url": "images/logos/pavics_no_text.svg",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -276,7 +276,7 @@
         "date_added": "2023-05-04T17:09:07+0000",
         "affiliation": "University of Toronto",
         "description": "This is the best node there is!",
-        "icon_url": "logos/UT-circular-crest-logo-179.jpeg",
+        "icon_url": "images/logos/UT-circular-crest-logo-179.jpeg",
         "location": {
             "longitude": -79.39,
             "latitude": 43.65
@@ -344,7 +344,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "University of Victoria British Columbia",
         "description": "This node is an island!",
-        "icon_url": "logos/pcic-logo-scaled.png",
+        "icon_url": "images/logos/pcic-logo-scaled.png",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -412,7 +412,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "Computer Research Institute of Montreal ",
         "description": "This node is Quebecois!",
-        "icon_url": "logos/crim-logo-color-cropped-transparent-179.png",
+        "icon_url": "images/logos/crim-logo-color-cropped-transparent-179.png",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -480,7 +480,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "Power Analytics and Visualization for Climate Science",
         "description": "This node is also Quebecois!",
-        "icon_url": "logos/pavics_no_text.svg",
+        "icon_url": "images/logos/pavics_no_text.svg",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -548,7 +548,7 @@
         "date_added": "2023-05-04T17:09:07+0000",
         "affiliation": "University of Toronto",
         "description": "This is the best node there is!",
-        "icon_url": "logos/UT-circular-crest-logo-179.jpeg",
+        "icon_url": "images/logos/UT-circular-crest-logo-179.jpeg",
         "location": {
             "longitude": -79.39,
             "latitude": 43.65
@@ -616,7 +616,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "University of Victoria British Columbia",
         "description": "This node is an island!",
-        "icon_url": "logos/pcic-logo-scaled.png",
+        "icon_url": "images/logos/pcic-logo-scaled.png",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -684,7 +684,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "Computer Research Institute of Montreal ",
         "description": "This node is Quebecois!",
-        "icon_url": "logos/crim-logo-color-cropped-transparent-179.png",
+        "icon_url": "images/logos/crim-logo-color-cropped-transparent-179.png",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -752,7 +752,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "Power Analytics and Visualization for Climate Science",
         "description": "This node is also Quebecois!",
-        "icon_url": "logos/pavics_no_text.svg",
+        "icon_url": "images/logos/pavics_no_text.svg",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
@@ -821,7 +821,7 @@
         "date_added": "2023-05-04T17:09:07+0000",
         "affiliation": "University of Toronto",
         "description": "This is the best node there is!",
-        "icon_url": "logos/UT-circular-crest-logo-179.jpeg",
+        "icon_url": "images/logos/UT-circular-crest-logo-179.jpeg",
         "location": {
             "longitude": -79.39,
             "latitude": 43.65
@@ -889,7 +889,7 @@
         "date_added": "2023-05-14T17:09:07+0000",
         "affiliation": "University of Victoria British Columbia",
         "description": "This node is an island!",
-        "icon_url": "logos/pcic-logo-scaled.png",
+        "icon_url": "images/logos/pcic-logo-scaled.png",
         "location": {
             "longitude": -123.31,
             "latitude": 48.46
