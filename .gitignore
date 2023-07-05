@@ -162,6 +162,3 @@ cython_debug/
 # Mac OS files
 .DS_Store
 
-# Project specific files
-examples/
-fetch-example/
