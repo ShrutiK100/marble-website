@@ -2,14 +2,8 @@
 	font-size:10px;
 }
 
-
 .logo-box{
-width:179px;
-height:179px;
-}
-
-.logo-pb-2a{
-padding-bottom: 0.6rem !important;
+max-height:179px;
 }
 
 a.href-text{
@@ -17,18 +11,10 @@ color: black;
 text-decoration:none;
 }
 
-
 .bird-icon{
-
 	width:300px;
 	height:300px;
-
 }
-
-
-
-
-
 
 .node-link-div{
 	display:block;
