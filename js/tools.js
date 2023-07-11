@@ -9,10 +9,10 @@ function getNodeRegistry(){
 function buildRowSectionHelper(jsonTree, jsonTreeSize, start, end, accordion){
 
     if(accordion){
-        fetch('templates/row-accordion-section-template.html').then(resp => resp.text()).then(rowTemplate => buildRowSection(jsonTree, jsonTreeSize, rowTemplate, start, end, accordion ));
+        fetch('/templates/row-accordion-section-template.html').then(resp => resp.text()).then(rowTemplate => buildRowSection(jsonTree, jsonTreeSize, rowTemplate, start, end, accordion ));
     }
     else{
-         fetch('templates/row-section-template.html').then(resp => resp.text()).then(rowTemplate => buildRowSection(jsonTree, jsonTreeSize, rowTemplate, start, end, accordion ));
+         fetch('/templates/row-section-template.html').then(resp => resp.text()).then(rowTemplate => buildRowSection(jsonTree, jsonTreeSize, rowTemplate, start, end, accordion ));
     }
 }
 
@@ -179,7 +179,7 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion){
         staticBodyDiv.appendChild(divColLg2_1);
     }
 
-    fetch('templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, bufferColumn, start, end, rowIndex, accordion));
+    fetch('/templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, bufferColumn, start, end, rowIndex, accordion));
 
 }
 
