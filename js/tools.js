@@ -201,7 +201,7 @@ function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex
         accordionNodeGroupStart =  4;
         for(let n = 1; n< rowNum; n++){
             accordionNodeGroupEnd = accordionNodeGroupStart + 4;
-            nodeGroup = buildNodeGroup(jsonTree, template, accordionNodeGroupStart, accordionNodeGroupEnd, rowIndex, accordion);
+            nodeGroup = buildNodeGroup(jsonTree, template, accordionNodeGroupStart, accordionNodeGroupEnd);
             nodeContentInnerTemplate.innerHTML = nodeGroup;
             accordionNodeContentCell = document.getElementById("accordionInnerRow" + n);
             accordionNodeContentCell.append(bufferColumn);
@@ -210,7 +210,7 @@ function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex
             accordionNodeGroupStart  = accordionNodeGroupStart + 4
         }
         if(rowRemainder > 0){
-            nodeGroup = buildNodeGroup(jsonTree, template, (jsonTreeSize - rowRemainder),jsonTreeSize , rowIndex, accordion);
+            nodeGroup = buildNodeGroup(jsonTree, template, (jsonTreeSize - rowRemainder),jsonTreeSize);
             nodeContentInnerTemplate.innerHTML = nodeGroup;
             accordionNodeContentCell = document.getElementById("accordionInnerRow" + (rowNum + 1));
             accordionNodeContentCell.append(bufferColumn);
@@ -230,7 +230,7 @@ function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex
 //Creates the node content
 //Goes through the json tree and gets the node name and node details to fill in the node content template
 //Returns an HTML string consisting of 4 node descriptions
-function buildNodeGroup(jsonTree, template, start, end, rowIndex, accordion){
+function buildNodeGroup(jsonTree, template, start, end){
 
     let nodeSectionTemplate = '';
     let nodeSection = "";
