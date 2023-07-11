@@ -5,13 +5,14 @@ function getNodeRegistry(){
     const jsonFile = "node_registry.json";
 
     //Uncomment for getting json from github
-    /*
+
     fetch(githubURL).then(resp => resp.json()).then(resp => buildHomePage(resp));
-     */
+
 
     //Uncomment for reading json from local file
 
-    fetch('js/node_registry.json').then(resp => resp.json()).then(resp => buildHomePage(resp));
+    //fetch('js/node_registry.json').then(resp => resp.json()).then(resp => buildHomePage(resp));
+
 
 }
 
@@ -239,7 +240,7 @@ function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex
         }
     }
     else {
-        nodeGroup = buildNodeGroup(jsonTree, template, 0, 4, rowIndex, accordion);
+        nodeGroup = buildNodeGroup(jsonTree, template, 0, end, rowIndex, accordion);
         nodeContentInnerTemplate.innerHTML = nodeGroup;
         staticNodeContentCell = document.getElementById("introRow0"  );
         staticNodeContentCell.appendChild(nodeContentInnerTemplate.content);
@@ -327,15 +328,22 @@ function buildNodeGroup(jsonTree, template, start, end, rowIndex, accordion){
 }
 
 function buildHomePage(jsonTree){
-
+    let end = 0;
     let jsonTreeSize = Object.keys(jsonTree).length;
 
-    if (jsonTreeSize < 5){
-        buildRowSectionHelper(jsonTree, jsonTreeSize,0,4, false);
+    if (jsonTreeSize/4 > 1){
+        end = 4;
     }
     else{
-        buildRowSectionHelper(jsonTree, jsonTreeSize,0,4, false);
-        buildRowSectionHelper(jsonTree, jsonTreeSize, 0, 4,true );
+        end = jsonTreeSize
+    }
+
+    if (jsonTreeSize < 5){
+        buildRowSectionHelper(jsonTree, jsonTreeSize,0,end, false);
+    }
+    else{
+        buildRowSectionHelper(jsonTree, jsonTreeSize,0,end, false);
+        buildRowSectionHelper(jsonTree, jsonTreeSize, 0, end,true );
     }
 }
 
