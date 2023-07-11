@@ -1,29 +1,8 @@
 function getNodeRegistry(){
 
-    const githubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.json";
-    const testGithubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.schema.json";
-    const jsonFile = "js/node_registry.json";
-
-    //Uncomment for getting json from github
+    const githubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/current-registry/node_registry.json";
 
     fetch(githubURL).then(resp => resp.json()).then(resp => buildHomePage(resp));
-
-
-    //Uncomment for reading json from local file
-
-    //fetch(jsonFile).then(resp => resp.json()).then(resp => buildHomePage(resp));
-
-
-}
-
-function getNodeInfo(){
-    const githubNodeInfoURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_info.json";
-
-    //Uncomment for getting json from github
-  /*
-    fetch(githubNodeInfoURL).then(resp => resp.json()).then(resp => buildHomePage(resp));
-     */
-
 }
 
 //Fetches the appropriate template according to accordion status and passes it on to the buildRowSection function
