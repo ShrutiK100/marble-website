@@ -2,7 +2,7 @@ function getNodeRegistry(){
 
     const githubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.json";
     const testGithubURL = "https://raw.githubusercontent.com/DACCS-Climate/DACCS-node-registry/main/node_registry.schema.json";
-    const jsonFile = "node_registry.json";
+    const jsonFile = "js/node_registry.json";
 
     //Uncomment for getting json from github
 
@@ -11,7 +11,7 @@ function getNodeRegistry(){
 
     //Uncomment for reading json from local file
 
-    //fetch('js/node_registry.json').then(resp => resp.json()).then(resp => buildHomePage(resp));
+    //fetch(jsonFile).then(resp => resp.json()).then(resp => buildHomePage(resp));
 
 
 }
