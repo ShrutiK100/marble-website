@@ -70,6 +70,7 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion) {
     let divColLg2_1;
     let divColLg2_2;
     let divColLg2_3;
+    let singleColumnDiv;
     let remainderIndex;
     let staticBodyDiv;
     let accordionBodyDiv;
@@ -92,11 +93,10 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion) {
             divRowContainer.className = "container";
 
             divRowPT5 = document.createElement("div");
-            divRowPT5.className = "row pt-5";
+            divRowPT5.classList.add('row', 'pt-5', 'row-cols-1', 'row-cols-lg-4');
             divRowPT5.setAttribute("id", "accordionInnerRow" + t);
 
             divRowContainer.appendChild(divRowPT5);
-
 
             divColLg2_1 = document.createElement("div");
             divColLg2_1.className = "col-lg-2";
@@ -106,8 +106,6 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion) {
 
             divColLg2_3 = document.createElement("div");
             divColLg2_3.className = "col-lg-2";
-
-            divRowPT5.appendChild(divColLg2_1);
 
             accordionBodyDiv = document.getElementById("ACCORDION_BODY_CONTENT");
 
@@ -124,7 +122,8 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion) {
             divRowContainer.className = "container";
 
             divRowPT5 = document.createElement("div");
-            divRowPT5.className = "row pt-5";
+            divRowPT5.classList.add('row', 'pt-5', 'row-cols-1', 'row-cols-lg-4');
+
             divRowPT5.setAttribute("id", "accordionInnerRow" + remainderIndex);
 
             divRowContainer.appendChild(divRowPT5);
@@ -138,8 +137,6 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion) {
             divColLg2_3 = document.createElement("div");
             divColLg2_3.className = "col-lg-2";
 
-            divRowPT5.appendChild(divColLg2_1);
-
             accordionBodyDiv = document.getElementById("ACCORDION_BODY_CONTENT");
 
             accordionBodyDiv.appendChild(divRowContainer);
@@ -149,16 +146,14 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion) {
         nodeGroupRow = document.createElement("div");
         nodeGroupRow.setAttribute("id", "nodeGroupRowStatic");
 
-
         divRowContainer = document.createElement("div");
         divRowContainer.className = "container";
 
         divRowPT5 = document.createElement("div");
-        divRowPT5.className = "row pt-5";
+        divRowPT5.classList.add('row', 'pt-5', 'row-cols-1', 'row-cols-lg-4');
         divRowPT5.setAttribute("id", "staticNodeRow");
 
         divRowContainer.appendChild(divRowPT5);
-
 
         divColLg2_1 = document.createElement("div");
         divColLg2_1.className = "col-lg-2";
@@ -169,10 +164,16 @@ function buildNodeSectionHelper(jsonTree, start, end, rowTemplate, accordion) {
         divColLg2_3 = document.createElement("div");
         divColLg2_3.className = "col-lg-2";
 
-        divRowPT5.appendChild(divColLg2_1);
+        singleColumnDiv = document.createElement("div");
+        singleColumnDiv.className = "col-lg-1";
 
         staticBodyDiv = document.getElementById("introRow0");
-        staticBodyDiv.appendChild(divColLg2_1);
+
+        if (end < 4) {
+            staticBodyDiv.appendChild(singleColumnDiv);
+
+        }
+
     }
 
     fetch('/templates/node-section-template.html').then(resp => resp.text()).then(nodeTemplate => buildNodeSection(jsonTree, nodeTemplate, bufferColumn, start, end, rowIndex, accordion));
@@ -218,7 +219,11 @@ function buildNodeSection(jsonTree, template, bufferColumn, start, end, rowIndex
         nodeContentInnerTemplate.innerHTML = nodeGroup;
         staticNodeContentCell = document.getElementById("introRow0");
         staticNodeContentCell.appendChild(nodeContentInnerTemplate.content);
-        staticNodeContentCell.appendChild(bufferColumn);
+
+        if (end > 4) {
+            staticNodeContentCell.appendChild(bufferColumn);
+        }
+
     }
 }
 
