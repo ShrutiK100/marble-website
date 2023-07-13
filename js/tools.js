@@ -272,16 +272,27 @@ function buildNodeGroup(jsonTree, template, start, end) {
         nodeDescriptionID = "nodeDescription" + t;
         nodeLinkID = "nodeLink" + t;
         nodeName = Object.keys(jsonTree)[t];
-        nodeURL = jsonTree[nodeName].url;
+        nodeURL = null;
         nodeAffiliation = jsonTree[nodeName].affiliation;
         nodeDescription = jsonTree[nodeName].description;
-        nodeIconURL = jsonTree[nodeName].icon_url;
+        nodeIconURL = null;
         nodeLocation = jsonTree[nodeName].location;
         nodeContact = jsonTree[nodeName].contact;
         nodeServices = jsonTree[nodeName].services;
         nodeLastUpdated = jsonTree[nodeName].last_updated;
         nodeVersion = jsonTree[nodeName].version;
         nodeStatus = jsonTree[nodeName].status;
+
+        jsonTree[nodeName].links.forEach(link => {
+            switch (link.rel) {
+                case "service":
+                    nodeURL = link.href;
+                    break
+                case "icon":
+                    nodeIconURL = link.href;
+                    break
+            }
+        })
 
         nodeSectionContent = nodeSectionTemplate.replaceAll("{{NODE_CONTENT_ID}}", nodeContentID);
         nodeSectionContent = nodeSectionContent.replace("{{NODE_LOGO_COLUMN_ID}}", nodeLogoColumnID);
