@@ -1,0 +1,49 @@
+.footer {
+    font-size: 10px;
+}
+
+.logo-box {
+    max-height: 179px;
+}
+
+a.href-text {
+    color: black;
+    text-decoration: none;
+}
+
+.bird-icon {
+    width: 300px;
+    height: 300px;
+}
+
+.wps-bird-icon{
+    max-width:50%;
+}
+
+
+.carousel-bg-pic{
+    height:50%;
+}
+
+.carousel-div{
+    width:100%;
+}
+
+
+.red-div{
+    color:red;
+
+}
+
+
+.carousel-caption-right-alt{
+    position:absolute;
+    right:15%;
+    bottom:1.25rem;
+    left:60%;
+    padding-top:1.25rem;
+    padding-bottom:1.25rem;
+    color:#fff;
+
+}
+
