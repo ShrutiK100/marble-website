@@ -1,3 +1,157 @@
+
+@media only screen and  (min-width:576px){
+    .w-sm-25{
+        width:25%;
+    }
+
+    .h-sm-25{
+        height:25%;
+    }
+
+    .w-sm-50{
+        width:50%;
+    }
+
+    .h-sm-50{
+        height:50%;
+    }
+
+    .w-sm-75{
+        width:75%;
+    }
+
+    .h-sm-75{
+        height:75%;
+    }
+
+    .w-sm-100{
+        width:100%;
+    }
+
+    .h-sm-100{
+        height:100%;
+    }
+
+
+    .wps-sm-finch-logo{
+        position:relative;
+        width: 100%;
+
+
+    }
+
+
+    .wps-sm-raven-logo{
+        position:relative;
+        width: 100%;
+
+
+    }
+
+
+}
+
+
+
+
+@media only screen and (min-width:786px){
+    .w-md-25{
+        width:25%;
+    }
+
+    .h-md-25{
+        height:25%;
+    }
+
+
+    .w-md-50{
+        width:50%;
+    }
+
+    .h-md-50{
+        height:50%;
+    }
+
+
+    .w-md-75{
+        width:75%;
+    }
+
+    .h-md-75{
+        height:75%;
+    }
+
+
+    .w-md-100{
+        width:100%;
+    }
+
+    .h-md-100{
+        height:100%;
+    }
+}
+
+
+
+
+@media only screen and (min-width:992px){
+    .w-lg-25{
+        width:25%;
+    }
+
+    .h-lg-25{
+        height:25%;
+    }
+
+
+    .w-lg-50{
+        width:50%;
+    }
+
+    .h-lg-50{
+        height:50%;
+    }
+
+
+    .w-lg-75{
+        width:75%;
+    }
+
+    .h-lg-75{
+        height:75%;
+    }
+
+
+    .w-lg-100{
+        width:100%;
+    }
+
+    .h-lg-100{
+        height:100%;
+    }
+
+
+
+    .wps-lg-finch-logo{
+    position:relative;
+    width: 50%;
+    left:20%;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 .footer {
     font-size: 10px;
 }
@@ -11,39 +165,32 @@ a.href-text {
     text-decoration: none;
 }
 
-.bird-icon {
-    width: 300px;
-    height: 300px;
+
+.wps-bird-logo{
+
+    width: 50%;
+
 }
 
-.wps-bird-icon{
-    max-width:50%;
-}
+.wps-finch-logo{
+    position:relative;
+    width: 50%;
+    left: 20%;
 
-
-.carousel-bg-pic{
-    height:50%;
-}
-
-.carousel-div{
-    width:100%;
-}
-
-
-.red-div{
-    color:red;
 
 }
 
 
-.carousel-caption-right-alt{
-    position:absolute;
-    right:15%;
-    bottom:1.25rem;
-    left:60%;
-    padding-top:1.25rem;
-    padding-bottom:1.25rem;
-    color:#fff;
+.wps-raven-logo{
+
+    width: 55%;
 
 }
 
+/*
+.carousel-control-prev-icon{display:inline-block;width:2rem;height:2rem;background-repeat:no-repeat;background-position:50%;background-size:100% 100%}
+.carousel-control-prev-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")}
+.carousel-control-next-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")}
+.carousel-indicators{position:absolute;right:0;bottom:0;left:0;z-index:2;display:flex;justify-content:center;padding:0;margin-right:15%;margin-bottom:1rem;margin-left:15%}
+.carousel-indicators [data-bs-target]{box-sizing:content-box;flex:0 1 auto;width:30px;height:3px;padding:0;margin-right:3px;margin-left:3px;text-indent:-999px;cursor:pointer;background-color:#fff;background-clip:padding-box;border:0;border-top:10px solid transparent;border-bottom:10px solid transparent;opacity:.5;transition:opacity .6s ease}@media (prefers-reduced-motion:reduce){.carousel-indicators [data-bs-target]{transition:none}}.carousel-indicators .active{opacity:1}.carousel-caption{position:absolute;right:15%;bottom:1.25rem;left:15%;padding-top:1.25rem;padding-bottom:1.25rem;color:#fff;text-align:center}.carousel-dark .carousel-control-next-icon,.carousel-dark .carousel-control-prev-icon{filter:invert(1) grayscale(100)}.carousel-dark .carousel-indicators [data-bs-target]{background-color:#000}
+*/
