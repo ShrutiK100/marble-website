@@ -299,9 +299,7 @@ function buildNodeGroup(jsonTree, template, start, end) {
         nodeSectionContent = nodeSectionContent.replace("{{NODE_LINK_IMG_ID}}", nodeLinkImgID);
         nodeSectionContent = nodeSectionContent.replace("{{NODE_LOGO_ID}}", nodeLogoID);
         nodeSectionContent = nodeSectionContent.replace("{{NODE_DESCRIPTION_COLUMN_ID}}", nodeDescriptionColumnID);
-        nodeSectionContent = nodeSectionContent.replace("{{NODE_LINK_TEXT_ID}}", nodeLinkTextID);
         nodeSectionContent = nodeSectionContent.replace("{{NODE_NAME_ID}}", nodeNameID);
-        nodeSectionContent = nodeSectionContent.replace("{{NODE_LINK_DESC_ID}}", nodeLinkDescriptionID);
         nodeSectionContent = nodeSectionContent.replace("{{NODE_DESCRIPTION_ID}}", nodeDescriptionID);
         nodeSectionContent = nodeSectionContent.replaceAll("{{NODE_HREF}}", nodeURL);
         nodeSectionContent = nodeSectionContent.replace("{{NODE_LOGO_PATH}}", nodeIconURL);
