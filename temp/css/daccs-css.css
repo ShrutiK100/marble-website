@@ -1,3 +1,20 @@
+/* For mobile phones: */
+[class*="w-"] {
+  width: 100%;
+}
+
+
+[class*="h-"] {
+  width: 100%;
+}
+
+[class*="wps-"] {
+  width: 100%;
+}
+
+[class*="daccs-"] {
+  width: 100%;
+}
 
 @media only screen and  (min-width:576px){
     .w-sm-25{
@@ -40,6 +57,10 @@
         width:90%;
     }
 
+    .daccs-logo-node{
+        width:50%;
+    }
+
 }
 
 
@@ -80,6 +101,11 @@
     .h-md-100{
         height:100%;
     }
+
+    .daccs-logo-node{
+        width:75%;
+    }
+
 }
 
 
@@ -135,6 +161,10 @@
         left:20%;
     }
 
+    .daccs-logo-node{
+        width:100%;
+    }
+
 }
 
 
@@ -178,7 +208,7 @@ a.href-text {
 }
 
 
-
+/*Menu CSS*/
 .menu{
     background-color:#659DBD;
     color:#FFFFFF;
@@ -188,14 +218,20 @@ a.href-text {
     color:#FFFFFF;
 }
 
-.menu-link:hover{
-    color:#F7F9FB;
+#menu-logo{
+    max-width: 50px;
 }
 
+/*Page Elements CSS*/
+#nodeContentDisplay{
+    background-color:#F7F9FB;
+}
 
+#accordionContentDisplay{
+    background-color:#F7F9FB;
+}
 
-
-
+/*Banner CSS*/
 .banner-image{
     width:100%;
     height:75%;
@@ -212,13 +248,11 @@ a.href-text {
     text-align:left;
 }
 
-
 .banner-image-overlay{
   position: relative;
   display: inline-block; /* <= shrinks container to image size */
   transition: transform 150ms ease-in-out;
 }
-
 
 .banner-image-overlay img { /* <= optional, for responsiveness */
    display: block;
