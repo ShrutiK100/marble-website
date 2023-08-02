@@ -24,8 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const menu = document.getElementById("menu");
         const template = document.createElement("template");
         template.innerHTML = menu_html;
-        menu.appendChild(template.content)
+        menu.appendChild(template.content);
+        getNodeRegistryInfo();
     })
 
-    getNodeRegistryInfo();
+
 });
