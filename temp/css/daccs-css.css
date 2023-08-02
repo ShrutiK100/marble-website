@@ -1,5 +1,5 @@
 /* For mobile phones: */
-[class*="w-"] {
+/*[class*="w-"] {
   width: 100%;
 }
 
@@ -7,7 +7,7 @@
 [class*="h-"] {
   width: 100%;
 }
-
+*/
 [class*="wps-"] {
   width: 100%;
 }
@@ -17,7 +17,7 @@
 }
 
 @media only screen and  (min-width:576px){
-    .w-sm-25{
+  /*  .w-sm-25{
         width: 25%;
     }
 
@@ -47,7 +47,7 @@
 
     .h-sm-100{
         height: 100%;
-    }
+    }*/
 
     .wps-sm-hummingbird-logo{
         width: 90%;
@@ -67,7 +67,7 @@
 
 
 @media only screen and (min-width:786px){
-    .w-md-25{
+   /* .w-md-25{
         width: 25%;
     }
 
@@ -101,6 +101,8 @@
     .h-md-100{
         height: 100%;
     }
+    */
+
 
     .daccs-logo-node{
         width: 75%;
@@ -112,7 +114,7 @@
 
 
 @media only screen and (min-width:992px){
-    .w-lg-25{
+   /* .w-lg-25{
         width: 25%;
     }
 
@@ -146,7 +148,7 @@
     .h-lg-100{
         height: 100%;
     }
-
+*/
     .wps-lg-finch-logo{
         width: 50%;
         left: 20%;
@@ -201,35 +203,47 @@ a.href-text {
 }
 
 /*Carousel*/
-.carousel-image-box{
-    max-width: 90%;
+.carousel-indicators{
+    filter: invert(100%);
 }
 
-.carousel-image-fluid{
-    max-width: 100%;
-    height: 75%;
+.carousel-control-prev{
+    filter: invert(100%);
 }
 
-.top-75{
-    top: 75%;
+.carousel-control-next{
+    filter: invert(100%);
 }
 
-.stac-text-background{
+.carousel-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+.carousel-left-caption{
+    left: 5%;
+    position: absolute;
+    right: 15%;
+    bottom: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+}
+
+.carousel-centre-caption{
+    left: 35%;
+    position: absolute;
+    right: 15%;
+    bottom: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+}
+
+.carousel-text-background{
     border-radius: 25px;
-    background-color: rgba(98.4, 93.3, 75.7, 0.5);
+    background-color: rgba(0.0, 0.0, 0.0, 0.25);
 }
-
-
-.remote-text-background{
-    border-radius: 25px;
-    background-color: rgba(16.5, 61.6, 56.1, 0.5);
-}
-
-.weaver-text-background{
-    border-radius: 25px;
-    background-color: rgba(13.7, 49.3, 70.2, 0.5);
-}
-
 
 /*Menu*/
 .menu{
