@@ -163,6 +163,10 @@
         left: 20%;
     }
 
+    .wps-lg-flyingpigeon-logo{
+        width: 55%;
+    }
+
     .daccs-logo-node{
         width: 100%;
     }
@@ -185,7 +189,7 @@ a.href-text {
     text-decoration: none;
 }
 
-
+/*WPS page*/
 .daccs-docs-link{
     color: inherit;
     text-decoration: none;
@@ -198,9 +202,10 @@ a.href-text {
 
 }
 
-.daccs-github-link i{
-    font-weight: bold;
+.bird-background{
+    background-color: #F7F9FB;
 }
+
 
 /*Carousel*/
 .carousel-indicators{
@@ -269,10 +274,13 @@ a.href-text {
 }
 
 /*Banner*/
-.banner-image{
+/*
+#banner{
     width: 100%;
-    height: 75%;
+    height :600px;
 }
+*/
+
 
 .banner-caption{
     position: absolute;
@@ -283,6 +291,7 @@ a.href-text {
     padding-bottom: 1.25rem;
     color: #fff;
     text-align: left;
+    z-index: 10;
 }
 
 .banner-image-overlay{
