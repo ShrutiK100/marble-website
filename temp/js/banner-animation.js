@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let daccsColours = ["#000000", "#2D3367", "#1F81B6", "#336D66", "#F6DC3D", "#C66B33","#762F24"];
 
     const colorScale = d3.scaleLinear()
-        .domain([null,0,  5, 15, 25, 35, 45])
+        .domain([null,-10,  5, 15, 25, 35, 45])
         .range(daccsColours);
-    
+
     const getVal = feat => feat.properties.AvgTempCelcius;
 
     // Get the width and height of the containing div on refresh
