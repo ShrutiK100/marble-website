@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //let globeglDataPath = '/datasets/ne_110m_admin_0_countries.geojson';
+
     let marbleDataPath = '/datasets/banner.geojson';
 
     // Generic marker
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let pavicsLabel = `<div id="pavicsLabel" style="background-color: white;">PAVICS</div>`
     let crimLabel = `<div id="crimLabel" style="background-color: white;">Hirondelle</div>`
 
-    // Create location markers for the nodes
+    // Create data for location markers for the nodes
     let nodeKeys = ["UofT", "PAVICS", "Hirondelle"]
     let nodeArray = [
         {lat:43.65, lng:-79.39, size: 7 + Math.random() * 30, color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)], markerSvg:markerSvg, url:"https://daccs.cs.toronto.edu", labelID: "uoftLabel", label:uoftLabel},
@@ -32,16 +32,17 @@ document.addEventListener("DOMContentLoaded", function () {
     //Map the node keys to the node array values
     nodeKeys.map(()=>(nodeArray))
 
-    //Default colour sclae
+    //Default colour scale
     //const colorScale = d3.scaleSequentialSqrt(d3.interpolateTurbo);
 
+    //Logo colour scale
+    // Black, dark blue, light blue, green, ywllow, orange, dark red
     let daccsColours = ["#000000", "#2D3367", "#1F81B6", "#336D66", "#F6DC3D", "#C66B33","#762F24"];
 
     const colorScale = d3.scaleLinear()
-  .domain([null,0,  5, 15, 25, 35, 45])
-  .range(daccsColours);
-
-
+        .domain([null,0,  5, 15, 25, 35, 45])
+        .range(daccsColours);
+    
     const getVal = feat => feat.properties.AvgTempCelcius;
 
     // Get the width and height of the containing div on refresh
@@ -49,13 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let bannerContainerWidth = bannerContainer.offsetWidth
     let bannerContainerHeight = bannerContainer.offsetHeight
 
-
-
     fetch(marbleDataPath).then(res => res.json()).then(countries =>
     {
-
-        //Create globe, plot countries, create and plot choropleths
-        //Colour countries according to average temperature
+      //Create globe, plot countries, create and plot choropleths
+      //Colour countries according to average temperature
       const earth = Globe()
         .width(bannerContainerWidth)
         .height(bannerContainerHeight)
@@ -70,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .polygonStrokeColor(() => '#111')
         .polygonLabel(({ properties: d }) => `
           <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
-          Avg. Temp (&deg; C): <i>${d.AvgTempCelcius}</i> <br/>
+          Avg. Temp &deg; C: <i>${d.AvgTempCelcius}</i> <br/>
           Year: <i>${d.Year}</i>
         `)
         .onPolygonHover(hoverD => earth
@@ -80,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .polygonsTransitionDuration(300)
 
 
-        // Add location markers for node locations
+      // Add location markers for node locations
       (document.getElementById('banner'))
 
         earth.htmlElementsData(nodeArray)
@@ -90,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
           el.innerHTML = d.markerSvg;
           el.style.color = d.color;
           el.style.width = `${d.size}px`;
-
           el.style['pointer-events'] = 'auto';
           el.style.cursor = 'pointer';
           el.onclick = () => window.open(d.url);
@@ -105,8 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Remove zoom on mouse scroll
     earth.controls().enableZoom = false;
 
-
     // Add clouds sphere OPTIONAL
+    // Used to wrap Marble logo around globe
     const CLOUDS_IMG_URL = 'images/banner/DACCS-Logo-Rectangle-Waves-Gradient.png'; // from https://github.com/turban/webgl-earth
     const CLOUDS_ALT = 0.004;
     const CLOUDS_ROTATION_SPEED = -0.006; // deg/frame
@@ -124,11 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
       })();
       });
 
-
-
-
     });
-
-
 
 });
