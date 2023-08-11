@@ -250,6 +250,66 @@ a.href-text {
     background-color: rgba(0.0, 0.0, 0.0, 0.25);
 }
 
+
+.carousel-item-marble{
+    width: 100%;
+    max-height: 800px;
+}
+
+
+.carousel,
+.carousel-inner,
+.carousel-inner > .carousel-item {
+    overflow: hidden;
+
+
+}
+.carousel-inner > .carousel-item.active,
+.carousel-inner > .carousel-item-next {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.carousel-inner:before {
+    position:absolute;
+    top:0;
+    bottom: 0;
+    right: 95%;
+    left: 0;
+    content:"";
+    display:block;
+    background-color: #fff;
+    z-index: 2;
+}
+.carousel-inner:after {
+    position:absolute;
+    top:0;
+    bottom:0;
+    right: 0;
+    left: 95%;
+    content:"";
+    display:block;
+    background-color:#fff;
+    z-index: 2;
+}
+
+.carousel-control-prev {
+    z-index: 2000;
+    left: 22%;
+}
+
+.carousel-control-next {
+    z-index: 2000;
+    right: 22%;
+}
+
+
+
+
+
+
+
+
 /*Menu*/
 .menu{
     background-color: #659DBD;
@@ -274,12 +334,13 @@ a.href-text {
 }
 
 /*Banner*/
-/*
+
 #banner{
     width: 100%;
     height :600px;
+    max-height: 800px;
 }
-*/
+
 
 
 .banner-caption{
