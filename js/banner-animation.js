@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .polygonStrokeColor(() => '#111')
         .polygonLabel(({ properties: d }) => `
           <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
-          Avg. Temp &deg; C: <i>${d.AvgTempCelcius}</i> <br/>
+          Avg. Temp: <i>${d.AvgTempCelcius}</i> &deg; C <br/>
           Year: <i>${d.Year}</i>
         `)
         .onPolygonHover(hoverD => earth
