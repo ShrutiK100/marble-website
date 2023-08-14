@@ -6,7 +6,7 @@
     <script src="//unpkg.com/three"></script>
     <script src="//unpkg.com/d3"></script>
     <script src="//unpkg.com/globe.gl"></script>
-     <script src="/js/banner-animation.js"></script>
+    <script src="/js/banner-animation.js"></script>
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -295,7 +295,6 @@
 <script>
 
 var myCarousel = document.querySelector('#marbleCarousel')
-//var carousel = new bootstrap.Carousel(myCarousel, {interval: 300, wrap: true}) .carousel
 var slides = document.querySelectorAll('.carousel .carousel-item')
 
 slides.forEach((el) => {
@@ -303,239 +302,17 @@ slides.forEach((el) => {
     const minPerSlide = slides.length
     let next = el.nextElementSibling
 
-/*
-
-                    el.children[0].style.filter = "blur(8px)";
-        el.children[0].style.webkitFilter = "blur(8px)";
-        el.children[0].style.mozFilter = "blur(8px)";
-        el.children[0].style.oFilter = "blur(8px)";
-        el.children[0].style.msFilter = "blur(8px)";*/
-/*
-                slides[0].children[0].style.filter = "blur(8px)";
-        slides[0].children[0].style.webkitFilter = "blur(8px)";
-        slides[0].children[0].style.mozFilter = "blur(8px)";
-        slides[0].children[0].style.oFilter = "blur(8px)";
-        slides[0].children[0].style.msFilter = "blur(8px)";*/
-/*
-                slides[0].children[2].style.filter = "blur(8px)";
-        slides[0].children[2].style.webkitFilter = "blur(8px)";
-        slides[0].children[2].style.mozFilter = "blur(8px)";
-        slides[0].children[2].style.oFilter = "blur(8px)";
-        slides[0].children[2].style.msFilter = "blur(8px)";*/
-
-
-    if(next == null){
-
-
-        console.log(next)
-
-}
-
-
-
     for (var i=1; i<minPerSlide; i++) {
-        console.log(i)
-      /*  next.children[0].style.filter = "blur(0px)";
-        next.children[0].style.webkitFilter = "blur(0px)";
-        next.children[0].style.mozFilter = "blur(0px)";
-        next.children[0].style.oFilter = "blur(0px)";
-        next.children[0].style.msFilter = "blur(0px)";*/
-                  /*  slides[0].children[0].style.filter = "blur(8px)";
-        slides[0].children[0].style.webkitFilter = "blur(8px)";
-        slides[0].children[0].style.mozFilter = "blur(8px)";
-        slides[0].children[0].style.oFilter = "blur(8px)";
-        slides[0].children[0].style.msFilter = "blur(8px)";*/
 
         if (!next) {
             // wrap carousel by using first child
             next = slides[0]
-
-
-
         }
-/*
-                        slides[0].children[0].style.filter = "blur(8px)";
-        slides[0].children[0].style.webkitFilter = "blur(8px)";
-        slides[0].children[0].style.mozFilter = "blur(8px)";
-        slides[0].children[0].style.oFilter = "blur(8px)";
-        slides[0].children[0].style.msFilter = "blur(8px)";*/
-
-/*
-
-    el.children[0].style.filter = "blur(0px)";
-        el.children[0].style.webkitFilter = "blur(0px)";
-        el.children[0].style.mozFilter = "blur(0px)";
-        el.children[0].style.oFilter = "blur(0px)";
-        el.children[0].style.msFilter = "blur(0px)";*/
-
-
-
-        /*else{
-            next.style.filter = "blur(8px)";
-            next.style.webkitFilter = "blur(8px)";
-            next.style.mozFilter = "blur(8px)";
-            next.style.oFilter = "blur(8px)";
-            next.style.msFilter = "blur(8px)";
-
-        }*/
-/*
-                    next.children[0].style.filter = "blur(0px)";
-        next.children[0].style.webkitFilter = "blur(0px)";
-        next.children[0].style.mozFilter = "blur(0px)";
-        next.children[0].style.oFilter = "blur(0px)";
-        next.children[0].style.msFilter = "blur(0px)";*/
-/*next.children[0].style.filter = "blur(8px)";
-        next.children[0].style.webkitFilter = "blur(8px)";
-        next.children[0].style.mozFilter = "blur(8px)";
-        next.children[0].style.oFilter = "blur(8px)";
-        next.children[0].style.msFilter = "blur(8px)";*/
 
         let cloneChild = next.cloneNode(true)
-      // let prev = el.previousElementSibling
-
-/*
-        if(prev.tagName == "BUTTON"){
-
-            cloneChild.children[0].style.filter = "blur(0px)";
-            cloneChild.children[0].style.webkitFilter = "blur(0px)";
-            cloneChild.children[0].style.mozFilter = "blur(0px)";
-            cloneChild.children[0].style.oFilter = "blur(0px)";
-            cloneChild.children[0].style.msFilter = "blur(0px)";
-
-        }else{
-            cloneChild.children[0].style.filter = "blur(8px)";
-        cloneChild.children[0].style.webkitFilter = "blur(8px)";
-        cloneChild.children[0].style.mozFilter = "blur(8px)";
-        cloneChild.children[0].style.oFilter = "blur(8px)";
-        cloneChild.children[0].style.msFilter = "blur(8px)";
-
-        }*/
-
-/*
-
-if(next.tagName == "BUTTON"){
-             next.children[0].style.filter = "blur(8px)";
-            next.children[0].style.webkitFilter = "blur(8px)";
-            next.children[0].style.mozFilter = "blur(8px)";
-            next.children[0].style.oFilter = "blur(8px)";
-            next.children[0].style.msFilter = "blur(8px)";
-
-
-
-
-        }else{
-            next.children[0].style.filter = "blur(0px)";
-            next.children[0].style.webkitFilter = "blur(0px)";
-            next.children[0].style.mozFilter = "blur(0px)";
-            next.children[0].style.oFilter = "blur(0px)";
-            next.children[0].style.msFilter = "blur(0px)";
-
-        }
-*/
-
-
-/*
-                  next.children[0].style.filter = "blur(0px)";
-            next.children[0].style.webkitFilter = "blur(0px)";
-            next.children[0].style.mozFilter = "blur(0px)";
-            next.children[0].style.oFilter = "blur(0px)";
-            next.children[0].style.msFilter = "blur(0px)";*/
-
-
-/*
-                    next.children[0].style.filter = "blur(8px)";
-        next.children[0].style.webkitFilter = "blur(8px)";
-        next.children[0].style.mozFilter = "blur(8px)";
-        next.children[0].style.oFilter = "blur(8px)";
-        next.children[0].style.msFilter = "blur(8px)";*/
-/*
-            slides[i].children[0].style.filter = "blur(8px)";
-        slides[i].children[0].style.webkitFilter = "blur(8px)";
-        slides[i].children[0].style.mozFilter = "blur(8px)";
-        slides[i].children[0].style.oFilter = "blur(8px)";
-        slides[i].children[0].style.msFilter = "blur(8px)";*/
-
-
-
-
-
-
-/*
-
-        el.children[0].style.filter = "blur(8px)";
-        el.children[0].style.webkitFilter = "blur(8px)";
-        el.children[0].style.mozFilter = "blur(8px)";
-        el.children[0].style.oFilter = "blur(8px)";
-        el.children[0].style.msFilter = "blur(8px)";*/
-
-/*
-        el.style.filter = "blur(0px)";
-        el.style.webkitFilter = "blur(0px)";
-        el.style.mozFilter = "blur(0px)";
-        el.style.oFilter = "blur(0px)";
-        el.style.msFilter = "blur(0px)";*/
-        /*
-        cloneChild.children[0].style.filter = "blur(8px)";
-        cloneChild.children[0].style.webkitFilter = "blur(8px)";
-        cloneChild.children[0].style.mozFilter = "blur(8px)";
-        cloneChild.children[0].style.oFilter = "blur(8px)";
-        cloneChild.children[0].style.msFilter = "blur(8px)";*/
-
-
-
-
         el.appendChild(cloneChild.children[0])
-/*
-if(next.tagName == "BUTTON"){
-
-      next.children[0].style.filter = "blur(0px)";
-            next.children[0].style.webkitFilter = "blur(0px)";
-            next.children[0].style.mozFilter = "blur(0px)";
-            next.children[0].style.oFilter = "blur(0px)";
-            next.children[0].style.msFilter = "blur(0px)";
-
-
-
-
-        }else{
-                   next.children[0].style.filter = "blur(8px)";
-            next.children[0].style.webkitFilter = "blur(8px)";
-            next.children[0].style.mozFilter = "blur(8px)";
-            next.children[0].style.oFilter = "blur(8px)";
-            next.children[0].style.msFilter = "blur(8px)";
-        }*/
-
-
-        /*el.style.filter = "blur(8px)";
-        el.style.webkitFilter = "blur(8px)";
-        el.style.mozFilter = "blur(8px)";
-        el.style.oFilter = "blur(8px)";
-        el.style.msFilter = "blur(8px)";*/
-/*
-if(next.tagName == "BUTTON"){
-
-            next.children[0].style.filter = "blur(0px)";
-            next.children[0].style.webkitFilter = "blur(0px)";
-            next.children[0].style.mozFilter = "blur(0px)";
-            next.children[0].style.oFilter = "blur(0px)";
-            next.children[0].style.msFilter = "blur(0px)";
-
-        }else{
-            next.children[0].style.filter = "blur(8px)";
-            next.children[0].style.webkitFilter = "blur(8px)";
-            next.children[0].style.mozFilter = "blur(8px)";
-            next.children[0].style.oFilter = "blur(8px)";
-            next.children[0].style.msFilter = "blur(8px)";
-
-        }*/
-
-
 
         next = next.nextElementSibling
-
-
-
-
     }
 })
 </script>
