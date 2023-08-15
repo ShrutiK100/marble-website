@@ -15,3 +15,17 @@ a.href-text {
     width: 300px;
     height: 300px;
 }
+
+
+/*Node Page*/
+.background-img-fluid{
+    width: 100%;
+    height: auto;
+}
+
+.node-background-img-blur{
+    background-color: #3C3E3F;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+}
