@@ -58,6 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 const icon_img = document.createElement("img")
                 icon_img.setAttribute("src", link.href)
                 elem.appendChild(icon_img)
+
+                const background_elem = document.getElementById("background-icon");
+                background_elem.style.backgroundImage="url(" + link.href + ")";
+                background_elem.style.backgroundRepeat = "no-repeat";
+                background_elem.style.backgroundSize = "cover";
+
+                const background_icon_img = document.createElement("img");
+                background_icon_img.setAttribute("src", link.href);
+                //background_icon_img.className = "background-img-fluid";
+                background_elem.appendChild(background_icon_img);
+
+
             }
         })
     });
