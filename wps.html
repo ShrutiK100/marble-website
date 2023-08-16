@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <script src="/js/tools.js"></script>
+
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/d3"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+    <script src="/js/banner-animation.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
@@ -24,7 +30,9 @@
 
 
 <!-- Include banner -->
-<div id="banner"></div>
+<div id="banner">
+    <div id="banner-text"></div>
+</div>
 <!-- end banner -->
 
 <div class="row pt-5"> <!-- Page title and summary -->
@@ -38,13 +46,11 @@
     <div class="col-3"></div>
     <div class="col-6">
 
-        <p>Summary about WPS</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-            imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem. Mauris ac
-            nisi
-            eleifend, tempor mi a, tristique tellus. Proin nisi dui, pretium non accumsan quis, hendrerit eget orci. Sed
-            ornare purus malesuada, vestibulum libero placerat, bibendum tortor. Etiam ut massa est. Aenean lorem magna,
-            consequat in egestas et, fringilla sit amet mi. </p>
+        <p>The use of web processing services for climate data analysis, such as  Climate Indicator Analysis and
+            Hydrological modeling and analytics, will provide valuable tools and resources for users to better understand and analyze climate patterns
+            and hydrological processes. The technology involved in these services will allow users to access data
+            and models previously unavailable to them, enabling them to engage with complex systems in a more intuitive
+            and interactive way.  </p>
 
     </div>
     <div class="col-3"></div>
@@ -67,7 +73,7 @@
 <!-- Start Learn About Web Processing Services content section -->
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bird-background">
             <div class="col-3 col-md-4 d-block d-lg-block" >
                 <img class="wps-lg-finch-logo w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid"   src="images/logos/noun-project/cropped/noun-finch-no-branch-flipped-962354.svg"  />
             </div>
@@ -87,11 +93,11 @@
 
 
                 <div>
-                    <a class="daccs-github-link fa-lg" href="https://github.com/bird-house/finch">
-                        <i class="fab fa-github ">GitHub</i>
+                    <a class="daccs-github-link" href="https://github.com/bird-house/finch">
+                        <i class="fab fa-github "></i>GitHub
                     </a>
-                    <a class="daccs-docs-link fa-lg" href="https://pavics-sdi.readthedocs.io/projects/finch/en/latest">
-                        <i class="fas fa-book ">Documentation</i>
+                    <a class="daccs-docs-link" href="https://pavics-sdi.readthedocs.io/projects/finch/en/latest">
+                        <i class="fas fa-book "></i>Documentation
                     </a>
                 </div>
 
@@ -104,7 +110,7 @@
 
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bird-background">
             <div class="col-8 p-4 d-flex flex-column position-static">
                 <strong class="d-inline-block mb-2 text-success"></strong>
                 <h3 class="mb-0">Raven</h3>
@@ -125,11 +131,11 @@
                         Elevation Model and a land-use database.</p>
 
                 <div>
-                    <a class="daccs-github-link fa-lg" href="https://github.com/bird-house/raven">
-                        <i class="fab fa-github ">GitHub</i>
+                    <a class="daccs-github-link" href="https://github.com/bird-house/raven">
+                        <i class="fab fa-github "></i>GitHub
                     </a>
-                    <a class="daccs-docs-link fa-lg" href="https://pavics-sdi.readthedocs.io/projects/raven/en/latest/">
-                        <i class="fas fa-book ">Documentation</i>
+                    <a class="daccs-docs-link" href="https://pavics-sdi.readthedocs.io/projects/raven/en/latest/">
+                        <i class="fas fa-book "></i>Documentation
                     </a>
                 </div>
             </div>
@@ -143,7 +149,7 @@
 
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bird-background">
             <div class="col-4 d-block d-lg-block">
                 <img class="wps-sm-hummingbird-logo wps-lg-hummingbird-logo  w-lg-50 mx-auto d-block img-fluid" src="images/logos/noun-project/cropped/noun-hummingbird-4218394.svg"/>
             </div>
@@ -157,11 +163,11 @@
                 </p>
 
                 <div>
-                    <a class="daccs-github-link fa-lg" href="https://github.com/Ouranosinc/hummingbird">
-                        <i class="fab fa-github ">GitHub</i>
+                    <a class="daccs-github-link" href="https://github.com/Ouranosinc/hummingbird">
+                        <i class="fab fa-github "></i>GitHub
                     </a>
-                    <a class="daccs-docs-link fa-lg" href="https://birdhouse-hummingbird.readthedocs.io/en/latest/index.html">
-                        <i class="fas fa-book ">Documentation</i>
+                    <a class="daccs-docs-link" href="https://birdhouse-hummingbird.readthedocs.io/en/latest/index.html">
+                        <i class="fas fa-book "></i>Documentation
                     </a>
                 </div>
 
@@ -173,7 +179,7 @@
 
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bird-background">
            <div class="col-8 p-4 d-flex flex-column position-static">
                 <strong class="d-inline-block mb-2 text-success"></strong>
                 <h3 class="mb-0">Flying Pigeon</h3>
@@ -182,16 +188,16 @@
                     Processing Services (OGC WPS).
                 </p>
                 <div>
-                    <a class="daccs-github-link fa-lg" href="https://github.com/Ouranosinc/flyingpigeon">
-                        <i class="fab fa-github ">GitHub</i>
+                    <a class="daccs-github-link" href="https://github.com/Ouranosinc/flyingpigeon">
+                        <i class="fab fa-github "></i>GitHub
                     </a>
-                    <a class="daccs-docs-link fa-lg" href="https://flyingpigeon.readthedocs.io/en/latest/index.html">
-                        <i class="fas fa-book ">Documentation</i>
+                    <a class="daccs-docs-link" href="https://flyingpigeon.readthedocs.io/en/latest/index.html">
+                        <i class="fas fa-book"> </i>Documentation
                     </a>
                 </div>
             </div>
             <div class="col-4 d-block d-lg-block">
-                <img class="wps-sm-flyingpigeon-logo w-lg-50 img-fluid" src="images/logos/noun-project/cropped/noun-pigeon-962356.svg" />
+                <img class="wps-sm-flyingpigeon-logo wps-lg-flyingpigeon-logo img-fluid" src="images/logos/noun-project/cropped/noun-pigeon-962356.svg" />
             </div>
         </div>
     </div>
@@ -211,7 +217,7 @@
     <div class="col-4"></div>
     <div class="col-4">
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p></p>
 
     </div>
     <div class="col-4"></div>
