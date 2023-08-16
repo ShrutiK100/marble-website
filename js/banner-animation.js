@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
         )
         .polygonsTransitionDuration(300)
 
-
-      // Add location markers for node locations
       (document.getElementById('banner'))
 
+        // Add location markers for node locations OPTIONAL
+        /*
         earth.htmlElementsData(nodeArray)
         earth.htmlElement(d => {
           const el = document.createElement('div');
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           return el;
         })
-
+        */
     // Auto-rotate
     earth.controls().autoRotate = true;
     earth.controls().autoRotateSpeed = 0.35;
