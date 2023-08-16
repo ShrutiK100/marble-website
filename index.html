@@ -31,13 +31,15 @@
 <!-- end menu-->
 
 <!-- Include banner -->
-<div id="banner"></div>
+<div id="banner">
+    <div id="banner-text"></div>
+</div>
 <!-- end banner -->
 
 <div class="row pt-5"> <!-- Page title -->
     <div class="col-4"></div>
     <div class="col-4  text-center">
-        <h1>DACCS</h1>
+        <h1>Marble</h1>
     </div>
     <div class="col-4"></div>
 </div> <!-- End page title -->
@@ -46,7 +48,7 @@
 <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
-        <p>Summary about DACCS</p>
+        <p>Summary about Marble</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
             imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem. Mauris ac
             nisi
@@ -84,8 +86,9 @@
 <div id="accordionContentDisplay"></div>
 <!-- End dynamic node registry content -->
 
-
-<div class="row pt-5"> <!-- Learn About DACCS title -->
+<!-- Learn About DACCS content section -->
+<!-- Learn About DACCS title -->
+<div class="row pt-5">
 
     <div class="col-4"></div>
 
@@ -97,62 +100,105 @@
 
 </div>
 
+<!-- Learn About DACCS Carousel -->
+<div class="container-fluid">
+    <div id="marbleCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
 
-<!-- Learn About DACCS content section -->
-<div class="row pt-5">
+        <div class="carousel-inner ">
+          <button class="carousel-control-prev" type="button" data-bs-target="#marbleCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon fw-bold" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
 
-    <div class="col-lg-2"></div>
+            <div class="carousel-item active border">
+                <div class="col-8 col-sm-4">
+                    <a class="carousel-link" href="catalog.html">
+                        <img class="img-fluid" src="images/carousel/stac-catalog.png">
+                    </a>
+                        <div class="col-5 col-sm-4 px-3 my-3">
+                            <div class="carousel-left-caption carousel-text-background px-3 my-3 text-start">
+                                <h1><a class="carousel-link stretched-link" href="catalog.html">STAC Catalog</a></h1>
+                                <p>Some representative placeholder content for the third slide of this carousel.</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
 
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">Weaver</text>
-        <p>Create your workflows and use our software to execute them.</p>
-        <p><a class="btn btn-secondary" href="weaver.html">View details &raquo;</a></p>
+          <div class="carousel-item border">
+                <div class="col-8 col-sm-4">
+                    <a class="carousel-link" href="#">
+                        <img class="img-fluid" src="images/carousel/dev-environment-dusk-bg.png">
+                    </a>
+                    <div class="col-5 col-sm-4 px-3 my-3">
+                        <div class="carousel-left-caption carousel-text-background px-3 my-3 text-start">
+                            <h1><a class="carousel-link stretched-link" href="#">Dev Environment</a></h1>
+                            <p>Some representative placeholder content for the third slide of this carousel.</p>
+                        </div>
+                     </div>
+                </div>
+          </div>
+
+          <div class="carousel-item border">
+              <div class="col-8 col-sm-4">
+                  <a class="carousel-link" href="wps.html">
+                    <img class="img-fluid" src="images/carousel/remote-processing-graph-6249047.png">
+                  </a>
+                    <div class="col-5 col-sm-4 px-3 my-3">
+                        <div class="carousel-left-caption carousel-text-background px-3 my-3 text-start">
+                            <h1><a class="carousel-link stretched-link" href="wps.html">Remote Processing</a></h1>
+                            <p>Some representative placeholder content for the third slide of this carousel.</p>
+                        </div>
+                    </div>
+              </div>
+          </div>
+
+          <div class="carousel-item border">
+              <div class="col-8 col-sm-4">
+                  <a class="carousel-link" href="https://www.discourse.org/">
+                    <img class="img-fluid" src="images/carousel/community.png">
+                  </a>
+                <div class="col-5 col-sm-4 px-3 my-3">
+                    <div class="carousel-left-caption carousel-text-background px-3 my-3">
+                        <h1><a class="carousel-link stretched-link" href="https://www.discourse.org/">Community</a></h1>
+                        <p>Some representative placeholder content for the third slide of this carousel.</p>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="carousel-item border">
+              <div class="col-8 col-sm-4">
+                  <a class="carousel-link" target="_blank" href="/tutorials.html">
+                    <img class="img-fluid" src="images/carousel/tutorials.png">
+                  </a>
+                  <div class="col-5 col-sm-4 px-3 my-3">
+                      <div class="carousel-left-caption px-3 my-3 carousel-text-background text-start">
+                          <a class="carousel-link stretched-link" href="/tutorials.html">
+                            <h1>Tutorials</h1>
+                            <p>Some representative placeholder content for the third slide of this carousel.</p>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+        </div>
+
+           <button class="carousel-control-next" type="button" data-bs-target="#marbleCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+           </button>
+
+        </div>
     </div>
-
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">THREDDS Data Server</text>
-        <p>Let us worry about the data storage while you carry your work with you.</p>
-        <p><a class="btn btn-secondary" href="thredds.html">View details &raquo;</a></p>
-    </div>
-
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">Web Processing Services</text>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-            imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem.</p>
-        <p><a class="btn btn-secondary" href="wps.html">View details &raquo;</a></p>
-    </div>
-
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">Services</text>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-            imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem.</p>
-        <p><a class="btn btn-secondary" href="wps.html">View details &raquo;</a></p>
-    </div>
-
-    <div class="col-lg-2">
-
-    </div>
-</div><!-- End Learn About DACCS content section -->
+</div>
+<!-- End Learn About DACCS Carousel -->
+<!-- End Learn About DACCS content section -->
 
 <!-- Include pictures -->
 <div id="pictures"></div>
@@ -164,6 +210,31 @@
     </div>
 </div>
 
+
+<script>
+
+var myCarousel = document.querySelector('#marbleCarousel')
+var slides = document.querySelectorAll('.carousel .carousel-item')
+
+slides.forEach((el) => {
+    // number of slides per carousel-item
+    const minPerSlide = slides.length
+    let next = el.nextElementSibling
+
+    for (var i=1; i<minPerSlide; i++) {
+
+        if (!next) {
+            // wrap carousel by using first child
+            next = slides[0]
+        }
+
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+
+        next = next.nextElementSibling
+    }
+})
+</script>
 
 </body>
 </html>
