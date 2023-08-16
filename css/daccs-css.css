@@ -1,9 +1,9 @@
 /* For mobile phones: */
-[class*="wps-"] {
+[class*="wps-"]{
   width: 100%;
 }
 
-[class*="daccs-"] {
+[class*="daccs-"]{
   width: 100%;
 }
 
@@ -49,20 +49,6 @@
     .daccs-logo-node{
         width: 100%;
     }
-}
-
-/*Footer*/
-.footer {
-    font-size: 10px;
-}
-
-.logo-box {
-    max-height: 179px;
-}
-
-a.href-text {
-    color: black;
-    text-decoration: none;
 }
 
 /*WPS page*/
@@ -132,7 +118,7 @@ a.href-text {
 
 .carousel,
 .carousel-inner,
-.carousel-inner > .carousel-item {
+.carousel-inner > .carousel-item{
     overflow: hidden;
 }
 .carousel-inner > .carousel-item.active,
@@ -142,7 +128,7 @@ a.href-text {
     flex-wrap: nowrap;
 }
 
-.carousel-inner:before {
+.carousel-inner:before{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -153,7 +139,7 @@ a.href-text {
     background-color: #ffffff;
     z-index: 2;
 }
-.carousel-inner:after {
+.carousel-inner:after{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -165,55 +151,15 @@ a.href-text {
     z-index: 2;
 }
 
-.carousel-control-prev {
+.carousel-control-prev{
     z-index: 2000;
     left: 10%;
 }
 
-.carousel-control-next {
+.carousel-control-next{
     z-index: 2000;
     right: 10%;
 }
-
-
-/*Carousel CSS*/
-/*
-.carousel,
-.carousel-inner,
-.carousel-inner > .item {
-    overflow: hidden;
-}
-.carousel-inner:before {
-    position:absolute;
-    top:0;
-    bottom: 0;
-    right: 82%;
-    left: 0;
-    content:"";
-    display:block;
-    background-color: #fff;
-    z-index: 2;
-}
-.carousel-inner:after {
-    position:absolute;
-    top:0;
-    bottom:0;
-    right: 0;
-    left: 82%;
-    content:"";
-    display:block;
-    background-color:#fff;
-    z-index: 2;
-}
-
-.carousel-control.left, .carousel-control.right {
-    background: initial;
-    width: 30%;
-    color: #000;
-    z-index: 10;
-    top: -10px;
-}
-*/
 
 /*Menu*/
 .menu{
@@ -263,14 +209,34 @@ a.href-text {
   transition: transform 150ms ease-in-out;
 }
 
-.banner-image-overlay img { /* <= optional, for responsiveness */
+.banner-image-overlay img{ /* <= optional, for responsiveness */
    display: block;
    max-width: 80%;
    height: auto;
 }
 
-.banner-image-overlay svg {
+.banner-image-overlay svg{
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/*Footer*/
+.footer{
+    background-color: #659DBD;
+    font-size: 10px;
+}
+
+.footer-link{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.logo-box {
+    max-height: 179px;
+}
+
+a.href-text {
+    color: black;
+    text-decoration: none;
 }
