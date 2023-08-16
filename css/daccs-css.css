@@ -103,6 +103,7 @@ a.href-text {
 }
 
 .carousel-left-caption{
+    width: auto;
     position: absolute;
     bottom: 1.25rem;
     padding-top: 1.25rem;
@@ -111,6 +112,8 @@ a.href-text {
 }
 
 .carousel-centre-caption{
+    width: auto;
+    position: absolute;
     bottom: 1.25rem;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -133,7 +136,8 @@ a.href-text {
     overflow: hidden;
 }
 .carousel-inner > .carousel-item.active,
-.carousel-inner > .carousel-item-next {
+.carousel-inner > .carousel-item-next,
+.carousel-inner > .carousel-item-prev{
     display: flex;
     flex-wrap: nowrap;
 }
@@ -163,13 +167,53 @@ a.href-text {
 
 .carousel-control-prev {
     z-index: 2000;
-    left: 22%;
+    left: 10%;
 }
 
 .carousel-control-next {
     z-index: 2000;
-    right: 22%;
+    right: 10%;
 }
+
+
+/*Carousel CSS*/
+/*
+.carousel,
+.carousel-inner,
+.carousel-inner > .item {
+    overflow: hidden;
+}
+.carousel-inner:before {
+    position:absolute;
+    top:0;
+    bottom: 0;
+    right: 82%;
+    left: 0;
+    content:"";
+    display:block;
+    background-color: #fff;
+    z-index: 2;
+}
+.carousel-inner:after {
+    position:absolute;
+    top:0;
+    bottom:0;
+    right: 0;
+    left: 82%;
+    content:"";
+    display:block;
+    background-color:#fff;
+    z-index: 2;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background: initial;
+    width: 30%;
+    color: #000;
+    z-index: 10;
+    top: -10px;
+}
+*/
 
 /*Menu*/
 .menu{
