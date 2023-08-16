@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let marbleDataPath = '/datasets/banner.geojson';
 
+    // Display location markers on globe for the nodes in the network
+    // This feature currently does not display the marker large enough to identify the node.
+    // The marker is also too big for locations that are close together.  The markers obscure each other.
+    // Marker data is also hardcoded for the prototype phase and has not been linked to the node registry so it can be
+    // auto-updated.
+    // Code will be left commented here in case the feature will be further developed in the future.
+    /*
     // Generic marker
     const markerSvg = `<svg viewBox="-4 0 36 36">
     <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
@@ -31,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Map the node keys to the node array values
     nodeKeys.map(()=>(nodeArray))
-
+    */
     //Default colour scale
     //const colorScale = d3.scaleSequentialSqrt(d3.interpolateTurbo);
 
@@ -80,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (document.getElementById('banner'))
 
         // Add location markers for node locations OPTIONAL
+        // See comments about this feature above
         /*
         earth.htmlElementsData(nodeArray)
         earth.htmlElement(d => {
@@ -95,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return el;
         })
         */
+
     // Auto-rotate
     earth.controls().autoRotate = true;
     earth.controls().autoRotateSpeed = 0.35;
@@ -104,19 +113,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add clouds sphere OPTIONAL
     // Used to wrap Marble logo around globe
-    const CLOUDS_IMG_URL = 'images/banner/DACCS-Logo-Rectangle-Waves-Gradient.png'; // from https://github.com/turban/webgl-earth
-    const CLOUDS_ALT = 0.004;
-    const CLOUDS_ROTATION_SPEED = -0.006; // deg/frame
+    const DACCS_IMG_URL = 'images/banner/DACCS-Logo-Rectangle-Waves-Gradient.png'; // from https://github.com/turban/webgl-earth
+    const DACCS_ALT = 0.004;
+    const DACCS_ROTATION_SPEED = -0.006; // deg/frame
 
-    new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTexture => {
-      const clouds = new THREE.Mesh(
-        new THREE.SphereGeometry(earth.getGlobeRadius() * (1 + CLOUDS_ALT), 75, 75),
-        new THREE.MeshPhongMaterial({ map: cloudsTexture, transparent: false})
+    new THREE.TextureLoader().load(DACCS_IMG_URL, daccsTexture => {
+      const daccsLogo = new THREE.Mesh(
+        new THREE.SphereGeometry(earth.getGlobeRadius() * (1 + DACCS_ALT), 75, 75),
+        new THREE.MeshPhongMaterial({ map: daccsTexture, transparent: false})
       );
-      //earth.scene().add(clouds);
+      //earth.scene().add(daccsLogo);
 
       (function rotateClouds() {
-        clouds.rotation.y += CLOUDS_ROTATION_SPEED * Math.PI / 180;
+        daccsLogo.rotation.y += DACCS_ROTATION_SPEED * Math.PI / 180;
         requestAnimationFrame(rotateClouds);
       })();
       });
