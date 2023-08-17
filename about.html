@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/js/tools.js"></script>
+
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/d3"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+    <script src="/js/banner-animation.js"></script>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="/css/daccs-css.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+    <script src="/js/load_menu.js"></script>
+    <script src="/js/load_footer.js"></script>
+    <script src="/js/load_banner.js"></script>
+    <script src="/js/load_pictures.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Include menu -->
+<div id="menu"></div>
+<!-- end menu-->
+
+<!-- Include banner -->
+<div id="banner">
+    <div id="banner-text"></div>
+</div>
+<!-- end banner -->
+
+<div class="row pt-5"> <!-- Page title  -->
+    <div class="col-4"></div>
+    <div class="col-4  text-center">
+        <h1>About</h1>
+    </div>
+    <div class="col-4"></div>
+</div> <!-- End page title -->
+
+<!-- Start About section -->
+<div class="row m-2 mx-auto">
+    <div class="col-md-12 ">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-4 d-none d-lg-block">
+                <img src="images/usgs-xYtaNqihZHc-unsplash.jpg" width="100%"/>
+            </div>
+            <div class="col-8 p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--> </strong>
+                <h3 class="mb-0">Exec Team? </h3>
+                <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--> </div>
+                <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
+                <p><!-- Add text about the data catalog used for Marble--> </p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="row mb-2 mx-auto">
+    <div class="col-md-12 ">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-8 p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
+                <h3 class="mb-0">Marble Platform</h3>
+                <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
+
+                <p>Take a look at the tools used to manage and work with the Marble platform</p>
+
+                <div class="table-responsive">
+                   <table class="table table-borderless">
+                      <tbody>
+                        <tr>
+                            <td>
+                                <h5>Marble Project Website</h5>
+                                <p>The public face of the project.</p>
+
+                            </td>
+                            <td>
+                                  <h5>Node Registry</h5>
+
+                                  <p>Active Marble nodes will periodically retrieve this file<br>
+                                    and update their own local
+                                    databases with the <br> information contained within it.</p>
+
+                            </td>
+                             <td>
+                                <h5>Python Client</h5>
+
+                                <p>The library provides a pythonic interface to the <br> Marble network's central registry. </p>
+
+                            </td>
+                        </tr>
+
+                      <tr>
+                          <td>
+                              <div>
+                                    <a class="daccs-github-link" href="https://github.com/DACCS-Climate/daccs-website">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                              </div>
+                          </td>
+                          <td>
+                              <div>
+                                    <a class="daccs-github-link" href="https://github.com/DACCS-Climate/Marble-node-registry">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                              </div>
+
+                          </td>
+                          <td>
+                               <div>
+                                    <a class="daccs-github-link" href="https://github.com/DACCS-Climate/marble_client_python">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                               </div>
+
+                          </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-4 d-none d-lg-block">
+                <img class="img-fluid w-50"  src="https://daccs.cs.toronto.edu/logo"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2 mx-auto">
+    <div class="col-md-12 ">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-4 d-none d-lg-block">
+                <img class="img-fluid w-50" src="images/logos/birdhouse_logo.svg"/>
+            </div>
+            <div class="col-8 p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
+                <h3 class="mb-0">Birdhouse Deploy</h3>
+                <div class="mb-1 text-body-secondary">Meet the flock</div>
+                <div class="table-responsive">
+                   <table class="table table-borderless">
+                      <tbody>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h5>The Birdhouse</h5>
+                                    </div>
+                                    <div class="col-2">
+                                        <img src="/images/logos/noun-project/cropped/noun-birdhouse-cropped-4519095.svg">
+                                    </div>
+                                </div>
+
+                                <p>Scripts and
+                                    configurations to deploy the various birds and servers required for a full-fledged
+                                    production platform.
+                                </p>
+                               <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/birdhouse-deploy">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                               </div>
+                            </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Weaver</h5>
+                                <p><i>The nest builder</i></p>
+                                <p>An OGC-API flavored Execution Management Service (EMS) that allows the execution of workflows
+                                chaining various applications and Web Processing Services inputs and outputs.
+                                </p>
+                                <div>
+                                    <a class="daccs-github-link" href="https://github.com/crim-ca/weaver">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                               </div>
+                            </td>
+                            <td class="table-left-border">
+                              <h5>Magpie</h5>
+                              <p><i>The smart-bird</i></p>
+                              <p>A service for AuthN/AuthZ accessible via a RestAPI implemented with the Pyramid web framework.
+                              It allows you to manage User/Group/Resource/Permission with a postgres database.
+                              </p>
+                              <div>
+                                <a class="daccs-github-link" href="https://github.com/bird-house/Magpie">
+                                    <i class="fab fa-github "></i>GitHub
+                                </a>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                  <h5>Hummingbird</h5>
+                                  <p><i>Among the smallest of birds, hovering in mid-air, backwards or upside down</i></p>
+                                  <p>A Web Processing Service for metadata compliance checks used in the climate science community.</p>
+                                  <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/hummingbird">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                                  </div>
+                            </td>
+                            <td class="table-left-border">
+                                  <h5>Raven</h5>
+                                  <p><i>Plans for the future</i></p>
+                                  <p>Raven is an open source server project offering hydrological modeling and analysis
+                                      capabilities through the Web Processing Service (WPS) standard.
+                                      Raven processes can be embedded in a graphical user interface or accessed directly
+                                      from a programming environment.
+                                  </p>
+                                  <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/raven">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                                  </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                  <h5>Flying Pigeon</h5>
+                                  <p><i>Finds its way home over extremely long distances.</i></p>
+                                  <p>A server providing a sandbox and test environment for new Web Processing Services (OGC WPS).</p>
+                                  <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/flyingpigeon">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                                  </div>
+                            </td>
+                            <td class="table-left-border">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <h5>Finch</h5>
+                                    </div>
+                                    <div class="col-2 ">
+                                        <img class="bird-about-icon float-start" src="/images/logos/noun-project/cropped/noun-finch-no-branch-flipped-962354.svg">
+                                    </div>
+                                </div>
+
+                                  <p><i>Among the first to notice signs of change.</i></p>
+                                  <p>A Web Processing Service for Climate Indicators.</p>
+                                  <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/finch">
+                                        <i class="fab fa-github "></i>GitHub
+                                    </a>
+                                  </div>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row mb-2 mx-auto">
+    <div class="col-md-12 ">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-4 d-none d-lg-block">
+                <img src="images/usgs-7xF_CS4JC8c-unsplash.jpg" width="100%"/>
+            </div>
+            <div class="col-8 p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
+                <h3 class="mb-0">How to Host and Deploy node</h3>
+                <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
+                <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
+                <p><!-- Add text about the data catalog used for Marble--> </p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row mb-2 mx-auto">
+    <div class="col-md-12 ">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-4 d-none d-lg-block">
+                <img src="images/usgs-7xF_CS4JC8c-unsplash.jpg" width="100%"/>
+            </div>
+            <div class="col-8 p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
+                <h3 class="mb-0">Acknowledge Funding Agencies</h3>
+                <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
+                <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
+                <p><!-- Add text about the data catalog used for Marble--> </p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2 mx-auto">
+    <div class="col-md-12 ">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-4 d-none d-lg-block">
+                <img src="images/usgs-7xF_CS4JC8c-unsplash.jpg" width="100%"/>
+            </div>
+            <div class="col-8 p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
+                <h3 class="mb-0">Community</h3>
+                <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
+                <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
+                <p><!-- Add text about the data catalog used for Marble--> </p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End About section-->
+
+
+
+<!-- Include pictures -->
+<div id="pictures"></div>
+<!-- end pictures -->
+
+<!-- Start footer -->
+<div class="row">
+    <div class="container">
+        <div class="col-12" id="footer"></div>
+    </div>
+</div>
+<!-- End footer -->
+</body>
+</html>
