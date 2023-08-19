@@ -242,10 +242,22 @@ a.href-text {
 }
 
 /*About*/
+.about-background{
+    background-color: #F7F9FB;
+}
+
 .table-left-border{
     border-left: 1px solid;
 }
 
+.table-bottom-border{
+    border-bottom: 1px solid;
+}
+
 .bird-about-icon{
+    width: 30%;
+}
+
+.table-cell-width{
     width: 30%;
 }
