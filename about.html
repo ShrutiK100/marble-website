@@ -45,13 +45,13 @@
 <!-- Start About section -->
 <div class="row m-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative about-background">
             <div class="col-4 d-none d-lg-block">
-                <img src="images/usgs-xYtaNqihZHc-unsplash.jpg" width="100%"/>
+                <img class="img-fluid" src="images/marble-network-executive-committeev2.png"/>
             </div>
             <div class="col-8 p-4 d-flex flex-column position-static">
                 <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--> </strong>
-                <h3 class="mb-0">Exec Team? </h3>
+                <h3 class="mb-0">Executive Committee </h3>
                 <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--> </div>
                 <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
                 <p><!-- Add text about the data catalog used for Marble--> </p>
@@ -65,8 +65,8 @@
 
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col-8 p-4 d-flex flex-column position-static">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative about-background">
+            <div class="col-8 p-2 d-flex flex-column position-static">
                 <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
                 <h3 class="mb-0">Marble Platform</h3>
                 <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
@@ -82,18 +82,18 @@
                                 <p>The public face of the project.</p>
 
                             </td>
-                            <td>
+                            <td class="table-left-border">
                                   <h5>Node Registry</h5>
 
-                                  <p>Active Marble nodes will periodically retrieve this file<br>
+                                  <p>Active Marble nodes will periodically retrieve this file
                                     and update their own local
-                                    databases with the <br> information contained within it.</p>
+                                    databases with the information contained within it.</p>
 
                             </td>
-                             <td>
+                             <td class="table-left-border">
                                 <h5>Python Client</h5>
 
-                                <p>The library provides a pythonic interface to the <br> Marble network's central registry. </p>
+                                <p>The library provides a pythonic interface to the Marble network's central registry. </p>
 
                             </td>
                         </tr>
@@ -102,22 +102,22 @@
                           <td>
                               <div>
                                     <a class="daccs-github-link" href="https://github.com/DACCS-Climate/daccs-website">
-                                        <i class="fab fa-github "></i>GitHub
+                                        <i class="fab fa-github "></i> GitHub
                                     </a>
                               </div>
                           </td>
-                          <td>
+                          <td class="table-left-border">
                               <div>
                                     <a class="daccs-github-link" href="https://github.com/DACCS-Climate/Marble-node-registry">
-                                        <i class="fab fa-github "></i>GitHub
+                                        <i class="fab fa-github "></i> GitHub
                                     </a>
                               </div>
 
                           </td>
-                          <td>
+                          <td class="table-left-border">
                                <div>
                                     <a class="daccs-github-link" href="https://github.com/DACCS-Climate/marble_client_python">
-                                        <i class="fab fa-github "></i>GitHub
+                                        <i class="fab fa-github "></i> GitHub
                                     </a>
                                </div>
 
@@ -127,8 +127,8 @@
                     </table>
                 </div>
             </div>
-            <div class="col-4 d-none d-lg-block">
-                <img class="img-fluid w-50"  src="https://daccs.cs.toronto.edu/logo"/>
+            <div class="col-4 p-2  d-block d-lg-block">
+                <img class="img-fluid w-50 mx-auto d-block"  src="https://daccs.cs.toronto.edu/logo"/>
             </div>
         </div>
     </div>
@@ -136,8 +136,8 @@
 
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col-4 d-none d-lg-block">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative about-background">
+            <div class="col-4 d-block d-lg-block">
                 <img class="img-fluid w-50" src="images/logos/birdhouse_logo.svg"/>
             </div>
             <div class="col-8 p-4 d-flex flex-column position-static">
@@ -145,31 +145,26 @@
                 <h3 class="mb-0">Birdhouse Deploy</h3>
                 <div class="mb-1 text-body-secondary">Meet the flock</div>
                 <div class="table-responsive">
-                   <table class="table table-borderless">
-                      <tbody>
-                        <tr>
-                            <td>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <h5>The Birdhouse</h5>
-                                    </div>
-                                    <div class="col-2">
-                                        <img src="/images/logos/noun-project/cropped/noun-birdhouse-cropped-4519095.svg">
-                                    </div>
-                                </div>
-
+                   <table class="table table-borderless table-striped about-background">
+                       <thead>
+                       <tr class="table-bottom-border">
+                            <td colspan="2" class="align-text-bottom" >
+                                <h5 class="">The Birdhouse</h5>
                                 <p>Scripts and
                                     configurations to deploy the various birds and servers required for a full-fledged
                                     production platform.
                                 </p>
                                <div>
                                     <a class="daccs-github-link" href="https://github.com/bird-house/birdhouse-deploy">
-                                        <i class="fab fa-github "></i>GitHub
+                                        <i class="fab fa-github "></i> GitHub
                                     </a>
                                </div>
                             </td>
-                            <td> </td>
+
                         </tr>
+                       </thead>
+                      <tbody>
+
                         <tr>
                             <td>
                                 <h5>Weaver</h5>
@@ -179,7 +174,7 @@
                                 </p>
                                 <div>
                                     <a class="daccs-github-link" href="https://github.com/crim-ca/weaver">
-                                        <i class="fab fa-github "></i>GitHub
+                                        <i class="fab fa-github "></i> GitHub
                                     </a>
                                </div>
                             </td>
@@ -191,7 +186,7 @@
                               </p>
                               <div>
                                 <a class="daccs-github-link" href="https://github.com/bird-house/Magpie">
-                                    <i class="fab fa-github "></i>GitHub
+                                    <i class="fab fa-github "></i> GitHub
                                 </a>
                               </div>
                             </td>
@@ -203,7 +198,7 @@
                                   <p>A Web Processing Service for metadata compliance checks used in the climate science community.</p>
                                   <div>
                                     <a class="daccs-github-link" href="https://github.com/bird-house/hummingbird">
-                                        <i class="fab fa-github "></i>GitHub
+                                        <i class="fab fa-github "></i> GitHub
                                     </a>
                                   </div>
                             </td>
@@ -217,39 +212,25 @@
                                   </p>
                                   <div>
                                     <a class="daccs-github-link" href="https://github.com/bird-house/raven">
-                                        <i class="fab fa-github "></i>GitHub
+                                        <i class="fab fa-github "></i> GitHub
                                     </a>
                                   </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                  <h5>Flying Pigeon</h5>
-                                  <p><i>Finds its way home over extremely long distances.</i></p>
-                                  <p>A server providing a sandbox and test environment for new Web Processing Services (OGC WPS).</p>
-                                  <div>
-                                    <a class="daccs-github-link" href="https://github.com/bird-house/flyingpigeon">
-                                        <i class="fab fa-github "></i>GitHub
-                                    </a>
-                                  </div>
+                                <h5>Finch</h5>
+                                <p><i>Among the first to notice signs of change.</i></p>
+                                <p>A Web Processing Service for Climate Indicators.</p>
+                                <div>
+                                   <a class="daccs-github-link" href="https://github.com/bird-house/finch">
+                                       <i class="fab fa-github "></i> GitHub
+                                   </a>
+                                 </div>
                             </td>
                             <td class="table-left-border">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h5>Finch</h5>
-                                    </div>
-                                    <div class="col-2 ">
-                                        <img class="bird-about-icon float-start" src="/images/logos/noun-project/cropped/noun-finch-no-branch-flipped-962354.svg">
-                                    </div>
-                                </div>
 
-                                  <p><i>Among the first to notice signs of change.</i></p>
-                                  <p>A Web Processing Service for Climate Indicators.</p>
-                                  <div>
-                                    <a class="daccs-github-link" href="https://github.com/bird-house/finch">
-                                        <i class="fab fa-github "></i>GitHub
-                                    </a>
-                                  </div>
+
                             </td>
                         </tr>
                       </tbody>
@@ -263,16 +244,56 @@
 
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative about-background">
             <div class="col-4 d-none d-lg-block">
-                <img src="images/usgs-7xF_CS4JC8c-unsplash.jpg" width="100%"/>
+                <img class="img-fluid" src="images/cloud-5469737.jpg"/>
             </div>
             <div class="col-8 p-4 d-flex flex-column position-static">
                 <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
-                <h3 class="mb-0">How to Host and Deploy node</h3>
+                <h3 class="mb-0">Host and Deploy Your Own Node</h3>
                 <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
-                <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
-                <p><!-- Add text about the data catalog used for Marble--> </p>
+
+
+
+                 <table class="table table-striped table-borderless about-background">
+                       <thead> </thead>
+                      <tbody>
+
+                          <tr>
+                            <td>
+                                <p>Start with a general deployment .</p>
+                            </td>
+                           <td>
+                                 <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/birdhouse-deploy/blob/master/birdhouse/README.rst">
+                                        <i class="fab fa-github "></i> Deploy on Docker or Vagrant
+                                    </a>
+                               </div>
+                           </td>
+
+                        </tr>
+                      <tr>
+                          <td>
+                                <p>Then add any extra components you want.</p>
+                            </td>
+                           <td>
+                                 <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/birdhouse-deploy/blob/master/birdhouse/components/README.rst">
+                                        <i class="fab fa-github "></i> Extra Core Components
+                                    </a>
+                               </div>
+                               <div>
+                                    <a class="daccs-github-link" href="https://github.com/bird-house/birdhouse-deploy/blob/master/birdhouse/optional-components/README.rst">
+                                        <i class="fab fa-github "></i> Optional Components
+                                    </a>
+                               </div>
+                           </td>
+
+                      </tr>
+                      </tbody>
+                 </table>
+
+
 
             </div>
 
@@ -280,40 +301,53 @@
     </div>
 </div>
 
-
-
-
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
         <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col-4 d-none d-lg-block">
-                <img src="images/usgs-7xF_CS4JC8c-unsplash.jpg" width="100%"/>
-            </div>
-            <div class="col-8 p-4 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
-                <h3 class="mb-0">Acknowledge Funding Agencies</h3>
-                <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
-                <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
-                <p><!-- Add text about the data catalog used for Marble--> </p>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="row mb-2 mx-auto">
-    <div class="col-md-12 ">
-        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col-4 d-none d-lg-block">
-                <img src="images/usgs-7xF_CS4JC8c-unsplash.jpg" width="100%"/>
+                <img class="img-fluid" src="images/social-media-5187243.png"/>
             </div>
             <div class="col-8 p-4 d-flex flex-column position-static">
                 <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
                 <h3 class="mb-0">Community</h3>
                 <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
-                <p class="mb-auto"><!-- Add text about the data catalog used for Marble--> </p>
-                <p><!-- Add text about the data catalog used for Marble--> </p>
+                <p>Join our online community of climate researchers and progressive thinkers.</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2 mx-auto">
+    <div class="col-md-12 ">
+        <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative about-background">
+            <div class="col-4 d-none d-lg-block">
+                <img src="images/usgs-7xF_CS4JC8c-unsplash.jpg" width="100%"/>
+            </div>
+            <div class="col-8 p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></strong>
+                <h3 class="mb-0">Acknowledgements</h3>
+                <div class="mb-1 text-body-secondary"><!-- Add text about the data catalog used for Marble OPTIONAL LINE--></div>
+
+                <p>The Marble Climate Platform was made possible with funding from the following agencies: </p>
+
+                  <table class="table table-striped table-borderless about-background">
+                       <thead> </thead>
+                      <tbody>
+
+                          <tr>
+                            <td>
+                                <p><!--Add funding agency here--></p>
+                            </td>
+                        </tr>
+                      <tr>
+                          <td>
+                            <p><!--Add funding agency here--></p>
+                          </td>
+                      </tr>
+                      </tbody>
+                 </table>
 
             </div>
 
