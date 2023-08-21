@@ -51,6 +51,12 @@
     }
 }
 
+/*Informational Pages*/
+/*Puts off-white colour as background of all information sections*/
+.info-background{
+    background-color: #F7F9FB;
+}
+
 /*WPS page*/
 .daccs-docs-link{
     color: inherit;
@@ -60,10 +66,6 @@
 .daccs-github-link{
     color: inherit;
     text-decoration: none;
-}
-
-.bird-background{
-    background-color: #F7F9FB;
 }
 
 /*Carousel*/
