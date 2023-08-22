@@ -18,14 +18,20 @@ a.href-text {
 
 
 /*Node Page*/
-.background-img-fluid{
-    width: 100%;
-    height: auto;
+.foreground-img-position{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    /*left: 40%;*/
 }
 
-.node-background-img-blur{
-    background-color: #3C3E3F;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    -moz-filter: blur(8px);
+.foreground-img-blur{
+    width: 100%;
+    height: 100%;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    -moz-backdrop-filter: blur(8px);
+    -o-backdrop-filter: blur(8px);
+    -ms-backdrop-filter: blur(8px);
 }
