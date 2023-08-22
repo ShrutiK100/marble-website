@@ -63,13 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 background_elem.style.backgroundImage="url(" + link.href + ")";
                 background_elem.style.backgroundRepeat = "no-repeat";
                 background_elem.style.backgroundSize = "cover";
+                background_elem.style.width = "100%";
+                background_elem.style.height = "100%";
 
-                const background_icon_img = document.createElement("img");
+                const background_icon_img = document.getElementById("node-overlay-img")
                 background_icon_img.setAttribute("src", link.href);
-                //background_icon_img.className = "background-img-fluid";
-                background_elem.appendChild(background_icon_img);
-
-
+                background_icon_img.classList.add("img-fluid", "foreground-img-position")
             }
         })
     });
