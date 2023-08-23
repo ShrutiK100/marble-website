@@ -4,23 +4,51 @@ const converters = {
     "location": (val) => `latitude: ${val.latitude} longitude: ${val.longitude}`,
     "services": (val) => {
         const template = document.createElement("template");
+        const services_table_div = document.getElementById("servicesTable");
+        const table = document.createElement("table");
+        const table_head = document.createElement("thead")
+        const table_body = document.createElement("tbody")
+        const table_row = document.createElement("tr")
+        const table_cell_service = document.createElement("td")
+        const table_cell_description = document.createElement("td")
+        table.classList.add("table", "table-striped");
+        table.appendChild(table_head);
+        table.appendChild(table_body);
+
         val.forEach( service => {
             service.links.forEach(link => {
                 console.log(val.name)
                 let name;
+                let description;
                 if (link.rel === "service") {
                     name = service.name;
+                    description = service.description;
+                    table_body.appendChild(table_row);
+                    table_row.appendChild(table_cell_service);
+                    table_row.appendChild(table_cell_description);
+                    table_cell_description.textContent = description;
                 } else if (link.rel === "service-doc") {
                     name = `${service.name} documentation`;
                 } else {
                     name = `${service.name} ${link.rel}`;
                 }
                 const link_elem = document.createElement("a");
+                console.log(service.links)
                 Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value))
                 link_elem.innerText = name;
                 template.content.appendChild(link_elem);
                 template.content.appendChild(document.createElement("br"))
+
+
+
+                table_cell_service.appendChild(link_elem);
+
+
+
+
+
             })
+            services_table_div.appendChild(table);
         })
         return template.content;
     }
@@ -41,11 +69,27 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             Object.entries(node_info).forEach(([key, val]) => {
                 const elem = document.getElementById(key);
+
                 if (elem !== null) {
-                    elem.append((converters[key] || converters["_default"])(val));
+
+                    switch(key){
+                        case "affiliation":
+                            let title_affiliation = document.createElement("h2");
+                            title_affiliation.textContent = val;
+                            elem.append((converters[key] || converters["_default"])(title_affiliation));
+
+                        break;
+                        default:
+                            elem.append((converters[key] || converters["_default"])(val));
+                    }
+
+
+
                 }
             })
         }
+
+
         node_info.links.forEach(link => {
             if (link.rel === "service") {
                 const elem = document.getElementById("url");
@@ -66,9 +110,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 background_elem.style.width = "100%";
                 background_elem.style.height = "100%";
 
+
                 const background_icon_img = document.getElementById("node-overlay-img")
                 background_icon_img.setAttribute("src", link.href);
-                background_icon_img.classList.add("img-fluid", "foreground-img-position")
+
+                switch(node_name) {
+                  case "PAVICS":
+                    background_icon_img.classList.add("img-fluid","foreground-pavics-img-position");
+
+                    break;
+                  case "UofT":
+                    background_icon_img.classList.add("img-fluid","foreground-uoft-img-position");
+
+                    break;
+                  case "Hirondelle":
+                    background_icon_img.classList.add("img-fluid","foreground-hirondelle-img-position");
+                  default:
+                    background_icon_img.classList.add("img-fluid");
+                }
+
+
             }
         })
     });
