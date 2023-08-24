@@ -48,36 +48,63 @@
   </div>
 
 
-<div class="container ">
-    <div class="row  g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
-        <div class="col-7 p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success"></strong>
-            <h2 ><div id="name" class="mb-0"></div></h2>
-            <div class="mb-1 text-body-secondary">
-                <!--H2 title-->
-                <div id="affiliation"></div>
-            </div>
-            <p class="mb-auto">
-                Date Added:<div id="date-added"></div>  Status: <div id="status"></div>
-            </p>
-            <div id="servicesTable"></div>
-            <p>
+<div class="container">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
+            <div class="col-7 p-4 d-flex flex-column position-static">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-10">
 
-            </p>
+                             <!--H1 title -->
+                            <div id="name" class="mb-0"></div>
+
+                            <!--H3 title-->
+                            <div id="affiliation" class="mb-1 text-body-secondary"></div>
+
+                            <div id="description"></div>
+                            <div>
+
+                                <p>Date Added: <span id="date_added"></span></p>
+                                <p>Status: <span id="status"></span></p>
+                                <p>Contact: <span id="contact_email"></span></p>
+                                <p>Version: <span id="node_version"></span></p>
 
 
-            <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-4 d-block d-lg-block offset-1 overflow-hidden shadow-lg">
-            <div id="background-icon">
-                <div id="node-overlay-container" class="foreground-img-blur mb-auto">
-                    <img id="node-overlay-img" >
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-2">
+                            <div id="title-icon">
+                                    <img id="title_icon_img" >
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                        <div id="servicesTable"></div>
+                        </div>
+                    </div>
+                    </div>
+
+
+
+                <a href="#">Continue reading</a>
             </div>
 
-
-        </div>
+            <div class="col-4 d-block d-lg-block offset-1 overflow-hidden shadow-lg ">
+                <div id="background-icon">
+                    <div id="node-overlay-container" class="foreground-img-blur mb-auto">
+                        <!--Used to set sharp logo overlayed on blurred logo.  May be used in future-->
+                        <!--<img id="node-overlay-img" >-->
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
 
