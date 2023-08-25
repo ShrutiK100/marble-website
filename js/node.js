@@ -4,73 +4,92 @@ const converters = {
     "location": (val) => `latitude: ${val.latitude} longitude: ${val.longitude}`,
     "services": (val) => {
         const template = document.createElement("template");
-        const services_table_div = document.getElementById("servicesTable");
-        const table = document.createElement("table");
+        const services_table = document.createElement("table");
         const table_head = document.createElement("thead")
+        const table_header_service = document.createElement("td")
+        const table_header_description = document.createElement("td")
+        const table_header_documentation = document.createElement("td")
+        const table_header_other = document.createElement("td")
         const table_body = document.createElement("tbody")
-        const table_row = document.createElement("tr")
-        const table_cell_service = document.createElement("td")
-        const table_cell_description = document.createElement("td")
-        const table_cell_documentation = document.createElement("td")
-        table.classList.add("table", "table-striped");
-        table.appendChild(table_head);
-        table.appendChild(table_body);
+
+        services_table.classList.add("table", "table-striped", "table-bordered");
+        services_table.appendChild(table_head);
+        table_head.appendChild(table_header_service);
+        table_head.appendChild(table_header_documentation);
+        table_head.appendChild(table_header_description);
+        table_head.appendChild(table_header_other);
+
+
+
+        table_header_service.innerText = "Service";
+        table_header_description.innerText = "Description";
+        table_header_documentation.innerText = "Documentation";
+        table_header_other.innerText = "Other";
+
+        services_table.appendChild(table_body);
 
         val.forEach( service => {
+            const table_row = document.createElement("tr")
+            table_body.appendChild(table_row);
+
             service.links.forEach(link => {
-                console.log(val.name)
+
+                const table_cell_service = document.createElement("td")
+                const table_cell_description = document.createElement("td")
+                const table_cell_documentation = document.createElement("td")
+                const table_cell_other = document.createElement("td")
+                const table_cell_blank = document.createElement("td")
+
+                const link_elem = document.createElement("a");
+
                 let name;
                 let description;
+
                 if (link.rel === "service") {
                     name = service.name;
+
+                } else if (link.rel === "service-desc" ) {
+                    name = `${service.name} description`;
                     description = service.description;
-                    table_body.appendChild(table_row);
-                    table_row.appendChild(table_cell_service);
-                    table_row.appendChild(table_cell_description);
-                    table_cell_description.textContent = description;
-                } else if (link.rel === "service-doc") {
+
+                }else if (link.rel === "service-doc") {
                     name = `${service.name} documentation`;
-                } else {
+
+                }else {
                     name = `${service.name} ${link.rel}`;
                 }
-                const link_elem = document.createElement("a");
-                //console.log(service.links)
-                Object.entries(link).forEach(([attr, value]) => {
-                    link_elem.setAttribute(attr, value);
 
-                })
+                Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value))
 
-                    link_elem.innerText = name;
-                    template.content.appendChild(link_elem);
-                    template.content.appendChild(document.createElement("br"))
+                link_elem.innerText = name;
 
-                    table_body.appendChild(table_row);
+                if(link_elem.rel === "service"){
                     table_row.appendChild(table_cell_service);
-                    table_row.appendChild(table_cell_description);
-                    table_row.appendChild(table_cell_documentation);
-                    table_cell_description.textContent = description;
                     table_cell_service.appendChild(link_elem);
-
-//Package into a table in this function
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                }else if(link_elem.rel === "service-doc"){
+                    table_row.appendChild(table_cell_documentation);
+                    table_cell_documentation.appendChild(link_elem);
+                }else if(link_elem.rel === "service-desc"){
+                    const descriptionTextNode = document.createTextNode(description);
+                    table_row.appendChild(table_cell_description);
+                    table_cell_description.appendChild(descriptionTextNode);
+                    table_cell_description.appendChild(document.createElement("br"))
+                    table_cell_description.appendChild(link_elem);
+                }else{
+                    table_row.appendChild(table_cell_other);
+                    table_cell_other.appendChild(link_elem)
+                }
+                //Attempt to add blank cells to fill in row
+                /*else if(link_elem.rel === "conformance"){
+                    table_row.appendChild(table_cell_other);
+                    table_cell_other.appendChild(link_elem)
+                }
+                else{
+                    table_row.appendChild(table_cell_blank);
+                }*/
             })
-            services_table_div.appendChild(table);
         })
-        return template.content;
+        return services_table;
     }
 }
 
@@ -91,54 +110,54 @@ document.addEventListener("DOMContentLoaded", function () {
                 const elem = document.getElementById(key);
 
                 if (elem !== null) {
-                    console.log(key)
 
                     switch(key){
-                        // Make case for services table here and append to a div
                         case "affiliation":
                             let title_affiliation = document.createElement("h3");
                             title_affiliation.textContent = val;
                             elem.append((converters[key] || converters["_default"])(title_affiliation));
-
                         break;
 
                        case "description":
                             let node_description_title = document.createElement("h5");
                             node_description_title.textContent = val;
                             elem.append((converters[key] || converters["_default"])(node_description_title));
-
                         break;
 
                         case "last_updated":
                             let date_added = document.getElementById("date_added");
                             date_added.textContent = val;
-                            elem.append((converters[key] || converters["_default"])(val));
-
+                            //elem.append((converters[key] || converters["_default"])(val));
                         break;
 
                         case "contact":
                             let contact_email = document.getElementById("contact_email");
                             contact_email.textContent = val;
-                            elem.append((converters[key] || converters["_default"])(val));
+                            //elem.append((converters[key] || converters["_default"])(val));
                         break;
 
-                        case "contact":
+                        case "version":
                             let node_version = document.getElementById("node_version");
                             node_version.textContent = val;
-                            elem.append((converters[key] || converters["_default"])(val));
+                            //elem.append((converters[key] || converters["_default"])(val));
+                        break;
+
+                        case "services":
+                            //let services_table = document.getElementById("servicesTable");
+                            //link_test.textContent = val;
+
+                            elem.append((converters[key] || converters["services"])(val));
                         break;
 
                         default:
+
                             elem.append((converters[key] || converters["_default"])(val));
                     }
-
-
 
                 }
             })
         }
 
-        console.log(node_info);
         node_info.links.forEach(link => {
             if (link.rel === "service") {
                 const elem = document.getElementById("url");
@@ -182,20 +201,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     background_icon_img.classList.add("img-fluid");
                 }
                 */
-
-
             }
-
-
         })
 
         const node_name_markup = document.createElement("h2");
         const node_title = document.getElementById("name");
         node_name_markup.textContent = node_name;
         node_title.appendChild(node_name_markup)
-
-
-
-
     });
 })
