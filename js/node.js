@@ -3,23 +3,28 @@ const converters = {
     "last_updated": (val) => new Date(val).toLocaleDateString("en-GB"),
     "location": (val) => `latitude: ${val.latitude} longitude: ${val.longitude}`,
     "services": (val) => {
-        const template = document.createElement("template");
+        //Create table for services information
         const services_table = document.createElement("table");
-        const table_head = document.createElement("thead")
-        const table_header_service = document.createElement("td")
-        const table_header_description = document.createElement("td")
-        const table_header_documentation = document.createElement("td")
-        const table_header_other = document.createElement("td")
-        const table_body = document.createElement("tbody")
+        const table_head = document.createElement("thead");
+        const table_header_row = document.createElement("tr");
+        const table_header_service = document.createElement("th");
+        const table_header_description = document.createElement("th");
+        const table_header_documentation = document.createElement("th");
+        const table_header_other = document.createElement("th");
+        const table_body = document.createElement("tbody");
 
-        services_table.classList.add("table", "table-striped", "table-bordered");
+        services_table.classList.add("table", "table-light");
         services_table.appendChild(table_head);
-        table_head.appendChild(table_header_service);
-        table_head.appendChild(table_header_documentation);
-        table_head.appendChild(table_header_description);
-        table_head.appendChild(table_header_other);
+        table_head.appendChild(table_header_row);
+        table_header_row.appendChild(table_header_service);
+        table_header_row.appendChild(table_header_documentation);
+        table_header_row.appendChild(table_header_description);
+        table_header_row.appendChild(table_header_other);
 
-
+        table_header_service.setAttribute("scope", "col")
+        table_header_documentation.setAttribute("scope", "col")
+        table_header_description.setAttribute("scope", "col")
+        table_header_other.setAttribute("scope", "col")
 
         table_header_service.innerText = "Service";
         table_header_description.innerText = "Description";
@@ -30,6 +35,8 @@ const converters = {
 
         val.forEach( service => {
             const table_row = document.createElement("tr")
+            //Add border to row to make it look like row has max amount of cells
+            table_row.classList.add("border-bottom")
             table_body.appendChild(table_row);
 
             service.links.forEach(link => {
@@ -38,7 +45,6 @@ const converters = {
                 const table_cell_description = document.createElement("td")
                 const table_cell_documentation = document.createElement("td")
                 const table_cell_other = document.createElement("td")
-                const table_cell_blank = document.createElement("td")
 
                 const link_elem = document.createElement("a");
 
@@ -47,22 +53,20 @@ const converters = {
 
                 if (link.rel === "service") {
                     name = service.name;
-
                 } else if (link.rel === "service-desc" ) {
                     name = `${service.name} description`;
                     description = service.description;
-
                 }else if (link.rel === "service-doc") {
                     name = `${service.name} documentation`;
-
                 }else {
                     name = `${service.name} ${link.rel}`;
                 }
 
                 Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value))
-
                 link_elem.innerText = name;
 
+                //Fill in columns with links and information for each service, service documentation
+                // and service description
                 if(link_elem.rel === "service"){
                     table_row.appendChild(table_cell_service);
                     table_cell_service.appendChild(link_elem);
@@ -79,14 +83,6 @@ const converters = {
                     table_row.appendChild(table_cell_other);
                     table_cell_other.appendChild(link_elem)
                 }
-                //Attempt to add blank cells to fill in row
-                /*else if(link_elem.rel === "conformance"){
-                    table_row.appendChild(table_cell_other);
-                    table_cell_other.appendChild(link_elem)
-                }
-                else{
-                    table_row.appendChild(table_cell_blank);
-                }*/
             })
         })
         return services_table;
@@ -114,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     switch(key){
                         case "affiliation":
                             let title_affiliation = document.createElement("h3");
-                            title_affiliation.textContent = val;
+                            title_affiliation.textContent = "@ " + val;
                             elem.append((converters[key] || converters["_default"])(title_affiliation));
                         break;
 
@@ -125,30 +121,26 @@ document.addEventListener("DOMContentLoaded", function () {
                         break;
 
                         case "last_updated":
-                            let date_added = document.getElementById("date_added");
-                            date_added.textContent = val;
-                            //elem.append((converters[key] || converters["_default"])(val));
+                            elem.append((converters[key] || converters["last_updated"])(val));
                         break;
 
                         case "contact":
-                            let contact_email = document.getElementById("contact_email");
-                            contact_email.textContent = val;
-                            //elem.append((converters[key] || converters["_default"])(val));
+                            let contact_email = document.getElementById("contact");
+                            elem.append((converters[key] || converters["_default"])(val));
                         break;
 
                         case "version":
-                            let node_version = document.getElementById("node_version");
+                            let node_version = document.getElementById("version");
                             node_version.textContent = val;
-                            //elem.append((converters[key] || converters["_default"])(val));
+                            elem.append((converters[key] || converters["_default"])(val));
                         break;
 
                         case "services":
-                            //let services_table = document.getElementById("servicesTable");
-                            //link_test.textContent = val;
-
                             elem.append((converters[key] || converters["services"])(val));
                         break;
 
+                        case "url":
+                            elem.append((converters[key] || converters["_default"])(val));
                         default:
 
                             elem.append((converters[key] || converters["_default"])(val));
@@ -162,14 +154,15 @@ document.addEventListener("DOMContentLoaded", function () {
             if (link.rel === "service") {
                 const elem = document.getElementById("url");
                 const link_elem = document.createElement("a");
+                let small_logo_link = document.getElementById("small-logo-link");
+                small_logo_link.href = link.href;
+
                 Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value));
                 link_elem.innerText = link.href;
                 elem.appendChild(link_elem)
             } else if (link.rel === "icon") {
-                const elem = document.getElementById("icon");
                 const icon_img = document.createElement("img")
                 icon_img.setAttribute("src", link.href)
-                elem.appendChild(icon_img)
 
                 const background_elem = document.getElementById("background-icon");
                 background_elem.style.backgroundImage="url(" + link.href + ")";
@@ -179,8 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 background_elem.style.height = "100%";
                 background_elem.classList.add("info-background");
 
-                const title_icon_img = document.getElementById("title_icon_img")
-                title_icon_img.classList.add("img-fluid", "mx-auto", "d-block");
+                const title_icon_img = document.getElementById("title-icon-img")
+                title_icon_img.classList.add("img-fluid", "d-block", "float-end");
                 title_icon_img.setAttribute("src", link.href);
 
                 //Used to position the sharp logo overlayed on the blurred logo.
@@ -204,9 +197,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
 
+        const page_title_div = document.getElementById('page_title_div');
+        const page_title_markup = document.createElement("h1")
+        let page_title = "You Are Viewing the " + node_name + " Node";
+        page_title_markup.textContent = page_title
+        page_title_div.appendChild(page_title_markup);
+
         const node_name_markup = document.createElement("h2");
-        const node_title = document.getElementById("name");
+        const node_name_title = document.getElementById("name");
         node_name_markup.textContent = node_name;
-        node_title.appendChild(node_name_markup)
+        node_name_title.appendChild(node_name_markup)
+
     });
 })
