@@ -1,5 +1,21 @@
 const converters = {
     "_default": (val) => val,
+    "affiliation": (val) => { console.log(val)
+        let title_affiliation = document.createElement("h3");
+        title_affiliation.textContent = "@ " + val;
+        return title_affiliation;
+    },
+    "description": (val) =>{
+        let node_description_title = document.createElement("h5");
+        node_description_title.textContent = val;
+        return node_description_title;
+    },
+    "contact": (val) =>{
+        let contact_email = document.createElement("a");
+        contact_email.href = "mailto:" + val;
+        contact_email.innerText = val;
+        return contact_email;
+    },
     "last_updated": (val) => new Date(val).toLocaleDateString("en-GB"),
     "location": (val) => `latitude: ${val.latitude} longitude: ${val.longitude}`,
     "services": (val) => {
@@ -10,26 +26,31 @@ const converters = {
         const table_header_service = document.createElement("th");
         const table_header_description = document.createElement("th");
         const table_header_documentation = document.createElement("th");
-        const table_header_other = document.createElement("th");
+        //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
+        //const table_header_other = document.createElement("th");
         const table_body = document.createElement("tbody");
 
-        services_table.classList.add("table", "table-light");
+        services_table.classList.add("table");
         services_table.appendChild(table_head);
         table_head.appendChild(table_header_row);
         table_header_row.appendChild(table_header_service);
         table_header_row.appendChild(table_header_documentation);
         table_header_row.appendChild(table_header_description);
-        table_header_row.appendChild(table_header_other);
+
+         //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
+        //table_header_row.appendChild(table_header_other);
 
         table_header_service.setAttribute("scope", "col")
         table_header_documentation.setAttribute("scope", "col")
         table_header_description.setAttribute("scope", "col")
-        table_header_other.setAttribute("scope", "col")
+        //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
+        //table_header_other.setAttribute("scope", "col")
 
         table_header_service.innerText = "Service";
         table_header_description.innerText = "Description";
         table_header_documentation.innerText = "Documentation";
-        table_header_other.innerText = "Other";
+        //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
+        //table_header_other.innerText = "Other";
 
         services_table.appendChild(table_body);
 
@@ -44,7 +65,8 @@ const converters = {
                 const table_cell_service = document.createElement("td")
                 const table_cell_description = document.createElement("td")
                 const table_cell_documentation = document.createElement("td")
-                const table_cell_other = document.createElement("td")
+                //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
+                //const table_cell_other = document.createElement("td")
 
                 const link_elem = document.createElement("a");
 
@@ -54,12 +76,13 @@ const converters = {
                 if (link.rel === "service") {
                     name = service.name;
                 } else if (link.rel === "service-desc" ) {
-                    name = `${service.name} description`;
+                    //name = `${service.name} description`;
+                    name="";
                     description = service.description;
                 }else if (link.rel === "service-doc") {
-                    name = `${service.name} documentation`;
+                    name = "Documentation";
                 }else {
-                    name = `${service.name} ${link.rel}`;
+                    name = `${link.rel}`;
                 }
 
                 Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value))
@@ -80,8 +103,9 @@ const converters = {
                     table_cell_description.appendChild(document.createElement("br"))
                     table_cell_description.appendChild(link_elem);
                 }else{
-                    table_row.appendChild(table_cell_other);
-                    table_cell_other.appendChild(link_elem)
+                    //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
+                    //table_row.appendChild(table_cell_other);
+                    //table_cell_other.appendChild(link_elem);
                 }
             })
         })
@@ -106,46 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const elem = document.getElementById(key);
 
                 if (elem !== null) {
-
-                    switch(key){
-                        case "affiliation":
-                            let title_affiliation = document.createElement("h3");
-                            title_affiliation.textContent = "@ " + val;
-                            elem.append((converters[key] || converters["_default"])(title_affiliation));
-                        break;
-
-                       case "description":
-                            let node_description_title = document.createElement("h5");
-                            node_description_title.textContent = val;
-                            elem.append((converters[key] || converters["_default"])(node_description_title));
-                        break;
-
-                        case "last_updated":
-                            elem.append((converters[key] || converters["last_updated"])(val));
-                        break;
-
-                        case "contact":
-                            let contact_email = document.getElementById("contact");
-                            elem.append((converters[key] || converters["_default"])(val));
-                        break;
-
-                        case "version":
-                            let node_version = document.getElementById("version");
-                            node_version.textContent = val;
-                            elem.append((converters[key] || converters["_default"])(val));
-                        break;
-
-                        case "services":
-                            elem.append((converters[key] || converters["services"])(val));
-                        break;
-
-                        case "url":
-                            elem.append((converters[key] || converters["_default"])(val));
-                        default:
-
-                            elem.append((converters[key] || converters["_default"])(val));
-                    }
-
+                    elem.append((converters[key] || converters["_default"])(val));
                 }
             })
         }
@@ -175,25 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 const title_icon_img = document.getElementById("title-icon-img")
                 title_icon_img.classList.add("img-fluid", "d-block", "float-end");
                 title_icon_img.setAttribute("src", link.href);
-
-                //Used to position the sharp logo overlayed on the blurred logo.
-                //This effect may be used in the future
-                /*
-                switch(node_name) {
-                  case "PAVICS":
-                    background_icon_img.classList.add("img-fluid","foreground-pavics-img-position");
-
-                    break;
-                  case "UofT":
-                    background_icon_img.classList.add("img-fluid","foreground-uoft-img-position");
-
-                    break;
-                  case "Hirondelle":
-                    background_icon_img.classList.add("img-fluid","foreground-hirondelle-img-position");
-                  default:
-                    background_icon_img.classList.add("img-fluid");
-                }
-                */
             }
         })
 
