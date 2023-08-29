@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
     <script src="/js/tools.js"></script>
+
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/d3"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+    <script src="/js/banner-animation.js"></script>
+
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
-    <link href="/css/daccs-css.css" rel="stylesheet">
+
+    <link href="css/daccs-css.css" rel="stylesheet">
 
     <script src="/js/load_menu.js"></script>
     <script src="/js/load_footer.js"></script>
     <script src="/js/load_banner.js"></script>
     <script src="/js/load_pictures.js"></script>
+    <script src="/js/load_carousel.js"></script>
     <meta charset="UTF-8">
 
     <title>Title</title>
@@ -25,13 +33,15 @@
 <!-- end menu-->
 
 <!-- Include banner -->
-<div id="banner"></div>
+<div id="banner">
+    <div id="banner-text"></div>
+</div>
 <!-- end banner -->
 
-<div class="row pt-5"> <!-- Page title -->
+<div class="row mt-2 mt-md-1 mt-lg-1 mt-xl-5"> <!-- Page title -->
     <div class="col-4"></div>
     <div class="col-4  text-center">
-        <h1>DACCS</h1>
+        <h1>Marble</h1>
     </div>
     <div class="col-4"></div>
 </div> <!-- End page title -->
@@ -39,14 +49,16 @@
 <!-- Page  summary -->
 <div class="row">
     <div class="col-3"></div>
-    <div class="col-6">
-        <p>Summary about DACCS</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-            imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem. Mauris ac
-            nisi
-            eleifend, tempor mi a, tristique tellus. Proin nisi dui, pretium non accumsan quis, hendrerit eget orci. Sed
-            ornare purus malesuada, vestibulum libero placerat, bibendum tortor. Etiam ut massa est. Aenean lorem magna,
-            consequat in egestas et, fringilla sit amet mi. </p>
+    <div class="col-6 text-center">
+        <p>The data processing platform for a changing climate.</p>
+        <!-- Add more text here.  Perhaps one paragraph.-->
+
+        <!--A new computing platform, dubbed the Climate Data Services (CDS) Platform,
+         has been launched to facilitate the analysis of climate data. The platform is a collaborative effort of the
+         European Centre for Medium-Range Weather Forecasts, the Max Planck Institute for Meteorology, and the UK Met
+          Office. It features new tools that enable users to better analyze climate change data and predict its future
+          implications. According to its creators, the platform is expected to revolutionize climate data management.-->
+
     </div>
 
     <div class="col-3"></div>
@@ -65,7 +77,7 @@
 
     <div class="col-4"></div>
 
-    <div class="col-4">
+    <div class="col-4 text-center">
         <p>Select a node/server/location to begin.</p>
     </div>
 
@@ -78,8 +90,9 @@
 <div id="accordionContentDisplay"></div>
 <!-- End dynamic node registry content -->
 
-
-<div class="row pt-5"> <!-- Learn About DACCS title -->
+<!-- Learn About DACCS content section -->
+<!-- Learn About DACCS title -->
+<div class="row pt-5">
 
     <div class="col-4"></div>
 
@@ -91,62 +104,122 @@
 
 </div>
 
+<!-- Learn About DACCS Carousel -->
+<div class="container-fluid">
+    <div id="marbleCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
 
-<!-- Learn About DACCS content section -->
-<div class="row pt-5">
+          <button class="carousel-control-prev" type="button" data-bs-target="#marbleCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon fw-bold" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
 
-    <div class="col-lg-2"></div>
+        <div class="carousel-inner ">
 
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">Weaver</text>
-        <p>Create your workflows and use our software to execute them.</p>
-        <p><a class="btn btn-secondary" href="weaver.html">View details &raquo;</a></p>
+
+            <div class="carousel-item active border">
+                <div class="col-4 col-sm-4">
+                    <a class="carousel-link" href="/datacatalog.html">
+                        <img class="img-fluid" src="images/carousel/stac-catalog.png">
+                    </a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4 col-sm-4">
+                                <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3 text-start">
+                                    <h2><a class="carousel-link stretched-link" href="/datacatalog.html">Data Catalog</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          <div class="carousel-item border">
+                <div class="col-4 col-sm-4">
+                    <a class="carousel-link" href="ide.html">
+                        <img class="img-fluid" src="images/carousel/dev-environment-dusk-bg.png">
+                    </a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4 col-sm-4">
+                                <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3 text-start">
+                                    <h2><a class="carousel-link stretched-link" href="/ide.html">IDE</a></h2>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+
+          <div class="carousel-item border">
+              <div class="col-4 col-sm-4">
+                  <a class="carousel-link" href="/wps.html">
+                    <img class="img-fluid" src="images/carousel/remote-processing-graph-6249047.png">
+                  </a>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-4 col-sm-4">
+                            <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3 text-start">
+                                <h2><a class="carousel-link stretched-link" href="/wps.html">Remote Processing</a></h2>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="carousel-item border">
+              <div class="col-4 col-sm-4">
+                  <a class="carousel-link" href="/about.html">
+                    <img class="img-fluid" src="images/carousel/communityv3.png">
+                  </a>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-4 col-sm-4">
+                            <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3">
+                                <h2><a class="carousel-link stretched-link" href="/about.html">Community</a></h2>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="carousel-item border">
+              <div class="col-4 col-sm-4">
+                  <a class="carousel-link" target="_blank" href="/tutorials.html">
+                    <img class="img-fluid" src="images/carousel/tutorials.png">
+                  </a>
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-4 col-sm-4">
+                              <div class="carousel-left-caption px-sm-1 px-lg-2 my-3 carousel-text-background text-start">
+                                  <a class="carousel-link stretched-link" href="/tutorials.html">
+                                    <h2>Tutorials</h2>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        </div>
+
+           <button class="carousel-control-next" type="button" data-bs-target="#marbleCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+           </button>
+
+        </div>
     </div>
-
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">THREDDS Data Server</text>
-        <p>Let us worry about the data storage while you carry your work with you.</p>
-        <p><a class="btn btn-secondary" href="thredds.html">View details &raquo;</a></p>
-    </div>
-
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">Web Processing Services</text>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-            imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem.</p>
-        <p><a class="btn btn-secondary" href="wps.html">View details &raquo;</a></p>
-    </div>
-
-    <div class="col-lg-2">
-        <svg class="bd-placeholder-img rounded-circle" width="70" height="70" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-        </svg>
-        <text class="fs-3 fw-normal align-middle">Services</text>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero nisl, suscipit sit amet sem vitae, feugiat
-            imperdiet tortor. Duis vitae bibendum magna. Vestibulum a dui id nunc efficitur varius a non sem.</p>
-        <p><a class="btn btn-secondary" href="wps.html">View details &raquo;</a></p>
-    </div>
-
-    <div class="col-lg-2">
-
-    </div>
-</div><!-- End Learn About DACCS content section -->
+</div>
+<!-- End Learn About DACCS Carousel -->
+<!-- End Learn About DACCS content section -->
 
 <!-- Include pictures -->
 <div id="pictures"></div>
@@ -157,7 +230,6 @@
         <div class="col-12" id="footer"></div>
     </div>
 </div>
-
 
 </body>
 </html>

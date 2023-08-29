@@ -1,5 +1,237 @@
-.footer {
+/* For mobile phones: */
+[class*="wps-"]{
+  width: 100%;
+}
+
+[class*="daccs-"]{
+  width: 100%;
+}
+
+@media only screen and  (min-width:576px){
+    .wps-sm-hummingbird-logo{
+        width: 90%;
+    }
+
+    .wps-sm-flyingpigeon-logo{
+        width: 90%;
+    }
+
+    .daccs-logo-node{
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width:786px){
+    .daccs-logo-node{
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width:992px){
+    .wps-lg-finch-logo{
+        width: 50%;
+        left: 20%;
+    }
+
+    .wps-lg-raven-logo{
+        width: 53%;
+    }
+
+    .wps-lg-hummingbird-logo{
+        width: 50%;
+        left: 20%;
+    }
+
+    .wps-lg-flyingpigeon-logo{
+        width: 55%;
+    }
+
+    .daccs-logo-node{
+        width: 100%;
+    }
+}
+
+/*Informational Pages*/
+/*Puts off-white colour as background of all information sections*/
+.info-background{
+    background-color: #F7F9FB;
+}
+
+/*WPS page*/
+.daccs-docs-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+.daccs-github-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+/*Carousel*/
+.carousel-indicators{
+    filter: invert(100%);
+}
+
+.carousel-control-prev{
+    filter: invert(100%);
+}
+
+.carousel-control-next{
+    filter: invert(100%);
+}
+
+.carousel-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+.carousel-caption-container{
+    position: relative;
+}
+
+.carousel-left-caption{
+    width: auto;
+    position: absolute;
+    bottom: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+}
+
+.carousel-centre-caption{
+    width: auto;
+    position: absolute;
+    bottom: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+}
+
+.carousel-text-background{
+    border-radius: 25px;
+    background-color: rgba(0.0, 0.0, 0.0, 0.25);
+}
+
+.carousel-item-marble{
+    width: 100%;
+    max-height: 800px;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-inner > .carousel-item{
+    overflow: hidden;
+}
+.carousel-inner > .carousel-item.active,
+.carousel-inner > .carousel-item-next,
+.carousel-inner > .carousel-item-prev{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.carousel-inner:before{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 80%;
+    left: 0;
+    content: "";
+    display: block;
+    background-color: #ffffff;
+    z-index: 2;
+}
+.carousel-inner:after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 80%;
+    content: "";
+    display: block;
+    background-color: #ffffff;
+    z-index: 2;
+}
+
+.carousel-control-prev{
+    z-index: 2000;
+    left: 10%;
+}
+
+.carousel-control-next{
+    z-index: 2000;
+    right: 10%;
+}
+
+/*Menu*/
+.menu{
+    background-color: #659DBD;
+    color: #FFFFFF;
+}
+
+.menu-link{
+    color: #FFFFFF;
+}
+
+#menu-logo{
+    max-width: 50px;
+}
+
+/*Page Elements*/
+#nodeContentDisplay{
+    background-color: #F7F9FB;
+}
+
+#accordionContentDisplay{
+    background-color: #F7F9FB;
+}
+
+/*Banner*/
+#banner{
+    width: 100%;
+    height :600px;
+    max-height: 800px;
+}
+
+.banner-caption{
+    position: absolute;
+    right: 15%;
+    bottom: 1.25rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: left;
+    z-index: 10;
+}
+
+.banner-image-overlay{
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+  transition: transform 150ms ease-in-out;
+}
+
+.banner-image-overlay img{ /* <= optional, for responsiveness */
+   display: block;
+   max-width: 80%;
+   height: auto;
+}
+
+.banner-image-overlay svg{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*Footer*/
+.footer{
+    background-color: #659DBD;
     font-size: 10px;
+}
+
+.footer-link{
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .logo-box {
@@ -11,14 +243,13 @@ a.href-text {
     text-decoration: none;
 }
 
-.bird-icon {
-    width: 300px;
-    height: 300px;
+/*About*/
+.about-background{
+    background-color: #F7F9FB;
 }
 
-
 /*Node Page*/
-.foreground-img-blur{
+.foreground-img-blur {
     width: 100%;
     height: 100%;
 
@@ -27,4 +258,12 @@ a.href-text {
     -moz-backdrop-filter: blur(8px);
     -o-backdrop-filter: blur(8px);
     -ms-backdrop-filter: blur(8px);
+}
+
+.table-left-border{
+    border-left: 1px solid;
+}
+
+.table-bottom-border{
+    border-bottom: 1px solid;
 }
