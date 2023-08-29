@@ -249,6 +249,13 @@ a.href-text {
 }
 
 /*Node Page*/
+.background-node-logo{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .foreground-img-blur {
     width: 100%;
     height: 100%;
