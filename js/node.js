@@ -139,10 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const background_elem = document.getElementById("background-icon");
                 background_elem.style.backgroundImage="url(" + link.href + ")";
-                /*background_elem.style.backgroundRepeat = "no-repeat";
-                background_elem.style.backgroundSize = "cover";
-                background_elem.style.width = "100%";
-                background_elem.style.height = "100%";*/
                 background_elem.classList.add("info-background", "background-node-logo");
 
                 const title_icon_img = document.getElementById("title-icon-img")
