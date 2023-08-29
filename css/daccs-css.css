@@ -248,6 +248,25 @@ a.href-text {
     background-color: #F7F9FB;
 }
 
+/*Node Page*/
+.background-node-logo{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.foreground-img-blur {
+    width: 100%;
+    height: 100%;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    -moz-backdrop-filter: blur(8px);
+    -o-backdrop-filter: blur(8px);
+    -ms-backdrop-filter: blur(8px);
+}
+
 .table-left-border{
     border-left: 1px solid;
 }
