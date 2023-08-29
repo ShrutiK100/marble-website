@@ -26,8 +26,6 @@ const converters = {
         const table_header_service = document.createElement("th");
         const table_header_description = document.createElement("th");
         const table_header_documentation = document.createElement("th");
-        //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
-        //const table_header_other = document.createElement("th");
         const table_body = document.createElement("tbody");
 
         services_table.classList.add("table");
@@ -37,27 +35,20 @@ const converters = {
         table_header_row.appendChild(table_header_documentation);
         table_header_row.appendChild(table_header_description);
 
-         //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
-        //table_header_row.appendChild(table_header_other);
-
         table_header_service.setAttribute("scope", "col")
         table_header_documentation.setAttribute("scope", "col")
         table_header_description.setAttribute("scope", "col")
-        //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
-        //table_header_other.setAttribute("scope", "col")
 
         table_header_service.innerText = "Service";
         table_header_description.innerText = "Description";
         table_header_documentation.innerText = "Documentation";
-        //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
-        //table_header_other.innerText = "Other";
 
         services_table.appendChild(table_body);
 
         val.forEach( service => {
             const table_row = document.createElement("tr")
             //Add border to row to make it look like row has max amount of cells
-            table_row.classList.add("border-bottom")
+            table_row.classList.add("border-bottom", "table-light")
             table_body.appendChild(table_row);
 
             service.links.forEach(link => {
@@ -65,8 +56,6 @@ const converters = {
                 const table_cell_service = document.createElement("td")
                 const table_cell_description = document.createElement("td")
                 const table_cell_documentation = document.createElement("td")
-                //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
-                //const table_cell_other = document.createElement("td")
 
                 const link_elem = document.createElement("a");
 
@@ -75,14 +64,15 @@ const converters = {
 
                 if (link.rel === "service") {
                     name = service.name;
-                } else if (link.rel === "service-desc" ) {
-                    //name = `${service.name} description`;
+                }
+
+                if (link.rel === "service-desc" ) {
                     name="";
                     description = service.description;
-                }else if (link.rel === "service-doc") {
+                }
+
+                if(link.rel === "service-doc"){
                     name = "Documentation";
-                }else {
-                    name = `${link.rel}`;
                 }
 
                 Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value))
@@ -93,19 +83,17 @@ const converters = {
                 if(link_elem.rel === "service"){
                     table_row.appendChild(table_cell_service);
                     table_cell_service.appendChild(link_elem);
-                }else if(link_elem.rel === "service-doc"){
+                }
+
+                if(link_elem.rel === "service-doc"){
                     table_row.appendChild(table_cell_documentation);
                     table_cell_documentation.appendChild(link_elem);
-                }else if(link_elem.rel === "service-desc"){
+                }
+
+                if(link_elem.rel === "service-desc"){
                     const descriptionTextNode = document.createTextNode(description);
                     table_row.appendChild(table_cell_description);
                     table_cell_description.appendChild(descriptionTextNode);
-                    table_cell_description.appendChild(document.createElement("br"))
-                    table_cell_description.appendChild(link_elem);
-                }else{
-                    //Remove/comment out Other column because Conformance and other extra data will be handled at a later time
-                    //table_row.appendChild(table_cell_other);
-                    //table_cell_other.appendChild(link_elem);
                 }
             })
         })
@@ -151,11 +139,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const background_elem = document.getElementById("background-icon");
                 background_elem.style.backgroundImage="url(" + link.href + ")";
-                background_elem.style.backgroundRepeat = "no-repeat";
+                /*background_elem.style.backgroundRepeat = "no-repeat";
                 background_elem.style.backgroundSize = "cover";
                 background_elem.style.width = "100%";
-                background_elem.style.height = "100%";
-                background_elem.classList.add("info-background");
+                background_elem.style.height = "100%";*/
+                background_elem.classList.add("info-background", "background-node-logo");
 
                 const title_icon_img = document.getElementById("title-icon-img")
                 title_icon_img.classList.add("img-fluid", "d-block", "float-end");
