@@ -22,6 +22,9 @@
     <script src="/js/load_pictures.js"></script>
     <meta charset="UTF-8">
 
+
+
+
     <title>Title</title>
 </head>
 <body>
@@ -36,9 +39,7 @@
 
 <div class="row mt-5">
     <div class="container">
-        <div id="page_title_div" class="col-12 text-center">
-
-        </div>
+        <div id="page_title_div" class="col-12 text-center"></div>
     </div>
 </div>
 
@@ -52,12 +53,29 @@
                             <!--H3 title-->
                             <div id="affiliation" class="mb-1 text-body-secondary"></div>
                             <div id="description"></div>
-                            <div id="url"></div>
-                             <div>
-                                <p>Date Added: <span id="last_updated"></span></p>
-                                <p>Status: <span id="status"></span></p>
-                                <p>Contact: <span id="contact"></span></p>
-                                <p>Version: <span id="version"></span></p>
+
+                             <div class="mt-3">
+                                 <table>
+                                     <thead><tr><th></th></tr></thead>
+                                     <tbody>
+                                     <tr>
+                                         <td><div id="url"></div></td>
+                                     </tr>
+                                     <tr>
+                                         <td>Date Added: <span id="last_updated"></span></td>
+                                     </tr>
+                                     <tr>
+                                         <td>Status: <span id="status"></span></td>
+                                     </tr>
+                                     <tr>
+                                         <td>Contact: <span id="contact"></span></td>
+                                     </tr>
+                                     <tr>
+                                         <td>Version: <span id="version"></span></td>
+                                     </tr>
+                                     </tbody>
+                                 </table>
+
                             </div>
                         </div>
 
@@ -80,7 +98,7 @@
                     </div>
             </div>
 
-            <div class="col-0 col-sm-4 d-none d-lg-block overflow-hidden shadow-lg">
+            <div class="col-1 col-sm-4 d-none d-lg-block overflow-hidden shadow-lg">
                 <!--Sets logo as background image-->
                 <div id="background-icon">
                     <!--Div used to apply blur effect to background image -->
