@@ -1,6 +1,6 @@
 const converters = {
     "_default": (val) => val,
-    "affiliation": (val) => { console.log(val)
+    "affiliation": (val) => {
         let title_affiliation = document.createElement("h3");
         title_affiliation.textContent = "@ " + val;
         return title_affiliation;
