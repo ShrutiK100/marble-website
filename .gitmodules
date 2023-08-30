@@ -1,0 +1,3 @@
+[submodule "daccs-tutorials"]
+	path = daccs-tutorials
+	url = https://github.com/DACCS-Climate/daccs-tutorials
