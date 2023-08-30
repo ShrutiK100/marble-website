@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //const colorScale = d3.scaleSequentialSqrt(d3.interpolateTurbo);
 
     //Logo colour scale
-    // Black, dark blue, light blue, green, ywllow, orange, dark red
+    // Black, dark blue, light blue, green, yellow, orange, dark red
     let daccsColours = ["#000000", "#2D3367", "#1F81B6", "#336D66", "#F6DC3D", "#C66B33","#762F24"];
 
     const colorScale = d3.scaleLinear()
@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add clouds sphere OPTIONAL
     // Used to wrap Marble logo around globe
+    /*
     const DACCS_IMG_URL = 'images/banner/DACCS-Logo-Rectangle-Waves-Gradient.png'; // from https://github.com/turban/webgl-earth
     const DACCS_ALT = 0.004;
     const DACCS_ROTATION_SPEED = -0.006; // deg/frame
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         daccsLogo.rotation.y += DACCS_ROTATION_SPEED * Math.PI / 180;
         requestAnimationFrame(rotateClouds);
       })();
-      });
+      });*/
 
     });
 
