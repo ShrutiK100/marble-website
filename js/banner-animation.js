@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
           Avg. Temp: <i>${d.AvgTempCelcius}</i> &deg; C <br/>
           Year: <i>${d.Year}</i>
         `)
-        .onPolygonHover(hoverD => earth
+        /*.onPolygonHover(hoverD => earth
           .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
           .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
-        )
+        )*/
         .polygonsTransitionDuration(300)
 
       (document.getElementById('banner'))
