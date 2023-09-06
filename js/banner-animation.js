@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         //.globeImageUrl('images/banner/DACCS-Logo-Rectangle-Waves-Gradient.png')
         .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-          .backgroundColor('#000000')
+        .backgroundColor('#000000')
         .lineHoverPrecision(0)
         .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
         .polygonAltitude(0.06)
