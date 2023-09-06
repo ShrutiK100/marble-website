@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         //.globeImageUrl('images/banner/DACCS-Logo-Rectangle-Waves-Gradient.png')
         .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-        //.backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+          .backgroundColor('#000000')
         .lineHoverPrecision(0)
         .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
         .polygonAltitude(0.06)
@@ -79,10 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
           Avg. Temp: <i>${d.AvgTempCelcius}</i> &deg; C <br/>
           Year: <i>${d.Year}</i>
         `)
-        /*.onPolygonHover(hoverD => earth
-          .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
-          .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
-        )*/
         .polygonsTransitionDuration(300)
 
       (document.getElementById('banner'))
