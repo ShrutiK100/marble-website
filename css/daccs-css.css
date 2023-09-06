@@ -228,20 +228,16 @@
 }
 
 .banner-title{
-    height:50%;
+    width: 100%;
+    height: 50%;
     font-family: "Helvetica", sans-serif;
     font-size: 50pt;
     color: #FFFFFF;
     background-color: #000000;
 }
 
-.banner-slogan-pt1{
-    font-family: "Helvetica", sans-serif;
-    color: #FFFFFF;
-    background-color: #000000;
-}
-
-.banner-slogan-pt2{
+.banner-slogan{
+    height: 25%;
     font-family: "Helvetica", sans-serif;
     color: #FFFFFF;
     background-color: #000000;
