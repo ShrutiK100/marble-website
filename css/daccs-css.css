@@ -223,6 +223,30 @@
   left: 0;
 }
 
+.banner-text-container{
+    background-color: #000000;
+}
+
+.banner-title{
+    width: 100%;
+    height: 50%;
+    font-family: "Helvetica", sans-serif;
+    font-size: 50pt;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.banner-slogan{
+    height: 25%;
+    font-family: "Helvetica", sans-serif;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.banner-spacer{
+    height: 20%;
+}
+
 /*Footer*/
 .footer{
     background-color: #659DBD;

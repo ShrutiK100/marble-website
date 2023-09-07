@@ -3,7 +3,7 @@
 <head>
     <script src="/js/tools.js"></script>
 
-    <script src="//unpkg.com/three"></script>
+    <!--<script src="//unpkg.com/three"></script>-->
     <script src="//unpkg.com/d3"></script>
     <script src="//unpkg.com/globe.gl"></script>
     <script src="/js/banner-animation.js"></script>
@@ -33,37 +33,42 @@
 <!-- end menu-->
 
 <!-- Include banner -->
-<div id="banner">
-    <div id="banner-text"></div>
+<div class="row">
+    <div class="col-4 pe-0 banner-text-container">
+        <div class="ms-2 d-flex align-content-end justify-content-center flex-wrap banner-title">
+            <p >Marble</p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center flex-wrap banner-slogan">
+            <p class="fs-3 ">The data processing platform for a changing climate</p>
+        </div>
+    </div>
+    <div class="col-8 ps-0">
+        <div id="banner"></div>
+    </div>
 </div>
 <!-- end banner -->
 
-<div class="row mt-2 mt-md-1 mt-lg-1 mt-xl-5"> <!-- Page title -->
-    <div class="col-4"></div>
-    <div class="col-4  text-center">
-        <h1>Marble</h1>
+
+
+<!-- Spacer row -->
+<div class="row my-4">
+    <div class="col-2"></div>
+    <div class="col-8">
+    <p>
+        Marble is a platform purpose-built for the task of climate data analysis.  Its federated architecture allows users
+        to access the data and web processing services of any server on the Marble network, effectively eliminating the
+        technical barriers encountered most often by data analysts and climate researchers - data storage and compute
+        capability.
+    </p>
+
+    <p>
+        Marble is the bridge between intricate climate data and the people who seek to
+    understand it, fostering a community of inquiry and discovery in the realm of climate science.
+    </p>
     </div>
-    <div class="col-4"></div>
-</div> <!-- End page title -->
-
-<!-- Page  summary -->
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6 text-center">
-        <p>The data processing platform for a changing climate.</p>
-        <!-- Add more text here.  Perhaps one paragraph.-->
-
-        <!--A new computing platform, dubbed the Climate Data Services (CDS) Platform,
-         has been launched to facilitate the analysis of climate data. The platform is a collaborative effort of the
-         European Centre for Medium-Range Weather Forecasts, the Max Planck Institute for Meteorology, and the UK Met
-          Office. It features new tools that enable users to better analyze climate change data and predict its future
-          implications. According to its creators, the platform is expected to revolutionize climate data management.-->
-
-    </div>
-
-    <div class="col-3"></div>
+    <div class="col-2"></div>
 </div>
-<!-- End page summary -->
+<!-- End spacer row -->
 
 <div class="row pt-5"> <!-- Start Project title and summary -->
 
@@ -97,7 +102,7 @@
     <div class="col-4"></div>
 
     <div class="col-4 text-center">
-        <h2>Learn About DACCS</h2>
+        <h2>Learn About Marble</h2>
     </div>
 
     <div class="col-4"></div>
