@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row pt-5 row-cols-1 row-cols-lg-4" {% if template %}id="row-body-content-{{ "{{row_id}}" }}"{% endif %}>
+{#        <div class="col-lg-1" {% if template %}id="row-body-content-pre-{{ "{{row_id}}" }}"{% endif %}></div>#}
+        {{ content|safe }}
+{#        <div class="col-lg-1"></div>#}
+    </div>
+</div>
