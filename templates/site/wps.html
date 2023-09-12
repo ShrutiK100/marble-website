@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+{% set pagetitle = "Web Processing Services" %}
+{% set pageslogan = "" %}
+{% set pagesummarypt1 = "The use of web processing services for climate data analysis, such as  Climate Indicator Analysis and
+            Hydrological modeling and analytics, will provide valuable tools and resources for users to better understand and analyze climate patterns
+            and hydrological processes. The technology involved in these services will allow users to access data
+            and models previously unavailable to them, enabling them to engage with complex systems in a more intuitive
+            and interactive way. "%}
+{% block content %}
+
+
+    {% include "partials/banner.html" %}
+
+
+    {% include "partials/section.html" %}
+        {% with %}
+            {% set title = "Learn About Web Processing Services" %}
+        {% endwith %}
+
+    {% include "partials/page-summary.html" %}
+        {% with %}
+            {% set content%}
+            {% endset %}
+        {% endwith %}
+
+
+
+        {% with %}
+
+                {% set leftimagesource= "images/logos/noun-project/cropped/noun-finch-no-branch-flipped-962354.svg" %}
+                {% set leftsectiontitle= "Finch" %}
+                {% set leftsectionsecondtitle = "Climate Indicator Analysis" %}
+
+            {% set content %}
+                <p>
+                    Finch is the go-to for climate indicator analysis.  With many pre-programmed
+                    processes for single indicator analysis and ensemble analysis of a particular indicator, Finch
+                    covers the breadth and depth needed for climate indicator analysis.  Analyze freeze-thaw cycles
+                    using the provided Daily Freeze-Thaw indicator process or determine the longest number of
+                    consecutive days where daily precipitation below a given threshold using the provided
+                    Ensemble GridPoint Process.
+                </p>
+                <p>
+                    Finch also provides data processing support by providing processes to help manage your data, such as
+                    converting a geospatial series to a CF-compliant netCDF.
+                </p>
+            {% endset %}
+
+
+                {% set leftgithubhref = "https://github.com/bird-house/finch" %}
+                {% set leftdocumentationhref = "https://pavics-sdi.readthedocs.io/projects/finch/en/latest" %}
+            {% include "partials/wps-finch-content-section-left.html" %}
+        {% endwith %}
+
+        {% with %}
+
+                {% set rightimagesource= "images/logos/noun-project/cropped/noun-finch-no-branch-flipped-962354.svg" %}
+                {% set rightsectiontitle= "Raven" %}
+                {% set rightsectionsecondtitle = "Hydrological modeling and analytics" %}
+
+            {% set content %}
+                <p>
+                    Raven offers processes related to hydrological modeling, and in particular, the Raven
+                    hydrological modeling framework.
+                </p>
+                <p>
+                    Raven is an open source server project offering hydrological modeling and analysis capabilities
+                    through the Web Processing Service (WPS) standard. Raven processes can be embedded in a
+                    graphical user interface or accessed directly from a programming environment.
+                </p>
+                <p>
+                    Raven was made to help scientists run hydrological modeling experiments with climate change
+                    projections. It includes four lumped daily hydrological models (GR4J-CN, HBV-EC, HMETS, MOHYSE)
+                    that can be run in multi-model experiments. Meteorological input variables as well as
+                    streamflow and storage outputs use the netCDF format. Raven bundles model calibration processes,
+                    time series analysis (with xarray), hydrological indicators and frequency analysis (using
+                    xclim). On top of this, a database of pre-calibrated model parameters over North America is
+                    available to perform model regionalization, allowing simulations in watersheds with no
+                    streamflow observations. The properties of custom watersheds can be extracted from a Digital
+                    Elevation Model and a land-use database.
+                </p>
+            {% endset %}
+
+
+
+                {% set rightgithubhref = "https://github.com/bird-house/raven" %}
+                {% set rightdocumentationhref = "https://pavics-sdi.readthedocs.io/projects/finch/en/latest" %}
+
+                {% set rightimagesource = "images/logos/noun-project/cropped/noun-raven-962374.svg" %}
+            {% include "partials/wps-raven-content-section-right.html" %}
+        {% endwith %}
+
+
+
+
+        {% with %}
+                {% set leftimagesource= "images/logos/noun-project/cropped/noun-hummingbird-4218394.svg" %}
+                {% set leftsectiontitle= "Hummingbird" %}
+                {% set leftsectionsecondtitle = "Metadata compliance checks." %}
+
+                {% set content %}
+                    <p>
+                        Hummingbird will check your datasets to see if they meet compliance standards set by Integrated
+                        Ocean Observing System (IOOS) and the Climate and Forest conventions, as well as project
+                        specific rules for CMIP6 and CORDEX
+                    </p>
+                {% endset %}
+
+
+                {% set leftgithubhref = "https://github.com/Ouranosinc/hummingbird" %}
+                {% set leftdocumentationhref = "https://birdhouse-hummingbird.readthedocs.io/en/latest/index.html" %}
+            {% include "partials/wps-hummingbird-content-section-left.html" %}
+        {% endwith %}
+
+    {% with %}
+        {% set title = "Available At" %}
+        {% include "partials/section.html" %}
+    {% endwith %}
+
+    {% include "partials/node-content.html" %}
+    {% include "partials/pictures.html" %}
+
+
+{% endblock content %}
