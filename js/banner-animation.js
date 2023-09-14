@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .backgroundColor('#000000')
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-        .backgroundColor('#000000')
         .lineHoverPrecision(0)
         .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
         .polygonAltitude(0.06)
