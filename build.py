@@ -1,4 +1,5 @@
 import os
+import subprocess
 import shutil
 import argparse
 
@@ -8,7 +9,7 @@ THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 BUILD_DIR = os.path.abspath(os.getenv("BUILD_DIR", os.path.join(THIS_DIR, "build")))
 TEMPLATE_PATH = os.path.join(THIS_DIR, "templates")
 SITE_PATH = os.path.join(TEMPLATE_PATH, "site")
-
+TUTORIALS_PATH = os.path.join(THIS_DIR, 'marble-tutorials')
 
 def filter_site_templates(template):
     abs_filepath = os.path.join(TEMPLATE_PATH, template)
@@ -28,6 +29,9 @@ def build(build_directory, node_registry_url):
         with open(build_destination, 'w') as f:
             f.write(env.get_template(template).render(node_registry_url=node_registry_url))
 
+def build_tutorials():
+    subprocess.Popen(['cd', TEMPLATE_PATH])
+    subprocess.Popen(['jupyter-book', 'build', 'marble-tutorials/tutorials/', '--path-output','build/tutorials/'])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -41,3 +45,4 @@ if __name__ == "__main__":
                         help="location on disk to write built templates to.")
     args = parser.parse_args()
     build(args.build_directory, args.node_registry_url)
+    build_tutorials()
