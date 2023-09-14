@@ -1,9 +1,10 @@
 {% extends "layouts/main.html" %}
+{% set sitetitle = "Marble" %}
 {% set pagetitle = "Tutorials" %}
 
 {% block content %}
     {% with %}
-        {% set tutorialssource = "daccs-tutorials/tutorials/_build/html/index.html" %}
+        {% set tutorialssource = "/tutorials/_build/html/index.html" %}
         {% include "partials/tutorials-iframe.html" %}
 
     {% endwith %}
