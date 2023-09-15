@@ -55,7 +55,7 @@
 
         {% with %}
 
-                {% set rightimagesource= "images/logos/noun-project/cropped/noun-finch-no-branch-flipped-962354.svg" %}
+
                 {% set rightsectiontitle= "Raven" %}
                 {% set rightsectionsecondtitle = "Hydrological modeling and analytics" %}
 
@@ -113,6 +113,50 @@
             {% include "partials/wps-hummingbird-content-section-left.html" %}
         {% endwith %}
 
+        {% with %}
+
+
+                {% set rightsectiontitle= "Weaver" %}
+                {% set rightsectionsecondtitle = "Moves the application to the data." %}
+
+            {% set content %}
+                <p>
+                    Weaver is an Application, Deployment, and Execution Service (ADES) and an
+                    Execution Management Service (EMS).  One of its standout
+                    features is the ability to facilitate remote execution of processes from many different applications
+                    in a workflow chain.  This empowers climate researchers to harness the immense computing power of
+                    the Marble network while freeing up their own resources.
+                </p>
+                <p>
+                    With Weaver, there's no need for users to grapple with the intricacies of software
+                    installation and management.  Instead, researchers can seamlessly access software residing on the
+                    Marble network and transmit precise analysis instructions via Weaver, enabling them to perform
+                    data analysis on the extensive datasets stored on Marble network servers.
+                </p>
+                <p>
+                    In essence, Weaver acts as a bridge between researchers
+                    and the computational resources they need, simplifying workflow execution and enhancing the efficiency of
+                    climate research endeavors.
+                </p>
+            {% endset %}
+
+
+
+                {% set rightgithubhref = "https://github.com/crim-ca/weaver" %}
+                {% set rightdocumentationhref = "https://pavics-weaver.readthedocs.io/en/latest/" %}
+
+                {% set rightimagesource= "images/logos/flat-icon/weaver-flipped.svg" %}
+            {% include "partials/wps-weaver-content-section-right.html" %}
+        {% endwith %}
+
+
+
+{# <a href="https://www.flaticon.com/free-icons/zoology" title="zoology icons">Zoology icons created by Freepik - Flaticon</a> #}
+
+
+
+
+
     {% with %}
         {% set title = "Available At" %}
         {% include "partials/section.html" %}
@@ -120,6 +164,5 @@
 
     {% include "partials/node-content.html" %}
     {% include "partials/pictures.html" %}
-
 
 {% endblock content %}
