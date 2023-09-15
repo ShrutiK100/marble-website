@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    let marbleDataPath = '/datasets/banner.geojson';
+    let marbleDataPath = 'datasets/banner.geojson';
 
     //Default colour scale
     //const colorScale = d3.scaleSequentialSqrt(d3.interpolateTurbo);
