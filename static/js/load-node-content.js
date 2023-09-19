@@ -17,14 +17,11 @@ function binNodes(registry, binSize) {
 function buildNodeDescription(name, data, node_index, row_id_suffix) {
     let node_id_suffix = `${row_id_suffix}-${node_index}`;
     const node_template = document.getElementById("link-description").cloneNode(true)
-    let href;
+    let href = `node.html?node=${name}`;
     let img_src;
     let img_alt = `${name} icon`;
     data.links.forEach(link => {
         switch (link.rel) {
-            case "service":
-                href = link.href;
-                break
             case "icon":
                 img_src = link.href;
                 if ("alt" in link) {

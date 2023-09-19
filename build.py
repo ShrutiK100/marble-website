@@ -11,9 +11,15 @@ TEMPLATE_PATH = os.path.join(THIS_DIR, "templates")
 SITE_PATH = os.path.join(TEMPLATE_PATH, "site")
 TUTORIALS_PATH = os.path.join(THIS_DIR, 'marble-tutorials')
 
+
 def filter_site_templates(template):
     abs_filepath = os.path.join(TEMPLATE_PATH, template)
     return SITE_PATH == os.path.commonpath((abs_filepath, SITE_PATH))
+
+
+def build_tutorials():
+    subprocess.run(["jupyter-book", "build", os.path.join(TUTORIALS_PATH, "tutorials"), "--path-output",
+                    os.path.join(BUILD_DIR, "tutorials")], check=True)
 
 
 def build(build_directory, node_registry_url):
@@ -28,10 +34,8 @@ def build(build_directory, node_registry_url):
         os.makedirs(os.path.dirname(build_destination), exist_ok=True)
         with open(build_destination, 'w') as f:
             f.write(env.get_template(template).render(node_registry_url=node_registry_url))
+    build_tutorials()
 
-def build_tutorials():
-    subprocess.Popen(['cd', TEMPLATE_PATH])
-    subprocess.Popen(['jupyter-book', 'build', 'marble-tutorials/tutorials/', '--path-output','build/tutorials/'])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -45,4 +49,3 @@ if __name__ == "__main__":
                         help="location on disk to write built templates to.")
     args = parser.parse_args()
     build(args.build_directory, args.node_registry_url)
-    build_tutorials()

@@ -110,8 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (typeof node_info === "undefined") {
             if (url_params.has("node") && node_name.length > 0) {
                 window.alert(`Error: no node named ${node_name}`);
+                window.history.back();
+                return;
             } else {
                 window.alert("Error: no node name specified");
+                window.history.back();
+                return;
             }
         } else {
             Object.entries(node_info).forEach(([key, val]) => {
@@ -147,16 +151,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
 
-        const page_title_div = document.getElementById('page_title_div');
-        const page_title_markup = document.createElement("h1")
-        let page_title = "You Are Viewing the " + node_name + " Node";
-        page_title_markup.textContent = page_title
-        page_title_div.appendChild(page_title_markup);
-
-        const node_name_markup = document.createElement("h2");
-        const node_name_title = document.getElementById("name");
-        node_name_markup.textContent = node_name;
-        node_name_title.appendChild(node_name_markup)
-
+        const banner_title = document.getElementById("banner-title")
+        if (banner_title) {
+            banner_title.textContent = node_name
+        }
     });
 })
