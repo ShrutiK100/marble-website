@@ -6,28 +6,19 @@
 <div class="d-flex align-items-start position-relative">
     <div class="container">
         <div class="row">
-
-
             <div class="logo-box col-3">
                 <a class="stretched-link" href="{{ href }}">
                     {% if template %}
-                        <img id="link-image-{{ "{{link_id}}" }}" class="img-fluid float-end float-sm-none daccs-logo-node"/>
+                        <img id="link-image-{{ "{{link_id}}" }}" class="img-fluid float-end float-sm-none marble-logo-node"/>
                     {% else %}
-                        <img alt="{{ img_alt }}" src="{{ img_src }}" class="img-fluid float-end float-sm-none daccs-logo-node"/>
+                        <img alt="{{ img_alt }}" src="{{ img_src }}" class="img-fluid float-end float-sm-none marble-logo-node"/>
                     {% endif %}
                 </a>
             </div>
-
-
-
-
             <div class="col-9 px-1">
                 <h2>{{ title }}</h2>
                 <p>{{ content }}</p>
             </div>
-
-
         </div>
     </div>
-
 </div>

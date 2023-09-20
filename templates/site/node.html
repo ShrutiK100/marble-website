@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+{% set page_title = "" %}
+
+{% block content %}
+    {% include "partials/banner.html" %}
+    <div class="container mt-3">
+        <div class="row g-0 border rounded d-flex flex-column position-static overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
+            <div class="col-12 col-sm-8 px-2">
+                <div class="row">
+                    <div class="col-9">
+                        <!--H2 title -->
+                        <div id="name" class="mb-0"></div>
+                        <!--H3 title-->
+                        <div id="affiliation" class="mb-1 text-body-secondary"></div>
+                        <div id="description"></div>
+                        <div class="mt-3">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div id="url"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Date Added: <span id="last_updated"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Status: <span id="status"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Contact: <span id="contact"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Version: <span id="version"></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="col-3 pt-4">
+                        <!-- Small sharp icon next to title -->
+                        <a id="small-logo-link" target="_blank"><img id="title-icon-img"></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h4 class="text-decoration-underline">Services Available</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div id="services" class="table-responsive"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 col-sm-4 d-none d-lg-block overflow-hidden shadow-lg">
+                <!--Sets logo as background image-->
+                <div id="background-icon">
+                    <!--Div used to apply blur effect to background image -->
+                    <div id="node-overlay-container" class="foreground-img-blur mb-auto">
+                        <!--Used to set sharp logo overlayed on blurred logo.  May be used in future -->
+                        <!--<img id="node-overlay-img" > -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/node.js"></script>
+    {% include "partials/pictures.html" %}
+{% endblock content %}

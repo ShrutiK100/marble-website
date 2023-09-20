@@ -1,33 +1,25 @@
 {% extends "layouts/main.html" %}
-{% set sitetitle = "Marble" %}
-{% set pagetitle = "Marble" %}
-{% set pageslogan = "The data processing platform for a changing climate" %}
-{% set pagesummarypt1 = "
-                    Marble is a platform purpose-built for the task of climate data analysis.  Its federated architecture allows users
+{% set page_title = "Marble" %}
+{% set page_slogan = "The data processing platform for a changing climate" %}
+{% set page_summary = ["Marble is a platform purpose-built for the task of climate data analysis.  Its federated architecture allows users
                     to access the data and web processing services of any server on the Marble network, effectively eliminating the
                     technical barriers encountered most often by data analysts and climate researchers - data storage and compute
-                    capability." %}
-{%  set pagesummarypt2 = "Marble is the bridge between intricate climate data and the people who seek to
-                understand it, fostering a community of inquiry and discovery in the realm of climate science."
-        %}
-
+                    capability.",
+                    "Marble is the bridge between intricate climate data and the people who seek to
+                    understand it, fostering a community of inquiry and discovery in the realm of climate science."] %}
 
 {% block content %}
     {% include "partials/banner.html" %}
     {% include "partials/page-summary.html" %}
-        {% with %}
-            {% set content %}
-
-            {% endset %}
-
-        {% endwith %}
-
     {% with %}
         {% set title = "Start Your Project" %}
-        {% set leadtext= "Select a node/server/location to begin." %}
+        {% set lead_text = "Select a node/server/location to begin." %}
         {% include "partials/section.html" %}
     {% endwith %}
     {% include "partials/node-content.html" %}
-    {% include "partials/learn-about-marble.html" %}
+    {% with %}
+        {% set title = "Learn about Marble" %}
+        {% include "partials/carousel.html" %}
+    {% endwith %}
     {% include "partials/pictures.html" %}
 {% endblock content %}

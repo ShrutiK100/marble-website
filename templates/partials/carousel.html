@@ -1,127 +1,47 @@
-
 <div class="row pt-5">
-
     <div class="col-4"></div>
-
     <div class="col-4 text-center">
         <h2>{{ title }}</h2>
     </div>
-
     <div class="col-4"></div>
-
 </div>
-<!-- Learn About DACCS Carousel -->
-<div class="container-fluid">
-    <div id="marbleCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#marbleCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-        </div>
+{% set carousel_content = [
+    {"title": "Data Catalog", "link": "datacatalog.html", "image": "images/carousel/stac-catalog.png"},
+    {"title": "IDE", "link": "ide.html", "image": "images/carousel/dev-environment-dusk-bg.png"},
+    {"title": "Remote Processing", "link": "remote-processing.html", "image": "images/carousel/remote-processing-graph-6249047.png"},
+    {"title": "Community", "link": "about.html#community", "image": "images/carousel/communityv3.png"},
+    {"title": "Tutorials", "link": "tutorials.html", "image": "images/carousel/tutorials.png"},
+] %}
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#marbleCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon fw-bold" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-          </button>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-        <div class="carousel-inner ">
-
-
-            <div class="carousel-item active border">
-                <div class="col-4 col-sm-4">
-                    <a class="carousel-link" href="/datacatalog.html">
-                        <img class="img-fluid" src="images/carousel/stac-catalog.png">
-                    </a>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-4 col-sm-4">
-                                <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3 text-start">
-                                    <h2><a class="carousel-link stretched-link" href="/datacatalog.html">Data Catalog</a></h2>
-                                </div>
-                            </div>
+<div id="marbleCarousel" class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    {% for i in range(2) %}
+        {# duplicate the elements in the carousel so that the swiper library can smoothly transition
+           back to the first element in the list. If there are too few elements, the transition is choppy #}
+        {% for content in carousel_content %}
+        <div class="swiper-slide">
+            <a class="carousel-link" href="{{ content['link'] }}">
+                <img class="img-fluid" src="{{ content['image'] }}">
+            </a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-sm-4">
+                        <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3 text-start">
+                            <h2><a class="carousel-link stretched-link" href="{{ content['link'] }}">{{ content['title'] }}</a></h2>
                         </div>
                     </div>
                 </div>
             </div>
-
-          <div class="carousel-item border">
-                <div class="col-4 col-sm-4">
-                    <a class="carousel-link" href="ide.html">
-                        <img class="img-fluid" src="images/carousel/dev-environment-dusk-bg.png">
-                    </a>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-4 col-sm-4">
-                                <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3 text-start">
-                                    <h2><a class="carousel-link stretched-link" href="/ide.html">IDE</a></h2>
-                                </div>
-                             </div>
-                        </div>
-                    </div>
-                </div>
-          </div>
-
-          <div class="carousel-item border">
-              <div class="col-4 col-sm-4">
-                  <a class="carousel-link" href="/wps.html">
-                    <img class="img-fluid" src="images/carousel/remote-processing-graph-6249047.png">
-                  </a>
-                  <div class="container">
-                      <div class="row">
-                        <div class="col-4 col-sm-4">
-                            <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3 text-start">
-                                <h2><a class="carousel-link stretched-link" href="/wps.html">Remote Processing</a></h2>
-                            </div>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="carousel-item border">
-              <div class="col-4 col-sm-4">
-                  <a class="carousel-link" href="/about.html">
-                    <img class="img-fluid" src="images/carousel/communityv3.png">
-                  </a>
-                  <div class="container">
-                      <div class="row">
-                        <div class="col-4 col-sm-4">
-                            <div class="carousel-left-caption carousel-text-background px-sm-1 px-lg-2 my-3">
-                                <h2><a class="carousel-link stretched-link" href="/about.html#community">Community</a></h2>
-                            </div>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="carousel-item border">
-              <div class="col-4 col-sm-4">
-                  <a class="carousel-link" target="_blank" href="/tutorials.html">
-                    <img class="img-fluid" src="images/carousel/tutorials.png">
-                  </a>
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-4 col-sm-4">
-                              <div class="carousel-left-caption px-sm-1 px-lg-2 my-3 carousel-text-background text-start">
-                                  <a class="carousel-link stretched-link" href="/tutorials.html">
-                                    <h2>Tutorials</h2>
-                                  </a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
         </div>
-
-           <button class="carousel-control-next" type="button" data-bs-target="#marbleCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-           </button>
-
-        </div>
-    </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
-<!-- End Learn About DACCS Carousel -->
+<script src="js/load-carousel.js"></script>

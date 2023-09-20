@@ -1,41 +1,23 @@
 {% extends "layouts/main.html" %}
-{% set sitetitle = "Marble" %}
-{% set pagetitle = "Data Catalog" %}
+{% set page_title = "Data Catalog" %}
 {% block content %}
     {% include "partials/banner.html" %}
-
     {% with %}
-        {% set leftimagesource = "images/stac-030-long.png" %}
-
+        {% set img_src = "images/stac-030-long.png" %}
+        {% set img_class = "img-fluid" %}
+        {% set img_location = "left" %}
+        {% set git_hub_link = "https://github.com/radiantearth/stac-api-spec" %}
+        {% set doc_link = "https://stacspec.org" %}
         {% set content %}
             <p>The Marble Platform uses the SpatioTemporal Asset Catalog (STAC) as its data catalog.</p>
             <p>STAC is a family of specifications aim to standardize the way geospatial asset metadata is structured and queried</p>
+            {% include "partials/git-doc-links.html" %}
         {% endset %}
-
-        {% include "partials/data-content-section-left.html" %}
+        {% include "partials/info-row.html" %}
     {% endwith %}
-
-    {% with %}
-        {% set rightimagesource = "images/usgs-Yhx6-WibC3I-unsplash.jpg" %}
-
-        {% set content %}
-             <p>
-                 A "spatiotemporal asset" is any file that represents information about the Earth at a certain place
-                and time. The original focus was on scenes of satellite imagery, but the specifications now cover
-                a broad variety of uses, including sources such as aircraft and drone and data such as hyperspectral
-                optical, synthetic aperture radar (SAR), video, point clouds, lidar, digital elevation models (DEM),
-                vector, machine learning labels, and composites like NDVI and mosaics.
-             </p>
-        {% endset %}
-
-        {% include "partials/data-content-section-right.html" %}
-    {% endwith %}
-
-
 
     {% with %}
         {% set title = "Available At" %}
-
         {% include "partials/section.html" %}
     {% endwith %}
     {% with %}

@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+{% set page_title = "Remote Processing" %}
+{% set page_summary = ["The use of web processing services for climate data analysis, such as  Climate Indicator Analysis and
+            Hydrological modeling and analytics, will provide valuable tools and resources for users to better understand and analyze climate patterns
+            and hydrological processes. The technology involved in these services will allow users to access data
+            and models previously unavailable to them, enabling them to engage with complex systems in a more intuitive
+            and interactive way. "]%}
+{% block content %}
+    {% include "partials/banner.html" %}
+    {% include "partials/section.html" %}
+    {% include "partials/page-summary.html" %}
+    {% with %}
+        {% set img_src = "images/logos/noun-project/cropped/noun-finch-no-branch-flipped-962354.svg" %}
+        {% set img_class = "wps-lg-finch-logo" %}
+        {% set img_location = "left" %}
+        {% set title = "Finch" %}
+        {% set small_title = "Climate Indicator Analysis" %}
+        {% set git_hub_link = "https://github.com/bird-house/finch" %}
+        {% set doc_link = "https://pavics-sdi.readthedocs.io/projects/finch/en/latest" %}
+        {% set content %}
+            <p>
+                Finch is the go-to for climate indicator analysis.  With many pre-programmed
+                processes for single indicator analysis and ensemble analysis of a particular indicator, Finch
+                covers the breadth and depth needed for climate indicator analysis.  Analyze freeze-thaw cycles
+                using the provided Daily Freeze-Thaw indicator process or determine the longest number of
+                consecutive days where daily precipitation below a given threshold using the provided
+                Ensemble GridPoint Process.
+            </p>
+            <p>
+                Finch also provides data processing support by providing processes to help manage your data, such as
+                converting a geospatial series to a CF-compliant netCDF.
+            </p>
+            {% include "partials/git-doc-links.html" %}
+        {% endset %}
+        {% include "partials/info-row.html" %}
+    {% endwith %}
+    {% with %}
+        {% set img_src = "images/logos/noun-project/cropped/noun-raven-962374.svg" %}
+        {% set img_class = "wps-lg-raven-logo" %}
+        {% set img_location = "right" %}
+        {% set title = "Raven" %}
+        {% set small_title = "Hydrological modeling and analytics" %}
+        {% set git_hub_link = "https://github.com/bird-house/raven" %}
+        {% set doc_link = "https://pavics-sdi.readthedocs.io/projects/raven/en/latest/" %}
+        {% set content %}
+            <p>
+                Raven offers processes related to hydrological modeling, and in particular, the Raven
+                hydrological modeling framework.
+            </p>
+            <p>
+                Raven is an open source server project offering hydrological modeling and analysis capabilities
+                through the Web Processing Service (WPS) standard. Raven processes can be embedded in a
+                graphical user interface or accessed directly from a programming environment.
+            </p>
+            <p>
+                Raven was made to help scientists run hydrological modeling experiments with climate change
+                projections. It includes four lumped daily hydrological models (GR4J-CN, HBV-EC, HMETS, MOHYSE)
+                that can be run in multi-model experiments. Meteorological input variables as well as
+                streamflow and storage outputs use the netCDF format. Raven bundles model calibration processes,
+                time series analysis (with xarray), hydrological indicators and frequency analysis (using
+                xclim). On top of this, a database of pre-calibrated model parameters over North America is
+                available to perform model regionalization, allowing simulations in watersheds with no
+                streamflow observations. The properties of custom watersheds can be extracted from a Digital
+                Elevation Model and a land-use database.
+            </p>
+            {% include "partials/git-doc-links.html" %}
+        {% endset %}
+        {% include "partials/info-row.html" %}
+    {% endwith %}
+    {% with %}
+        {% set img_src = "images/logos/noun-project/cropped/noun-hummingbird-4218394.svg" %}
+        {% set img_class = "wps-sm-hummingbird-logo wps-lg-hummingbird-logo" %}
+        {% set img_location = "left" %}
+        {% set title = "Hummingbird" %}
+        {% set small_title = "Metadata compliance checks" %}
+        {% set git_hub_link = "https://github.com/Ouranosinc/hummingbird" %}
+        {% set doc_link = "https://birdhouse-hummingbird.readthedocs.io/en/latest/index.html" %}
+        {% set content %}
+            <p>
+                Hummingbird will check your datasets to see if they meet compliance standards set by Integrated
+                Ocean Observing System (IOOS) and the Climate and Forest conventions, as well as project
+                specific rules for CMIP6 and CORDEX
+            </p>
+            {% include "partials/git-doc-links.html" %}
+        {% endset %}
+        {% include "partials/info-row.html" %}
+    {% endwith %}
+    {% with %}
+        {% set img_src = "images/logos/flat-icon/weaver-flipped.svg" %}
+        {% set img_class = "wps-sm-hummingbird-logo wps-lg-hummingbird-logo" %}
+        {% set img_location = "right" %}
+        {% set title = "Weaver" %}
+        {% set small_title = "Moves the application to the data" %}
+        {% set git_hub_link = "https://github.com/crim-ca/weaver" %}
+        {% set doc_link = "https://pavics-weaver.readthedocs.io/en/latest/" %}
+        {% set content %}
+            <p>
+                Weaver is an Application, Deployment, and Execution Service (ADES) and an
+                Execution Management Service (EMS).  One of its standout
+                features is the ability to facilitate remote execution of processes from many different applications
+                in a workflow chain.  This empowers climate researchers to harness the immense computing power of
+                the Marble network while freeing up their own resources.
+            </p>
+            <p>
+                With Weaver, there's no need for users to grapple with the intricacies of software
+                installation and management.  Instead, researchers can seamlessly access software residing on the
+                Marble network and transmit precise analysis instructions via Weaver, enabling them to perform
+                data analysis on the extensive datasets stored on Marble network servers.
+            </p>
+            <p>
+                In essence, Weaver acts as a bridge between researchers
+                and the computational resources they need, simplifying workflow execution and enhancing the efficiency of
+                climate research endeavors.
+            </p>
+            {% include "partials/git-doc-links.html" %}
+        {% endset %}
+        {% include "partials/info-row.html" %}
+    {% endwith %}
+
+    {% with %}
+        {% set title = "Available At" %}
+        {% include "partials/section.html" %}
+    {% endwith %}
+
+    {% with %}
+        <script>
+            function nodeFilter([_name, data]) {
+                // only include those that have weaver since the other WPS services are served by weaver
+                return data.services && data.services.some(service => service.name === "weaver")
+            }
+        </script>
+        {% include "partials/node-content.html" %}
+    {% endwith %}
+    {% include "partials/pictures.html" %}
+
+{% endblock content %}
