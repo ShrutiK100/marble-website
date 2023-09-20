@@ -1,0 +1,230 @@
+/* For mobile phones: */
+[class*="wps-"]{
+  width: 100%;
+}
+
+[class*="daccs-"]{
+  width: 100%;
+}
+
+@media only screen and  (min-width:576px){
+    .wps-sm-hummingbird-logo{
+        width: 90%;
+    }
+
+    .wps-sm-weaver-logo{
+        width: 90%;
+    }
+
+    .marble-logo-node{
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width:786px){
+    .marble-logo-node{
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width:992px){
+    .wps-lg-finch-logo{
+        width: 50%;
+        left: 20%;
+    }
+
+    .wps-lg-raven-logo{
+        width: 53%;
+    }
+
+    .wps-lg-hummingbird-logo{
+        width: 50%;
+        left: 20%;
+    }
+
+    .wps-lg-weaver-logo{
+        width: 45%;
+    }
+
+    .marble-logo-node{
+        width: 100%;
+    }
+}
+
+/*Informational Pages*/
+/*Puts off-white colour as background of all information sections*/
+.info-background{
+    background-color: #F7F9FB;
+}
+
+/*WPS page*/
+.marble-docs-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+.marble-github-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+/*Carousel*/
+
+.carousel-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+.carousel-left-caption {
+    width: auto;
+    position: absolute;
+    bottom: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+}
+
+.carousel-text-background{
+    border-radius: 25px;
+    background-color: rgba(0.0, 0.0, 0.0, 0.25);
+}
+
+/*Menu*/
+.menu{
+    background-color: #FFFFFF;
+    color: #6D6E71;
+}
+
+.menu-link{
+    color: #6D6E71;
+}
+
+/*Page Elements*/
+#nodeContentDisplay{
+    background-color: #F7F9FB;
+}
+
+#accordionContentDisplay{
+    background-color: #F7F9FB;
+}
+
+/*Banner*/
+#banner{
+    width: 100%;
+    height: 400px;
+    max-height: 800px;
+}
+
+.banner-caption{
+    position: absolute;
+    right: 15%;
+    bottom: 1.25rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: left;
+    z-index: 10;
+}
+
+.banner-image-overlay{
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+  transition: transform 150ms ease-in-out;
+}
+
+.banner-image-overlay img{ /* <= optional, for responsiveness */
+   display: block;
+   max-width: 80%;
+   height: auto;
+}
+
+.banner-image-overlay svg{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.banner-text-container{
+    background-color: #000000;
+}
+
+.banner-title-container {
+    width: 100%;
+    height: 50%;
+}
+
+.banner-title {
+    font-family: "Helvetica", sans-serif;
+    font-size: calc(1.5rem + 2vw);
+    text-align: center;
+}
+
+.banner-slogan{
+    height: 25%;
+    font-family: "Helvetica", sans-serif;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.banner-spacer{
+    height: 20%;
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, #2D3367, #1F81B6, #336D66, #F6DC3D, #C66B33, #762F24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*Footer*/
+.footer{
+    background-color: #659DBD;
+    font-size: 10px;
+}
+
+.footer-link{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.logo-box {
+    max-height: 179px;
+}
+
+a.href-text {
+    color: black;
+    text-decoration: none;
+}
+
+/*About*/
+.about-background{
+    background-color: #F7F9FB;
+}
+
+/*Node Page*/
+.background-node-logo{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.foreground-img-blur {
+    width: 100%;
+    height: 100%;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    -moz-backdrop-filter: blur(8px);
+    -o-backdrop-filter: blur(8px);
+    -ms-backdrop-filter: blur(8px);
+}
+
+.table-left-border{
+    border-left: 1px solid;
+}
+
+.table-bottom-border{
+    border-bottom: 1px solid;
+}
