@@ -60,14 +60,10 @@ const converters = {
                 const link_elem = document.createElement("a");
 
                 let name;
-                let description;
+                let description = service.description;
 
                 if (link.rel === "service") {
                     name = service.name;
-                }
-
-                if (service.description != "" ) {
-                    description = service.description;
                 }
 
                 if(link.rel === "service-doc"){
