@@ -66,8 +66,7 @@ const converters = {
                     name = service.name;
                 }
 
-                if (link.rel === "service-desc" ) {
-                    name="";
+                if (service.description != "" ) {
                     description = service.description;
                 }
 
@@ -88,9 +87,8 @@ const converters = {
                 if(link_elem.rel === "service-doc"){
                     table_row.appendChild(table_cell_documentation);
                     table_cell_documentation.appendChild(link_elem);
-                }
 
-                if(link_elem.rel === "service-desc"){
+                    //If service documentation exists, add the service description
                     const descriptionTextNode = document.createTextNode(description);
                     table_row.appendChild(table_cell_description);
                     table_cell_description.appendChild(descriptionTextNode);
