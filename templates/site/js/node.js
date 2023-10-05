@@ -51,49 +51,42 @@ const converters = {
             table_row.classList.add("border-bottom", "table-light")
             table_body.appendChild(table_row);
 
+            const table_cell_description = document.createElement("td")
+            let description = service.description;
+
+            //Add the service description
+            if (description != ""){
+                const descriptionTextNode = document.createTextNode(description);
+                table_row.appendChild(table_cell_description);
+                table_cell_description.appendChild(descriptionTextNode);
+            }
+
             service.links.forEach(link => {
-
-                const table_cell_service = document.createElement("td")
-                const table_cell_description = document.createElement("td")
-                const table_cell_documentation = document.createElement("td")
-
                 const link_elem = document.createElement("a");
 
                 let name;
-                let description;
 
                 if (link.rel === "service") {
                     name = service.name;
                 }
 
-                if (link.rel === "service-desc" ) {
-                    name="";
-                    description = service.description;
-                }
-
-                if(link.rel === "service-doc"){
+                if (link.rel === "service-doc"){
                     name = "Documentation";
                 }
 
                 Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value))
                 link_elem.innerText = name;
 
-                //Fill in columns with links and information for each service, service documentation
-                // and service description
-                if(link_elem.rel === "service"){
-                    table_row.appendChild(table_cell_service);
+                //Add the columns with links and information for each service, service documentation before the
+                // service description
+                if (link_elem.rel === "service"){
+                    let table_cell_service = table_row.insertCell(0)
                     table_cell_service.appendChild(link_elem);
                 }
 
-                if(link_elem.rel === "service-doc"){
-                    table_row.appendChild(table_cell_documentation);
+                if (link_elem.rel === "service-doc"){
+                    let table_cell_documentation = table_row.insertCell(1)
                     table_cell_documentation.appendChild(link_elem);
-                }
-
-                if(link_elem.rel === "service-desc"){
-                    const descriptionTextNode = document.createTextNode(description);
-                    table_row.appendChild(table_cell_description);
-                    table_cell_description.appendChild(descriptionTextNode);
                 }
             })
         })
