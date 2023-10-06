@@ -100,7 +100,44 @@
         {% set title = "Acknowledgments" %}
         {% set intro_content = "The Marble climate platform was made possible with funding from the following agencies: " %}
         {% set content %}
-            <p>Acknowledgements are coming soon!</p>
+
+            {% set funder_images = [
+                {"image1": "/images/logos/BCID_Supported_H_RGB_pos.png",
+                "image2": "/images/logos/ontario-researh-fund.jpg",
+                "image3":"/images/logos/MEIE_-Avril_2014-300x130.jpg"},
+                {"image1": "/images/logos/CFI-Logo-RGB.svg",
+                "image2": "",
+                "image3": ""}
+            ] %}
+
+            {% set partner_images = [
+                {"image1": "/images/logos/ouranos_logo_horizontal_couleur.png",
+                "image2": "",
+                "image3":""}
+            ] %}
+
+
+
+            <h4>Funders</h4>
+            {% for row in funder_images %}
+
+                <div class="row">
+                    <div class="col-4"><img class="img-fluid p-1" src="{{ row["image1"] }}"></div>
+                    <div class="col-4"><img class="img-fluid p-1" src="{{ row["image2"] }}"></div>
+                    <div class="col-4"><img class="img-fluid p-1" src="{{ row["image3"] }}"></div>
+                </div>
+            {% endfor %}
+
+            <h4>Partners</h4>
+            {% for row in partner_images %}
+
+                <div class="row">
+                    <div class="col-4"><img class="img-fluid p-1" src="{{ row["image1"] }}"></div>
+                    <div class="col-4"><img class="img-fluid p-1" src="{{ row["image2"] }}"></div>
+                    <div class="col-4"><img class="img-fluid p-1" src="{{ row["image3"] }}"></div>
+                </div>
+            {% endfor %}
+
         {% endset %}
         {% include "partials/info-row.html" %}
     {% endwith %}
