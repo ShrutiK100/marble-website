@@ -44,24 +44,15 @@
         {% set doc_link = "https://pavics-sdi.readthedocs.io/projects/raven/en/latest/" %}
         {% set content %}
             <p>
-                Raven offers processes related to hydrological modeling, and in particular, the Raven
-                hydrological modeling framework.
+                Raven is an open source server project offering physiographic analysis capabilities over North 
+                America, through the Web Processing Service (WPS) standard. The outputs of these processes can 
+                be used to help configure the Raven hydrological modeling framework over a given watershed.
             </p>
             <p>
-                Raven is an open source server project offering hydrological modeling and analysis capabilities
-                through the Web Processing Service (WPS) standard. Raven processes can be embedded in a
-                graphical user interface or accessed directly from a programming environment.
-            </p>
-            <p>
-                Raven was made to help scientists run hydrological modeling experiments with climate change
-                projections. It includes four lumped daily hydrological models (GR4J-CN, HBV-EC, HMETS, MOHYSE)
-                that can be run in multi-model experiments. Meteorological input variables as well as
-                streamflow and storage outputs use the netCDF format. Raven bundles model calibration processes,
-                time series analysis (with xarray), hydrological indicators and frequency analysis (using
-                xclim). On top of this, a database of pre-calibrated model parameters over North America is
-                available to perform model regionalization, allowing simulations in watersheds with no
-                streamflow observations. The properties of custom watersheds can be extracted from a Digital
-                Elevation Model and a land-use database.
+                Processes offered include returning the watershed upstream from an outlet, subsetting raster fields over 
+                a given watershed, computing watershed properties (area, centroid location, perimeter, gravelius shape index), 
+                analyzing terrain characterisics from a digital elevation model (DEM), extracting land-use properties, 
+                and computing statistics over a region.
             </p>
             {% include "partials/git-doc-links.html" %}
         {% endset %}
