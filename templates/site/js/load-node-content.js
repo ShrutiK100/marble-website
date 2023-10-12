@@ -29,10 +29,27 @@ function buildNodeDescription(name, data, node_index, row_id_suffix) {
                     img_alt = link.alt;
                 }
                 break
+
         }
     })
+
+    if(window.location.href.includes("ide.html")){
+        data.services.forEach(service => {
+            if(service.keywords.includes("jupyterhub")){
+
+                service.links.forEach(link => {
+                                if(link.href.includes("jupyter")){
+                                    node_template.innerHTML = node_template.innerHTML.replaceAll("{{href}}", link.href)
+                                }
+                        })
+            }
+        })
+    }
+    else{
+        node_template.innerHTML = node_template.innerHTML.replaceAll("{{href}}", href)
+    }
+
     node_template.innerHTML = node_template.innerHTML
-        .replaceAll("{{href}}", href)
         .replace("{{title}}", name)
         .replace("{{content}}", data.description)
         .replace("{{link_id}}", node_id_suffix);
