@@ -7,13 +7,17 @@
     <div class="container">
         <div class="row">
             <div class="logo-box col-3">
-                <a class="stretched-link" href="{{ href }}">
+
                     {% if template %}
-                        <img id="link-image-{{ "{{link_id}}" }}" class="img-fluid float-end float-sm-none marble-logo-node"/>
+                        <a class="stretched-link" id="link-url-{{ "{{link_id}}" }}" href="{{ href }}">
+                            <img id="link-image-{{ "{{link_id}}" }}" class="img-fluid float-end float-sm-none marble-logo-node"/>
+                        </a>
                     {% else %}
-                        <img alt="{{ img_alt }}" src="{{ img_src }}" class="img-fluid float-end float-sm-none marble-logo-node"/>
+                        <a class="stretched-link" href="{{ href }}">
+                            <img alt="{{ img_alt }}" src="{{ img_src }}" class="img-fluid float-end float-sm-none marble-logo-node"/>
+                        </a>
                     {% endif %}
-                </a>
+
             </div>
             <div class="col-9 px-1">
                 <h2>{{ title }}</h2>
