@@ -62,6 +62,7 @@ function buildNodeContent(registry) {
 
         Object.entries(nodes).forEach(([name, data], node_index) => {
             node_content.appendChild(buildNodeDescription(name, data, node_index, id_suffix));
+            setNodeLinkURL(name, data, node_index, id_suffix);
         })
     })
 }
@@ -71,6 +72,13 @@ function filterNodes(registry) {
         return Object.fromEntries(Object.entries(registry).filter(nodeFilter));
     }
     return registry
+}
+
+function setNodeLinkURL(name, data, node_index, row_id_suffix){
+    if (typeof setNodeLinkJupyter === 'function') {
+        let node_id_suffix = `${row_id_suffix}-${node_index}`;
+        setNodeLinkJupyter(name, data, node_id_suffix);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
