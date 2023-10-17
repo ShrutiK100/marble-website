@@ -31,11 +31,13 @@ function buildNodeDescription(name, data, node_index, row_id_suffix) {
                 break
         }
     })
+
     node_template.innerHTML = node_template.innerHTML
         .replaceAll("{{href}}", href)
         .replace("{{title}}", name)
         .replace("{{content}}", data.description)
-        .replace("{{link_id}}", node_id_suffix);
+        .replaceAll("{{link_id}}", node_id_suffix);
+
     const image = node_template.content.getElementById(`link-image-${node_id_suffix}`)
     image.setAttribute("src", img_src);
     image.setAttribute("alt", img_alt);
