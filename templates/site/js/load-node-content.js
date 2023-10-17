@@ -77,9 +77,9 @@ function filterNodes(registry) {
 }
 
 function setNodeLinkURL(name, data, node_index, row_id_suffix){
-    if (typeof setNodeLinkJupyter === 'function') {
+    if (typeof setNodeLink === 'function') {
         let node_id_suffix = `${row_id_suffix}-${node_index}`;
-        setNodeLinkJupyter(name, data, node_id_suffix);
+        setNodeLink(name, data, node_id_suffix);
     }
 }
 
