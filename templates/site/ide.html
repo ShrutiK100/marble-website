@@ -31,16 +31,15 @@
                 return data.services && data.services.some(service => service.keywords.includes("jupyterhub"))
             }
 
-            function setNodeLinkJupyter(name, data, node_id_suffix) {
-                let nodeLinkID = "link-url-" + node_id_suffix;
+            function setNodeLink(name, data, node_id_suffix) {
 
                 data.services.forEach((service) => {
 
                     if(service.keywords.includes("jupyterhub")) {
                         service.links.forEach((link) => {
 
-                            if(link.href.includes("jupyter") && link.rel == "service" ) {
-                                let nodeAnchor = document.getElementById(nodeLinkID);
+                            if(link.rel === "service") {
+                                let nodeAnchor = document.getElementById(`link-url-${node_id_suffix}`);
                                 nodeAnchor.href = link.href;
                             }
                         })
