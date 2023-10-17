@@ -12,9 +12,12 @@ SITE_PATH = os.path.join(TEMPLATE_PATH, "site")
 TUTORIALS_PATH = os.path.join(THIS_DIR, "marble-tutorials")
 
 
-def filter_site_templates(template):
+def filter_site_templates(template, extensions=("js", "html")):
     abs_filepath = os.path.join(TEMPLATE_PATH, template)
-    return SITE_PATH == os.path.commonpath((abs_filepath, SITE_PATH))
+    basename = os.path.basename(template)
+    return (SITE_PATH == os.path.commonpath((abs_filepath, SITE_PATH)) and
+            "." in basename and
+            basename.rsplit(".", 1)[1] in extensions)
 
 
 def build_tutorials():
