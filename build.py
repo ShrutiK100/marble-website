@@ -6,7 +6,6 @@ import argparse
 from jinja2 import FileSystemLoader, Environment, select_autoescape
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
-BUILD_DIR = os.path.abspath(os.getenv("BUILD_DIR", os.path.join(THIS_DIR, "build")))
 TEMPLATE_PATH = os.path.join(THIS_DIR, "templates")
 SITE_PATH = os.path.join(TEMPLATE_PATH, "site")
 TUTORIALS_PATH = os.path.join(THIS_DIR, "marble-tutorials")
@@ -20,14 +19,14 @@ def filter_site_templates(template, extensions=("js", "html")):
             basename.rsplit(".", 1)[1] in extensions)
 
 
-def build_tutorials():
+def build_tutorials(build_directory):
     subprocess.run(
         [
             "jupyter-book",
             "build",
             os.path.join(TUTORIALS_PATH, "tutorials"),
             "--path-output",
-            os.path.join(BUILD_DIR, "tutorials"),
+            os.path.join(build_directory, "tutorials"),
         ],
         check=True,
     )
@@ -47,7 +46,7 @@ def build(build_directory, node_registry_url):
         os.makedirs(os.path.dirname(build_destination), exist_ok=True)
         with open(build_destination, "w") as f:
             f.write(env.get_template(template).render(node_registry_url=node_registry_url))
-    build_tutorials()
+    build_tutorials(build_directory)
 
 
 if __name__ == "__main__":
