@@ -99,13 +99,10 @@
     color: #6D6E71;
 }
 
-/*Page Elements*/
-#nodeContentDisplay{
-    background-color: #F7F9FB;
-}
-
-#accordionContentDisplay{
-    background-color: #F7F9FB;
+/*Alert*/
+.construction-alert{
+    background-color: #F6DC3D;
+    z-index:9999;
 }
 
 /*Banner*/
@@ -175,6 +172,15 @@
   background-image: linear-gradient(to right, #2D3367, #1F81B6, #336D66, #F6DC3D, #C66B33, #762F24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/*Page Elements*/
+#nodeContentDisplay{
+    background-color: #F7F9FB;
+}
+
+#accordionContentDisplay{
+    background-color: #F7F9FB;
 }
 
 /*Footer*/
