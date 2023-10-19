@@ -207,6 +207,14 @@ a.href-text {
     background-color: #F7F9FB;
 }
 
+.acknowledgements-background{
+    background-color: #FFFFFF;
+}
+
+.acknowledgement-logo{
+    object-fit: cover;
+}
+
 /*Node Page*/
 .background-node-logo{
     width: 100%;
