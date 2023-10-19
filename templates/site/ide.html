@@ -30,6 +30,22 @@
             function nodeFilter([_name, data]) {
                 return data.services && data.services.some(service => service.keywords.includes("jupyterhub"))
             }
+
+            function setNodeLink(name, data, node_id_suffix) {
+
+                data.services.forEach((service) => {
+
+                    if(service.keywords.includes("jupyterhub")) {
+                        service.links.forEach((link) => {
+
+                            if(link.rel === "service") {
+                                let nodeAnchor = document.getElementById(`link-url-${node_id_suffix}`);
+                                nodeAnchor.href = link.href;
+                            }
+                        })
+                    }
+                })
+            }
         </script>
         {% include "partials/node-content.html" %}
     {% endwith %}
