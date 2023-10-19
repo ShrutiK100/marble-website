@@ -10,7 +10,56 @@
         {% set intro_content = "Take a look behind the scenes at how Marble is run" %}
         {% set git_hub_link = "https://github.com/DACCS-Climate/DACCS-executive-committee" %}
         {% set content %}
-            {% include "partials/git-doc-links.html" %}
+            {%  set table_data=[
+            {"name": "David Huard", "organization": "Ouranos", "org-profile": "https://www.ouranos.ca/en/equipe#david-huard-408", "org": true, "github": false, "orcid": false, "researchgate": false, "linkedin": false},
+            {"name": "Francis Charette Migneault", "organization": "CRIM",
+            "orcid-profile":"https://orcid.org/0000-0003-4862-3349",
+            "researchgate-profile": "https://www.researchgate.net/profile/Francis-Charette-Migneault",
+            "linkedin-profile": "https://www.linkedin.com/in/francis-charette-migneault/",
+            "github-profile": "https://github.com/fmigneault/",
+            "org": false, "github": true, "orcid": true, "researchgate": true, "linkedin": true, "github-alt": "GitHub", "researchgate-alt": "ResearchGate", "linkedin-alt": "LinkedIn", "orcid-alt": "OrcID"},
+            {"name": "Misha Schwartz", "organization": "University of Toronto", "github-profile": "https://github.com/mishaschwartz/",
+            "org": false, "github": true, "orcid": false, "researchgate": false, "linkedin": false, "github-alt": "GitHub",}
+            ] %}
+
+            <table class="table table-striped table-borderless info-background mb-0 pb-0">
+                <thead>
+                <tr>
+                    <th>Member</th>
+                    <th>Organization</th>
+                    <th>Profile</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in table_data %}
+                    <tr>
+                        <td>{{ row["name"] }}</td>
+                        <td>{{ row["organization"] }}</td>
+                        <td>
+                            {% if row["org"] %}
+                                <a class="about-profile-link pe-1" href="{{ row["org-profile"] }}" alt="{{ row["organization"] }}" target="_blank">{{ row["organization"] }}</a>
+                            {% endif %}
+
+                            {% if row["orcid"] %}
+                                <a class="marble-github-link pe-1" href="{{ row["orcid-profile"] }}" alt="{{ row["orcid-alt"] }}" target="_blank"><i class='fab fa-orcid fa-lg'></i></a>
+                            {% endif %}
+
+                            {% if row["researchgate"] %}
+                                <a class="marble-github-link pe-1" href="{{ row["researchgate-profile"] }}" alt="{{ row["researchgate-alt"] }}" target="_blank"><i class='fab fa-researchgate fa-lg'></i></a>
+                            {% endif %}
+
+                            {% if row["linkedin"] %}
+                                <a class="marble-github-link pe-1" href="{{ row["linkedin-profile"] }}" alt="{{ row["linkedin-alt"] }}" target="_blank"><i class='fab fa-linkedin fa-lg'></i></a>
+                            {% endif %}
+
+                            {% if row["github"] %}
+                                <a class="marble-github-link pe-1" href="{{ row["github-profile"] }}" alt="{{ row["github-alt"] }}" target="_blank"><i class='fab fa-github fa-lg'></i></a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         {% endset %}
         {% include "partials/info-row.html" %}
     {% endwith %}
@@ -39,7 +88,7 @@
                         <td class="align-bottom">
                             <div>
                                 <a class="marble-github-link" target="_blank" href="{{ row['git_link'] }}">
-                                    <i class="fab fa-github "></i> GitHub
+                                    <i class="fab fa-github fa-lg"></i> GitHub
                                 </a>
                             </div>
                         </td>
@@ -71,7 +120,7 @@
                         <td class="align-bottom">
                             <div>
                                 <a class="marble-github-link" target="_blank" href="{{ row['git_link'] }}">
-                                    <i class="fab fa-github "></i> GitHub
+                                    <i class="fab fa-github fa-lg"></i> GitHub
                                 </a>
                             </div>
                         </td>
