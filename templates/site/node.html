@@ -3,10 +3,32 @@
 
 {% block content %}
     {% include "partials/banner.html" %}
-    <div class="container mt-3">
-        <div class="row g-0 border rounded d-flex flex-column position-static overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
-            <div class="col-12 col-sm-8 px-2">
+
+    {% with %}
+    {% set img_location = "left" %}
+    {% if img_location == "left" %}
+        {% set border_class = "border-start" %}
+    {% endif %}
+
+    {% if img_location == "right" %}
+        {% set border_class = "border-end" %}
+    {% endif %}
+
+    {% set content %}
+
+
+
+    <!--<div class="container mt-3">-->
+
+        <div class="row g-0  d-flex flex-column position-static overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
+
+            <div class="col-12 col-sm-8 px-2 {{ border_class }}">
                 <div class="row">
+                    {% if img_location == "left" %}
+                        <div class="col-3 d-block d-lg-block">
+                            <img id="image-left" class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block  {{ img_class|default('') }}" src="{{ img_src }}" width="100%"/>
+                        </div>
+                    {% endif %}
                     <div class="col-9">
                         <!--H2 title -->
                         <div id="name" class="mb-0"></div>
@@ -43,10 +65,16 @@
 
                         </div>
                     </div>
-                    <div class="col-3 pt-4">
-                        <!-- Small sharp icon next to title -->
+                    {% if img_location == "right" %}
+                        <div class="col-3 d-block d-lg-block">
+                            <img id="image-right" class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid {{ img_class|default('') }}" src="{{ img_src }}" width="100%"/>
+                        </div>
+                    {% endif %}
+
+                    <!--<div class="col-3 pt-4">
+
                         <a id="small-logo-link" target="_blank"><img id="title-icon-img"></a>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
@@ -55,22 +83,21 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div id="services" class="table-responsive"></div>
+                        <div id="services" class="table-responsive border rounded"></div>
                     </div>
                 </div>
             </div>
+<!--
             <div class="col-1 col-sm-4 d-none d-lg-block overflow-hidden shadow-lg">
-                <!--Sets logo as background image-->
-                <div id="background-icon">
-                    <!--Div used to apply blur effect to background image -->
-                    <div id="node-overlay-container" class="foreground-img-blur mb-auto">
-                        <!--Used to set sharp logo overlayed on blurred logo.  May be used in future -->
-                        <!--<img id="node-overlay-img" > -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+            </div>-->
+
+       </div>
+    <!--</div>-->
+    {% endset %}
+    {% include "partials/info-row.html" %}
+    {% endwith %}
     <script src="js/node.js"></script>
     {% include "partials/pictures.html" %}
 {% endblock content %}
