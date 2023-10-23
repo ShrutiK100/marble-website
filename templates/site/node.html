@@ -3,8 +3,6 @@
 
 {% block content %}
     {% include "partials/banner.html" %}
-
-    {% with %}
         <div class="container mt-3">
             <div class="row g-0  d-flex flex-column position-static overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
                 <div class="row">
@@ -44,7 +42,7 @@
                         </div>
                     </div>
                     <div class="col-3 col-lg-2 d-block d-lg-block">
-                        <img id="image-right" class="w-sm-100 mt-2 px-auto d-block img-fluid mw-25 mh-25 {{ img_class|default('') }}" src="{{ img_src }}" />
+                        <img id="image-right" class="w-sm-100 mt-2 px-auto d-block img-fluid mw-25 mh-25" src="" />
                     </div>
                 </div>
                 <div class="row">
@@ -59,7 +57,6 @@
                 </div>
            </div>
         </div>
-    {% endwith %}
     <script src="js/node.js"></script>
     {% include "partials/pictures.html" %}
 {% endblock content %}
