@@ -23,7 +23,7 @@
     {% with %}
         <script>
             function nodeFilter([_name, data]) {
-                return data.services && data.services.some(service => service.keywords.includes("catalog"))
+                return data.services && data.services.some(service => service.name.includes("stac-browser"))
             }
 
             function setNodeLink(name, data, node_id_suffix) {
