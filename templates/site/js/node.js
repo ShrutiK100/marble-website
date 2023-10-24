@@ -124,8 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (link.rel === "service") {
                 const elem = document.getElementById("url");
                 const link_elem = document.createElement("a");
-                let small_logo_link = document.getElementById("small-logo-link");
-                small_logo_link.href = link.href;
 
                 Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value));
                 link_elem.innerText = link.href;
@@ -134,13 +132,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const icon_img = document.createElement("img")
                 icon_img.setAttribute("src", link.href)
 
-                const background_elem = document.getElementById("background-icon");
-                background_elem.style.backgroundImage="url(" + link.href + ")";
-                background_elem.classList.add("info-background", "background-node-logo");
+                const image_right = document.getElementById("image-right")
+                if(image_right) {
+                    image_right.setAttribute("src", link.href);
+                }
 
-                const title_icon_img = document.getElementById("title-icon-img")
-                title_icon_img.classList.add("img-fluid", "d-block", "float-end");
-                title_icon_img.setAttribute("src", link.href);
             }
         })
 
