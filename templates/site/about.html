@@ -10,7 +10,73 @@
         {% set intro_content = "Take a look behind the scenes at how Marble is run" %}
         {% set git_hub_link = "https://github.com/DACCS-Climate/DACCS-executive-committee" %}
         {% set content %}
-            {% include "partials/git-doc-links.html" %}
+            {%  set table_data=[
+                {"name": "David Huard", "organization": "Ouranos",
+                "links":
+                    [
+                        {"href": "https://www.ouranos.ca/en/equipe#david-huard-408",
+                        "alt": "Ouranos",
+                        "icon-class": ""
+                        }
+                    ]
+                },
+                {"name": "Francis Charette Migneault", "organization": "CRIM",
+                "links":
+                    [
+                        {"href": "https://orcid.org/0000-0003-4862-3349",
+                        "alt": "OrcID",
+                        "icon-class": "fab fa-orcid fa-lg"},
+                        {"href": "https://www.researchgate.net/profile/Francis-Charette-Migneault",
+                        "alt": "ResearchGate",
+                        "icon-class": "fab fa-researchgate fa-lg"
+                        },
+                        {"href": "https://www.linkedin.com/in/francis-charette-migneault/",
+                        "alt": "LinkedIn",
+                        "icon-class": "fab fa-linkedin fa-lg"
+                        },
+                        {"href": "https://github.com/fmigneault/",
+                        "alt": "GitHub",
+                        "icon-class": "fab fa-github fa-lg"
+                        }
+                    ]
+                },
+                {"name": "Misha Schwartz", "organization": "University of Toronto",
+                "links":
+                    [
+                        {"href": "https://github.com/mishaschwartz/",
+                        "alt": "GitHub",
+                        "icon-class": "fab fa-github fa-lg"
+                        }
+                    ]
+                }
+            ]%}
+
+            <table class="table table-striped table-borderless info-background mb-0 pb-0">
+                <thead>
+                <tr>
+                    <th>Member</th>
+                    <th>Organization</th>
+                    <th>Profile</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in table_data %}
+                    <tr>
+                        <td>{{ row["name"] }}</td>
+                        <td>{{ row["organization"] }}</td>
+                        <td>
+                            {% for link in row["links"] %}
+                                {% if link["icon-class"] == "" %}
+                                    <a class="about-profile-link pe-1" href="{{ link["href"] }}" alt="{{ row["organization"] }}" target="_blank">{{ row["organization"] }}</a>
+                                {% else %}
+                                     <a class="marble-github-link pe-1" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank"><i class='{{ link["icon-class"] }}'></i></a>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         {% endset %}
         {% include "partials/info-row.html" %}
     {% endwith %}
@@ -39,7 +105,7 @@
                         <td class="align-bottom">
                             <div>
                                 <a class="marble-github-link" target="_blank" href="{{ row['git_link'] }}">
-                                    <i class="fab fa-github "></i> GitHub
+                                    <i class="fab fa-github fa-lg"></i> GitHub
                                 </a>
                             </div>
                         </td>
@@ -71,7 +137,7 @@
                         <td class="align-bottom">
                             <div>
                                 <a class="marble-github-link" target="_blank" href="{{ row['git_link'] }}">
-                                    <i class="fab fa-github "></i> GitHub
+                                    <i class="fab fa-github fa-lg"></i> GitHub
                                 </a>
                             </div>
                         </td>
