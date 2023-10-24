@@ -21,6 +21,12 @@ By default, node information will be read from
 > [!NOTE]
 > If you've just cloned the repository, ensure that the marble-tutorials submodule has been cloned as well:
 > ```shell
+> git submodule init
+> git submodule update
+> ```
+
+> If pulling changes from the main repository, run the following to ensure the submodule is picked up as well:
+> ```shell
 > git pull --recurse-submodules
 > ```
 
