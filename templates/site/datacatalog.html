@@ -23,7 +23,23 @@
     {% with %}
         <script>
             function nodeFilter([_name, data]) {
-                return data.services && data.services.some(service => service.keywords.includes("catalog"))
+                return data.services && data.services.some(service => {
+                    return service.name === "stac-browser"
+                })
+            }
+
+            function setNodeLink(name, data, node_id_suffix) {
+
+                data.services.forEach((service) => {
+                    if(service.name === "stac-browser") {
+                            service.links.forEach((link) => {
+                                if(link.rel === "service") {
+                                    let nodeAnchor = document.getElementById(`link-url-${node_id_suffix}`);
+                                    nodeAnchor.href = link.href;
+                                }
+                            })
+                    }
+                })
             }
         </script>
         {% include "partials/node-content.html" %}
