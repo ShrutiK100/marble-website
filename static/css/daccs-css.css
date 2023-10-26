@@ -75,7 +75,7 @@
     text-decoration: none;
 }
 
-.carousel-left-caption {
+.carousel-left-caption{
     width: auto;
     position: absolute;
     bottom: 1.25rem;
@@ -97,6 +97,10 @@
 
 .menu-link{
     color: #6D6E71;
+}
+
+.menu-logo{
+    width: 40%;
 }
 
 /*Alert*/
@@ -145,12 +149,12 @@
     background-color: #000000;
 }
 
-.banner-title-container {
+.banner-title-container{
     width: 100%;
     height: 50%;
 }
 
-.banner-title {
+.banner-title{
     font-family: "Helvetica", sans-serif;
     font-size: calc(1.5rem + 2vw);
     text-align: center;
@@ -167,7 +171,7 @@
     height: 20%;
 }
 
-.gradient-text {
+.gradient-text{
   background-image: linear-gradient(to right, #2D3367, #1F81B6, #336D66, #F6DC3D, #C66B33, #762F24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -193,11 +197,11 @@
     text-decoration: none;
 }
 
-.logo-box {
+.logo-box{
     max-height: 179px;
 }
 
-a.href-text {
+a.href-text{
     color: black;
     text-decoration: none;
 }
@@ -207,7 +211,7 @@ a.href-text {
     background-color: #F7F9FB;
 }
 
-.about-profile-link {
+.about-profile-link{
     color: black;
 }
 
@@ -219,7 +223,7 @@ a.href-text {
     background-size: cover;
 }
 
-.foreground-img-blur {
+.foreground-img-blur{
     width: 100%;
     height: 100%;
 
