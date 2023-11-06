@@ -6,7 +6,7 @@ project as well as tutorials (as a submodule under `marble-tutorials/`).
 ### To build the site
 
 ```shell
-python3 -m pip install -r requirements.txt -r marble-tutorials/tutorials/requirements.txt
+python3 -m pip install -r requirements.txt
 python3 build.py
 ```
 
