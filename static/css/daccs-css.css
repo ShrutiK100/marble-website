@@ -103,6 +103,12 @@
     width: 40%;
 }
 
+.social-media-icon{
+    color: inherit;
+    text-decoration: none;
+
+}
+
 /*Alert*/
 .construction-alert{
     background-color: #F6DC3D;
