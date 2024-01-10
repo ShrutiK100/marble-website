@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .width(bannerContainer.offsetWidth)
         .height(bannerContainer.offsetHeight)
         .backgroundColor('#000000')
-        .globeImageUrl('images/marble-globe-overlay.png')
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
     // Auto-rotate
     earth.controls().autoRotate = true;
