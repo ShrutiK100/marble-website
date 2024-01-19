@@ -15,12 +15,12 @@ function binNodes(registry, binSize) {
     return bins
 }
 
-function buildNodeDescription(nodeName, data, node_index, row_id_suffix) {
+function buildNodeDescription(nodeID, data, node_index, row_id_suffix) {
     let node_id_suffix = `${row_id_suffix}-${node_index}`;
     const node_template = document.getElementById("link-description").cloneNode(true)
-    let href = `node.html?node=${nodeName}`;
+    let href = `node.html?node=${nodeID}`;
     let img_src;
-    let img_alt = `${nodeName} icon`;
+    let img_alt = `${data.name} icon`;
     data.links.forEach(link => {
         switch (link.rel) {
             case "icon":
@@ -62,9 +62,9 @@ function buildNodeContent(registry) {
         row_container.appendChild(row_template.content);
         let node_content = document.getElementById(`row-body-content-${id_suffix}`);
 
-        Object.entries(nodes).forEach(([nodeName, data], node_index) => {
-            node_content.appendChild(buildNodeDescription(nodeName, data, node_index, id_suffix));
-            setNodeLinkURL(nodeName, data, node_index, id_suffix);
+        Object.entries(nodes).forEach(([nodeID, data], node_index) => {
+            node_content.appendChild(buildNodeDescription(nodeID, data, node_index, id_suffix));
+            setNodeLinkURL(nodeID, data, node_index, id_suffix);
         })
     })
 }
@@ -76,10 +76,10 @@ function filterNodes(registry) {
     return registry
 }
 
-function setNodeLinkURL(nodeName, data, node_index, row_id_suffix){
+function setNodeLinkURL(nodeID, data, node_index, row_id_suffix){
     if (typeof setNodeLink === 'function') {
         let node_id_suffix = `${row_id_suffix}-${node_index}`;
-        setNodeLink(nodeName, data, node_id_suffix);
+        setNodeLink(nodeID, data, node_id_suffix);
     }
 }
 
