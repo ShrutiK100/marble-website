@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const banner_title = document.getElementById("banner-title")
         if (banner_title) {
-            banner_title.textContent = node_name
+            banner_title.textContent = node_info.name
         }
     });
 })

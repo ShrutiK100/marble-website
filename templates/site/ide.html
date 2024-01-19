@@ -31,7 +31,7 @@
                 return data.services && data.services.some(service => service.keywords.includes("jupyterhub"))
             }
 
-            function setNodeLink(name, data, node_id_suffix) {
+            function setNodeLink(nodeID, data, node_id_suffix) {
 
                 data.services.forEach((service) => {
 
