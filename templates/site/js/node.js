@@ -10,6 +10,19 @@ const converters = {
         node_description_title.textContent = val;
         return node_description_title;
     },
+    "registration_status": (val) =>{
+        let registration_status_title = document.createElement("span");
+        registration_status_title.innerText = "Registration Status: ";
+        registration_status_title.style.fontWeight = "bold";
+
+        let registration_status = document.createElement("span");
+        registration_status.innerText = val;
+
+        let node_registration_status = document.createElement("div");
+        node_registration_status.appendChild(registration_status_title);
+        node_registration_status.appendChild(registration_status);
+        return node_registration_status;
+    },
     "contact": (val) =>{
         let contact_email = document.createElement("a");
         contact_email.href = "mailto:" + val;
@@ -136,7 +149,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 if(image_right) {
                     image_right.setAttribute("src", link.href);
                 }
-
+            } else if (link.rel === "registration"){
+                let node_registration_link = document.createElement("a");
+                let registration_link_div = document.getElementById("registration_link");
+                node_registration_link.setAttribute("href", link.href)
+                node_registration_link.setAttribute("target", "_blank")
+                node_registration_link.innerText = "Click here to register for this node";
+                registration_link_div.appendChild(node_registration_link);
             }
         })
 
