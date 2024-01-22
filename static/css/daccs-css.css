@@ -241,3 +241,7 @@ a.href-text{
 .table-bottom-border{
     border-bottom: 1px solid;
 }
+
+.registration-status-title{
+    font-weight: bold;
+}
