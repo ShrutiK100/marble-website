@@ -13,7 +13,7 @@ const converters = {
     "registration_status": (val) =>{
         let registration_status_title = document.createElement("span");
         registration_status_title.innerText = "Registration Status: ";
-        registration_status_title.style.fontWeight = "bold";
+        registration_status_title.classList.add("registration-status-title");
 
         let registration_status = document.createElement("span");
         registration_status.innerText = val;
@@ -150,12 +150,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     image_right.setAttribute("src", link.href);
                 }
             } else if (link.rel === "registration"){
-                let node_registration_link = document.createElement("a");
-                let registration_link_div = document.getElementById("registration_link");
-                node_registration_link.setAttribute("href", link.href)
-                node_registration_link.setAttribute("target", "_blank")
-                node_registration_link.innerText = "Click here to register for this node";
-                registration_link_div.appendChild(node_registration_link);
+                if(node_info.registration_status != "closed"){
+                    let node_registration_link = document.createElement("a");
+                    let registration_link_div = document.getElementById("registration_link");
+                    node_registration_link.setAttribute("href", link.href)
+                    node_registration_link.setAttribute("target", "_blank")
+                    node_registration_link.innerText = "Sign up for an account on this node";
+                    registration_link_div.appendChild(node_registration_link);
+                }
             }
         })
 
