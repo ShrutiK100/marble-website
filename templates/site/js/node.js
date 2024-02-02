@@ -16,7 +16,7 @@ const converters = {
         contact_email.innerText = val;
         return contact_email;
     },
-    "last_updated": (val) => new Date(val).toLocaleDateString("en-GB"),
+    "date_added": (val) => new Date(val).toLocaleDateString("en-GB"),
     "location": (val) => `latitude: ${val.latitude} longitude: ${val.longitude}`,
     "services": (val) => {
         //Create table for services information
