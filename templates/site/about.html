@@ -167,34 +167,34 @@
         {% set intro_content = "The Marble climate platform was made possible with funding from the following agencies: " %}
         {% set content %}
             {% set funder_images = [
-                {"image": "images/logos/BCID_Supported_H_RGB_pos.png"},
-                {"image": "images/logos/ontario-researh-fund.jpg"},
-                {"image": "images/logos/MEIE_-Avril_2014-300x130.jpg"},
-                {"image": "images/logos/CFI-Logo-RGB.svg"}
+                {"link": "https://www2.gov.bc.ca/gov/content/home", "image": "images/logos/BCID_Supported_H_RGB_pos.png"},
+                {"link": "https://www.ontario.ca/page/research-funding", "image": "images/logos/ontario-researh-fund.jpg"},
+                {"link": "https://www.economie.gouv.qc.ca/", "image": "images/logos/MEIE_-Avril_2014-300x130.jpg"},
+                {"link": "https://www.innovation.ca/", "image": "images/logos/CFI-Logo-RGB.svg"}
             ] %}
 
             {% set partner_images = [
-                {"image": "images/logos/ouranos_logo_horizontal_couleur.png"},
-                {"image": "images/logos/logo-CRIM-color-300x61.png"},
-                {"image": "images/logos/logo-pcic-long.jpg"},
-                {"image": "images/logos/logo-University-of-toronto.png"},
-                {"image": "images/logos/logo-McGill-University.png"},
-                {"image": "images/logos/logo-Concordia.jpeg"},
-                {"image": "images/logos/logo-Environment-and-Climate-Change-Canada.svg"},
-                {"image": "images/logos/logo-Natural-Resources-Canada.svg"}
+                {"link": "https://www.ouranos.ca/", "image": "images/logos/ouranos_logo_horizontal_couleur.png"},
+                {"link": "https://www.crim.ca/en/", "image": "images/logos/logo-CRIM-color-300x61.png"},
+                {"link": "https://www.pacificclimate.org/", "image": "images/logos/logo-pcic-long.jpg"},
+                {"link": "https://www.utoronto.ca/", "image": "images/logos/logo-University-of-toronto.png"},
+                {"link": "https://www.mcgill.ca/", "image": "images/logos/logo-McGill-University.png"},
+                {"link": "https://www.concordia.ca/", "image": "images/logos/logo-Concordia.jpeg"},
+                {"link": "https://www.canada.ca/en/environment-climate-change.html", "image": "images/logos/logo-Environment-and-Climate-Change-Canada.svg"},
+                {"link": "https://natural-resources.canada.ca/home", "image": "images/logos/logo-Natural-Resources-Canada.svg"}
             ] %}
 
             <h4 class="mt-2">Our Funders</h4>
             <div class="row acknowledgements-background">
                 {% for row in funder_images %}
-                        <div class="col-4 pt-1"><img class="img-fluid acknowledgement-logo" src="{{ row["image"] }}"></div>
+                        <div class="col-4 pt-1"><a href="{{ row["link"] }}" target="_blank"><img class="img-fluid acknowledgement-logo" src="{{ row["image"] }}"></a></div>
                 {% endfor %}
             </div>
 
             <h4 class="mt-2">Our Partners</h4>
             <div class="row acknowledgements-background">
                 {% for row in partner_images %}
-                        <div class="col-4 pt-1"><img class="img-fluid acknowledgement-logo" src="{{ row["image"] }}"></div>
+                    <div class="col-4 pt-1"><a href="{{ row["link"] }}" target="_blank"><img class="img-fluid acknowledgement-logo" src="{{ row["image"] }}"></a></div>
                 {% endfor %}
             </div>
         {% endset %}
