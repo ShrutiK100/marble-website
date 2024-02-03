@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+{% block content %}
+    {% include "partials/banner.html" %}
+
+       {% with %}
+            {% set img_src = "images/personas/persona-mark.png" %}
+            {% set img_class = "img-fluid" %}
+            {% set img_location = "left" %}
+            {% set second_img_src = "images/personas/Mark-Marble-uses.png" %}
+            {% set second_img_class = "img-fluid" %}
+            {% set second_img_location = "second_right" %}
+            {% set title = "Mark" %}
+            {% set intro_content = "Mark is an incoming grad student." %}
+            {% set content %}
+                <p>He is looking forward to researching his hypothesis and needs access to data and analytical tools.</p>
+
+                <p>Marble provides an all-in-one data catalog and development environment hosted by U of T or another
+                    member of the Marble network.    Using web processing services tailored for climate analyses,
+                    Mark can extract specific information from any dataset on Marble’s STAC catalog.</p>
+
+                <p>Mark has access to all the data stored on the Marble network, no matter where it’s hosted.  He can
+                    process the data and store his results in the JupyterLab development environment.  No need to
+                    ensure his laptop has enough storage or computing power.
+                </p>
+            {% endset %}
+            {% include "partials/personas-row.html" %}
+        {% endwith %}
+
+       {% with %}
+            {% set img_src = "images/personas/persona-michelle.png" %}
+            {% set img_class = "img-fluid" %}
+            {% set img_location = "right" %}
+            {% set title = "Michelle" %}
+            {% set intro_content = "" %}
+            {% set content %}
+                <p>Michelle is a university researcher.</p>
+            {% endset %}
+            {% include "partials/personas-row.html" %}
+        {% endwith %}
+
+
+
+
+{% endblock content %}
