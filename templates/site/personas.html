@@ -30,10 +30,14 @@
             {% set img_src = "images/personas/persona-michelle.png" %}
             {% set img_class = "img-fluid" %}
             {% set img_location = "right" %}
+            {% set second_img_src = "images/personas/researcher-secondary-image.png" %}
+            {% set second_img_class = "img-fluid" %}
+            {% set second_img_location = "second_left" %}
             {% set title = "Michelle" %}
-            {% set intro_content = "" %}
+            {% set intro_content = "Michelle is a university researcher." %}
             {% set content %}
-                <p>Michelle is a university researcher.</p>
+                <p>She conducts research using climate models and is working towards getting published.</p>
+                <p>Storing her work on a Marble node allows her to easily keep track of work in progress.</p>
             {% endset %}
             {% include "partials/personas-row.html" %}
         {% endwith %}
