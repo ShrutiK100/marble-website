@@ -1,63 +1,47 @@
+{% set div_classes = ["col-3 col-md-3 d-block d-lg-block", "col-2 col-md-2 d-block d-lg-block"] %}
+{% set base_img_classes = "w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid" %}
+{% set img_classes = [base_img_classes + " " + (img_class|default('')),
+                      base_img_classes + " " + (second_img_class|default(''))] %}
+{% set img_srcs = [img_src, second_img_src] %}
+{% set left_i = 0 if orient == "left" else 1 %}
+{% set right_i = 1 if orient == "left" else 0 %}
+{% set content_col_class %}
+    {% if img_src and second_img_src %}
+        col-7
+    {% elif not img_src and not second_img_src %}
+        ''
+    {% elif img_src %}
+        {{ 'col-8' if orient == "left" else 'col-9' }}
+    {% elif second_img_src %}
+        col-10
+    {% endif %}
+{% endset %}
+
 <div class="row mb-2 mx-auto">
     <div class="col-md-12 ">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
-            {% if page_use == "default" %}
-                {% if img_location == "left" %}
-                    <div class="col-3 col-md-4 d-block d-lg-block">
-                        <img class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid {{ img_class|default('') }}" src="{{ img_src }}" width="100%"/>
+            {% with %}
+                {% if img_srcs[left_i] %}
+                    <div class="{{ div_classes[left_i] }}">
+                        <img class="{{ img_classes[left_i] }}" src="{{ img_srcs[left_i] }}" width="100%"/>
                     </div>
                 {% endif %}
-                <div class="col-8 p-4 d-flex flex-column position-static">
+                <div class="{{ content_col_class }} p-4 d-flex flex-column position-static">
                     {% if small_title %}
                         <strong class="d-inline-block mb-2 text-success">{{ small_title }}</strong>
                     {% endif %}
-                    <h3 class="mb-0">{{ title }}</h3>
+                        <h3 class="mb-0">{{ title }}</h3>
                     {% if intro_content %}
                         <p class="mb-3">{{ intro_content }}</p>
                     {% endif %}
                     {{ content }}
                 </div>
-                {% if img_location == "right" %}
-                <div class="col-3 col-md-4 d-block d-lg-block">
-                    <img class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid {{ img_class|default('') }}" src="{{ img_src }}" width="100%"/>
-                </div>
-                {% endif %}
-            {% endif %}
-
-
-            {% if page_use == "use-case" %}
-                {% if img_location == "left" %}
-                    <div class="col-3 col-md-3 d-block d-lg-block">
-                        <img class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid {{ img_class|default('') }}" src="{{ img_src }}" width="100%"/>
+                 {% if img_srcs[right_i] %}
+                    <div class="{{ div_classes[right_i] }}">
+                        <img class="{{ img_classes[right_i] }}" src="{{ img_srcs[right_i] }}" width="100%"/>
                     </div>
                 {% endif %}
-                {% if second_img_location == "left" %}
-                    <div class="col-2 col-md-2 d-block d-lg-block">
-                        <img class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid {{ second_img_class|default('') }}" src="{{ second_img_src }}" width="100%"/>
-                    </div>
-                {% endif %}
-                <div class="col-7 p-4 d-flex flex-column position-static">
-                {% if small_title %}
-                    <strong class="d-inline-block mb-2 text-success">{{ small_title }}</strong>
-                {% endif %}
-                <h3 class="mb-0">{{ title }}</h3>
-                {% if intro_content %}
-                    <p class="mb-3">{{ intro_content }}</p>
-                {% endif %}
-                {{ content }}
-                </div>
-
-                {% if second_img_location == "right" %}
-                <div class="col-2 col-md-2 d-block d-lg-block">
-                    <img class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid {{ second_img_class|default('') }}" src="{{ second_img_src }}" />
-                </div>
-                {% endif %}
-                {% if img_location == "right" %}
-                    <div class="col-3 col-md-3 d-block d-lg-block">
-                        <img class="w-sm-100 mt-sm-5 mt-lg-0 mx-auto d-block img-fluid {{ img_class|default('') }}" src="{{ img_src }}" width="100%"/>
-                    </div>
-                {% endif %}
-            {% endif %}
+            {% endwith %}
         </div>
     </div>
 </div>
