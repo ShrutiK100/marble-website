@@ -150,7 +150,7 @@
 }
 
 .banner-text-container{
-    background-color: #000000;
+    background-color: rgba(0.0, 0.0, 0.0, 0.5);
 }
 
 .banner-title-container{
@@ -168,7 +168,7 @@
     height: 25%;
     font-family: "Helvetica", sans-serif;
     color: #FFFFFF;
-    background-color: #000000;
+    background-color: rgba(0.0, 0.0, 0.0, 0.5);
 }
 
 .banner-spacer{
