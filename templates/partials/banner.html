@@ -1,15 +1,32 @@
-<script src="//unpkg.com/globe.gl"></script>
-<div class="row mb-3 banner-text-container">
-    <div class="col-5 pe-0">
-        <div class="d-flex align-items-end justify-content-center flex-wrap banner-title-container">
-            <span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span>
+<!--<script src="//unpkg.com/globe.gl"></script>-->
+
+        <div class="col-12">
+            <div class="row mb-3 position-absolute banner-text-container">
+                <div class="col-5 pe-0">
+                    <p class="text-white">Marble</p>
+                    <div class="d-flex align-items-end justify-content-center flex-wrap banner-title-container">
+                        <span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center banner-slogan">
+                        {{ page_slogan|default("") }}
+                    </div>
+                </div>
+                <div class="col-7 ps-0">
+                    <div id="banner"></div>
+                </div>
+                <!--<script src="js/banner-animation.js"></script>-->
+            </div>
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item" autoplay loop muted>
+                            <source src="{{ banner_video }}" type="video/mp4">
+                        </video>-
+                        <!--<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>-->
+                    </div>
+                </div>
+            </div>
+            <!--end-0 bottom-0 h-auto w-auto-->
+
         </div>
-        <div class="d-flex align-items-center justify-content-center banner-slogan">
-            {{ page_slogan|default("") }}
-        </div>
-    </div>
-    <div class="col-7 ps-0">
-        <div id="banner"></div>
-    </div>
-    <script src="js/banner-animation.js"></script>
-</div>
+
