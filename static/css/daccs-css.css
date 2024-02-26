@@ -175,6 +175,20 @@
     height: 20%;
 }
 
+.banner-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.banner-video-overlay{
+    background-color: rgba(0.0, 0.0, 0.0, 0.25);
+}
+
 .gradient-text{
   background-image: linear-gradient(to right, #2D3367, #1F81B6, #336D66, #F6DC3D, #C66B33, #762F24);
   -webkit-background-clip: text;
