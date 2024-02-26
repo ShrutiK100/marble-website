@@ -1,32 +1,90 @@
 <!--<script src="//unpkg.com/globe.gl"></script>-->
 
-        <div class="col-12">
-            <div class="row mb-3 position-absolute banner-text-container">
-                <div class="col-5 pe-0">
-                    <p class="text-white">Marble</p>
-                    <div class="d-flex align-items-end justify-content-center flex-wrap banner-title-container">
-                        <span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span>
+<div class="container col-xxl-8 px-4 py-5">
+     <div class="container">
+        <div class="d-none d-lg-block">
+                    <div class="banner-video">
+                        <div class="embed-responsive embed-responsive-16by9 ">
+                            <div class="position-absolute">
+                                <video class="w-100" autoplay loop muted>
+                                    <source src="{{ banner_video }}" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex align-items-center justify-content-center banner-slogan">
-                        {{ page_slogan|default("") }}
-                    </div>
-                </div>
-                <div class="col-7 ps-0">
-                    <div id="banner"></div>
-                </div>
-                <!--<script src="js/banner-animation.js"></script>-->
+        </div>
             </div>
-            <div class="container-fluid">
-                <div class="col-12">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" autoplay loop muted>
-                            <source src="{{ banner_video }}" type="video/mp4">
-                        </video>-
-                        <!--<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>-->
+
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5 banner-video-overlay">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <!--<img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">-->
+      </div>
+      <div class="col-lg-6">
+        <!--<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>-->
+          <span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span>
+          <div class="d-flex align-items-center justify-content-center banner-slogan">
+                                    {{ page_slogan|default("") }}
+          </div>
+        <!--<p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most
+            popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
+            extensive prebuilt components, and powerful JavaScript plugins.</p>-->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--
+<div class="container-fluid">
+    <div class="container">
+        <div class="d-none d-lg-block">
+                    <div class="banner-video">
+                        <div class="embed-responsive embed-responsive-16by9 ">
+                            <div class="position-absolute">
+                                <video class="w-100" autoplay loop muted>
+                                    <source src="{{ banner_video }}" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
                     </div>
-                </div>
+        </div>
             </div>
-            <!--end-0 bottom-0 h-auto w-auto-->
+    <div class="row">
+        <div class="col-12 p-0">
+
+        <div class="container-fluid">
+            <div class="row mb-3  banner-text-container">
+
+                    <div class="col-12">
+                        <div class="row position-absolute">
+                            <div class="col-6  pe-0">
+                                <p class="text-white">Marble</p>
+                                <div class="d-flex align-items-end justify-content-center flex-wrap banner-title-container">
+                                    <span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center banner-slogan">
+                                    {{ page_slogan|default("") }}
+                                </div>
+                            </div>
+                            <div class="col-6 ps-0 banner-text-container">
+                                <div id="banner"><p>banner slogan</p></div>
+                            </div>
+                            </div>
+                        </div>
+
+
+            </div>
+            </div>
+
+
+
 
         </div>
+</div>
 
+
+</div>-->
