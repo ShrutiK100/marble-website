@@ -201,15 +201,6 @@
     background-color: rgba(0.0, 0.0, 0.0, 0.25);
 }
 
-.first-section-test {
-    transition: padding 0.4s;
-}
-
-section {
-    display: block;
-    align-items: center;
-}
-
 .section-container {
     min-height: 100vh;
     padding: 60px 0 0 0;
@@ -237,10 +228,6 @@ section {
 
 .bg-attachment-fixed {
     background-attachment: fixed;
-}
-
-bg-dark {
-    background-color: #060d12 !important;
 }
 
 .opacity-30 {
