@@ -258,9 +258,15 @@ bg-dark {
 }
 
 .hero-menu{
+    padding: 20px;
+    margin: 0 0 20px 0;
+    background-color: transparent;
     backdrop-filter: blur(50px);
 }
 
+.hero-menu a {
+    color: #fff;
+}
 .hero-menu-wrap{
     z-index: 3;
 }
