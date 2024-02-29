@@ -1,14 +1,12 @@
-<!--<script src="//unpkg.com/globe.gl"></script>-->
-
 <section id="hero" class="page-section first-section text-white">
 
-    <div id="home-video" class="d-none d-lg-block">
+    <div id="banner-video" class="d-none d-lg-block embed-responsive embed-responsive-16by9">
       <video loop autoplay muted>
-        <source src="{{ banner_video }}" type="video/mp4">
+        <source class="embed-responsive-item" src="{{ banner_video }}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
-      <div id="home-video-overlay"></div>
+      <div id="banner-video-overlay"></div>
     </div>
 
      <div class="section-container">
@@ -16,7 +14,7 @@
              <div class="row align-items-center">
 
                <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-1">
-                   <h1><span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span></h1>
+                   <h1><span id="banner-title" class="banner-title">{{ page_title }}</span></h1>
                    <p>{{ page_slogan|default("") }}</p>
                </div>
 
