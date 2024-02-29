@@ -1,64 +1,90 @@
 <!--<script src="//unpkg.com/globe.gl"></script>-->
 
+<!--
+<div class="container">
+    <div class="row">
 
-<section id="hero" class="page-section first-section text-white py-auto">
+        <div id="home-video" class="col-12 d-none d-lg-block">
+                  <video loop autoplay muted>
+                    <source src="{{ banner_video }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
 
-    <div class="bg opacity-30 bg-position-center-center bg-attachment-fixed" ></div>
+                  <div id="home-video-overlay"></div>
+        </div>
 
 
-    <div id="home-video" class="d-none d-lg-block">
-      <video loop autoplay muted>
-        <source src="{{ banner_video }}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
 
-      <div id="home-video-overlay"></div>
     </div>
+</div>
+-->
 
 
-     <div class="section-container">
-           <div class="container-fluid">
-             <div class="row align-items-center">
 
-               <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-1">
-                   <h1><span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span></h1>
+            <section id="hero" class="page-section first-section text-white">
 
-                   <p>{{ page_slogan|default("") }}</p>
-                   <!--<p>New to climate data? <a href="/learn/" class="text-warning">Click here to learn more</a></p>-->
-               </div>
-               <aside class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-3 offset-lg-1 hero-menu-wrap border border-light">
-                 <div class="hero-menu">
-                   <h6>Quick Start</h6>
+                <div class="bg opacity-30 bg-position-center-center bg-attachment-fixed" ></div>
 
-                   <ul>
-                     <li><a href="https://climatedata.ca/explore/location/" class="supermenu-toggle">Explore by Location</a></li>
-                     <li><a href="https://climatedata.ca/explore/variable/" class="supermenu-toggle">Explore by Variable</a></li>
-                     <li><a href="https://climatedata.ca/explore/sector/" class="supermenu-toggle">Explore by Sector</a></li>
-                     <li><a href="https://climatedata.ca/analyze/">Analyze</a></li>
-                     <li><a href="https://climatedata.ca/download/">Download</a></li>
-                     <li><a href="https://climatedata.ca/learn/">Learn</a></li>
-                   </ul>
+
+                <div id="home-video" class="d-none d-lg-block">
+                  <video loop autoplay muted>
+                    <source src="{{ banner_video }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+
+                  <div id="home-video-overlay"></div>
+                </div>
+
+
+                 <div class="section-container">
+                       <div class="container-fluid">
+                         <div class="row align-items-center">
+
+
+                           <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-1">
+
+                               <h1><span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span></h1>
+
+                               <p>{{ page_slogan|default("") }}</p>
+
+                           </div>
+                             <!--<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-3 offset-lg-1">-->
+                           <aside class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-3 offset-lg-1 hero-menu-wrap border border-light">
+
+                             <div class="hero-menu">
+                               <h6>Quick Start</h6>
+
+                               <ul>
+                                 <li><a href="https://climatedata.ca/explore/location/" class="supermenu-toggle">Explore by Location</a></li>
+                                 <li><a href="https://climatedata.ca/explore/variable/" class="supermenu-toggle">Explore by Variable</a></li>
+                                 <li><a href="https://climatedata.ca/explore/sector/" class="supermenu-toggle">Explore by Sector</a></li>
+                                 <li><a href="https://climatedata.ca/analyze/">Analyze</a></li>
+                                 <li><a href="https://climatedata.ca/download/">Download</a></li>
+                                 <li><a href="https://climatedata.ca/learn/">Learn</a></li>
+                               </ul>
+                             </div>
+
+                           </aside>
+
+                        <!--</div>-->
+                         </div>
+
+                     </div>
                  </div>
-
-               </aside>
-
-             </div>
-
-         </div>
-     </div>
-</section>
+            </section>
 
 
 <!--
 <div class="container col-12 px-0 py-0 banner-video-overlay">
      <div class="container">
         <div class="d-none d-lg-block">
-            <div class="banner-video ">
+            <div class="home-video ">
                 <div class="embed-responsive embed-responsive-16by9 ">
                     <div class="position-absolute">
                         <video class="w-100" autoplay loop muted>
                             <source src="{{ banner_video }}" type="video/mp4">
                         </video>
+                         <div id="home-video-overlay"></div>
                     </div>
                 </div>
             </div>
@@ -92,6 +118,7 @@
     </div>
 </div>
 -->
+
 
 
 <!--
