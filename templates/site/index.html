@@ -10,16 +10,45 @@
 
 {% block content %}
     {% include "partials/banner.html" %}
-    {% include "partials/page-summary.html" %}
     {% with %}
-        {% set title = "Start Your Project" %}
-        {% set lead_text = "Select a node/server/location to begin." %}
-        {% include "partials/section.html" %}
+        {% set title = "Marble" %}
+        {% set section_content %}
+            <p>
+                Marble is a network of cloud based web services nodes that provide access to large climate and satellite
+                data sets.
+                Marble offers cloud-based data analytics that implements Open Geoscience Consortium (OGC) standards for
+                finding and interacting with data, and an online workspace that includes climate data analytics tools.
+            </p>
+
+            <p>
+                The key principle is to bring the computation to where the data is, rather than vice versa. The platform strives to
+                serve the diverse needs of climate researchers, non-profits, government agencies at all levels, civic minded
+                individuals, educators and journalists, enabling them to study and communicate the impacts of climate change
+                without worrying about the technical logistics.
+            </p>
+
+        {% endset %}
+        {% include "partials/content-section.html" %}
     {% endwith %}
-    {% include "partials/node-content.html" %}
-    {% with %}
-        {% set title = "Learn about Marble" %}
-        {% include "partials/carousel.html" %}
+
+
+
+
+    {% with template = true %}
+        {% set title = "Explore the Network" %}
+        {% set tech_section_title_array = ["Integrated Development Environment", "Data Catalogue", "Remote Processing Services"] %}
+        {% set tech_section_content_array = [
+        "JupyterLab is integrated within the Marble platform as its development environment. It provides users with
+         access to climate based data analytics tools, and allows users to store data analytics results and workflows
+         online.",
+         "SpatioTemporal Asset Catalog (STAC) is integrated within the Marble platform as its data catalog. STAC allows
+         users to discover and access climate data that is available on the Marble network.",
+         "Weaver is a remote processing tool integrated within the Marble platform. Weaver allows users to create
+         and run processes remotely across the Marble network."]
+         %}
+
+
+        {% include "partials/content-section.html" %}
     {% endwith %}
     {% include "partials/pictures.html" %}
 {% endblock content %}
