@@ -1,0 +1,46 @@
+/*Colour Palette*/
+
+.primary-variant{
+    background-color: #3700B3;
+}
+
+.primary-variant-50{
+    background-color: #E8EAF6;
+}
+
+.primary-variant-100{
+    background-color: #C5CAE9;
+}
+
+.primary-variant-200{
+    background-color: #9FA8DA;
+}
+
+.primary-variant-300{
+    background-color: #7886CB;
+}
+
+.primary-variant-400{
+    background-color: #5C6BC0;
+}
+
+.primary-variant-500{
+    background-color: #4050B5;
+}
+
+.primary-variant-600{
+    background-color: #3949AB;
+}
+
+.primary-variant-700{
+    background-color: #303F9F;
+}
+
+.primary-variant-800{
+    background-color: #283593;
+}
+
+.primary-variant-900{
+    background-color: #1A237E;
+}
+
