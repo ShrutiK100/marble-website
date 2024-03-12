@@ -1,0 +1,90 @@
+{% block content %}
+
+    {% with %}
+    {% set user_type = "Student" %}
+    {% set content %}
+
+       {% with %}
+            {% set primary_img_src = "images/personas/persona-grad-student.png" %}
+            {% set primary_img_location = "left" %}
+            {% set second_img_src = "images/personas/grad-student-secondary-image-transparentbg-640v2.png" %}
+            {% set second_img_location = "right" %}
+            {% set title = "Grad Students" %}
+            {% set intro_content = "" %}
+            {% set content %}
+                <p>Marble provides an all-in-one data catalog and development environment hosted by a member of the
+                    Marble network. Using web processing services tailored for climate analysis, Marble
+                    is great for those getting started in climate research. Data stored on the Marble network can be accessed by all users, no
+                    matter where it is hosted.  All data storage and data processing are done on the Marble platform.  No need to
+                    ensure your laptop has enough storage or computing power. </p>
+
+                <p>Marble uses JupyterLab as its development environment.  JupyterLab lets you create self-contained
+                    notebooks that can access datasets stored on Marble's STAC catalog, and conduct data analysis using tools such as
+                    data science oriented Python packages.</p>
+            {% endset %}
+            {% include "partials/info-row.html" %}
+        {% endwith %}
+
+    {% endset %}
+    {% include "partials/use-case-accordion.html" %}
+    {% endwith %}
+
+
+    {% with %}
+    {% set user_type = "Researcher" %}
+    {% set content %}
+       {% with %}
+            {% set primary_img_src = "images/personas/experienced-researcher-853x640.png" %}
+            {% set primary_img_location = "right" %}
+            {% set second_img_src = "images/personas/researcher-secondary-image-853x640.png" %}
+            {% set second_img_location = "left" %}
+            {% set title = "Experienced Researcher" %}
+            {% set intro_content = "" %}
+            {% set content %}
+            <p>A large part of being a researcher is lots of nitty-gritty work.  Long hours of analyzing data, creating and
+                modifying workflows, and collaborating with other researchers are the norm.</p>
+
+            <p>Marble takes the storage and processing requirements out of the user's hands by
+                providing a convenient single location to access the analytical software and data.
+                Using a familiar JupyterLab development environment, researchers can access web processing services that
+                implement OGCAPI, the key part of "moving the application to the data".  The Weaver web processing service
+                allows workflows to be created that can chain other web processing services, such as Finch and Raven,
+                and execute them on the Marble platform where the data is already stored.
+            </p>
+            <p>Marble provides avenues for sharing and collaboration.  Workflows and results created on Marble, or
+                uploaded to the platform, can be made public to others on the network and be easily discoverable by
+                like-minded colleagues.</p>
+            {% endset %}
+            {% include "partials/info-row.html" %}
+        {% endwith %}
+
+    {% endset %}
+    {% include "partials/use-case-accordion.html" %}
+    {% endwith %}
+
+    {% with %}
+    {% set user_type = "Hobbyist" %}
+    {% set content %}
+        {% with %}
+            {% set primary_img_src = "images/personas/persona-hobbyist.png" %}
+            {% set primary_img_location = "left" %}
+            {% set second_img_src = "images/personas/hobbyist-secondary-image-transparentbg-640.png" %}
+            {% set second_img_location = "right" %}
+            {% set title = "Hobbyist" %}
+            {% set intro_content = "" %}
+            {% set content %}
+            <p>Marble is great for those curious about climate science.  The JupyterLab work environment comes with
+            Jupyter kernels prepackaged with tools geared towards climate data analysis.  </p>
+
+            <p>Explore our STAC data catalog and use the Birdhouse series of analytical tools.  Examine climate indicies using
+                Finch.  Perform a hydrological analysis using Raven.  Run multiple analyses by chaining the processes
+                with Weaver.
+            </p>
+            <p>Our tutorials will guide you in using these tools and the Marble platform, and get you started in no time.</p>
+            {% endset %}
+            {% include "partials/info-row.html" %}
+        {% endwith %}
+    {% endset %}
+    {% include "partials/use-case-accordion.html" %}
+    {% endwith %}
+{% endblock content %}
