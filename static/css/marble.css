@@ -1,46 +1,173 @@
 /*Colour Palette*/
 
+.primary{
+    background-color: #6200EE;
+}
+
 .primary-variant{
     background-color: #3700B3;
 }
 
-.primary-variant-50{
+.secondary{
+    background-color: #03DAC6;
+}
+
+.secondary-variant{
+    background-color: #018786;
+}
+
+.indigo-50{
     background-color: #E8EAF6;
 }
 
-.primary-variant-100{
+.indigo-100{
     background-color: #C5CAE9;
 }
 
-.primary-variant-200{
+.indigo-200{
     background-color: #9FA8DA;
 }
 
-.primary-variant-300{
+.indigo-300{
     background-color: #7886CB;
 }
 
-.primary-variant-400{
+.indigo-400{
     background-color: #5C6BC0;
 }
 
-.primary-variant-500{
+.indigo-500{
     background-color: #4050B5;
 }
 
-.primary-variant-600{
+.indigo-600{
     background-color: #3949AB;
 }
 
-.primary-variant-700{
+.indigo-700{
     background-color: #303F9F;
 }
 
-.primary-variant-800{
+.indigo-800{
     background-color: #283593;
 }
 
-.primary-variant-900{
+.indigo-900{
     background-color: #1A237E;
 }
 
+.indigo-A100{
+    background-color: #8C9EFF;
+}
+
+.indigo-A200{
+    background-color: #536DFE;
+}
+
+.indigo-A400{
+    background-color: #3D5AFE;
+}
+
+.indigo-A700{
+    background-color: #304FFE;
+}
+
+.teal-50{
+    background-color: #E0F2F1;
+}
+
+.teal-100{
+    background-color: #B2DFDB;
+}
+
+.teal-200{
+    background-color: #80CBC4;
+}
+
+.teal-300{
+    background-color: #4DB6AC;
+}
+
+.teal-400{
+    background-color: #26A69A;
+}
+
+.teal-500{
+    background-color: #009688;
+}
+
+.teal-600{
+    background-color: #00897B;
+}
+
+.teal-700{
+    background-color: #00796B;
+}
+
+.teal-800{
+    background-color: #00695C;
+}
+
+.teal-900{
+    background-color: #004D3F;
+}
+
+.teal-A100{
+    background-color:  #A7FFEB;
+}
+
+.teal-A200{
+    background-color:  #64FFDA;
+}
+
+.teal-A400{
+    background-color:  #1DE9B6;
+}
+
+.teal-A700{
+    background-color:  #00BFA5;
+}
+
+.deep-orange-50{
+    background-color: #FBE9E6;
+}
+
+.gray-50{
+    background-color: #FAFAFA;
+}
+
+.gray-100{
+    background-color: #F5F5F5;
+}
+
+.gray-200{
+    background-color: #EEEEEE;
+}
+
+.gray-300{
+    background-color: #E0E0E0;
+}
+
+.gray-400{
+    background-color: #BDBDBD;
+}
+
+.gray-500{
+    background-color: #9E9E9E;
+}
+
+.gray-600{
+    background-color: #757575;
+}
+
+.gray-700{
+    background-color: #757575;
+}
+
+.gray-800{
+    background-color: #424242;
+}
+
+.gray-900{
+    background-color: #212121;
+}
