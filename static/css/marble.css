@@ -1,6 +1,6 @@
 /*Fonts*/
 body .body-1{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 0.03px;
@@ -14,54 +14,54 @@ h1{
 }
 
 h2{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 300;
     font-size: 60px;
     letter-spacing: -0.3px;
 }
 
 h3{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 48px;
 }
 
 h4{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 34px;
     letter-spacing: 0.085px;
 }
 
 h5{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 24px;
 }
 
 h6{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 500;
     font-size: 24px;
     letter-spacing: 0.03px;
 }
 
 .subtitle-1 .leading-text-1{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.03px;
 }
 
 .subtitle-2 .leading-text-2{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 14px;
     letter-spacing: 0.014px;
 }
 
-.button{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+.button-text{
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
@@ -69,28 +69,115 @@ h6{
 }
 
 .caption{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 12px;
     letter-spacing: 0.048px;
 }
 
 .overline{
-    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.15px;
 }
 
-/*Colour Palette*/
+/*UI Components*/
+/*Buttons*/
 
-.primary .bg-button-primary{
-    background-color: #6200EE;
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+.button-sm{
+    width: 75px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
 }
 
+.button-med{
+    width: 108px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
+}
+
+.button-sm:hover, .button-med:hover{
+    background-color: #000000;
+}
+
+.button-med-alt{
+    width: 108px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
+}
+
+.button-single-action{
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: none;
+}
+
+/*Colour Palette*/
+/*NOTE: Some colour classes have multiple classes that include those for components above.*/
+
+.palette-background{
+    background-color: #FFFFFF;
+}
+
+.surface{
+    background-color: #FFFFFF;
+}
+
+.surface-alt{
+    
+}
+
+.error{
+    background-color: #B20002;
+}
+
+.text-on-primary{
+    color: #FFFFFF;
+}
+
+.text-on-primary-alt{
+    color: #536DFE;
+}
+
+.text-on-secondary{
+    color: #000000;
+}
+
+.text-on-background{
+    color: #000000;
+}
+
+.text-on-surface{
+    color: #000000;
+}
+
+.text-on-error{
+    color: #FFFFFF;
+}
+
+.primary, .bg-button-primary{
+    background-color: #3D4AFE;
+}
+
+.primary-alt, .bg-button-alt{
+    background-color: #C5CAE9;
+}  
+
 .primary-variant{
-    background-color: #3700B3;
+    background-color: #283593;
 }
 
 .secondary{
@@ -109,11 +196,11 @@ h6{
     background-color: #C5CAE9;
 }
 
-.indigo-200{
+.indigo-200, .button-med-alt:hover{
     background-color: #9FA8DA;
 }
 
-.indigo-300{
+.indigo-300, .button-med-alt:active{
     background-color: #7886CB;
 }
 
@@ -153,7 +240,7 @@ h6{
     background-color: #3D5AFE;
 }
 
-.indigo-A700{
+.indigo-A700, .button-med:active{
     background-color: #304FFE;
 }
 
@@ -310,8 +397,3 @@ h6{
 }
 
 
-/*Buttons*/
-
-.button-med{
-
-}
