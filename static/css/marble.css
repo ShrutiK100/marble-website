@@ -1,6 +1,91 @@
+/*Fonts*/
+body .body-1{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.03px;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 96px;
+    letter-spacing: -1.44px;
+}
+
+h2{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 300;
+    font-size: 60px;
+    letter-spacing: -0.3px;
+}
+
+h3{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+}
+
+h4{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 400;
+    font-size: 34px;
+    letter-spacing: 0.085px;
+}
+
+h5{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+h6{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.03px;
+}
+
+.subtitle-1 .leading-text-1{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.03px;
+}
+
+.subtitle-2 .leading-text-2{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.014px;
+}
+
+.button{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.024px;
+}
+
+.caption{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.048px;
+}
+
+.overline{
+    font-family: Helvetica Neue, Helvetica, Arial,  sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15px;
+}
+
 /*Colour Palette*/
 
-.primary{
+.primary .bg-button-primary{
     background-color: #6200EE;
 }
 
@@ -132,6 +217,58 @@
     background-color: #FBE9E6;
 }
 
+.deep-orange-100{
+    background-color: #FFCCBC;
+}
+
+.deep-orange-200{
+    background-color: #FFAB91;
+}
+
+.deep-orange-300{
+    background-color: #FF8A65;
+}
+
+.deep-orange-400{
+    background-color: #FF7043;
+}
+
+.deep-orange-500{
+    background-color: #FF5722;
+}
+
+.deep-orange-600{
+    background-color: #F4511E;
+}
+
+.deep-orange-700{
+    background-color: #E64A19;
+}
+
+.deep-orange-800{
+    background-color: #D94214;
+}
+
+.deep-orange-900{
+    background-color: #BF360D;
+}
+
+.deep-orange-A100{
+    background-color: #FF9E80;
+}
+
+.deep-orange-A200{
+    background-color: #FF6E40;
+}
+
+.deep-orange-A400{
+    background-color: #FF3D00;
+}
+
+.deep-orange-A700{
+    background-color: #DD2C00;
+}
+
 .gray-50{
     background-color: #FAFAFA;
 }
@@ -170,4 +307,11 @@
 
 .gray-900{
     background-color: #212121;
+}
+
+
+/*Buttons*/
+
+.button-med{
+
 }
