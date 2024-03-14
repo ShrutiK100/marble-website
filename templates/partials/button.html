@@ -1,0 +1,48 @@
+{% if med_action_button%}
+    {% set button_type = "button-med" %}
+    {% set button_background_colour = "bg-button-primary" %}
+    {% set button_font = "button-text" %}
+    {% set button_font_colour = "text-on-primary" %}
+{% endif %}
+
+{% if med_action_button_alt %}
+    {% set button_type = "button-med" %}
+    {% set button_background_colour = "bg-button-alt" %}
+    {% set button_font = "button-text" %}
+    {% set button_font_colour = "text-on-primary-alt" %}
+{% endif %}
+
+{% if sm_action_button %}
+    {% set button_type = "button-sm" %}
+    {% set button_background_colour = "bg-button-primary" %}
+    {% set button_font = "button-text" %}
+    {% set button_font_colour = "text-on-primary" %}
+{% endif %}
+
+{% if single_action_button %}
+    {% set button_type = "button-single-action" %}
+    {% set svg_button = true %}
+    {% set button_background_colour = "bg-button-primary" %}
+    {% set button_font = "" %}
+    {% set button_font_colour = "text-on-primary" %}
+    {% set svg_colour = "white" %}
+    {% set svg_width = "16" %}
+    {% set svg_height = "16" %}
+    {% set viewbox_width = "16" %}
+    {% set viewbox_height = "16" %}
+    
+{% endif %}
+
+
+    {% if single_action_button %}
+        <button class="{{ button_type }} {{ button_background_colour }} {{ button_font }} {{ button_font_colour }} {{ button_disabled }}" type="button">
+            <svg width="{{ svg_width }}" height="{{ svg_height }}" viewBox="0 0 {{ viewbox_width }} {{ viewbox_height }}" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66667 6.66667V1.33333C6.66667 0.596954 7.26362 0 8 0C8.73638 0 9.33333 0.596954 9.33333 1.33333V6.66667H14.6667C15.403 6.66667 16 7.26362 16 8C16 8.73638 15.403 9.33333 14.6667 9.33333H9.33333V14.6667C9.33333 15.403 8.73638 16 8 16C7.26362 16 6.66667 15.403 6.66667 14.6667V9.33333H1.33333C0.596954 9.33333 0 8.73638 0 8C0 7.26362 0.596954 6.66667 1.33333 6.66667H6.66667Z" 
+                fill="{{ svg_colour }}"/>
+            </svg>
+        </button> 
+    {% else %}
+        <button class="{{ button_type }} {{ button_background_colour }} {{ button_font }} {{ button_font_colour }} {{ button_disabled }}" type="button">
+            {{ button_label|safe }}
+        </button> 
+    {% endif %}

@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+{% set page_title = "Test Buttons" %}
+
+{% block content %}
+    
+    {% with med_action_button = true%}
+        {% set button_disabled = "" %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+    
+    {% with med_action_button_alt = true%}
+        {% set button_disabled = "" %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with med_action_button_alt = true%}
+        {% set button_disabled = "disabled" %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with sm_action_button = true%}
+        {% set button_disabled = "" %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with sm_action_button = true%}
+        {% set button_disabled = "disabled" %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+
+    {% with single_action_button = true %}
+        {% set button_disabled = "" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with single_action_button = true %}
+        {% set button_disabled = "disabled" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+{% endblock content %}
