@@ -49,20 +49,38 @@
         {% include "partials/button.html" %}
     {% endwith %}
 
-    {% with button_type = "single_action_button" %}
+    {% with button_type = "single_action_plus" %}
         {% include "partials/button.html" %}
     {% endwith %}
 
-    {% with button_type = "single_action_button" %}
+    {% with button_type = "single_action_plus" %}
         {% set disabled = true %}
         {% include "partials/button.html" %}
     {% endwith %}
 
-    {% with button_type = "sm_single_action_button" %}
+    {% with button_type = "sm_single_action_plus" %}
         {% include "partials/button.html" %}
     {% endwith %}
 
-    {% with button_type = "sm_single_action_button" %}
+    {% with button_type = "sm_single_action_plus" %}
+        {% set disabled = true %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_up" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_up" %}
+        {% set disabled = true %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_dn" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_dn" %}
         {% set disabled = true %}
         {% include "partials/button.html" %}
     {% endwith %}
