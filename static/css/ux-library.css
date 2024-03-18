@@ -1,5 +1,5 @@
 /*Fonts*/
-body .body-1{
+body, .body-1{
     font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -28,7 +28,7 @@ h3{
 
 h4{
     font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 34px;
     letter-spacing: 0.085px;
 }
@@ -46,14 +46,14 @@ h6{
     letter-spacing: 0.03px;
 }
 
-.subtitle-1 .leading-text-1{
+.subtitle-1, .leading-text-1{
     font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.03px;
 }
 
-.subtitle-2 .leading-text-2{
+.subtitle-2, .leading-text-2{
     font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -86,7 +86,7 @@ h6{
 /*UI Components*/
 /*Buttons*/
 
-.disabled {
+.disabled{
     opacity: 0.6;
     cursor: not-allowed;
     pointer-events: none;
@@ -110,6 +110,13 @@ h6{
     background-color: #000000;
 }
 
+.button-sm-alt{
+    width: 75px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
+}
+
 .button-med-alt{
     width: 108px;
     height: 51px;
@@ -120,6 +127,22 @@ h6{
 .button-single-action{
     width: 48px;
     height: 48px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: none;
+}
+
+.button-single-action-sm{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: none;
+}
+
+.button-single-action-chevron{
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
     border-radius: 50px;
     border: none;
@@ -196,11 +219,11 @@ h6{
     background-color: #C5CAE9;
 }
 
-.indigo-200, .button-med-alt:hover{
+.indigo-200, .button-sm-alt:hover, .button-med-alt:hover{
     background-color: #9FA8DA;
-}
+} 
 
-.indigo-300, .button-med-alt:active{
+.indigo-300, .button-sm-alt:active, .button-med-alt:active{
     background-color: #7886CB;
 }
 
@@ -240,7 +263,7 @@ h6{
     background-color: #3D5AFE;
 }
 
-.indigo-A700, .button-med:active{
+.indigo-A700, .button-sm:active, .button-med:active{
     background-color: #304FFE;
 }
 
