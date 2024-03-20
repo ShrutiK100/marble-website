@@ -85,10 +85,21 @@ h6{
 
 /*Page Layout Components*/
 
+
+
+/*Footer*/
+
 .footer{
-    background-image: url(../images/footer/world-relief-map.jpg);
+    background-image: url("../images/footer/world-relief-map.jpg");
+    background-position: center;
     background-size: cover;
 }
+
+.funder-logo{
+    min-width: 10%;
+    max-width: 20%;
+}
+
 
 /*UI Components*/
 /*Buttons*/
