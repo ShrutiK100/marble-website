@@ -1,0 +1,115 @@
+{# TODO: This file is for testing components.  Remove this before merging. #}
+
+{% extends "layouts/main.html" %}
+{% set page_title = "Test Buttons" %}
+
+{% block content %}
+    
+    {% with button_type = "med_action_button"%}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "med_action_button"%}
+        {% set disabled = true %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+    
+    {% with button_type = "med_action_button_alt"%}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "med_action_button_alt"%}
+        {% set disabled = true %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "sm_action_button"%}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "sm_action_button"%}
+        {% set disabled = true %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+     {% with button_type = "sm_action_button_alt"%}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "sm_action_button_alt"%}
+        {% set disabled = true %}
+        {% set button_label = "Let's Do It" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_plus" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_plus" %}
+        {% set disabled = true %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "sm_single_action_plus" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "sm_single_action_plus" %}
+        {% set disabled = true %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_up" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_up" %}
+        {% set disabled = true %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_dn" %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+    {% with button_type = "single_action_chevron_dn" %}
+        {% set disabled = true %}
+        {% include "partials/button.html" %}
+    {% endwith %}
+
+
+    {% with %}
+    {% set accordion_label = Accordion %}
+    {% set accordion_body_text = "fsfd fsdfsdf sfsdasd as" %}
+            {% include "partials/accordion-card.html" %}
+    {% endwith %}
+
+
+
+    {% with %}
+        {% set lead_text = '<br>
+        <br>
+        <br>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p class="body-1">Body and Body 1</p>
+        <p class="subtitle-1">Subtitle 1</p>
+        <p class="subtitle-2">Subtitle 2</p>
+        <p class="caption">Caption</p>
+        <p class="overline">Overline</p>' %}
+        
+        {% include "partials/section.html" %}
+    {% endwith %}
+{% endblock content %}
