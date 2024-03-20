@@ -1,0 +1,40 @@
+<div class="row mt-5">
+    {% if template %}
+    {% set href = href|default("{{href}}") %}
+    {% set title = title|default("{{title}}") %}
+    {% set section_title = tech_section_title_array|default("{{section_title}}") %}
+    {% set section_content = tech_section_content_array|default("{{section_content}}") %}
+    {% set array_length = section_title|length %}
+{% endif %}
+
+    {% if template %}
+        <div class="col-12">
+            <h2><a  id="technology">{{ title }}</a></h2>
+
+            <div class="row">
+                {% for array_item in range(array_length) %}
+                <div class="col-4">
+                    <h3>{{ section_title[array_item] }}</h3>
+                    <p>{{ section_content[array_item] }}</p>
+
+                    <div class="align-items-end">
+                        {% with button_type = "med_action_button"%}
+                            {% set button_label = "Tutorials" %}
+                            {% include "partials/button.html" %}
+                        {% endwith %}
+
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    {% else %}
+        <div class="col-12">
+            <h2>{{ title }}</h2>
+            {{ section_content }}
+        </div>
+    {% endif %}
+</div>
