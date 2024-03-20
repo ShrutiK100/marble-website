@@ -13,8 +13,9 @@
     {% include "partials/page-summary.html" %}
 
     {% with template = true %}
+        {% set template_type = "technology_card" %}
        
-        {% set title = "Explore the Network" %}
+        {% set title = "Explore the Technologies" %}
         {% set tech_section_title_array = ["Integrated Development Environment", "Data Catalog", "Remote Processing Services"] %}
         {% set tech_section_content_array = [
         "JupyterLab is integrated within the Marble platform as its development environment. It provides users with
@@ -26,7 +27,7 @@
          and run processes remotely across the Marble network."]
          %}
 
-            {% include "partials/technology-card.html" %}
+        {% include "partials/content-section.html" %}
     {% endwith %}
 
 
