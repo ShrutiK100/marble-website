@@ -1,0 +1,23 @@
+<div class="row mt-5">
+    {% if template %}
+        {% if template_type == "technology_card"%}
+           
+            {% with %}
+                {% set href = href|default("{{href}}") %}
+                {% set title = title|default("{{title}}") %}
+                {% set section_title = tech_section_title_array|default("{{section_title}}") %}
+                {% set section_content = tech_section_content_array|default("{{section_content}}") %}
+                
+
+                {% include "partials/technology-card.html" %}
+            {% endwith %}
+
+        {% endif %}
+
+    {% else %}
+        <div class="col-12">
+            <h2>{{ title }}</h2>
+            {{ section_content }}
+        </div>
+    {% endif %}
+</div>
