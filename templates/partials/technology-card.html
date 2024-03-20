@@ -1,13 +1,13 @@
 {% set array_length = section_title|length %}
 
 <div class="col-12">
-    <h2><a  id="technology">{{ title }}</a></h2>
+    <h3><a  id="technology">{{ title }}</a></h3>
 
     <div class="row">
         {% for array_item in range(array_length) %}
         <div class="col-4">
-            <h3>{{ section_title[array_item] }}</h3>
-            <p>{{ section_content[array_item] }}</p>
+            <h6>{{ section_title[array_item] }}</h6>
+            <p class="body-1">{{ section_content[array_item] }}</p>
 
             <div class="align-items-end">
                 {% with button_type = "med_action_button"%}
