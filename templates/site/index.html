@@ -12,13 +12,24 @@
     {% include "partials/banner.html" %}
     {% include "partials/page-summary.html" %}
 
-    {% with %}
-        {% set title = "Start Your Project" %}
-        {% set lead_text = "Select a node/server/location to begin." %}
-        {% include "partials/section.html" %}
+    {% with template = true %}
+       
+        {% set title = "Explore the Network" %}
+        {% set tech_section_title_array = ["Integrated Development Environment", "Data Catalog", "Remote Processing Services"] %}
+        {% set tech_section_content_array = [
+        "JupyterLab is integrated within the Marble platform as its development environment. It provides users with
+         access to climate based data analytics tools, and allows users to store data analytics results and workflows
+         online.",
+         "SpatioTemporal Asset Catalog (STAC) is integrated within the Marble platform as its data catalog. STAC allows
+         users to discover and access climate data that is available on the Marble network.",
+         "Weaver is a remote processing tool integrated within the Marble platform. Weaver allows users to create
+         and run processes remotely across the Marble network."]
+         %}
+
+            {% include "partials/technology-card.html" %}
     {% endwith %}
 
-    {% include "partials/node-content.html" %}
+
 
     {% with %}
         {% set title = "Learn about Marble" %}
