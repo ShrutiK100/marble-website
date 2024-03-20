@@ -83,6 +83,13 @@ h6{
     letter-spacing: 0.15px;
 }
 
+/*Page Layout Components*/
+
+.footer{
+    background-image: url(../images/footer/world-relief-map.jpg);
+    background-size: cover;
+}
+
 /*UI Components*/
 /*Buttons*/
 
