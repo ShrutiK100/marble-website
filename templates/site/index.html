@@ -11,15 +11,17 @@
 {% block content %}
     {% include "partials/banner.html" %}
     {% include "partials/page-summary.html" %}
+
     {% with %}
         {% set title = "Start Your Project" %}
         {% set lead_text = "Select a node/server/location to begin." %}
         {% include "partials/section.html" %}
     {% endwith %}
+
     {% include "partials/node-content.html" %}
+
     {% with %}
         {% set title = "Learn about Marble" %}
         {% include "partials/carousel.html" %}
     {% endwith %}
-    {% include "partials/pictures.html" %}
 {% endblock content %}
