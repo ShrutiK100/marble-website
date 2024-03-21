@@ -5,20 +5,17 @@
 
     <div class="row">
         {% for array_item in range(array_length) %}
-        <div class="col-4">
-            <h6>{{ section_title[array_item] }}</h6>
-            <p class="body-1">{{ section_content[array_item] }}</p>
+            <div class="col-4">
+                <h6>{{ section_title[array_item] }}</h6>
+                <p>{{ section_content[array_item] }}</p>
 
-            <div class="align-items-end">
-                {% with button_type = "med_action_button"%}
-                    {% set button_label = "Tutorials" %}
-                    {% include "partials/button.html" %}
-                {% endwith %}
-
+                <div class="align-items-end">
+                    {% with button_type = "med_action_button"%}
+                        {% set button_label = "Tutorials" %}
+                        {% include "partials/button.html" %}
+                    {% endwith %}
+                </div>
             </div>
-
-        </div>
         {% endfor %}
     </div>
-
 </div>
