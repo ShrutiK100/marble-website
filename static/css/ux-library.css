@@ -1,5 +1,5 @@
 /*Fonts*/
-body, .body-1{
+p{
     font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -85,6 +85,110 @@ h6{
 
 /*Page Layout Components*/
 
+/*Get Started Users*/
+
+#studentMenuButton{
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#studentMenuButton:focus,
+#studentMenuButton:hover,
+#studentMenuButton:active{
+    color: #304FFE;
+}
+
+#studentUser {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#studentUser.fade {
+  opacity: 1;
+}
+
+.student-user{
+    height: 1000px;
+    background-image: url("../images/student-user.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.student-user-content{
+    background-color: rgba(0,0,0,0.5);
+}
+
+#researcherMenuButton{
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#researcherMenuButton:focus,
+#researcherMenuButton:hover,
+#researcherMenuButton:active{
+    color: #304FFE;
+}
+
+#researcherUser {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#researcherUser.fade {
+  opacity: 1;
+}
+
+.researcher-user{
+    height: 1000px;
+    background-image: url("../images/researcher-user.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.research-user-content{
+    background-color: #000000;
+    opacity: 0.5;
+}
+
+#hobbyistMenuButton{
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#hobbyistMenuButton:focus
+#hobbyistMenuButton:hover,
+#hobbyistMenuButton:active{
+    color: #304FFE;
+}
+
+#hobbyistUser {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#hobbyistUser.fade {
+  opacity: 1;
+}
+
+.hobbyist-user{
+    height: 1000px;
+    background-image: url("../images/hobbyist-user.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.hobbyist-user-content{
+    background-color: #000000;
+    opacity: 0.5;
+}
+
+
+
+
+
 
 
 /*Footer*/
@@ -97,7 +201,7 @@ h6{
 
 .funder-logo{
     min-width: 10%;
-    max-width: 20%;
+    max-width: 250px;
 }
 
 
