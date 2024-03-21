@@ -30,10 +30,38 @@
         {% include "partials/content-section.html" %}
     {% endwith %}
 
+    {% with template = true %}
+        {% set template_type = "usage_section" %}
 
+        {% set title = "Get Started" %}
+        {% set menu_1 = "Student" %}
 
-    {% with %}
-        {% set title = "Learn about Marble" %}
-        {% include "partials/carousel.html" %}
+        {% set student_user_title = "I'm a Student" %}
+        {% set student_user_content =
+            "<ul>
+                <li>Marble promotes a hands-on learning experience that aligns with real-world scenarios in climate science and data analysis.</li>
+                <li>Marble allows you to work on real-world climate research projects using climate science-oriented datasets and tools.</li>
+                <li>This practical experience is valuable for your academic and professional development.</li>
+                <li>Marble takes care of data storage and processing on its platform, eliminating the need for high-end personal devices.</li>
+            </ul>"
+         %}
+
+        {% set menu_2 = "Researcher" %}
+
+        {% set researcher_user_title = "I'm a Researcher" %}
+        {% set researcher_user_content =
+            "<ul>
+                <li>Marble promotes a hands-on learning experience that aligns with real-world scenarios in climate science and data analysis.</li>
+                <li>Marble allows you to work on real-world climate research projects using climate science-oriented datasets and tools.</li>
+                <li>This practical experience is valuable for your academic and professional development.</li>
+                <li>Marble takes care of data storage and processing on its platform, eliminating the need for high-end personal devices.</li>
+            </ul>"
+         %}
+
+        {% set menu_3 = "Hobbyist" %}
+        {% set hobbyist_user_title = "I'm a Hobbyist" %}
+
+        {% include "partials/content-section.html" %}
     {% endwith %}
+
 {% endblock content %}
