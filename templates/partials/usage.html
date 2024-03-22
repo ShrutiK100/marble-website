@@ -1,35 +1,5 @@
-<div class="container-fluid">
+<div class="container-fluid gx-0">
     <div class="row">
-<!--  <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Centered nav only</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>-->
-
         <div class="d-flex justify-content-center mb-1">
 
             <a id="studentMenuButton" class="border-bottom border-dark mx-2"><h3>{{ menu_1 }}</h3></a>
@@ -40,30 +10,62 @@
 
     </div>
     <div class="row">
-        <div id="studentUser" class="d-flex student-user">
+        <!-- The getStartedDisplayArea is the only visible div.  The content divs, studentUser, etc. are swapped
+         into the display area on click of the menu above -->
+        <div id="getStartedDisplayArea" class="d-flex ">
 
-            <div class="align-items-end student-user-content">
-                <div>
-                    <h2>{{ student_user_title }}</h2>
-                    <p>{{ student_user_content|safe }}</p>
+        </div>
+
+
+        <div id="studentUser" class="d-none">
+            <div class="d-flex student-user-image">
+                <div class="d-flex align-items-end w-100">
+                    <div class="d-flex justify-content-center py-5 w-100 getStartedOpacity">
+                        <div class="student-user-content w-75">
+                            <h2>{{ student_user_title }}</h2>
+                            <p>{{ student_user_content|safe }}</p>
+                            {% with button_type = "transparent_button" %}
+                                {%  set button_label = "Explore" %}
+                                {% include "partials/button.html" %}
+                            {% endwith %}
+                        </div>
+                    </div>
                 </div>
             </div>
 
 
         </div>
-        <div id="researcherUser" class="researcher-user">
+        <div id="researcherUser" class="d-none ">
 
-             <div class="align-items-end student-user-content">
-                 <div>
-                    <h2>{{ researcher_user_title }}</h2>
-                    <p>{{ researcher_user_content|safe }}</p>
-                 </div>
+            <div class="d-flex researcher-user-image">
+                <div class="d-flex align-items-end w-100">
+                     <div class="d-flex justify-content-center py-5 w-100 getStartedOpacity">
+                         <div class="researcher-user-content w-75">
+                            <h2>{{ researcher_user_title }}</h2>
+                            <p>{{ researcher_user_content|safe }}</p>
+                             {% with button_type = "transparent_button" %}
+                                {%  set button_label = "Explore" %}
+                                {% include "partials/button.html" %}
+                             {% endwith %}
+                         </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="hobbyistUser" class="hobbyist-user">
-             <div class="align-items-end student-user-content">
-                <h2>{{ hobbyist_user_title }}</h2>
-                <p>{{ hobbyist_user_content|safe }}</p>
+        <div id="hobbyistUser" class="d-none ">
+            <div class="d-flex hobbyist-user-image">
+                <div class="d-flex align-items-end w-100">
+                    <div class="d-flex justify-content-center py-5 w-100 getStartedOpacity">
+                         <div class="hobbyist-user-content w-75">
+                            <h2>{{ hobbyist_user_title }}</h2>
+                            <p>{{ hobbyist_user_content|safe }}</p>
+                            {% with button_type = "transparent_button" %}
+                                {%  set button_label = "Explore" %}
+                                {% include "partials/button.html" %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         </div>
