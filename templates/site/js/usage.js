@@ -6,32 +6,21 @@ var studentUser = document.getElementById('studentUser');
 var researcherUser = document.getElementById('researcherUser');
 var hobbyistUser = document.getElementById('hobbyistUser');
 
-studentUser.style.display = 'block';
-researcherUser.style.display = 'none';
-hobbyistUser.style.display = 'none';
+var displayArea = document.getElementById('getStartedDisplayArea')
+
+displayArea.innerHTML = studentUser.innerHTML;
 
 studentButton.onclick = function () {
-    studentUser.style.display = 'block';
-    researcherUser.style.display = 'none';
-    hobbyistUser.style.display = 'none';
-    studentUser.classList.toggle('fade');
-
-
+    displayArea.innerHTML = studentUser.innerHTML;
+    displayArea.classList.toggle('fadeIn');
 }
 
 researcherButton.onclick = function () {
-    researcherUser.style.display = 'block';
-    studentUser.style.display = 'none';
-    hobbyistUser.style.display = 'none';
-    researcherUser.classList.toggle('fade');
-
-
+    displayArea.innerHTML = researcherUser.innerHTML;
+    displayArea.classList.toggle('fadeIn');
 }
 
 hobbyistButton.onclick = function () {
-    hobbyistUser.style.display = 'block';
-    studentUser.style.display = 'none';
-    researcherUser.style.display = 'none';
-    hobbyistUser.classList.toggle('fade');
-
+    displayArea.innerHTML = hobbyistUser.innerHTML;
+    displayArea.classList.toggle('fadeIn');
 }
