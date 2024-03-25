@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid content-section">
     <div class="row mt-5">
         {% if template %}
             {% if template_type == "technology_card"%}
@@ -14,13 +14,30 @@
 
             {% elif template_type == "usage_section"%}
                 {% with %}
+                    {% set title="Get Started"%}
+                    {% set lead_in_text = "Whether you're a student, researcher, or Hobbyst, we've got you covered.
+                    Before initiating your research journey, take the opportunity to explore services best suited to
+                    your individual needs. Explore the diverse array of nodes and their offerings, tailored to cater
+                    specifically to your research requirements." %}
                     {% set menu_1 = menu_1|default("{{menu_1}}") %}
                     {% set menu_2 = menu_2|default("{{menu_2}}") %}
                     {% set menu_3 = menu_3|default("{{menu_3}}") %}
-                {% endwith %}
-            {% include "partials/usage.html" %}
-            {% endif %}
 
+                    {% include "partials/usage.html" %}
+                {% endwith %}
+
+            {% elif template_type == "faq_section"%}
+                {% with %}
+                    {% set title="FAQ"%}
+                    {% set lead_in_text = "Find answers to common questions about Marble services" %}
+                    {% set faq_title= faq_title_array %}
+                    {% set faq_content = faq_content_array %}
+                    {% set faq_link = faq_link_array %}
+
+                    {% include "partials/faq-card.html" %}
+                {% endwith %}
+
+            {% endif %}
         {% else %}
             <div class="col-12">
                 <h2>{{ title }}</h2>
