@@ -1,5 +1,13 @@
 <div class="container-fluid gx-0">
     <div class="row">
+        <div class="container-fluid w-75">
+            <div class="row">
+                <h3><a>{{ title }}</a></h3>
+                <p class="lead-in-text">{{ lead_in_text }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="d-flex justify-content-center mb-1">
 
             <a id="studentMenuButton" class="border-bottom border-dark mx-2"><h3>{{ menu_1 }}</h3></a>
@@ -10,7 +18,7 @@
 
     </div>
     <div class="row">
-        <!-- The getStartedDisplayArea is the only visible div.  The content divs, studentUser, etc. are swapped
+        <!-- NOTE: The getStartedDisplayArea is the only visible div.  The content divs, studentUser, etc. are swapped
          into the display area on click of the menu above -->
         <div id="getStartedDisplayArea" class="d-flex ">
 
@@ -22,12 +30,14 @@
                 <div class="d-flex align-items-end w-100">
                     <div class="d-flex justify-content-center py-5 w-100 getStartedOpacity">
                         <div class="student-user-content w-75">
-                            <h2>{{ student_user_title }}</h2>
+                            <h2 class="usage-content-title">{{ student_user_title }}</h2>
                             <p>{{ student_user_content|safe }}</p>
-                            {% with button_type = "transparent_button" %}
-                                {%  set button_label = "Explore" %}
-                                {% include "partials/button.html" %}
-                            {% endwith %}
+                            <div class="usage-content-button">
+                                {% with button_type = "transparent_button" %}
+                                    {%  set button_label = "Explore" %}
+                                    {% include "partials/button.html" %}
+                                {% endwith %}
+                            </div>
                         </div>
                     </div>
                 </div>
