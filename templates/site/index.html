@@ -68,11 +68,32 @@
             </ul>"
          %}
 
-
-
-
-
         {% include "partials/content-section.html" %}
     {% endwith %}
+
+    {% with template = true %}
+        {% set template_type = "faq_section" %}
+        {% set title = "FAQ" %}
+
+            {% set faq_title_array = ["How do I access the nodes?", "What kind of data is available?", "Are the services free?"] %}
+
+            {% set faq_content_array = "We offer a range of nodes to access datasets for research purposes.
+            To access nodes simply sign up through our nodes page.  Once registered you will access to all
+            datasets available for climate change analysis.", "We offer a range of nodes to access datasets for research purposes.
+            To access nodes simply sign up through our nodes page.  Once registered you will access to all
+            datasets available for climate change analysis.", "We offer a range of nodes to access datasets for research purposes.
+            To access nodes simply sign up through our nodes page.  Once registered you will access to all
+            datasets available for climate change analysis." %}
+
+            {% set faq_link_array = [] %}
+
+            {% include "partials/content-section.html" %}
+
+
+
+
+    {% endwith %}
+
+
 
 {% endblock content %}
