@@ -24,6 +24,7 @@ h3{
     font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
     font-weight: 400;
     font-size: 48px;
+    margin-bottom: 30px;
 }
 
 h4{
@@ -44,6 +45,7 @@ h6{
     font-weight: 500;
     font-size: 24px;
     letter-spacing: 0.03px;
+    margin-bottom: 30px;
 }
 
 .subtitle-1, .leading-text-1{
@@ -251,10 +253,47 @@ h6{
     border: none;
 }
 
+.button-single-action-arrow{
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: none;
+}
+
+/*Body Components*/
+
+.content-section{
+    margin-bottom: 120px;
+}
+
+.technology-card{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card-button-margin{
+    margin-top: 30px;
+}
+
+.faq-card-content{
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.usage-content-title{
+    margin-bottom: 20px;
+}
+
+.usage-content-button{
+    margin-top: 20px;
+}
+
 /*Colour Palette*/
 /*NOTE: Some colour classes have multiple classes that include those for components above.*/
 
-.bg-button-transparent{
+.bg-button-transparent, .button-single-action-arrow{
     background-color: transparent;
 }
 
