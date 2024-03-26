@@ -37,6 +37,11 @@
                     {% include "partials/faq-card.html" %}
                 {% endwith %}
 
+            {% elif template_type == "extras_section"%}
+                {% with %}
+                    {% include "partials/extras.html" %}
+                {% endwith %}
+
             {% endif %}
         {% else %}
             <div class="col-12">
