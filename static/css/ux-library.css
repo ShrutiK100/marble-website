@@ -165,6 +165,21 @@ h6{
     background-size: cover;
 }
 
+/*Extras*/
+
+/*Feedback*/
+
+.feedback-card{
+    margin-bottom: 50px;
+}
+
+/*Useful Link*/
+
+.useful-link{
+    margin-bottom: 30px;
+}
+
+
 /*Footer*/
 
 .footer{
