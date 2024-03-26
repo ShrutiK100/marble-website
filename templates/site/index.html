@@ -89,9 +89,11 @@
 
             {% include "partials/content-section.html" %}
 
+    {% endwith %}
 
-
-
+    {% with template = true %}
+        {% set template_type = "extras_section" %}
+        {% include "partials/content-section.html" %}
     {% endwith %}
 
 
