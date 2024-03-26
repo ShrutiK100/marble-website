@@ -1,0 +1,22 @@
+<div class="container-fluid w-75">
+    <div class="row">
+        <h3>{{ feedback_title }}</h3>
+
+        {% with %}
+            {% set feedback_question = "Want to raise an issue?" %}
+            {% set button_url = "" %}
+            {% set button_label = "FORUM" %}
+            {% include "partials/feedback-question.html" %}
+        {% endwith %}
+
+     {% with %}
+            {% set feedback_question = "How can we improve your experience on the website?" %}
+            {% set feedback_url = "" %}
+            {% set button_label = "FEEDBACK" %}
+            {% include "partials/feedback-question.html" %}
+        {% endwith %}
+
+    </div>
+
+
+</div>
