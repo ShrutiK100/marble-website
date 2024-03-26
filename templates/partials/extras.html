@@ -1,0 +1,17 @@
+<div class="container-fluid w-75">
+    <div class="row">
+        <div class="d-flex justify-content-between">
+
+            {% with %}
+                {% set feedback_title = "Feedback" %}
+                {% include "partials/feedback.html" %}
+            {% endwith %}
+
+            {% with %}
+                {% set useful_links_title = "Useful Links" %}
+                {% include "partials/useful-links.html" %}
+            {% endwith %}
+
+        </div>
+    </div>
+</div>
