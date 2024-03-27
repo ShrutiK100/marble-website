@@ -179,6 +179,16 @@ h6{
     margin-bottom: 30px;
 }
 
+/*Social Media*/
+
+.social-media-section{
+    margin-top: 120px;
+}
+.social-media-icon{
+    height: 40px;
+    width: 40px;
+    margin-right: 30px;
+}
 
 /*Footer*/
 
@@ -186,11 +196,14 @@ h6{
     background-image: url("../images/footer/world-relief-map.jpg");
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .funder-logo{
     min-width: 10%;
-    max-width: 250px;
+    max-width: 200px;
 }
 
 /*UI Components*/
@@ -324,6 +337,10 @@ h6{
     background-color: #B20002;
 }
 
+.text-primary{
+    color: #304FFE;
+}
+
 .text-on-primary{
     color: #FFFFFF;
 }
@@ -349,7 +366,7 @@ h6{
 }
 
 .primary, .bg-button-primary{
-    background-color: #3D4AFE;
+    background-color: #304FFE;
 }
 
 .primary-alt, .bg-button-alt{
