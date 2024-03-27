@@ -8,19 +8,46 @@ var hobbyistUser = document.getElementById('hobbyistUser');
 
 var displayArea = document.getElementById('getStartedDisplayArea')
 
+studentButton.style.borderBottom = "thin solid #000000";
+researcherButton.style.borderBottom = "thin solid #000000";
+hobbyistButton.style.borderBottom = "thin solid #000000";
+
+studentButton.style.color = "#304FFE";
+studentButton.style.borderBottomColor = '#304FFE';
 displayArea.innerHTML = studentUser.innerHTML;
 
 studentButton.onclick = function () {
+    studentButton.style.color = "#304FFE";
+    studentButton.style.borderBottomColor = '#304FFE'
+    researcherButton.style.color = "#000000";
+    researcherButton.style.borderBottomColor = "#000000";
+    hobbyistButton.style.color = "#000000";
+    hobbyistButton.style.borderBottomColor = "#000000";
+
     displayArea.innerHTML = studentUser.innerHTML;
 
 }
 
 researcherButton.onclick = function () {
+    studentButton.style.color = "#000000";
+    studentButton.style.borderBottomColor = "#000000";
+    researcherButton.style.color = "#304FFE";
+    researcherButton.style.borderBottomColor = '#304FFE'
+    hobbyistButton.style.color = "#000000";
+    hobbyistButton.style.borderBottomColor = "#000000";
+
     displayArea.innerHTML = researcherUser.innerHTML;
 
 }
 
 hobbyistButton.onclick = function () {
+    studentButton.style.color = "#000000";
+    studentButton.style.borderBottomColor = "#000000";
+    researcherButton.style.color = "#000000";
+    researcherButton.style.borderBottomColor = "#000000";
+    hobbyistButton.style.color = "#304FFE";
+    hobbyistButton.style.borderColor = '#304FFE'
+
     displayArea.innerHTML = hobbyistUser.innerHTML;
 
 }

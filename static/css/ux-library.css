@@ -95,10 +95,6 @@ h6{
     cursor: pointer;
 }
 
-a#studentMenuButton:focus{
-    color: #304FFE;
-}
-
 .getStartedOpacity{
     background-color: rgba(0,0,0,0.5);
 }
@@ -115,10 +111,6 @@ a#studentMenuButton:focus{
     background-size: cover;
 }
 
-a#researcherMenuButton:focus{
-    color: #304FFE;
-}
-
 .researcher-user-content{
     color: #FFFFFF;
 }
@@ -129,10 +121,6 @@ a#researcherMenuButton:focus{
     background-image: url("../images/researcher-user.jpg");
     background-position: center;
     background-size: cover;
-}
-
-a#hobbyistMenuButton:focus{
-    color: #304FFE;
 }
 
 .hobbyist-user-content{
