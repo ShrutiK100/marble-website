@@ -89,15 +89,13 @@ h6{
 
 /*Get Started Users*/
 
-#studentMenuButton{
+.usageMenuButton{
     color: #000000;
     text-decoration: none;
     cursor: pointer;
 }
 
-#studentMenuButton:focus,
-#studentMenuButton:hover,
-#studentMenuButton:active{
+a#studentMenuButton:focus{
     color: #304FFE;
 }
 
@@ -117,15 +115,7 @@ h6{
     background-size: cover;
 }
 
-#researcherMenuButton{
-    color: #000000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#researcherMenuButton:focus,
-#researcherMenuButton:hover,
-#researcherMenuButton:active{
+a#researcherMenuButton:focus{
     color: #304FFE;
 }
 
@@ -141,15 +131,7 @@ h6{
     background-size: cover;
 }
 
-#hobbyistMenuButton{
-    color: #000000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#hobbyistMenuButton:focus,
-#hobbyistMenuButton:hover,
-#hobbyistMenuButton:active{
+a#hobbyistMenuButton:focus{
     color: #304FFE;
 }
 
