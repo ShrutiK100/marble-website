@@ -1,7 +1,7 @@
 {% set array_length = section_title|length %}
 <div class="container-fluid w-75">
     <div class="row">
-        <h3><a  id="technology">{{ title }}</a></h3>
+        <h3><a id="technology">{{ title }}</a></h3>
         <p class="lead-in-text">{{ lead_in_text }}</p>
 
     <div>
@@ -9,7 +9,7 @@
             <div class="d-flex flex-column flex-md-row ">
                 {% for array_item in range(array_length) %}
                     <div class="d-flex flex-column technology-card">
-                        <h6>{{ section_title[array_item] }}</h6>
+                        <h6 class="technology-title">{{ section_title[array_item] }}</h6>
                         <p>{{ section_content[array_item] }}</p>
 
                         <div class="align-items-end card-button-margin">

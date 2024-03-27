@@ -299,6 +299,10 @@ h6{
     margin-right: 10px;
 }
 
+.technology-title{
+    min-width: 409px;
+}
+
 .card-button-margin{
     margin-top: 30px;
 }
