@@ -206,8 +206,17 @@
     list-style-type: none;
 }
 
+.hero-menu ul li{
+    margin-bottom: 22px;
+}
+
 .hero-menu-wrap{
     z-index: 3;
+}
+
+.quick-start-title{
+    text-decoration: underline;
+    text-decoration-color: #000000;
 }
 
 .gradient-text{
