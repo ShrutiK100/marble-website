@@ -1,15 +1,36 @@
-<script src="//unpkg.com/globe.gl"></script>
-<div class="row mb-3 banner-text-container">
-    <div class="col-5 pe-0">
-        <div class="d-flex align-items-end justify-content-center flex-wrap banner-title-container">
-            <span id="banner-title" class="gradient-text banner-title">{{ page_title }}</span>
-        </div>
-        <div class="d-flex align-items-center justify-content-center banner-slogan">
-            {{ page_slogan|default("") }}
-        </div>
+<section id="hero" class="page-section first-section text-white">
+    <div id="banner-image" class="d-block d-lg-none bg opacity-30 bg-position-center-center bg-attachment-fixed"></div>
+    <div id="banner-video" class="d-none d-lg-block embed-responsive embed-responsive-16by9">
+      <video loop autoplay muted>
+        <source class="embed-responsive-item" src="{{ banner_video }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div id="banner-video-overlay"></div>
     </div>
-    <div class="col-7 ps-0">
-        <div id="banner"></div>
-    </div>
-    <script src="js/banner-animation.js"></script>
-</div>
+
+     <div class="section-container">
+           <div class="container-fluid">
+             <div class="row align-items-center">
+
+               <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-1">
+                   <h1><span id="banner-title" class="banner-title">{{ page_title }}</span></h1>
+                   <p class="banner-slogan">{{ page_slogan|default("") }}</p>
+               </div>
+
+               <aside class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-3 offset-lg-1 hero-menu-wrap">
+                 <div class="hero-menu">
+                   <h6 class="quick-start-title">Quick Start</h6>
+                   <ul>
+                       <li><a href="tutorials.html">Tutorials</a></li>
+                       <li><a href="node.html">Choose a Node</a></li>
+                       <li><a href="datacatalog.html">Discover Data</a></li>
+                       <li><a href="">Forum</a></li>
+                   </ul>
+                 </div>
+
+               </aside>
+             </div>
+         </div>
+     </div>
+</section>
