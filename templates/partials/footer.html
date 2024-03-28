@@ -16,8 +16,8 @@
 
 
  <div class="container-fluid footer">
-    <div class="row d-flex flex-sm-column flex-md-row">
-        <div class="align-items-center">
+    <div class="row d-flex flex-sm-column flex-md-row justify-content-center">
+        <div class="funder-logo-container">
         {% for funder in footer_content %}
                 <a href="{{ funder['link'] }}"><img class="img-fluid funder-logo" src="{{ funder['image'] }}"></a>
         {% endfor %}
