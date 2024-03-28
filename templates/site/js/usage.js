@@ -8,31 +8,31 @@ var hobbyistUser = document.getElementById('hobbyistUser');
 
 var displayArea = document.getElementById('getStartedDisplayArea')
 
-studentButton.style.color = "#304FFE";
+studentButton.classList.add("text-primary") ;
 displayArea.innerHTML = studentUser.innerHTML;
 
 studentButton.onclick = function () {
-    studentButton.style.color = "#304FFE";
-    researcherButton.style.color = "#000000";
-    hobbyistButton.style.color = "#000000";
+    studentButton.classList.add("text-primary");
+    researcherButton.classList.remove("text-primary");
+    hobbyistButton.classList.remove("text-primary");
 
     displayArea.innerHTML = studentUser.innerHTML;
 
 }
 
 researcherButton.onclick = function () {
-    studentButton.style.color = "#000000";
-    researcherButton.style.color = "#304FFE";
-    hobbyistButton.style.color = "#000000";
+    studentButton.classList.remove("text-primary");
+    researcherButton.classList.add("text-primary");
+    hobbyistButton.classList.remove("text-primary");
 
     displayArea.innerHTML = researcherUser.innerHTML;
 
 }
 
 hobbyistButton.onclick = function () {
-    studentButton.style.color = "#000000";
-    researcherButton.style.color = "#000000";
-    hobbyistButton.style.color = "#304FFE";
+    studentButton.classList.remove("text-primary");
+    researcherButton.classList.remove("text-primary");
+    hobbyistButton.classList.add("text-primary");
 
     displayArea.innerHTML = hobbyistUser.innerHTML;
 
