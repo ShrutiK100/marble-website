@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 {% set page_title = "Marble" %}
-{% set page_slogan = "The data processing platform for a changing climate" %}
+{% set page_slogan = "" %}
 {% set page_summary = ["Marble is a platform purpose-built for the task of climate data analysis.  Its federated architecture allows users
                     to access the data and web processing services of any server on the Marble network, effectively eliminating the
                     technical barriers encountered most often by data analysts and climate researchers - data storage and compute
@@ -12,29 +12,29 @@
     {% include "partials/banner.html" %}
     {% include "partials/page-summary.html" %}
 
-    {% with template = true %}
-        {% set template_type = "technology_card" %}
-       
+    {% with %}
+        {% set href = href|default("{{href}}") %}
         {% set title = "Explore the Technologies" %}
-        {% set tech_section_title_array = ["Integrated Development Environment", "Data Catalog", "Remote Processing Services"] %}
-        {% set tech_section_content_array = [
+        {% set section_title = ["Integrated Development Environment", "Data Catalog", "Remote Processing Services"] %}
+        {% set section_content = [
         "JupyterLab is integrated within the Marble platform as its development environment. It provides users with
          access to climate based data analytics tools, and allows users to store data analytics results and workflows
          online.",
          "SpatioTemporal Asset Catalog (STAC) is integrated within the Marble platform as its data catalog. STAC allows
          users to discover and access climate data that is available on the Marble network.",
          "Weaver is a remote processing tool integrated within the Marble platform. Weaver allows users to create
-         and run processes remotely across the Marble network."]
-         %}
+         and run processes remotely across the Marble network."] %}
 
-        {% include "partials/content-section.html" %}
+        {% include "partials/technology-card.html" %}
     {% endwith %}
 
-    {% with template = true %}
-        {% set template_type = "usage_section" %}
-
-        {% set title = "Get Started" %}
-        {% set get_started_text = "" %}
+    {% with %}
+        {% set title="Get Started"%}
+        {% set lead_in_text = "" %}
+        {% set section_content = "Whether you're a student, researcher, or Hobbyst, we've got you covered.
+        Before initiating your research journey, take the opportunity to explore services best suited to
+        your individual needs. Explore the diverse array of nodes and their offerings, tailored to cater
+        specifically to your research requirements." %}
 
         {% set menu_1 = "Student" %}
         {% set student_user_title = "I'm a Student" %}
@@ -68,34 +68,28 @@
             </ul>"
          %}
 
-        {% include "partials/content-section.html" %}
+        {% include "partials/usage.html" %}
     {% endwith %}
 
-    {% with template = true %}
-        {% set template_type = "faq_section" %}
-        {% set title = "FAQ" %}
-
-            {% set faq_title_array = ["How do I access the nodes?", "What kind of data is available?", "Are the services free?"] %}
-
-            {% set faq_content_array = "We offer a range of nodes to access datasets for research purposes.
+    {% with %}
+        {% set title="FAQ"%}
+        {% set lead_in_text = "Find answers to common questions about Marble services." %}
+        {% set section_content = "" %}
+        {% set faq_title= ["How do I access the nodes?", "What kind of data is available?", "Are the services free?"] %}
+        {% set faq_content = ["We offer a range of nodes to access datasets for research purposes.
             To access nodes simply sign up through our nodes page.  Once registered you will access to all
             datasets available for climate change analysis.", "We offer a range of nodes to access datasets for research purposes.
             To access nodes simply sign up through our nodes page.  Once registered you will access to all
             datasets available for climate change analysis.", "We offer a range of nodes to access datasets for research purposes.
             To access nodes simply sign up through our nodes page.  Once registered you will access to all
-            datasets available for climate change analysis." %}
+            datasets available for climate change analysis."] %}
+        {% set faq_link = [] %}
 
-            {% set faq_link_array = [] %}
-
-            {% include "partials/content-section.html" %}
-
+        {% include "partials/faq-card.html" %}
     {% endwith %}
 
-    {% with template = true %}
-        {% set template_type = "extras_section" %}
-        {% include "partials/content-section.html" %}
+    {% with %}
+        {% include "partials/extras.html" %}
     {% endwith %}
-
-
 
 {% endblock content %}
