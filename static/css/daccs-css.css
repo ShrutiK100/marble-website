@@ -97,6 +97,8 @@
 
 .menu-link{
     color: #6D6E71;
+    text-decoration: none;
+    margin-left: 100px;
 }
 
 .menu-logo{
