@@ -85,7 +85,121 @@ h6{
     letter-spacing: 0.15px;
 }
 
-/*Page Layout Components*/
+/*UI Components*/
+/*Buttons*/
+
+.disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+.button-sm{
+    width: 75px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
+}
+
+.button-med{
+    width: 108px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
+}
+
+.button-sm:hover, .button-med:hover{
+    background-color: #000000;
+}
+
+.button-transparent{
+    width: 136px;
+    height: 45px;
+    flex-shrink: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.button-sm-alt{
+    width: 75px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
+}
+
+.button-med-alt{
+    width: 108px;
+    height: 51px;
+    flex-shrink: 0;
+    border: none;
+}
+
+.button-single-action{
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: none;
+}
+
+.button-single-action-sm{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: none;
+}
+
+.button-single-action-chevron{
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: none;
+}
+
+.button-single-action-arrow{
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: none;
+}
+
+/*Body Components*/
+/*Custom Settings For Each Section*/
+.content-section{
+    margin-bottom: 120px;
+}
+
+.card-button-margin{
+    margin-top: 30px;
+}
+
+.technology-title{
+    min-width: 409px;
+}
+
+.technology-card{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.faq-card-content{
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.usage-content-title{
+    margin-bottom: 20px;
+}
+
+.usage-content-button{
+    margin-top: 20px;
+}
 
 /*Get Started Users*/
 
@@ -93,6 +207,8 @@ h6{
     border-bottom: #000000;
     border-bottom-style: solid;
     border-bottom-width: thin;
+    margin-top: 80px;
+    margin-bottom: 50px;
 }
 .usage-menu-button{
     font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
@@ -188,122 +304,6 @@ h6{
 .funder-logo{
     min-width: 10%;
     max-width: 200px;
-}
-
-/*UI Components*/
-/*Buttons*/
-
-.disabled{
-    opacity: 0.6;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-.button-sm{
-    width: 75px;
-    height: 51px;
-    flex-shrink: 0;
-    border: none;
-}
-
-.button-med{
-    width: 108px;
-    height: 51px;
-    flex-shrink: 0;
-    border: none;
-}
-
-.button-sm:hover, .button-med:hover{
-    background-color: #000000;
-}
-
-.button-transparent{
-    width: 136px;
-    height: 45px;
-    flex-shrink: 0;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #FFFFFF;
-    border-radius: 10px;
-}
-
-.button-sm-alt{
-    width: 75px;
-    height: 51px;
-    flex-shrink: 0;
-    border: none;
-}
-
-.button-med-alt{
-    width: 108px;
-    height: 51px;
-    flex-shrink: 0;
-    border: none;
-}
-
-.button-single-action{
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-    border-radius: 50px;
-    border: none;
-}
-
-.button-single-action-sm{
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    border-radius: 50px;
-    border: none;
-}
-
-.button-single-action-chevron{
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 50px;
-    border: none;
-}
-
-.button-single-action-arrow{
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    border: none;
-}
-
-/*Body Components*/
-
-.content-section{
-    margin-bottom: 120px;
-}
-
-.technology-card{
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.technology-title{
-    min-width: 409px;
-}
-
-.card-button-margin{
-    margin-top: 30px;
-}
-
-.faq-card-content{
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 48px;
-    padding-bottom: 48px;
-}
-
-.usage-content-title{
-    margin-bottom: 20px;
-}
-
-.usage-content-button{
-    margin-top: 20px;
 }
 
 /*Colour Palette*/
