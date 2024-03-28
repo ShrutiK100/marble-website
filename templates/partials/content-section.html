@@ -15,7 +15,8 @@
             {% elif template_type == "usage_section"%}
                 {% with %}
                     {% set title="Get Started"%}
-                    {% set lead_in_text = "Whether you're a student, researcher, or Hobbyst, we've got you covered.
+                    {% set lead_in_text = "" %}
+                    {% set section_content = "Whether you're a student, researcher, or Hobbyst, we've got you covered.
                     Before initiating your research journey, take the opportunity to explore services best suited to
                     your individual needs. Explore the diverse array of nodes and their offerings, tailored to cater
                     specifically to your research requirements." %}
@@ -29,7 +30,8 @@
             {% elif template_type == "faq_section"%}
                 {% with %}
                     {% set title="FAQ"%}
-                    {% set lead_in_text = "Find answers to common questions about Marble services" %}
+                    {% set lead_in_text = "Find answers to common questions about Marble services." %}
+                    {% set section_content = "" %}
                     {% set faq_title= faq_title_array %}
                     {% set faq_content = faq_content_array %}
                     {% set faq_link = faq_link_array %}
