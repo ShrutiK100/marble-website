@@ -1,109 +1,108 @@
 const converters = {
     "_default": (val) => val,
     "affiliation": (val) => {
-        let title_affiliation = document.createElement("h3");
-        title_affiliation.textContent = "@ " + val;
-        return title_affiliation;
+        //let title_affiliation = document.createElement("h3");
+        //title_affiliation.textContent = "@ " + val;
+        //return title_affiliation;
     },
-    "description": (val) =>{
-        let node_description_title = document.createElement("h5");
-        node_description_title.textContent = val;
-        return node_description_title;
+    "description": (val) => {
+        let node_description_title = document.getElementById("nodeDescription");
+        node_description_title.innerHTML = val;
+        //return node_description_title;
     },
-    "registration_status": (val) =>{
-        let registration_status_title = document.createElement("span");
-        registration_status_title.innerText = "Registration Status: ";
+    "registration_status": (val) => {
+        let registration_status_title = document.getElementById("nodeRegistrationStatus");
+        registration_status_title.innerText = "Registration Status: " + val;
         registration_status_title.classList.add("registration-status-title");
 
+        /*
         let registration_status = document.createElement("span");
         registration_status.innerText = val;
 
         let node_registration_status = document.createElement("div");
         node_registration_status.appendChild(registration_status_title);
         node_registration_status.appendChild(registration_status);
-        return node_registration_status;
+        return node_registration_status;*/
     },
-    "contact": (val) =>{
-        let contact_email = document.createElement("a");
+    "contact": (val) => {
+        let contact_email = document.getElementById("nodeContact");
         contact_email.href = "mailto:" + val;
         contact_email.innerText = val;
-        return contact_email;
+        //return contact_email;
     },
-    "date_added": (val) => new Date(val).toLocaleDateString("en-GB"),
-    "location": (val) => `latitude: ${val.latitude} longitude: ${val.longitude}`,
+    "date_added": (val) => {
+        let date_added = document.getElementById("nodeDateCreated")
+        date_added.innerText = val;
+        //new Date(val).toLocaleDateString("en-GB")
+    },
+    "location": (val) => {
+        //`latitude: ${val.latitude} longitude: ${val.longitude}`
+    },
+//}
+
+//const service_converters = {
     "services": (val) => {
-        //Create table for services information
-        const services_table = document.createElement("table");
-        const table_head = document.createElement("thead");
-        const table_header_row = document.createElement("tr");
-        const table_header_service = document.createElement("th");
-        const table_header_description = document.createElement("th");
-        const table_header_documentation = document.createElement("th");
-        const table_body = document.createElement("tbody");
 
-        services_table.classList.add("table");
-        services_table.appendChild(table_head);
-        table_head.appendChild(table_header_row);
-        table_header_row.appendChild(table_header_service);
-        table_header_row.appendChild(table_header_documentation);
-        table_header_row.appendChild(table_header_description);
-
-        table_header_service.setAttribute("scope", "col")
-        table_header_documentation.setAttribute("scope", "col")
-        table_header_description.setAttribute("scope", "col")
-
-        table_header_service.innerText = "Service";
-        table_header_description.innerText = "Description";
-        table_header_documentation.innerText = "Documentation";
-
-        services_table.appendChild(table_body);
+        const services_row = document.createElement("div")
+        services_row.classList.add("d-flex", "flex-wrap")
 
         val.forEach( service => {
-            const table_row = document.createElement("tr")
-            //Add border to row to make it look like row has max amount of cells
-            table_row.classList.add("border-bottom", "table-light")
-            table_body.appendChild(table_row);
+            const node_card = document.createElement("div");
+            node_card.classList.add("d-flex", "flex-column", "node-card");
 
-            const table_cell_description = document.createElement("td")
+            const node_heading= document.createElement("h5");
+            const node_card_content = document.createElement("p");
+
+            const node_card_button_container = document.createElement('div');
+            node_card_button_container.classList.add("align-items-end", "mt-auto", "card-button-margin");
+
+            node_card.appendChild(node_heading);
+            node_card.appendChild(node_card_content);
+            node_card.appendChild(node_card_button_container);
+
+            let service_name = service.name;;
             let description = service.description;
 
             //Add the service description
             if (description != ""){
                 const descriptionTextNode = document.createTextNode(description);
-                table_row.appendChild(table_cell_description);
-                table_cell_description.appendChild(descriptionTextNode);
+                node_card_content.appendChild(descriptionTextNode);
             }
 
             service.links.forEach(link => {
-                const link_elem = document.createElement("a");
+                let button_label;
 
-                let name;
+                const node_card_href = document.createElement('a');
+                node_card_href.classList.add("text-primary", "border", "border-dark", "rounded");
 
                 if (link.rel === "service") {
-                    name = service.name;
+                    button_label = "Link";
+                    node_card_href.classList.add('node-card-link-button');
                 }
 
                 if (link.rel === "service-doc"){
-                    name = "Documentation";
+                    button_label = "Documentation";
+                    node_card_href.classList.add('node-card-doc-button');
                 }
 
-                Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value))
-                link_elem.innerText = name;
+                Object.entries(link).forEach(([attr, value]) => node_card_href.setAttribute(attr, value))
 
-                //Add the columns with links and information for each service, service documentation before the
-                // service description
-                if (link_elem.rel === "service"){
-                    let table_cell_service = table_row.insertCell(0)
-                    table_cell_service.appendChild(link_elem);
+                node_heading.innerText = service_name;
+                node_card_href.innerText = button_label;
+
+                if (node_card_href.rel === "service"){
+                    node_card_button_container.appendChild(node_card_href);
                 }
 
-                if (link_elem.rel === "service-doc"){
-                    let table_cell_documentation = table_row.insertCell(1)
-                    table_cell_documentation.appendChild(link_elem);
+                if (node_card_href.rel === "service-doc"){
+                    node_card_button_container.appendChild(node_card_href);
                 }
             })
+            services_row.appendChild(node_card)
         })
-        return services_table;
+        //const services_div = document.getElementById("services");
+        //services_rdivinnerHTML = services_row;
+        return services_row;
     }
 }
 
@@ -112,58 +111,57 @@ document.addEventListener("DOMContentLoaded", function () {
     const url_params = new URLSearchParams(window.location.search)
     const node_name = url_params.get("node");
     fetch(githubURL).then(resp => resp.json()).then(json => {
-        const node_info = json[node_name];
-        if (typeof node_info === "undefined") {
-            if (url_params.has("node") && node_name.length > 0) {
-                window.alert(`Error: no node named ${node_name}`);
-                window.history.back();
-                return;
-            } else {
-                window.alert("Error: no node name specified");
-                window.history.back();
-                return;
-            }
-        } else {
-            Object.entries(node_info).forEach(([key, val]) => {
-                const elem = document.getElementById(key);
+        const menu_elem = document.getElementById("nodeMenu");
+        const services_elem = document.getElementById("services");
 
-                if (elem !== null) {
-                    elem.append((converters[key] || converters["_default"])(val));
+        const node_info_elem = document.getElementById("nodeInfo");
+        const node_menu_dropdown = document.createElement('select');
+
+        var node_keys = Object.keys(json);
+        var node_count = Object.keys(json).length;
+
+            //If number of nodes larger than 3, create a dropdown from node 4 and up
+            //If not, just create a menu with the nodes in the node registry
+            if(node_count > 3){
+                for(let i=0; i<=node_count; i++){
+                    const dropdown_item = document.createElement('option')
+                    dropdown_item.value =  json[node_keys[i]].name;
+                    dropdown_item.innerHTML = json[node_keys[i]].name;
+                    node_menu_dropdown.append(dropdown_item);
                 }
+
+                if (menu_elem !== null) {
+                    menu_elem.append(node_menu_dropdown);
+                }
+            }
+            else{
+                for(let i = 0; i<=2; i++){
+                    const node_menu_item = document.createElement('a');
+                    node_menu_item.innerText = json[node_keys[i]].name;
+
+                    if (menu_elem !== null) {
+                    menu_elem.append(node_menu_item);
+                    }
+                }
+            }
+
+
+        Object.entries(json).forEach(([key, val]) => {
+
+            Object.entries(json[key]).forEach(([node_key, node_val]) => {
+
+                    const node_services_div = document.createElement("div");
+                    node_services_div.id = key+"Services";
+                    node_services_div.classList.add("w-75", "border", "border-dark");
+                    node_services_div.append((converters[node_key] || converters["_default"])(node_val));
+
+                    if (services_elem !== null) {
+                        services_elem.append(node_services_div);
+                    }
+
+
+
             })
-        }
-
-        node_info.links.forEach(link => {
-            if (link.rel === "service") {
-                const elem = document.getElementById("url");
-                const link_elem = document.createElement("a");
-
-                Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value));
-                link_elem.innerText = link.href;
-                elem.appendChild(link_elem)
-            } else if (link.rel === "icon") {
-                const icon_img = document.createElement("img")
-                icon_img.setAttribute("src", link.href)
-
-                const image_right = document.getElementById("image-right")
-                if(image_right) {
-                    image_right.setAttribute("src", link.href);
-                }
-            } else if (link.rel === "registration"){
-                if(node_info.registration_status != "closed"){
-                    let node_registration_link = document.createElement("a");
-                    let registration_link_div = document.getElementById("registration_link");
-                    node_registration_link.setAttribute("href", link.href)
-                    node_registration_link.setAttribute("target", "_blank")
-                    node_registration_link.innerText = "Sign up for an account on this node";
-                    registration_link_div.appendChild(node_registration_link);
-                }
-            }
         })
-
-        const banner_title = document.getElementById("banner-title")
-        if (banner_title) {
-            banner_title.textContent = node_info.name
-        }
     });
 })
