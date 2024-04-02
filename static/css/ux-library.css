@@ -173,7 +173,9 @@ h6{
 }
 
 /*Body Components*/
-/*Custom Settings For Each Section*/
+
+/*Home Page*/
+/*Custom Settings For Each Home Page Section*/
 .content-section{
     margin-bottom: 120px;
 }
@@ -294,6 +296,44 @@ h6{
     width: 40px;
     margin-top: 15px;
     margin-right: 30px;
+}
+
+
+/*Node Page*/
+
+.node-card{
+    max-width: 322px;
+    max-height: 238px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.node-card-link-button{
+    width: 93px;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+}
+
+.node-card-doc-button{
+    width: 153px;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
 }
 
 /*Footer*/
