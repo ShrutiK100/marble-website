@@ -114,19 +114,6 @@
 
 /*Banner*/
 
-.banner-title{
-    font-family: "Helvetica", sans-serif;
-    font-size: calc(1.5rem + 2vw);
-    text-align: center;
-}
-
-.banner-slogan{ /*Keep until banner finalized*/
-    /*
-    height: 25%;
-    font-family: "Helvetica", sans-serif;
-    color: #FFFFFF;
-    background-color: rgba(0.0, 0.0, 0.0, 0.5);*/
-}
 
 .bg {
   position: absolute;
@@ -215,10 +202,7 @@
     z-index: 3;
 }
 
-.quick-start-title{
-    text-decoration: underline;
-    text-decoration-color: #000000;
-}
+
 
 .gradient-text{
   background-image: linear-gradient(to right, #2D3367, #1F81B6, #336D66, #F6DC3D, #C66B33, #762F24);

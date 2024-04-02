@@ -246,6 +246,15 @@ h6{
 
 /*Body Components*/
 
+/*Banner*/
+
+.quick-start-title{
+    padding-bottom: 15px;
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-color: #000000;
+}
+
 /*Home Page*/
 /*Custom Settings For Each Home Page Section*/
 .content-section{
@@ -429,7 +438,7 @@ h6{
     margin-right: 20px;
 }
 
-/*Colour Palette*/
+/*Colours Used*/
 /*NOTE: Some colour classes have multiple classes that include those for components above.*/
 
 .bg-button-transparent, .button-single-action-arrow{
@@ -464,10 +473,18 @@ h6{
     color: var(--primary);
 }
 
+.text-on-primary{
+    color: var( --text-on-primary);
+}
+
 .primary{
     background-color: var(--primary);
 }
 
 .primary-alt{
     background-color: var(--primary-alt);
+}
+
+.banner-title{
+    color: var(--indigo-100);
 }
