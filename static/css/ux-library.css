@@ -5,6 +5,7 @@
     --secondary-font-family: Helvetica, Arial, sans-serif;
 
     /*Colours*/
+    --background: #FFFFFF;
     --surface: #FFFFFF;
     --error: #B20002;
     --text-on-primary: #FFFFFF;
@@ -246,13 +247,106 @@ h6{
 
 /*Body Components*/
 
+/*Menu*/
+.menu{
+    background-color: transparent;
+    z-index: 10;
+}
+
+.menu-link{
+    color: var(--text-on-surface);
+    text-decoration: none;
+    margin-left: 100px;
+    margin-bottom: 16px;
+}
+
+.menu-logo{
+    width: 50px;
+    height: 50px;
+}
+
+/*Alert*/
+.construction-alert{
+    background-color: #F6DC3D;
+}
+
 /*Banner*/
 
+#banner-image{
+    background-image: url(../images/banner-dry-earth-1920x1097.jpg);
+    z-index: -99;
+}
+
+#banner-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -100;
+}
+
+#banner-video video{
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+#banner-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.banner-section {
+    position: relative;
+}
+
+.banner-overlay-container {
+    min-height: 100vh;
+    padding: 60px 0 0 0;
+    display: flex;
+    align-items: center;
+}
+
+/*Quick Start menu*/
 .quick-start-title{
     padding-bottom: 15px;
     border-bottom: solid;
     border-bottom-width: thin;
     border-color: #000000;
+}
+
+.hero-menu{
+    padding: 20px;
+    margin: 0 0 20px 0;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+}
+
+.hero-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero-menu ul{
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+.hero-menu ul li{
+    margin-top: 22px;
+}
+
+.hero-menu-wrap{
+    z-index: 3;
 }
 
 /*Home Page*/
