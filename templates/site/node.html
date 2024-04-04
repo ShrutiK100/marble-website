@@ -7,36 +7,39 @@
         {% set section_title = "Start a Project" %}
         {% set section_content = "Select most suitable node or server to start a project" %}
 
-        {% include "partials/title-and-text.html" %}
+        {% include "partials/general-content.html" %}
     {% endwith %}
 
     <div class="container-fluid w-75">
         <div class="row">
             <div id="nodeMenu"></div>
         </div>
-<!--
+
        <div class="row">
            <div id="nodeInfo">
                <div id="nodeImageBackground" class="d-flex flex-column flex-sm-row justify-content-between">
                    <div id="nodeInfoLeft">
                        <div id="nodeInfoTop">
-                           <div id="nodeDateCreated"></div>
-                           <div id="nodeStatus"></div>
-                           <div id="nodeRegistrationStatus"></div>
+                           <div id="nodeDateCreated">Date Added: <span id="date_added"></span></div>
+                           <div id="nodeStatus">Status: <span id="status"></span></div>
+                           <div id="nodeRegistrationStatus"> <div id="registration_status" class="mt-3"></div></div>
 
                        </div>
                        <div id="nodeInfoBottom">
-                           <div id="nodeName"></div>
-                           <div id="nodeDescription"></div>
-                           <div id="nodeRegisterButtons"></div>
-                           <div id="nodeVersion"></div>
+                           <div id="nodeName"><span id="name"></span></div>
+                           <div id="nodeDescription"><div id="description"></div></div>
+                           <div id="nodeRegisterButtons">
+                               <div id="registration_link"></div>
+                               <div id="url"></div>
+                           </div>
+                           <div id="nodeVersion">Version: <span id="version"></span></div>
 
                        </div>
 
                    </div>
 
                    <div id="nodeInfoRight">
-                       <div id="nodeContact"></div>
+                       <div id="nodeContact">Contact: <span id="contact"></span></div>
 
                    </div>
 
@@ -46,15 +49,68 @@
 
 
            </div>
-       </div>-->
+       </div>
+
+          <div class="container mt-3">
+            <div class="row g-0  d-flex flex-column position-static overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
+                <div class="row">
+                    <div class="col-9">
+                        <!--H3 title-->
+                        <div id="affiliation" class="mb-1 text-body-secondary"></div>
+
+                        <div class="mt-3">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                    <div class="col-3 col-lg-2 d-block d-lg-block">
+                        <img id="image-right" class="w-sm-100 mt-2 px-auto d-block img-fluid mw-25 mh-25" src="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-2 text-center">
+                        <h4 class="text-decoration-underline">Services Available</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <div id="" class="table-responsive border rounded"></div>
+                         <div id="services"></div>
+                    </div>
+                </div>
+           </div>
+      </div>
 
 
 
 
 
-        <div class="row">
-            <div id="services"></div>
-        </div>
     </div>
 
 
@@ -62,5 +118,5 @@
 
 
     <script src="js/node.js"></script>
-    {% include "partials/pictures.html" %}
+
 {% endblock content %}
