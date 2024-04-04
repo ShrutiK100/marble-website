@@ -9,10 +9,14 @@
 
     {% with %}
         {% set title = "About Marble" %}
-        {% set content = "<p>Marble is a network of cloud based web services nodes that provide access to large climate
-        and satellite data sets.  Marble offers cloud-based data analytics that implements Open Geoscience Consortium
-        (OGC) standards for finding and interacting with data, and an online workspace that includes climate data
-        analytics tools.</p>
+        {% set content = "<p>Marble is a network of cloud based web services <a class='paragraph-href' href='node.html'>nodes</a>
+        that provide access to large climate and satellite
+        <a class='paragraph-href' href='https://redoak.cs.toronto.edu/stac-browser/'>data sets</a>.
+        Marble offers cloud-based data analytics that implements
+        <a class='paragraph-href' href='https://www.ogc.org/'>Open Geoscience Consortium
+        (OGC)</a> standards for finding and interacting with data, and an online
+        <a class='paragraph-href' href='https://jupyter.org/'>workspace</a>
+        that includes climate data analytics tools.</p>
 
         <p>The key principle is to bring the computation to where the data is, rather than vice versa. The platform
         strives to serve the diverse needs of climate researchers, non-profits, government agencies at all levels,
@@ -21,7 +25,7 @@
         data and the people who seek to understand it, fostering a community of inquiry and discovery in the realm of
         climate science.</p>" %}
 
-        {% include "partials/general-content.html" %}
+        {% include "partials/introduction.html" %}
     {% endwith %}
 
     {% with %}
