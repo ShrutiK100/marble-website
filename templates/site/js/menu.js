@@ -6,13 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var tutorialsButton = document.getElementById('tutorialsMenuButton');
     var communityButton = document.getElementById('communityMenuButton');
     var aboutButton = document.getElementById('aboutMenuButton');
-    console.log("menu function running");
 
     var currentURL = window.location.href;
     var currentPath = window.location.pathname;
 
     if (currentPath.includes("index.html") && currentURL.includes("index.html#technology") == false) {
-        console.log("home clicked");
         homeButton.classList.add("text-primary");
         technologyButton.classList.remove("text-primary");
         nodeButton.classList.remove("text-primary");
