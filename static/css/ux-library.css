@@ -121,7 +121,7 @@ h5{
 h6{
     font-family: var(--secondary-font-family);
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 0.03px;
     margin-bottom: 30px;
 }
@@ -247,6 +247,11 @@ h6{
 
 /*Body Components*/
 
+.paragraph-href{
+    color: var(--primary);
+    text-decoration: none;
+}
+
 /*Menu*/
 .menu{
     background-color: transparent;
@@ -256,7 +261,8 @@ h6{
 .menu-link{
     color: var(--text-on-surface);
     text-decoration: none;
-    margin-left: 100px;
+    margin-left: 80px;
+    margin-top: 16px;
     margin-bottom: 16px;
 }
 
@@ -316,8 +322,8 @@ h6{
 .hero-menu{
     padding: 20px;
     margin: 0 0 20px 0;
-    border: 1px solid #ffffff;
     background-color: transparent;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
     backdrop-filter: blur(50px);
 }
 
