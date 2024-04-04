@@ -1,16 +1,28 @@
 {% extends "layouts/main.html" %}
 {% set page_title = "MARBLE" %}
 {% set page_slogan = "" %}
-{% set page_summary = ["Marble is a platform purpose-built for the task of climate data analysis.  Its federated architecture allows users
-                    to access the data and web processing services of any server on the Marble network, effectively eliminating the
-                    technical barriers encountered most often by data analysts and climate researchers - data storage and compute
-                    capability.",
-                    "Marble is the bridge between intricate climate data and the people who seek to
-                    understand it, fostering a community of inquiry and discovery in the realm of climate science."] %}
+
 {% set banner_video = "video/banner-video.mp4" %}
 {% block content %}
     {% include "partials/banner.html" %}
     {% include "partials/page-summary.html" %}
+
+    {% with %}
+        {% set title = "About Marble" %}
+        {% set content = "<p>Marble is a network of cloud based web services nodes that provide access to large climate
+        and satellite data sets.  Marble offers cloud-based data analytics that implements Open Geoscience Consortium
+        (OGC) standards for finding and interacting with data, and an online workspace that includes climate data
+        analytics tools.</p>
+
+        <p>The key principle is to bring the computation to where the data is, rather than vice versa. The platform
+        strives to serve the diverse needs of climate researchers, non-profits, government agencies at all levels,
+        civic minded individuals, educators and journalists, enabling them to study and communicate the impacts of
+        climate change without worrying about the technical logistics.Marble is the bridge between intricate climate
+        data and the people who seek to understand it, fostering a community of inquiry and discovery in the realm of
+        climate science.</p>" %}
+
+        {% include "partials/general-content.html" %}
+    {% endwith %}
 
     {% with %}
         {% set href = href|default("{{href}}") %}
