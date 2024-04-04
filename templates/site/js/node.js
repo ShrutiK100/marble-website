@@ -1,56 +1,59 @@
 const converters = {
     "_default": (val) => val,
+    "name":(val)=>{
+        let node_name = document.getElementById('name');
+        node_name.innerHTML = val;
+    },
     "affiliation": (val) => {
-        let title_affiliation = document.createElement("div");
+        //let title_affiliation = document.createElement("div");
+        let title_affiliation = document.getElementById('affiliation');
         title_affiliation.innerHTML = val;
-        return title_affiliation;
+        //return title_affiliation;
     },
     "description": (val) => {
-        let node_description_title = document.createElement("div");
-        node_description_title.id = "nodeDescription";
+        //let node_description_title = document.createElement("div");
+        let node_description_title = document.getElementById('description');
         node_description_title.innerHTML = val;
-        return node_description_title;
+        //return node_description_title;
     },
     "registration_status": (val) => {
-        let registration_status_title = document.createElement("div");
-        registration_status_title.id = "nodeRegistrationStatus";
+        //let registration_status_title = document.createElement("div");
+        let registration_status_title = document.getElementById('registration_status');
         registration_status_title.innerText = "Registration Status: " + val;
         registration_status_title.classList.add("registration-status-title");
-        return registration_status_title;
+        //return registration_status_title;
     },
     "contact": (val) => {
-        let contact_email = document.createElement("div");
-        contact_email.id = "nodeContact";
+        //let contact_email = document.createElement("div");
+        let contact_email = document.getElementById('contact');
         contact_email.href = "mailto:" + val;
         contact_email.innerText = val;
-        return contact_email;
+        //return contact_email;
     },
     "date_added": (val) => {
-        let date_added = document.createElement("div")
-        date_added.id = "nodeDateCreated"
+        //let date_added = document.createElement("div")
+        let date_added = document.getElementById('date_added');
         date_added.innerText = val;
-        return date_added
+        //return date_added
         //new Date(val).toLocaleDateString("en-GB")
     },
     "location": (val) => {
         let node_location = document.createElement("div");
-        node_location.id = "nodeLocation";
         node_location.innerText = `latitude: ${val.latitude} longitude: ${val.longitude}`;
-        return node_location;
+        //return node_location;
 
     },
     "version":(val) => {
-        let node_version = document.createElement("div");
-        node_version.id = "nodeVersion";
+        //let node_version = document.createElement("div");
+        let node_version = document.getElementById('version');
         node_version.innerText = "Version " + val;
-        return node_version;
+       // return node_version;
 
     },
     "status":(val) =>{
-        let node_status = document.createElement("div");
-        node_status.id = "nodeStatus";
+        let node_status = document.getElementById('status');
         node_status.innerText = val;
-        return node_status;
+        //return node_status;
     },
     "services": (val) => {
 
@@ -112,9 +115,9 @@ const converters = {
             })
             services_row.appendChild(node_card)
         })
-        //const services_div = document.getElementById("services");
-        //services_rdivinnerHTML = services_row;
-        return services_row;
+        let services_div = document.getElementById("services");
+        services_div.innerHTML = "";
+        services_div.append(services_row);
     }
 }
 
@@ -129,17 +132,31 @@ document.addEventListener("DOMContentLoaded", function () {
         const node_info_elem = document.getElementById("nodeInfo");
         const node_menu_dropdown = document.createElement('select');
 
+
         var node_keys = Object.keys(json);
         var node_count = Object.keys(json).length;
 
-        //If number of nodes larger than 3, create a dropdown from node 4 and up
+
+        //If number of nodes larger than 3, create a menu with the first 3 nodes, and create a dropdown from node 4 and up
         //If not, just create a menu with the nodes in the node registry
         if(node_count > 3){
-            for(let i=0; i<=node_count; i++){
+            for(let i = 0; i<=2; i++){
+                const node_menu_item = document.createElement('a');
+                node_menu_item.setAttribute('onclick','getNode(' + '"'+ node_keys[i] +'"' + ')');
+                node_menu_item.innerText = json[node_keys[i]].name;
+
+                if (menu_elem !== null) {
+                menu_elem.append(node_menu_item);
+                }
+            }
+
+            for(let i=3; i<=node_count-1; i++){
                 const dropdown_item = document.createElement('option')
-                dropdown_item.value =  json[node_keys[i]].name;
+                dropdown_item.value =  node_keys[i];
                 dropdown_item.innerHTML = json[node_keys[i]].name;
                 node_menu_dropdown.append(dropdown_item);
+
+                node_menu_dropdown.setAttribute('onchange', 'getNode(' + '"'+ node_keys[i] +'"' + ')');
             }
 
             if (menu_elem !== null) {
@@ -147,91 +164,80 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         else{
+
+            node_keys.forEach(key =>{
+                const node_menu_item = document.createElement('a');
+                node_menu_item.setAttribute('onclick','getNode(' + '"'+ key +'"' + ')');
+                node_menu_item.innerText = json[key].name;
+
+                if (menu_elem !== null) {
+                menu_elem.append(node_menu_item);
+                }
+
+            });
+            /*
             for(let i = 0; i<=2; i++){
                 const node_menu_item = document.createElement('a');
-                node_menu_item.onclick = function() { getNode(json[node_keys[i]].name);};
+                node_menu_item.setAttribute('onclick','getNode(' + '"'+ node_keys[i] +'"' + ')');
                 node_menu_item.innerText = json[node_keys[i]].name;
 
                 if (menu_elem !== null) {
                 menu_elem.append(node_menu_item);
                 }
-            }
+            }*/
         }
 
 
-        Object.entries(json).forEach(([key, val]) => {
-            const node_title = document.createElement("div");
-            node_title.id = "nodeTitle";
-            node_title.innerText = key;
-            //node_div.classList.add("w-75", "border", "border-dark");
-            const node_services_div = document.createElement("div");
-            const node_details_div = document.createElement("div");
-            node_details_div.id = key + "Details";
 
-            const node_info_left = document.createElement("div");
-            node_info_left.id = "nodeInfoLeft";
-
-            const node_info_right = document.createElement('div');
-            node_info_right.id = "nodeInfoRight";
-
-            const node_info_top = document.createElement("div");
-            node_info_top.id = "nodeInfoTop";
-
-            const node_info_bottom = document.createElement("div");
-            node_info_bottom.id = "nodeInfoBottom";
-
-            node_info_bottom.append(node_title);
-
-            node_info_left.append(node_info_top);
-            node_info_left.append(node_info_bottom);
-            node_details_div.append(node_info_left);
-
-            Object.entries(json[key]).forEach(([node_key, node_val]) => {
-
-
-                    node_services_div.id = key+"Services";
-                    node_services_div.classList.add("w-75", "border", "border-dark");
-                    if(node_key == "services"){
-                        node_services_div.append((converters[node_key] || converters["_default"])(node_val));
-                    }
-
-                    if(node_key == "date_added" || node_key == "registration_status" || node_key == "status"){
-
-                        node_info_top.append((converters[node_key] || converters["_default"])(node_val));
-
-                    }
-
-                    if(node_key == "description" || node_key == "version"){
-
-                        node_info_bottom.append((converters[node_key] || converters["_default"])(node_val));
-                    }
-
-                    if(node_key == "contact"){
-
-                        node_info_right.append((converters[node_key] || converters["_default"])(node_val));
-                    }
-
-
-                    //else{
-
-                    //    node_details_div.append((converters[node_key] || converters["_default"])(node_val));
-
-
-                    //}
-
-
-                    if (services_elem !== null) {
-                        services_elem.append(node_details_div);
-                        services_elem.append(node_services_div);
-                    }
-
-
-
-            })
-        })
     });
 })
 
-function getNode(){
+function getNode(node_name){
+    const githubURL = "{{ node_registry_url }}";
 
-}
+    fetch(githubURL).then(resp => resp.json()).then(json => {
+        const node_info = json[node_name];
+
+         Object.entries(node_info).forEach(([key, val]) => {
+                const elem = document.getElementById(key);
+
+                if (elem !== null) {
+                    elem.append((converters[key] || converters["_default"])(val));
+                }
+            })
+
+
+
+        node_info.links.forEach(link => {
+            if (link.rel === "service") {
+                const node_url = document.getElementById("url");
+                node_url.innerHTML = "";
+                const link_elem = document.createElement("a");
+
+                Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value));
+                link_elem.innerText = link.href;
+                node_url.appendChild(link_elem);
+            } else if (link.rel === "icon") {
+                const icon_img = document.createElement("img")
+                icon_img.setAttribute("src", link.href)
+
+                const image_right = document.getElementById("image-right")
+                if(image_right) {
+                    image_right.setAttribute("src", link.href);
+                }
+            } else if (link.rel === "registration"){
+                if(node_info.registration_status != "closed"){
+                    let node_registration_link = document.createElement("a");
+                    let registration_link_div = document.getElementById("registration_link");
+                    registration_link_div.innerHTML = "";
+                    node_registration_link.setAttribute("href", link.href)
+                    node_registration_link.setAttribute("target", "_blank")
+                    node_registration_link.innerText = "Sign up for an account on this node";
+                    registration_link_div.appendChild(node_registration_link);
+                }
+            }
+        })
+
+    });
+
+};
