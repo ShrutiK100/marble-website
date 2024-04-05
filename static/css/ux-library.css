@@ -12,6 +12,7 @@
 
     /*Colours*/
     --alert-background: #F6DC3D;
+    --node-redoak-background: #0D1834;
     --background: #FFFFFF;
     --background-black: #000000;
     --background-transparent: transparent;
@@ -31,7 +32,7 @@
     --secondary-variant: #018786;
 
     --black: #000000;
-    --opaque-black: rgba(0,0,0,0.5); 
+    --opaque-black: rgba(0,0,0,0.5);
     --white: #FFFFFF;
 
     --indigo-50: #E8EAF6;
@@ -509,6 +510,14 @@ h6{
     color: var(--text-on-surface);
     text-decoration: none;
     cursor: pointer;
+}
+
+.node-redoak-background{
+    background-color: var(--node-redoak-background);
+}
+
+.node-other-background{
+    background-color: var(--background-black);
 }
 
 .node-card{
