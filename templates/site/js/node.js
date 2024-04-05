@@ -167,9 +167,11 @@ function getNode(node_name){
     let nodeImageDiv = document.getElementById("nodeImageBackground") ;
 
     if(node_name == "UofTRedOak"){
+        nodeImageDiv.classList.remove("node-other-background");
         nodeImageDiv.classList.add("node-redoak-background");
     }
     else{
+        nodeImageDiv.classList.remove("node-redoak-background");
         nodeImageDiv.classList.add("node-other-background");
     }
 
