@@ -5,55 +5,38 @@ const converters = {
         node_name.innerHTML = val;
     },
     "affiliation": (val) => {
-        //let title_affiliation = document.createElement("div");
         let title_affiliation = document.getElementById('affiliation');
         title_affiliation.innerHTML = val;
-        //return title_affiliation;
     },
     "description": (val) => {
-        //let node_description_title = document.createElement("div");
         let node_description_title = document.getElementById('description');
         node_description_title.innerHTML = val;
-        //return node_description_title;
     },
     "registration_status": (val) => {
-        //let registration_status_title = document.createElement("div");
         let registration_status_title = document.getElementById('registration_status');
         registration_status_title.innerText = "Registration Status: " + val;
         registration_status_title.classList.add("registration-status-title");
-        //return registration_status_title;
     },
     "contact": (val) => {
-        //let contact_email = document.createElement("div");
         let contact_email = document.getElementById('contact');
         contact_email.href = "mailto:" + val;
         contact_email.innerText = val;
-        //return contact_email;
     },
     "date_added": (val) => {
-        //let date_added = document.createElement("div")
         let date_added = document.getElementById('date_added');
         date_added.innerText = val;
-        //return date_added
-        //new Date(val).toLocaleDateString("en-GB")
     },
     "location": (val) => {
         let node_location = document.createElement("div");
         node_location.innerText = `latitude: ${val.latitude} longitude: ${val.longitude}`;
-        //return node_location;
-
     },
     "version":(val) => {
-        //let node_version = document.createElement("div");
         let node_version = document.getElementById('version');
         node_version.innerText = "Version " + val;
-       // return node_version;
-
     },
     "status":(val) =>{
         let node_status = document.getElementById('status');
         node_status.innerText = val;
-        //return node_status;
     },
     "services": (val) => {
 
@@ -175,25 +158,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
             });
-            /*
-            for(let i = 0; i<=2; i++){
-                const node_menu_item = document.createElement('a');
-                node_menu_item.setAttribute('onclick','getNode(' + '"'+ node_keys[i] +'"' + ')');
-                node_menu_item.innerText = json[node_keys[i]].name;
-
-                if (menu_elem !== null) {
-                menu_elem.append(node_menu_item);
-                }
-            }*/
         }
-
-
-
     });
 })
 
 function getNode(node_name){
     const githubURL = "{{ node_registry_url }}";
+    let nodeImageDiv = document.getElementById("nodeImageBackground") ;
+
+    if(node_name == "UofTRedOak"){
+        nodeImageDiv.classList.add("node-redoak-background");
+    }
+    else{
+        nodeImageDiv.classList.add("node-other-background");
+    }
 
     fetch(githubURL).then(resp => resp.json()).then(json => {
         const node_info = json[node_name];
@@ -241,3 +219,4 @@ function getNode(node_name){
     });
 
 };
+
