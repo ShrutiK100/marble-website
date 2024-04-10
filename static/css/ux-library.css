@@ -623,11 +623,7 @@ background-image: url("../images/banner-dry-earth-1920x1097.jpg");
     z-index: -25;
 }
 
-.node-redoak-background{
-    background-color: var(--node-redoak-background);
-}
-
-.node-other-background{
+.node-image-background{
     background-color: var(--background-black);
 }
 
