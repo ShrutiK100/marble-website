@@ -4,7 +4,7 @@
             <h3>{{ title }}</h3>
             <div>{{ content|safe }}</div>
         </div>
-         {% with button_type = "med_action_button"%}
+         {% with button_type = "reg_action_button"%}
             {% set button_label = "Learn More" %}
             {% set button_href = "{{ href }}" %}
             {% include "partials/button.html" %}
