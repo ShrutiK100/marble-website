@@ -2,7 +2,14 @@
     {% set button_disabled = "disabled" %}
 {% endif %}
 
-{% if button_type == "med_action_button"%}
+{% if button_type == "reg_action_button"%}
+    {% set button_type = "button-reg" %}
+    {% set button_url = "{{ button_href }}" %}
+    {% set button_background_colour = "bg-button-primary" %}
+    {% set button_font = "button-text" %}
+    {% set button_font_colour = "text-on-primary" %}
+
+{% elif button_type == "med_action_button"%}
     {% set button_type = "button-med" %}
     {% set button_url = "{{ button_href }}" %}
     {% set button_background_colour = "bg-button-primary" %}
