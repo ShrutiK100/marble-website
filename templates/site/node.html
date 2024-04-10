@@ -2,8 +2,15 @@
 {% set page_title = "Nodes" %}
 
 {% block content %}
+    {% with page = "node" %}
+        {% include "partials/menu.html" %}
+    {% endwith %}
+
     {% with %}
-        {% set banner_background_class= "black-test" %}
+        {% set banner_background_class= "banner-image-node" %}
+        {% set page_slogan = "Unlocking Data Access and Analysis with Marble’s Federated Architecture" %}
+        {%  set value_statement = "Marble’s federated architecture empowers data climate investigator to seamlessly
+        access data and analysis tools from any server on the Marble network." %}
 
         {% include "partials/banner.html" %}
     {% endwith %}

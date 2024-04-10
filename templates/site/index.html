@@ -2,10 +2,17 @@
 {% set page_title = "MARBLE" %}
 {% set page_slogan = "" %}
 
-{% set banner_video = "video/banner-video.mp4" %}
+
 {% block content %}
-    {% include "partials/banner.html" %}
-    {% include "partials/page-summary.html" %}
+    {% with page = "home" %}
+        {% include "partials/menu.html" %}
+    {% endwith %}
+
+    {% with page = "home"  %}
+        {% set banner_background_class= "banner-image-home" %}
+        {% set banner_video = "video/banner-video.mp4" %}
+        {% include "partials/banner.html" %}
+    {% endwith %}
 
     {% with %}
         {% set title = "About Marble" %}
@@ -45,7 +52,7 @@
     {% endwith %}
 
     {% with %}
-        {% set title="Get Started"%}
+        {% set title="Getting Started"%}
         {% set lead_in_text = "" %}
         {% set section_content = "Whether you're a student, researcher, or hobbyist, we've got you covered.
         Before initiating your research journey, take the opportunity to explore services best suited to
