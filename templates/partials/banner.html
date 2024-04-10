@@ -1,14 +1,17 @@
+
+
 <section id="hero" class="banner-section first-section text-white">
-    <div id="banner-image" class="d-block d-lg-none bg opacity-30 bg-position-center-center bg-attachment-fixed"></div>
-    <div id="banner-video" class="d-none d-lg-block embed-responsive embed-responsive-16by9">
-      <video loop autoplay muted>
-        <source class="embed-responsive-item" src="{{ banner_video }}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
 
-    </div>
+    {%  if page == "home" %}
+        <div id="banner-image" class="d-block d-lg-none bg opacity-30 bg-position-center-center bg-attachment-fixed {{ banner_background_class }}"></div>
+        <div id="banner-video" class="d-none d-lg-block embed-responsive embed-responsive-16by9">
+          <video loop autoplay muted>
+            <source class="embed-responsive-item" src="{{ banner_video }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-     <div class="banner-overlay-container">
+        <div class="banner-overlay-container">
            <div class="container-fluid">
              <div class="row align-items-center">
 
@@ -31,5 +34,24 @@
                </aside>
              </div>
          </div>
-     </div>
+        </div>
+    {% else %}
+        <div id="banner-image" class="d-block bg opacity-30 bg-position-center-center bg-attachment-fixed {{ banner_background_class }}"></div>
+        <div class="banner-overlay-container">
+           <div class="container-fluid">
+             <div class="row align-items-center">
+
+               <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-1">
+                   <h3 id="banner-title" class="banner-title">{{ page_slogan }}</h3>
+                   <p class="banner-slogan">{{ value_statement|default("") }}</p>
+               </div>
+
+
+             </div>
+         </div>
+        </div>
+    {% endif %}
+
+
+
 </section>
