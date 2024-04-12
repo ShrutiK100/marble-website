@@ -22,6 +22,12 @@
     --background: #FFFFFF;
     --background-black: #000000;
     --background-transparent: transparent;
+    --black: #000000;
+    --opaque-black: rgba(0,0,0,0.5);
+    --white: #FFFFFF;
+
+    --border-black: #000000;
+
     --surface: #FFFFFF;
     --error: #B20002;
     --text-on-primary: #FFFFFF;
@@ -36,12 +42,6 @@
     --primary-variant: #283593;
     --secondary: #03DAC6;
     --secondary-variant: #018786;
-
-    --border-black: #000000;
-
-    --black: #000000;
-    --opaque-black: rgba(0,0,0,0.5);
-    --white: #FFFFFF;
 
     --indigo-50: #E8EAF6;
     --indigo-100: #C5CAE9;
@@ -162,9 +162,15 @@ h5{
     font-size: 24px;
 }
 
+.h5{
+    font-family: var(--main-font-family);
+    font-weight: var(--reg-font-weight);
+    font-size: 24px;
+}
+
 h6{
     font-family: var(--secondary-font-family);
-    font-weight: var(--h6-bold-font-weight);
+    font-weight: var(--med-font-weight);
     font-size: 20px;
     letter-spacing: 0.03px;
     margin-bottom: 30px;
@@ -349,11 +355,6 @@ h6{
 .banner-lead-in-text{
     margin-top: 50px;
 }
-/*
-#banner-image{
-background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
-    z-index: -99;
-}*/
 
 .bg {
   position: absolute;
@@ -375,13 +376,16 @@ background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
 
 .banner-image-home{
     background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
-
     z-index: -99;
 }
 
 .banner-image-node{
     background-image: url(../images/banner/banner-nodes.jpg);
+    z-index: -99;
+}
 
+.banner-image-about{
+    background-image: url(../images/banner/banner-about.jpg);
     z-index: -99;
 }
 
@@ -411,7 +415,7 @@ background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
     padding: 60px 0 0 0;
     display: flex;
     align-items: center;
-    /*background-color: var(--background-transparent);*/
+    background-color: var(--background-transparent);
 }
 
 /*Quick Start menu*/
@@ -449,7 +453,7 @@ background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
 }
 
 /*Home Page*/
-/*Custom Settings For Each Home Page Section*/
+/*Custom Settings For Each Home Page Content Section*/
 .content-section{
     margin-bottom: 120px;
 }
@@ -493,9 +497,6 @@ background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
 }
 
 .usage-menu-button{
-    font-family: var(--main-font-family);
-    font-weight: var(--light-font-weight);
-    font-size: 48px;
     color: var(--text-on-surface);
     text-decoration: none;
     cursor: pointer;
@@ -623,6 +624,10 @@ background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
     display: block;
 }
 
+.node-dropdown-chevron{
+    margin-left: 27px;
+}
+
 .node-dropdown-content {
     display: none;
     position: absolute;
@@ -708,6 +713,51 @@ background-image: url(../images/banner/banner-dry-earth-1920x1097.jpg);
     padding-top: 8px;
     padding-bottom: 8px;
     text-decoration: none;
+}
+
+/*About Page*/
+
+.about-intro{
+    margin-left: 198px;
+}
+
+.about-intro-title{
+    width: 200px;
+}
+
+.profile-image{
+    width: 200px;
+}
+
+.profile-entry{
+    margin-top: 21px;
+}
+
+.marble-docs-link{
+    color: var(--black);
+    text-decoration: none;
+}
+
+.marble-github-link{
+    color: inherit;
+    text-decoration: none;
+}
+
+.committee-menu-button{
+    color: var(--black);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.committee-menu-button:focus{
+    color: var(--primary);
+}
+
+.committee-card{
+    width: 200px;
+    margin-top: 60px;
+    margin-left: 70px;
+    margin-right: 70px;
 }
 
 /*Footer*/
