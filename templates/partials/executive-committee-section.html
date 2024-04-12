@@ -1,0 +1,111 @@
+        {%  set executive_commitee_data=[
+            {"name": "David Huard",
+            "title": "Research Specialist",
+              "organization":[
+                        {
+                            "name": "Ouranos",
+                            "href": "https://www.ouranos.ca/en",
+                            "icon-class": "fa-solid fa-building-columns"
+                        }
+                    ],
+            "image": "images/about/executive/david-huard.jpg",
+            "links":
+                [
+                    {"text": "Profile",
+                    "href": "https://www.ouranos.ca/en/equipe#david-huard-408",
+                    "alt": "Ouranos",
+                    "icon-class": "fa-solid fa-user"
+                    }
+                ]
+            },
+            {"name": "Francis Charette Migneault",
+            "title": "Research Agent",
+             "organization":
+                    [
+                        {
+                            "name": "CRIM",
+                            "href": "https://www.crim.ca/en/",
+                            "icon-class": "fa-solid fa-building-columns"
+                        }
+                    ],
+            "image": "images/about/executive/francis-charette-migneault.jpg",
+            "links":
+                [
+                    {"href": "https://orcid.org/0000-0003-4862-3349",
+                    "alt": "OrcID",
+                    "icon-class": "fab fa-orcid fa-lg"},
+                    {"href": "https://www.researchgate.net/profile/Francis-Charette-Migneault",
+                    "alt": "ResearchGate",
+                    "icon-class": "fab fa-researchgate fa-lg"
+                    },
+                    {"href": "https://www.linkedin.com/in/francis-charette-migneault/",
+                    "alt": "LinkedIn",
+                    "icon-class": "fab fa-linkedin fa-lg"
+                    },
+                    {"href": "https://github.com/fmigneault/",
+                    "alt": "GitHub",
+                    "icon-class": "fab fa-github fa-lg"
+                    }
+                ]
+            },
+            {"name": "Misha Schwartz",
+            "title": "Developer System Architect",
+            "organization":
+                    [
+                        {
+                        "name": "University of Toronto",
+                        "Href": "https://www.utoronto.ca/",
+                        "icon-class": "fa-solid fa-building-columns"
+                        }
+                    ],
+            "image": "images/about/executive/misha-schwartz.jpg",
+            "links":
+                [
+                    {"href": "https://github.com/mishaschwartz/",
+                    "alt": "GitHub",
+                    "icon-class": "fab fa-github fa-lg"
+                    }
+                ]
+            }
+        ]%}
+
+<div class = "d-flex justify-content-center">
+    {% for entry in executive_commitee_data %}
+        <div class="d-flex flex-wrap committee-card">
+            <div class="d-flex flex-column">
+                <img class="img-fluid profile-image" src=" {{ entry["image"] }} ">
+                <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
+
+
+                {% for link in entry["links"] %}
+                    {% if (link["icon-class"] == "fa-solid fa-user") %}
+                        <div class="d-flex flex-column">
+                            <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                            <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
+                            </a>
+                        </div>
+                   {% endif %}
+                {% endfor %}
+
+                {% for org_entry in entry["organization"] %}
+                    <div class="d-flex flex-column">
+                        <a class="marble-github-link pe-1 profile-entry" href="{{ org_entry["href"] }}" alt="{{ org_entry["name"] }}" target="_blank">
+                        <i class='{{ org_entry["icon-class"] }}'></i> {{ org_entry["name"] }}
+                        </a>
+                    </div>
+                {% endfor %}
+
+             </div>
+
+            {% for link in entry["links"] %}
+                {% if link["icon-class"] != "fa-solid fa-user" %}
+                <div class="d-flex flex-row">
+                    <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                    <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
+                    </a>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
