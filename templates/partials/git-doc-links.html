@@ -4,6 +4,14 @@
             <i class="fa-brands fa-square-github fa-lg"></i> GitHub
         </a>
     {% endif %}
+
+    {% if alt_git_hub_link %}
+        <a class="marble-github-link" href="{{ git_hub_link }}">
+            GitHub <i class="fa-brands fa-square-github fa-lg"></i>
+        </a>
+    {% endif %}
+
+
     {% if doc_link %}
         <a class="marble-docs-link" href="{{ doc_link }}">
             <i class="fa-solid fa-book fa-lg"></i> Documentation
