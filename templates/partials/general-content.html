@@ -1,8 +1,23 @@
 <div class="container-fluid content-section w-75">
     <div class="row mt-5">
-        <div class="d-flex flex-column">
-            <h3>{{ title }}</h3>
-            <div>{{ content|safe }}</div>
-        </div>
+        {% if page == "about" %}
+            <div class="d-flex">
+                <table>
+                    <tr><td><div class="about-intro-title"><h3>{{ title }}</h3></div></td><td><div class="about-intro">{{ content|safe }}</div></td></tr>
+                </table>
+             </div>
+
+        {% else %}
+            <div class="d-flex flex-column">
+                <h3>{{ title }}</h3>
+                <div>{{ content|safe }}</div>
+            </div>
+            {% if about_github %}
+                {% with alt_git_hub_link = about_github %}
+                    {% include "partials/git-doc-links.html" %}
+
+                {% endwith %}
+            {% endif %}
+        {% endif %}
     </div>
 </div>
