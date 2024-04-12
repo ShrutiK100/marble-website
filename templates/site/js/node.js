@@ -40,7 +40,7 @@ const converters = {
     },
     "status":(val) =>{
         let node_status = document.getElementById('status');
-        //let status_colour = document.createElement('div');
+
         if(val == "online"){
             node_status.classList.add('node-online')
             node_status.classList.remove('node-offline')
@@ -119,18 +119,17 @@ const converters = {
 
 document.addEventListener("DOMContentLoaded", function () {
     const githubURL = "{{ node_registry_url }}";
-    const url_params = new URLSearchParams(window.location.search)
-    const node_name = url_params.get("node");
+    let imageDictionary = new Map();
+
     fetch(githubURL).then(resp => resp.json()).then(json => {
         const menu_elem = document.getElementById("nodeMenu");
-        const node_info_elem = document.getElementById("nodeInfo");
+        //const node_info_elem = document.getElementById("nodeInfo");
 
         const node_dropdown_container = document.createElement("div")
         node_dropdown_container.id="nodeDropdownContainer";
-        node_dropdown_container.classList.add("h3", "node-menu-item");
-        node_dropdown_container.setAttribute("tabindex", "1"); //Makes element clickable so css focus can work
-
-        node_dropdown_container.innerText = "Other";
+        node_dropdown_container.classList.add("d-flex", "align-items-center", "h3", "node-menu-item");
+        node_dropdown_container.setAttribute("tabindex", "3"); //Makes element clickable so css focus can work
+        node_dropdown_container.innerHTML = 'Other <span class="h5 node-dropdown-chevron"><i class="fa-solid fa-chevron-down"></i></span>';
 
         const node_dropdown_content = document.createElement("div")
         node_dropdown_content.id="nodeDropdownContent";
@@ -141,7 +140,13 @@ document.addEventListener("DOMContentLoaded", function () {
         var node_keys = Object.keys(json);
         var node_count = Object.keys(json).length;
 
+        imageDictionary = assignImages(node_keys);
 
+        //Load Red Oak information and services by default.
+        getNode(node_keys[0], imageDictionary);
+
+
+        //Node Menu
         //If number of nodes larger than 3, create a menu with the first 3 nodes, and create a dropdown from node 4 and up
         //If not, just create a menu with the nodes in the node registry
         if(node_count > 1){
@@ -149,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const node_menu_item = document.createElement('a');
                 const h3_node_menu_item = document.createElement("h3");
 
+                node_menu_item.setAttribute("tabindex", '"' + i + '"');
                 node_menu_item.setAttribute('onclick','getNode(' + '"'+ node_keys[i] +'"' + ')');
                 node_menu_item.innerText = json[node_keys[i]].name;
 
@@ -167,18 +173,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 h5_dropdown_item.classList.add("dropdown-menu-item");
 
                 dropdown_item.id = "nodeDropdownContent";
-
                 dropdown_item.setAttribute('onclick', 'getNode(' + '"'+ node_keys[i] +'"' + ')');
-
-                //dropdown_item.value =  node_keys[i];
                 dropdown_item.innerText = json[node_keys[i]].name;
-                //node_menu_dropdown.append(dropdown_item);
 
                 h5_dropdown_item.append(dropdown_item);
 
                 node_dropdown_content.append(h5_dropdown_item);
-
-
             }
 
             if (menu_elem !== null) {
@@ -201,17 +201,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
-function getNode(node_name){
+function getNode(node_name, image_dictionary){
     const githubURL = "{{ node_registry_url }}";
+
+
+
     let nodeImageDiv = document.getElementById("nodeImageDiv") ;
     let nodeImage = document.getElementById("nodeImage") ;
+    nodeImage.src = image_dictionary[node_name];
+
+    console.log("getNode image path");
+    console.log(image_dictionary[node_name])
 
     nodeImageDiv.classList.add("node-image-background");
+
 
     fetch(githubURL).then(resp => resp.json()).then(json => {
 
         const node_info = json[node_name];
 
+        console.log("getNode node_info");
         console.log(node_info);
 
          Object.entries(node_info).forEach(([key, val]) => {
@@ -264,3 +273,36 @@ function getNode(node_name){
     });
 };
 
+function assignImages(node_keys){
+    var node_count = node_keys.length;
+    var node_image_dictionary = new Map();
+/*
+let map = new Map();
+map.set('key', {'value1', 'value2'});
+let values = map.get('key');*/
+    let i = 0;
+
+    const nodeImageBackground = [
+    "images/nodes/node-redoak-planet.png",
+    "images/nodes/node-pavics-planet.jpg",
+    "images/nodes/node-hirondelle-planet.jpeg"
+];
+
+    node_keys.forEach(key =>{
+        console.log("assignImages key");
+    console.log(key);
+
+    if(i < 3){
+                node_image_dictionary.set(key,nodeImageBackground[i]);
+                 console.log("assignImages dict key")
+        console.log(key);
+        console.log("assignImages dict image path")
+        console.log(nodeImageBackground[i]);
+    }
+
+
+
+    })
+
+    return node_image_dictionary;
+}
