@@ -12,6 +12,10 @@ const converters = {
         let title_affiliation = document.getElementById('affiliation');
         title_affiliation.innerHTML = val;
     },
+    "background_image_path":(val) =>{
+        let node_background_image = document.getElementById("nodeImage");
+        node_background_image.src = val;
+    },
     "description": (val) => {
         let node_description_title = document.getElementById('description');
         node_description_title.innerHTML = val;
@@ -28,7 +32,8 @@ const converters = {
     },
     "date_added": (val) => {
         let date_added = document.getElementById('date_added');
-        date_added.innerText = val;
+        let date_array = val.split("T");
+        date_added.innerText = date_array[0];
     },
     "location": (val) => {
         let node_location = document.createElement("div");
@@ -119,11 +124,8 @@ const converters = {
 
 document.addEventListener("DOMContentLoaded", function () {
     const githubURL = "{{ node_registry_url }}";
-    let imageDictionary = new Map();
-
     fetch(githubURL).then(resp => resp.json()).then(json => {
         const menu_elem = document.getElementById("nodeMenu");
-        //const node_info_elem = document.getElementById("nodeInfo");
 
         const node_dropdown_container = document.createElement("div")
         node_dropdown_container.id="nodeDropdownContainer";
@@ -140,11 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
         var node_keys = Object.keys(json);
         var node_count = Object.keys(json).length;
 
-        imageDictionary = assignImages(node_keys);
-
         //Load Red Oak information and services by default.
-        getNode(node_keys[0], imageDictionary);
-
+        getNode(node_keys[0]);
 
         //Node Menu
         //If number of nodes larger than 3, create a menu with the first 3 nodes, and create a dropdown from node 4 and up
@@ -155,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const h3_node_menu_item = document.createElement("h3");
 
                 node_menu_item.setAttribute("tabindex", '"' + i + '"');
-                node_menu_item.setAttribute('onclick','getNode(' + '"'+ node_keys[i] +'"' + ')');
+                node_menu_item.setAttribute('onclick',  'getNode(' + '"'+ node_keys[i] +'"' + ')');
                 node_menu_item.innerText = json[node_keys[i]].name;
 
                 h3_node_menu_item.classList.add("node-menu-item");
@@ -186,54 +185,38 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         else{
-
             node_keys.forEach(key =>{
                 const node_menu_item = document.createElement('a');
-                node_menu_item.setAttribute('onclick','getNode(' + '"'+ key +'"' + ')');
+                node_menu_item.setAttribute('onclick', 'getNode(' + '"'+ key +'"' + ')');
                 node_menu_item.innerText = json[key].name;
 
                 if (menu_elem !== null) {
                 menu_elem.append(node_menu_item);
                 }
-
             });
         }
     });
 })
 
-function getNode(node_name, image_dictionary){
+function getNode(node_name){
     const githubURL = "{{ node_registry_url }}";
-
-
-
-    let nodeImageDiv = document.getElementById("nodeImageDiv") ;
-    let nodeImage = document.getElementById("nodeImage") ;
-    nodeImage.src = image_dictionary[node_name];
-
-    console.log("getNode image path");
-    console.log(image_dictionary[node_name])
-
-    nodeImageDiv.classList.add("node-image-background");
-
 
     fetch(githubURL).then(resp => resp.json()).then(json => {
 
         const node_info = json[node_name];
+        const node_keys = Object.keys(json);
+        assignImages(json, node_keys);
 
-        console.log("getNode node_info");
-        console.log(node_info);
+        let image = document.getElementById("nodeImage");
+        image.src = json[node_name].background_image_path;
 
-         Object.entries(node_info).forEach(([key, val]) => {
+        Object.entries(node_info).forEach(([key, val]) => {
             const elem = document.getElementById(key);
 
             if (elem !== null) {
-
                 elem.append((converters[key] || converters["_default"])(val));
-
             }
         })
-
-
 
         node_info.links.forEach(link => {
             if (link.rel === "service") {
@@ -254,11 +237,11 @@ function getNode(node_name, image_dictionary){
                 icon_img.setAttribute("src", link.href)
 
                 const image_right = document.getElementById("image-right")
-                if(image_right) {
+                if (image_right) {
                     image_right.setAttribute("src", link.href);
                 }
-            } else if (link.rel === "registration"){
-                if(node_info.registration_status != "closed"){
+            } else if (link.rel === "registration") {
+                if (node_info.registration_status != "closed") {
                     let node_registration_link = document.createElement("a");
                     let registration_link_div = document.getElementById("registration_link");
                     registration_link_div.innerHTML = "";
@@ -270,39 +253,28 @@ function getNode(node_name, image_dictionary){
                 }
             }
         });
-    });
-};
+    })
+}
 
-function assignImages(node_keys){
-    var node_count = node_keys.length;
-    var node_image_dictionary = new Map();
-/*
-let map = new Map();
-map.set('key', {'value1', 'value2'});
-let values = map.get('key');*/
+function assignImages(json, node_keys){
+
     let i = 0;
 
     const nodeImageBackground = [
     "images/nodes/node-redoak-planet.png",
     "images/nodes/node-pavics-planet.jpg",
-    "images/nodes/node-hirondelle-planet.jpeg"
+    "images/nodes/node-hirondelle-planet.jpg"
 ];
 
     node_keys.forEach(key =>{
-        console.log("assignImages key");
-    console.log(key);
 
-    if(i < 3){
-                node_image_dictionary.set(key,nodeImageBackground[i]);
-                 console.log("assignImages dict key")
-        console.log(key);
-        console.log("assignImages dict image path")
-        console.log(nodeImageBackground[i]);
-    }
+        if(i < 3){
+            json[key].background_image_path = nodeImageBackground[i];
 
-
-
+            i++;
+        }
+        if(i > 3){
+            i = 0;
+        }
     })
-
-    return node_image_dictionary;
 }
