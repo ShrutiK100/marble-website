@@ -1,73 +1,73 @@
-        {%  set executive_commitee_data=[
-            {"name": "David Huard",
-            "title": "Research Specialist",
-              "organization":[
-                        {
-                            "name": "Ouranos",
-                            "href": "https://www.ouranos.ca/en",
-                            "icon-class": "fa-solid fa-building-columns"
-                        }
-                    ],
-            "image": "images/about/executive/david-huard.jpg",
-            "links":
-                [
-                    {"text": "Profile",
-                    "href": "https://www.ouranos.ca/en/equipe#david-huard-408",
-                    "alt": "Ouranos",
-                    "icon-class": "fa-solid fa-user"
-                    }
-                ]
-            },
-            {"name": "Francis Charette Migneault",
-            "title": "Research Agent",
-             "organization":
-                    [
-                        {
-                            "name": "CRIM",
-                            "href": "https://www.crim.ca/en/",
-                            "icon-class": "fa-solid fa-building-columns"
-                        }
-                    ],
-            "image": "images/about/executive/francis-charette-migneault.jpg",
-            "links":
-                [
-                    {"href": "https://orcid.org/0000-0003-4862-3349",
-                    "alt": "OrcID",
-                    "icon-class": "fab fa-orcid fa-lg"},
-                    {"href": "https://www.researchgate.net/profile/Francis-Charette-Migneault",
-                    "alt": "ResearchGate",
-                    "icon-class": "fab fa-researchgate fa-lg"
-                    },
-                    {"href": "https://www.linkedin.com/in/francis-charette-migneault/",
-                    "alt": "LinkedIn",
-                    "icon-class": "fab fa-linkedin fa-lg"
-                    },
-                    {"href": "https://github.com/fmigneault/",
-                    "alt": "GitHub",
-                    "icon-class": "fab fa-github fa-lg"
-                    }
-                ]
-            },
-            {"name": "Misha Schwartz",
-            "title": "Developer System Architect",
-            "organization":
-                    [
-                        {
-                        "name": "University of Toronto",
-                        "Href": "https://www.utoronto.ca/",
-                        "icon-class": "fa-solid fa-building-columns"
-                        }
-                    ],
-            "image": "images/about/executive/misha-schwartz.jpg",
-            "links":
-                [
-                    {"href": "https://github.com/mishaschwartz/",
-                    "alt": "GitHub",
-                    "icon-class": "fab fa-github fa-lg"
-                    }
-                ]
+{%  set executive_commitee_data=[
+    {"name": "David Huard",
+    "title": "Research Specialist",
+      "organization":[
+                {
+                    "name": "Ouranos",
+                    "href": "https://www.ouranos.ca/en",
+                    "icon-class": "fa-solid fa-building-columns"
+                }
+            ],
+    "image": "images/about/executive/david-huard.jpg",
+    "links":
+        [
+            {"text": "Profile",
+            "href": "https://www.ouranos.ca/en/equipe#david-huard-408",
+            "alt": "Ouranos",
+            "icon-class": "fa-solid fa-user"
             }
-        ]%}
+        ]
+    },
+    {"name": "Francis Charette Migneault",
+    "title": "Research Agent",
+     "organization":
+            [
+                {
+                    "name": "CRIM",
+                    "href": "https://www.crim.ca/en/",
+                    "icon-class": "fa-solid fa-building-columns"
+                }
+            ],
+    "image": "images/about/executive/francis-charette-migneault.jpg",
+    "links":
+        [
+            {"href": "https://orcid.org/0000-0003-4862-3349",
+            "alt": "OrcID",
+            "icon-class": "fab fa-orcid fa-lg"},
+            {"href": "https://www.researchgate.net/profile/Francis-Charette-Migneault",
+            "alt": "ResearchGate",
+            "icon-class": "fab fa-researchgate fa-lg"
+            },
+            {"href": "https://www.linkedin.com/in/francis-charette-migneault/",
+            "alt": "LinkedIn",
+            "icon-class": "fab fa-linkedin fa-lg"
+            },
+            {"href": "https://github.com/fmigneault/",
+            "alt": "GitHub",
+            "icon-class": "fab fa-github fa-lg"
+            }
+        ]
+    },
+    {"name": "Misha Schwartz",
+    "title": "Developer System Architect",
+    "organization":
+            [
+                {
+                "name": "University of Toronto",
+                "Href": "https://www.utoronto.ca/",
+                "icon-class": "fa-solid fa-building-columns"
+                }
+            ],
+    "image": "images/about/executive/misha-schwartz.jpg",
+    "links":
+        [
+            {"href": "https://github.com/mishaschwartz/",
+            "alt": "GitHub",
+            "icon-class": "fab fa-github fa-lg"
+            }
+        ]
+    }
+]%}
 
 <div class = "d-flex justify-content-center">
     {% for entry in executive_commitee_data %}
