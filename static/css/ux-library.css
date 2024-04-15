@@ -599,7 +599,8 @@ h6{
 }
 
 .node-menu-item{
-    margin-left: 118px;
+    margin-left: 59px;
+    margin-right: 59px;
     color: var(--text-on-surface);
     text-decoration: none;
     cursor: pointer;
