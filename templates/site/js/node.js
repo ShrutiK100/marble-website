@@ -1,60 +1,35 @@
 const converters = {
     "_default": (val) => val,
-    "name":(val)=>{
-        let node_name = document.getElementById('name');
-        node_name.classList.add("node-name");
-        node_name.innerHTML = val;
-
-        let services_title = document.getElementById("servicesTitle");
-        services_title.innerText = "Explore All Services by " + val;
-    },
-    "affiliation": (val) => {
-        let title_affiliation = document.getElementById('affiliation');
-        title_affiliation.innerHTML = val;
-    },
-    "background_image_path":(val) =>{
-        let node_background_image = document.getElementById("nodeImage");
-        node_background_image.src = val;
-    },
-    "description": (val) => {
-        let node_description_title = document.getElementById('description');
-        node_description_title.innerHTML = val;
-    },
-    "registration_status": (val) => {
-        let registration_status_title = document.getElementById('registration_status');
-        registration_status_title.innerText = "Registration Status: " + val;
-        registration_status_title.classList.add("registration-status-title");
-    },
-    "contact": (val) => {
-        let contact_email = document.getElementById('contact');
-        contact_email.href = "mailto:" + val;
-        contact_email.innerText = val;
-    },
+    "contact": (val) => `mailto:${val}`,
     "date_added": (val) => {
-        let date_added = document.getElementById('date_added');
-        let date_array = val.split("T");
-        date_added.innerText = date_array[0];
-    },
-    "location": (val) => {
-        let node_location = document.createElement("div");
-        node_location.innerText = `latitude: ${val.latitude} longitude: ${val.longitude}`;
-    },
-    "version":(val) => {
-        let node_version = document.getElementById('version');
-        node_version.innerText = val;
+        let date = new Date(val);
+        return date.toLocaleDateString();
     },
     "status":(val) =>{
-        let node_status = document.getElementById('status');
-
-        if(val == "online"){
-            node_status.classList.add('node-online')
-            node_status.classList.remove('node-offline')
-        }
-        else{
-            node_status.classList.add('node-offline')
-            node_status.classList.remove('node-online')
-        }
+        let node_status = document.createElement("span")
         node_status.innerText = val;
+        node_status.classList.add(val === "online" ? "node-online" : "node-offline")
+        return node_status
+    },
+    "links": (val, node_info) => {
+        const found_links = {}
+        const link_elems = {
+            "service": document.getElementById("node-name-link"),
+            "authenticate": document.getElementById("node-sign-in-button"),
+            "registration": document.getElementById("node-registration-link-button")
+        }
+        val.forEach(link => {
+            if (link_elems[link.rel]) {
+                if (link.rel === "registration" && node_info.registration_status === "closed") { return }
+                found_links[link.rel] = true;
+                Object.entries(link).forEach(([attr, value]) => link_elems[link.rel].setAttribute(attr, value));
+            }
+        })
+        Object.entries(link_elems).forEach(([rel, elem]) => {
+            if (!found_links[rel]) {
+                elem.classList.add("disabled")
+            }
+        })
     },
     "services": (val) => {
 
@@ -122,159 +97,76 @@ const converters = {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const githubURL = "{{ node_registry_url }}";
-    fetch(githubURL).then(resp => resp.json()).then(json => {
-        const menu_elem = document.getElementById("nodeMenu");
-
-        const node_dropdown_container = document.createElement("div")
-        node_dropdown_container.id="nodeDropdownContainer";
-        node_dropdown_container.classList.add("d-flex", "align-items-center", "h3", "node-menu-item");
-        node_dropdown_container.setAttribute("tabindex", "3"); //Makes element clickable so css focus can work
-        node_dropdown_container.innerHTML = 'Other <span class="h5 node-dropdown-chevron"><i class="fa-solid fa-chevron-down"></i></span>';
-
-        const node_dropdown_content = document.createElement("div")
-        node_dropdown_content.id="nodeDropdownContent";
-        node_dropdown_content.classList.add("node-dropdown-content");
-
-        node_dropdown_container.append(node_dropdown_content);
-
-        var node_keys = Object.keys(json);
-        var node_count = Object.keys(json).length;
-
-        //Load Red Oak information and services by default.
-        getNode(node_keys[0]);
-
-        //Node Menu
-        //If number of nodes larger than 3, create a menu with the first 3 nodes, and create a dropdown from node 4 and up
-        //If not, just create a menu with the nodes in the node registry
-        if(node_count > 1){
-            for(let i = 0; i<=1; i++){
-                const node_menu_item = document.createElement('a');
-                const h3_node_menu_item = document.createElement("h3");
-
-                node_menu_item.setAttribute("tabindex", '"' + i + '"');
-                node_menu_item.setAttribute('onclick',  'getNode(' + '"'+ node_keys[i] +'"' + ')');
-                node_menu_item.innerText = json[node_keys[i]].name;
-
-                h3_node_menu_item.classList.add("node-menu-item");
-
-                h3_node_menu_item.append(node_menu_item);
-
-                if (menu_elem !== null) {
-                menu_elem.append(h3_node_menu_item);
-                }
-            }
-
-            for(let i=2; i<=node_count-1; i++){
-                const dropdown_item = document.createElement('a')
-                const h5_dropdown_item = document.createElement('h5');
-                h5_dropdown_item.classList.add("dropdown-menu-item");
-
-                dropdown_item.id = "nodeDropdownContent";
-                dropdown_item.setAttribute('onclick', 'getNode(' + '"'+ node_keys[i] +'"' + ')');
-                dropdown_item.innerText = json[node_keys[i]].name;
-
-                h5_dropdown_item.append(dropdown_item);
-
-                node_dropdown_content.append(h5_dropdown_item);
-            }
-
-            if (menu_elem !== null) {
-                menu_elem.append(node_dropdown_container);
-            }
-        }
-        else{
-            node_keys.forEach(key =>{
-                const node_menu_item = document.createElement('a');
-                node_menu_item.setAttribute('onclick', 'getNode(' + '"'+ key +'"' + ')');
-                node_menu_item.innerText = json[key].name;
-
-                if (menu_elem !== null) {
-                menu_elem.append(node_menu_item);
-                }
-            });
-        }
-    });
-})
-
-function getNode(node_name){
-    const githubURL = "{{ node_registry_url }}";
-
-    fetch(githubURL).then(resp => resp.json()).then(json => {
-
-        const node_info = json[node_name];
-        const node_keys = Object.keys(json);
-        assignImages(json, node_keys);
-
-        let image = document.getElementById("nodeImage");
-        image.src = json[node_name].background_image_path;
-
-        Object.entries(node_info).forEach(([key, val]) => {
-            const elem = document.getElementById(key);
-
-            if (elem !== null) {
-                elem.append((converters[key] || converters["_default"])(val));
-            }
-        })
-
-        node_info.links.forEach(link => {
-            if (link.rel === "service") {
-                const node_url = document.getElementById("url");
-                node_url.innerHTML = "";
-
-                const node_login_link = document.createElement("a");
-                node_login_link.innerText = "Sign In";
-
-                node_login_link.classList.add("body-1", "button-transparent", "node-signup-link");
-
-                Object.entries(link).forEach(([attr, value]) => node_login_link.setAttribute(attr, value));
-
-                node_url.appendChild(node_login_link);
-
-            } else if (link.rel === "icon") {
-                const icon_img = document.createElement("img")
-                icon_img.setAttribute("src", link.href)
-
-                const image_right = document.getElementById("image-right")
-                if (image_right) {
-                    image_right.setAttribute("src", link.href);
-                }
-            } else if (link.rel === "registration") {
-                if (node_info.registration_status != "closed") {
-                    let node_registration_link = document.createElement("a");
-                    let registration_link_div = document.getElementById("registration_link");
-                    registration_link_div.innerHTML = "";
-                    node_registration_link.classList.add("body-1", "button-transparent", "node-register-link");
-                    node_registration_link.setAttribute("href", link.href)
-                    node_registration_link.setAttribute("target", "_blank")
-                    node_registration_link.innerText = "Register";
-                    registration_link_div.appendChild(node_registration_link);
-                }
-            }
-        });
-    })
-}
-
-function assignImages(json, node_keys){
-
-    let i = 0;
-
-    const nodeImageBackground = [
+const nodeImageBackground = [
     "images/nodes/node-redoak-planet.png",
     "images/nodes/node-pavics-planet.jpg",
     "images/nodes/node-hirondelle-planet.jpg"
 ];
 
-    node_keys.forEach(key =>{
+document.addEventListener("DOMContentLoaded", function () {
+    const githubURL = "{{ node_registry_url }}";
+    fetch(githubURL).then(resp => resp.json()).then(json => {
+        const menu_elem = document.getElementById("nodeMenu");
+        const node_dropdown_container = document.getElementById("nodeDropdownContainer")
+        const node_dropdown_content = document.getElementById("nodeDropdownContent")
 
-        if(i < 3){
-            json[key].background_image_path = nodeImageBackground[i];
+        var node_keys = Object.keys(json);
+        var node_count = node_keys.length;
 
-            i++;
+        if (node_count > 0) {
+            const url_params = new URLSearchParams(window.location.search);
+            const param_node_key = url_params.get("node");
+            const default_node_key = json[param_node_key] ? param_node_key : node_keys[0]
+            // Display the first node's information and services by default.
+            getNode(default_node_key);
         }
-        if(i > 3){
-            i = 0;
+
+        // Node Menu
+        // If number of nodes larger than initial_node_count, create a menu with these first nodes, and create a dropdown
+        // for the rest. If not, just create a menu with the nodes in the node registry
+        const initial_node_count = 2;
+        node_keys.forEach((key, index) => {
+            const node_menu_item = document.createElement('a');
+            node_menu_item.setAttribute('onclick', 'getNode(' + '"'+ key +'"' + ')');
+            node_menu_item.innerText = json[key].name;
+            if (index < initial_node_count) {
+                const h3_node_menu_item = document.createElement("h3");
+                h3_node_menu_item.classList.add("node-menu-item")
+                h3_node_menu_item.appendChild(node_menu_item)
+                menu_elem.insertBefore(h3_node_menu_item, node_dropdown_container);
+            } else {
+                const h5_dropdown_item = document.createElement('h5');
+                h5_dropdown_item.classList.add("dropdown-menu-item")
+                h5_dropdown_item.appendChild(node_menu_item)
+                node_menu_item.setAttribute("tabindex", `${index - initial_node_count}`)
+                node_dropdown_content.appendChild(h5_dropdown_item);
+            }
+        })
+        if (node_count <= initial_node_count) {
+            node_dropdown_container.remove();
         }
+    });
+})
+
+function getNode(node_id){
+    const githubURL = "{{ node_registry_url }}";
+
+    fetch(githubURL).then(resp => resp.json()).then(json => {
+
+        const node_info = json[node_id];
+        const node_keys = Object.keys(json);
+
+        let image = document.getElementById("nodeImage");
+        image.src = nodeImageBackground[node_keys.indexOf(node_id) % nodeImageBackground.length]
+        Object.entries(node_info).forEach(([key, val]) => {
+            const elem = document.getElementById(key);
+            const converted_val = (converters[key] || converters["_default"])(val, node_info)
+            if (elem !== null) {
+                elem.replaceChildren(converted_val);
+            }
+        })
+
+        let services_title = document.getElementById("servicesTitle");
+        services_title.innerText = `Explore All Services by ${node_info["name"]}`;
     })
 }

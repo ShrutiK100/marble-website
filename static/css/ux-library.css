@@ -682,6 +682,11 @@ h6{
     text-decoration: underline;
 }
 
+#node-name-link{
+    color: unset;
+    text-decoration: none;
+}
+
 .node-online{
     color: var(--teal-400);
 }
