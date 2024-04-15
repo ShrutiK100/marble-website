@@ -432,6 +432,7 @@ h6{
     background-color: var(--background-transparent);
     box-shadow: var(--elevation-3);
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 }
 
 .hero-menu a {
