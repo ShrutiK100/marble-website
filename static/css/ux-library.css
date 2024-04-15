@@ -170,7 +170,7 @@ h5{
 
 h6{
     font-family: var(--secondary-font-family);
-    font-weight: var(--med-font-weight);
+    font-weight: var(--reg-font-weight);
     font-size: 20px;
     letter-spacing: 0.03px;
     margin-bottom: 30px;
@@ -433,8 +433,8 @@ h6{
     margin: 0 0 20px 0;
     background-color: var(--background-transparent);
     box-shadow: var(--elevation-3);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 }
 
 .hero-menu a {
