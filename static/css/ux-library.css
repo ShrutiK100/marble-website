@@ -24,6 +24,7 @@
     --background-transparent: transparent;
     --black: #000000;
     --opaque-black: rgba(0,0,0,0.5);
+    --linear-gradient-black: linear-gradient(90deg,transparent, #000000, transparent);
     --white: #FFFFFF;
 
     --border-black: #000000;
@@ -139,14 +140,12 @@ h3{
     font-family: var(--main-font-family);
     font-weight: var(--h3-reg-font-weight);
     font-size: 48px;
-    margin-bottom: 30px;
 }
 
 .h3{
     font-family: var(--main-font-family);
     font-weight: var(--h3-reg-font-weight);
     font-size: 48px;
-    margin-bottom: 30px;
 }
 
 h4{
@@ -313,6 +312,10 @@ h6{
 
 /*Body Components*/
 
+.h3-title-margin{
+    margin-bottom: 30px;
+}
+
 .paragraph-href{
     color: var(--primary);
     text-decoration: none;
@@ -322,6 +325,10 @@ h6{
 .menu{
     background-color: var(--background-transparent);
     z-index: 10;
+}
+
+.menu-items{
+        padding-top: 20px;
 }
 
 .menu-link{
@@ -351,6 +358,18 @@ h6{
 }
 
 /*Banner*/
+
+.banner-title-home{
+    color: var(--indigo-100);
+}
+
+.banner-title-node{
+    color: var(--white);
+}
+
+.banner-title-about{
+    color: var(--white);
+}
 
 .banner-lead-in-text{
     margin-top: 50px;
@@ -406,16 +425,25 @@ h6{
     height: auto;
 }
 
-.banner-section {
+.banner-section{
     position: relative;
 }
 
-.banner-overlay-container {
+.banner-overlay-container{
     min-height: 100vh;
     padding: 60px 0 0 0;
     display: flex;
     align-items: center;
     background-color: var(--background-transparent);
+}
+
+.banner-overlay-opacity{
+    background-color: var(--opaque-black);
+}
+
+.banner-overlay-linear-opacity{
+    opacity: 50;
+    background: var(--linear-gradient-black);
 }
 
 /*Quick Start menu*/
@@ -684,11 +712,21 @@ h6{
     padding-bottom: 9px;
 }
 
+.node-services-container{
+    margin-bottom: 120px;
+}
+
+.node-services-div{
+    margin-top:50px;
+}
+
 .node-card{
     max-width: 322px;
     max-height: 238px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 35px;
+    margin-top: 35px;
+    margin-right: 35px;
+    margin-bottom: 35px;
     padding-left: 17px;
     padding-right: 17px;
     padding-top: 24px;
@@ -730,11 +768,21 @@ h6{
 }
 
 .profile-image{
-    width: 200px;
+    max-width: 200px;
 }
 
 .profile-entry{
     margin-top: 21px;
+}
+
+.profile-icon-primary{
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.profile-icon-grey{
+    color: var(--gray-500);
+    cursor: none;
 }
 
 .marble-docs-link{
@@ -750,6 +798,8 @@ h6{
 .committee-menu-button{
     color: var(--black);
     text-decoration: none;
+    margin-left: 60px;
+    margin-right: 60px;
     cursor: pointer;
 }
 
@@ -831,8 +881,4 @@ h6{
 
 .primary-alt{
     background-color: var(--primary-alt);
-}
-
-.banner-title{
-    color: var(--indigo-100);
 }
