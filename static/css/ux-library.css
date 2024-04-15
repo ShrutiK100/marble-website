@@ -427,6 +427,8 @@ h6{
 }
 
 .hero-menu{
+    max-width: 515px;
+    max-height: 417px;
     padding: 20px;
     margin: 0 0 20px 0;
     background-color: var(--background-transparent);
