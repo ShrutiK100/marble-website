@@ -13,7 +13,7 @@
            <div class="container-fluid">
              <div class="row align-items-center">
                <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-1">
-                   <h1><span id="banner-title" class="banner-title">{{ page_title }}</span></h1>
+                   <h1><span id="banner-title" class="{{ banner_title_class }}">{{ page_title }}</span></h1>
                    <p class="banner-slogan">{{ page_slogan|default("") }}</p>
                </div>
 
@@ -32,15 +32,23 @@
          </div>
         </div>
     {% else %}
+        {% if page == "node" %}
+            {% set opacity_overlay_class = "banner-overlay-linear-opacity" %}
+        {% else %}
+            {% set opacity_overlay_class = "banner-overlay-opacity" %}
+        {% endif %}
         <div id="banner-image" class="d-block bg opacity-30 bg-position-center-center bg-attachment-fixed {{ banner_background_class }}"></div>
-        <div class="banner-overlay-container">
+        <div class="banner-overlay-container {{ opacity_overlay_class }}">
            <div class="container-fluid">
                <div class="d-flex flex-column justify-content-center w-100">
-                   <div class="d-flex  justify-content-center w-100">
-                        <h3 id="banner-title" class="banner-title w-50">{{ page_slogan }}</h3>
+                   <div class="d-flex justify-content-center w-100">
+                       <div class="d-flex justify-content-center w-75">
+                        <h3 id="banner-title" class="{{ banner_title_class }}">{{ page_slogan|safe }}</h3>
+
+                           </div>
                     </div>
                     <div class="d-flex justify-content-center w-100">
-                        <p class="w-75">{{ value_statement|default("") }}</p>
+                        <p>{{ value_statement|default("") }}</p>
                     </div>
                </div>
          </div>
