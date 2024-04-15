@@ -16,17 +16,24 @@
 {% endwith %}
 
 
-    {% with %}
-        {% set href = href|default("{{href}}") %}
-        {% set title = "Start a Project" %}
-        {% set content = "Select most suitable node or server to start a project" %}
+{% with %}
+    {% set title = "Start a Project" %}
+    {% set content = "Select most suitable node or server to start a project" %}
 
-        {% include "partials/general-content.html" %}
-    {% endwith %}
+    {% include "partials/general-content.html" %}
+{% endwith %}
 
     <div class="container-fluid w-75">
         <div class="row">
-            <div id="nodeMenu" class="d-flex justify-content-center node-menu-container"></div>
+            <div id="nodeMenu" class="d-flex justify-content-center node-menu-container">
+                <div id="nodeDropdownContainer" class="d-flex align-items-center h3 node-menu-item" tabindex="3">
+                    Other
+                    <span class="h5 node-dropdown-chevron">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </span>
+                    <div id="nodeDropdownContent" class="node-dropdown-content"></div>
+                </div>
+            </div>
         </div>
 
        <div class="row">
@@ -34,9 +41,11 @@
                <div id="nodeImageDiv" class="d-flex flex-column node-image-div node-image-background">
                    <div id="nodeInfoTop" class="d-flex justify-content-start flex-row ">
                       <div id="nodeInfoLeft">
-                       <div id="nodeDateCreated" class="node-info-text">Date Added: <div id="date_added"></div></div>
-                       <div id="nodeStatus" class="node-info-text">Status: <div id="status"></div></div>
-                       <div id="nodeRegistrationStatus" class="node-info-text"> <div id="registration_status" class="mt-3"></div></div>
+                       <div id="nodeDateCreated" class="node-info-text">Date Added: <span id="date_added"></span></div>
+                       <div id="nodeStatus" class="node-info-text">Status: <span id="status"></span></div>
+                          <div id="nodeRegistrationStatus" class="node-info-text">Registration Status:
+                              <span id="registration_status" class="mt-3 registration-status-title"></span>
+                          </div>
                       </div>
                    </div>
 
@@ -47,14 +56,20 @@
                     <div id="nodeInfoBottom" class="d-flex flex-row justify-content-between">
                         <div class="d-flex flex-column">
                             <div id="nodeName" class="node-main-info node-info-text">
-                               <h2 id="name"></h2>
+                                <a id="node-name-link" href=""><h2 id="name" class="node-name"></h2></a>
                             </div>
                             <div id="nodeDescription" class="node-main-info node-info-text">
                                <div id="description"></div>
                             </div>
                             <div id="nodeRegisterButtons" class="d-flex flex-row node-main-info ">
-                               <div id="registration_link" class="node-register-button"></div>
-                               <div id="url"></div>
+                               <div id="registration_link" class="node-register-button">
+                                   <a id="node-registration-link-button" class="body-1 button-transparent node-register-link"
+                                      target="_blank" href="">Register</a>
+                               </div>
+                               <div id="url">
+                                   <a id="node-sign-in-button" class="body-1 button-transparent node-signup-link"
+                                      target="_blank" href="">Sign In</a>
+                               </div>
                             </div>
 
                         </div>
