@@ -6,9 +6,10 @@
         {% include "partials/menu.html" %}
     {% endwith %}
 
-{% with %}
+{% with page = "node" %}
     {% set banner_background_class= "banner-image-node" %}
-    {% set page_slogan = "Unlocking Data Access and Analysis with Marble’s Federated Architecture" %}
+    {% set banner_title_class = "banner-title-node" %}
+    {% set page_slogan = "<span>Unlocking Data Access and Analysis with</span><br><span>Marble’s Federated Architecture</span>" %}
     {%  set value_statement = "Marble’s federated architecture empowers data climate investigator to seamlessly
     access data and analysis tools from any server on the Marble network." %}
 
@@ -24,7 +25,7 @@
         {% include "partials/general-content.html" %}
     {% endwith %}
 
-    <div class="container-fluid w-75">
+    <div class="container-fluid w-100 g-0">
         <div class="row">
             <div id="nodeMenu" class="d-flex justify-content-center node-menu-container"></div>
         </div>
@@ -70,12 +71,12 @@
                 </div>
            </div>
 
-           <div id="nodeServicesDiv" class="d-flex flex-column ">
+           <div id="nodeServicesContainer" class="d-flex flex-column justify-content-center node-services-container">
                 <div class="d-flex justify-content-center">
-                   <h3 id="servicesTitle" class="services-title"></h3>
+                   <h3 id="servicesTitle" class="services-title h3-title-margin"></h3>
                 </div>
 
-                <div id="services" class="d-flex flex-column justify-content-center" ></div>
+                <div id="services" class="d-flex flex-column flex-lg-row justify-content-center w-100 node-services-div" ></div>
            </div>
        </div>
     </div>
