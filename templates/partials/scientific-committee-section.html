@@ -1,6 +1,12 @@
  {%  set scientific_commitee_data=[
             {"name": "Steve Easterbrook",
-            "department": "Computer Science, Machine Learning",
+            "descriptions": [
+                {
+                    "department":"",
+                    "title": "",
+                    "expertise": "Computer Science, Machine Learning"
+                }
+            ],
               "organization":[
                         {
                             "name": "University of Toronto",
@@ -19,7 +25,13 @@
                 ]
             },
             {"name": "Samuel Foucher",
-            "department": "Vision and Imaging",
+            "descriptions": [
+                {
+                    "department":"",
+                    "title": "",
+                    "expertise": "Vision and Imaging",
+                }
+            ],
               "organization":[
                         {
                             "name": "CRIM",
@@ -38,7 +50,13 @@
                 ]
             },
             {"name": "Nathan Gillet",
-            "department": "Climate Research",
+            "descriptions": [
+                {
+                    "department":"",
+                    "title": "",
+                    "expertise": "Climate Research"
+                }
+            ],
               "organization":[
                         {
                             "name": "Environment and Climate Change Canada",
@@ -57,7 +75,13 @@
                 ]
             },
             {"name": "Paul Kushner",
-            "department": "Physics",
+            "descriptions": [
+                {
+                    "department":"",
+                    "title": "",
+                    "expertise": "Physics",
+                }
+            ],
               "organization":[
                         {
                             "name": "University of Toronto",
@@ -76,7 +100,13 @@
                 ]
             },
             {"name": "Damon H. Matthews",
-            "department": "Geography, Planning, and Environment",
+            "descriptions": [
+                {
+                    "department":"",
+                "title": "",
+                "expertise": "Geography, Planning, and Environment"
+                }
+            ],
               "organization":[
                         {
                             "name": "Concordia University",
@@ -95,7 +125,13 @@
                 ]
             },
             {"name": "Dan McKenney",
-            "department": "Canadian Forest Service",
+            "descriptions": [
+                {
+                     "department":"Canadian Forest Service",
+                    "title": "",
+                    "expertise": ""
+                }
+            ],
               "organization":[
                         {
                             "name": "Natural Resources Canada",
@@ -114,14 +150,20 @@
                 ]
             },
             {"name": "Bruno Tremblay",
-            "department": "Atmospheric and Oceanic Services",
+            "descriptions": [
+                {
+                    "department":"",
+                    "title": "",
+                    "expertise": "Atmospheric and Oceanic Services"
+                }
+            ],
               "organization":[
                         {
                             "name": "",
                             "icon-class": "fa-solid fa-building-columns"
                         }
                     ],
-            "image": "images/about/scientific/bruno-tremblay.jpg",
+            "image": "images/about/scientific/bruno-tremblay.png",
             "links":
                 [
                     {
@@ -133,14 +175,20 @@
                 ]
             },
             {"name": "Debra Wunch",
-            "department": "Earth Atmospheric and Planetary Physics",
+            "descriptions": [
+                {
+                    "department":"",
+                    "title": "",
+                    "expertise": "Earth Atmospheric and Planetary Physics"
+                }
+            ],
               "organization":[
                         {
                             "name": "University of Toronto",
                             "icon-class": "fa-solid fa-building-columns"
                         }
                     ],
-            "image": "images/about/scientific/debra-wunch.jpg",
+            "image": "images/about/scientific/debra-wunch.png",
             "links":
                 [
                     {
@@ -153,43 +201,53 @@
             }
 ]%}
 <div class = "d-flex flex-row flex-wrap justify-content-start">
+
     {% for entry in scientific_commitee_data %}
+        <div class="d-flex flex-wrap committee-card">
+            <div class="d-flex flex-column">
+                <img class="profile-image" src=" {{ entry["image"] }} ">
+                <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
+                {% for description in entry["descriptions"] %}
+                    {% if description["department"] != "" %}
+                        <p class="profile-entry">{{ description["department"] }}</p>
+                    {% endif %}
+                    {% if description["title"] != "" %}
+                        <p class="profile-entry">{{ description["title"] }}</p>
+                    {% endif %}
+                    {% if description["expertise"] != "" %}
+                        <p class="profile-entry">{{ description["expertise"] }}</p>
+                    {% endif %}
+                {% endfor %}
 
-    <div class="d-flex flex-wrap committee-card">
-        <div class="d-flex flex-column">
-            <img class="profile-image" src=" {{ entry["image"] }} ">
-            <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
+                {% for link in entry["links"] %}
+                    {% if (link["icon-class"] == "fa-solid fa-user") %}
+                        <div class="d-flex flex-column">
+                            <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                            <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
+                            </a>
+                        </div>
+                   {% endif %}
+                {% endfor %}
 
-
-            {% for link in entry["links"] %}
-                {% if (link["icon-class"] == "fa-solid fa-user") %}
+                {% for org_entry in entry["organization"] %}
                     <div class="d-flex flex-column">
-                        <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
-                        <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
+                        <a class="marble-github-link pe-1 profile-entry" href="{{ org_entry["href"] }}" alt="{{ org_entry["name"] }}" target="_blank">
+                        <i class='{{ org_entry["icon-class"] }}'></i> {{ org_entry["name"] }}
                         </a>
                     </div>
-               {% endif %}
-            {% endfor %}
+                {% endfor %}
 
-            {% for org_entry in entry["organization"] %}
-                <div class="d-flex flex-column">
-                    <a class="marble-github-link pe-1 profile-entry" href="{{ org_entry["href"] }}" alt="{{ org_entry["name"] }}" target="_blank">
-                    <i class='{{ org_entry["icon-class"] }}'></i> {{ org_entry["name"] }}
-                    </a>
-                </div>
-            {% endfor %}
+            </div>
 
-         </div>
-
-            {% for link in entry["links"] %}
-                {% if (link["icon-class"] != "fa-solid fa-user") %}
-                    <div class="d-flex flex-row">
-                        <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
-                        <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
-                        </a>
-                    </div>
-                {% endif %}
-            {% endfor %}
+                {% for link in entry["links"] %}
+                    {% if (link["icon-class"] != "fa-solid fa-user") %}
+                        <div class="d-flex flex-row">
+                            <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                            <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
         </div>
 
     {% endfor %}
