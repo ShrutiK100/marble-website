@@ -1,6 +1,12 @@
 {%  set executive_commitee_data=[
     {"name": "David Huard",
-    "title": "Research Specialist",
+    "descriptions":
+        [
+            {
+                "title": "Research Specialist",
+                "expertise": ""
+            }
+        ],
       "organization":[
                 {
                     "name": "Ouranos",
@@ -15,11 +21,32 @@
             "href": "https://www.ouranos.ca/en/equipe#david-huard-408",
             "alt": "Ouranos",
             "icon-class": "fa-solid fa-user"
+            },
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-orcid fa-lg"},
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-researchgate fa-lg"
+            },
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-linkedin fa-lg"
+            },
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-github fa-lg"
             }
         ]
     },
     {"name": "Francis Charette Migneault",
-    "title": "Research Agent",
+    "descriptions":
+    [
+        {
+            "title": "Research Agent",
+            "expertise": "",
+        }
+    ],
      "organization":
             [
                 {
@@ -31,6 +58,11 @@
     "image": "images/about/executive/francis-charette-migneault.jpg",
     "links":
         [
+            {"text": "Profile",
+            "href": "https://www.researchgate.net/profile/Francis-Charette-Migneault",
+            "alt": "ResearchGate",
+            "icon-class": "fa-solid fa-user"
+            },
             {"href": "https://orcid.org/0000-0003-4862-3349",
             "alt": "OrcID",
             "icon-class": "fab fa-orcid fa-lg"},
@@ -49,7 +81,13 @@
         ]
     },
     {"name": "Misha Schwartz",
-    "title": "Developer System Architect",
+    "descriptions":
+    [
+        {
+           "title": "Developer System Architect",
+            "expertise": "",
+        }
+    ],
     "organization":
             [
                 {
@@ -61,6 +99,22 @@
     "image": "images/about/executive/misha-schwartz.jpg",
     "links":
         [
+            {"text": "Profile",
+            "href": "",
+            "alt": "",
+            "icon-class": "fa-solid fa-user"
+            },
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-orcid fa-lg"},
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-researchgate fa-lg"
+            },
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-linkedin fa-lg"
+            },
             {"href": "https://github.com/mishaschwartz/",
             "alt": "GitHub",
             "icon-class": "fab fa-github fa-lg"
@@ -69,18 +123,36 @@
     }
 ]%}
 
-<div class = "d-flex justify-content-center">
+<div class = "d-flex flex-column flex-lg-row justify-content-center">
     {% for entry in executive_commitee_data %}
         <div class="d-flex flex-wrap committee-card">
             <div class="d-flex flex-column">
-                <img class="img-fluid profile-image" src=" {{ entry["image"] }} ">
-                <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
+                <div class="d-flex flex-column">
+                    <img class="img-fluid profile-image" src=" {{ entry["image"] }} ">
+                    <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
+
+                    {% for description in entry["descriptions"] %}
+                        {%  if description["title"] != ""  %}
+                            <p>{{ description["title"] }}</p>
+                        {% endif %}
+
+                        {%  if description["expertise"] != ""  %}
+                            <p>{{ description["expertise"] }}</p>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
 
 
                 {% for link in entry["links"] %}
                     {% if (link["icon-class"] == "fa-solid fa-user") %}
+                        {% if link["href"] == "" %}
+                            {% set icon_colour_class = "profile-icon-grey" %}
+                        {% else %}
+                            {% set icon_colour_class = "profile-icon-primary" %}
+                        {% endif %}
                         <div class="d-flex flex-column">
-                            <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                            <a class="marble-github-link pe-1 profile-entry {{ icon_colour_class }}" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
                             <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
                             </a>
                         </div>
@@ -99,9 +171,14 @@
 
             {% for link in entry["links"] %}
                 {% if link["icon-class"] != "fa-solid fa-user" %}
+                    {% if link["href"] == "" %}
+                        {% set icon_colour_class = "profile-icon-grey" %}
+                    {% else %}
+                        {% set icon_colour_class = "profile-icon-primary" %}
+                    {% endif %}
                 <div class="d-flex flex-row">
                     <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
-                    <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
+                    <i class='{{ link["icon-class"] }} {{ icon_colour_class }}'></i> {{ link["text"] }}
                     </a>
                 </div>
                 {% endif %}
