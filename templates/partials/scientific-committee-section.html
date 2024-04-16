@@ -311,9 +311,8 @@
 
 
 <div class="d-flex justify-content-center">
-<div class="d-flex flex-column flex-lg-row justify-content-start scientific-committee-container">
+<div class="d-flex flex-column flex-lg-row flex-wrap justify-content-start scientific-committee-container">
     {% for entry in scientific_commitee_data %}
-        {% if "profile-placeholder.png" not in entry["image"] %}
             <table class="table-responsive">
             <tr><td>
             <div class="d-flex flex-column committee-card">
@@ -375,7 +374,7 @@
                 </div>
             </td></tr>
             </table>
-        {% endif %}
+
     {% endfor %}
    </div>
 </div>
