@@ -32,12 +32,15 @@
         climate change without worrying about the technical logistics.Marble is the bridge between intricate climate
         data and the people who seek to understand it, fostering a community of inquiry and discovery in the realm of
         climate science.</p>" %}
+        {% set link_href = "about.html" %}
 
         {% include "partials/introduction.html" %}
     {% endwith %}
 
     {% with %}
-        {% set href = href|default("{{href}}") %}
+        {% set href = ["tutorials/users/ide/ide.html",
+        "tutorials/users/catalog/catalog.html",
+        "tutorials/users/remote-processing/remote-processing.html"] |default("{{href}}") %}
         {% set title = "Explore the Technologies" %}
         {% set section_title = ["Integrated Development Environment", "Data Catalog", "Remote Processing Services"] %}
         {% set section_content = [
@@ -70,6 +73,7 @@
                 <li>Marble takes care of data storage and processing on its platform, eliminating the need for high-end personal devices.</li>
             </ul>"
          %}
+        {% set button_href_student = "node.html" %}
 
         {% set menu_2 = "Researcher" %}
         {% set researcher_user_title = "I'm a Researcher" %}
@@ -81,6 +85,7 @@
                 <li>Marble takes care of data storage and processing on its platform, eliminating the need for high-end personal devices.</li>
             </ul>"
          %}
+        {% set button_href_researcher = "node.html" %}
 
         {% set menu_3 = "Hobbyist" %}
         {% set hobbyist_user_title = "I'm a Hobbyist" %}
@@ -91,6 +96,7 @@
                 <li>SpatioTemporal Asset Catalog (STAC) is a great starting point for hobbyist to familiarize themselves with the available geospatial datasets related to climate science.</li>
             </ul>"
          %}
+        {% set button_href_hobbyist = "node.html" %}
 
         {% include "partials/usage.html" %}
     {% endwith %}
