@@ -42,7 +42,7 @@ const converters = {
         services_row.id = "nodeServices";
         services_row.classList.add("d-flex", "flex-wrap", "justify-content-start");
 
-        val.forEach( service => {
+        val.forEach( (service, index) => {
             const node_card_template = document.getElementById("node-card-template")
             const node_card = node_card_template.content.cloneNode(true);
 
@@ -50,6 +50,11 @@ const converters = {
             const desc_elem = node_card.getElementById("node-card-template-description")
             const link_elem = node_card.getElementById("node-card-template-link")
             const doc_elem = node_card.getElementById("node-card-template-doc")
+
+            name_elem.id = `node-card-${index}-name`
+            desc_elem.id = `node-card-${index}-description`
+            link_elem.id = `node-card-${index}-link`
+            doc_elem.id = `node-card-${index}-doc`
 
             name_elem.innerText = service.name
             desc_elem.innerText = service.description
