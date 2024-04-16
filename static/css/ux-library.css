@@ -846,15 +846,15 @@ h6{
 }
 
 .scientific-committee-container{
-    width: 75%;
+    width: 93%;
 }
 
 .committee-card{
     width: 210px;
     max-height: 400px;
     margin-top: 60px;
-    margin-left: 70px;
-    margin-right: 70px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 .committee-inner-card{
