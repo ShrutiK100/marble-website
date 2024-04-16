@@ -38,6 +38,7 @@
                                     <div class="usage-content-button">
                                         {% with button_type = "transparent_button" %}
                                             {%  set button_label = "Explore" %}
+                                            {% set button_href = button_href_student %}
                                             {% include "partials/button.html" %}
                                         {% endwith %}
                                     </div>
@@ -58,6 +59,7 @@
                                     <p>{{ researcher_user_content|safe }}</p>
                                      {% with button_type = "transparent_button" %}
                                         {%  set button_label = "Explore" %}
+                                        {% set button_href = button_href_researcher %}
                                         {% include "partials/button.html" %}
                                      {% endwith %}
                                  </div>
@@ -74,6 +76,7 @@
                                     <p>{{ hobbyist_user_content|safe }}</p>
                                     {% with button_type = "transparent_button" %}
                                         {%  set button_label = "Explore" %}
+                                        {% set button_href = button_href_hobbyist %}
                                         {% include "partials/button.html" %}
                                     {% endwith %}
                                 </div>

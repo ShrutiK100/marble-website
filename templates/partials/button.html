@@ -2,16 +2,18 @@
     {% set button_disabled = "disabled" %}
 {% endif %}
 
+{% set url = button_href %}
+
 {% if button_type == "reg_action_button"%}
     {% set button_type = "button-reg" %}
-    {% set button_url = "{{ button_href }}" %}
+    {% set button_url = url %}
     {% set button_background_colour = "bg-button-primary" %}
     {% set button_font = "button-text" %}
     {% set button_font_colour = "text-on-primary" %}
 
 {% elif button_type == "med_action_button"%}
     {% set button_type = "button-med" %}
-    {% set button_url = "{{ button_href }}" %}
+    {% set button_url = url %}
     {% set button_background_colour = "bg-button-primary" %}
     {% set button_font = "button-text" %}
     {% set button_font_colour = "text-on-primary" %}
@@ -39,7 +41,7 @@
 
 {%  elif button_type == "transparent_button" %}
     {% set button_type = "button-transparent" %}
-    {% set button_url = "{{ button_href }}" %}
+    {% set button_url = url %}
     {% set button_background_colour = "bg-button-transparent" %}
     {% set button_font = "button-text" %}
     {% set button_font_colour = "text-on-primary" %}
@@ -101,7 +103,7 @@
 
 {% elif button_type == "single_action_arrow" %}
     {% set button_type = "button-single-action-arrow" %}
-    {% set button_url = "{{ button_href }}" %}
+    {% set button_url = url %}
     {% set svg_button = false %}
     {% set arrow_rt = true %}
     {% set button_label = '<i class="fa-solid fa-arrow-right fa-lg"></i>'%}

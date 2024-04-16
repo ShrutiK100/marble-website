@@ -2,7 +2,7 @@
     <p>{{ feedback_question }}</p>
     <div class="card-button-margin">
         {% with button_type = "med_action_button"%}
-            {% set button_url = feedback_url %}
+            {% set button_href = feedback_url %}
             {% set button_label = button_label %}
             {% include "partials/button.html" %}
         {% endwith %}

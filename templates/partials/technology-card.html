@@ -1,4 +1,5 @@
 {% set array_length = section_title|length %}
+{% set link_href = href %}
 <div class="container-fluid content-section">
     <div class="row mt-5">
         <div class="container-fluid w-75">
@@ -19,7 +20,7 @@
                                 <div class="align-items-end mt-auto technology-card-button card-button-margin">
                                     {% with button_type = "med_action_button"%}
                                         {% set button_label = "Tutorials" %}
-                                        {% set button_href = "{{ href }}" %}
+                                        {% set button_href = link_href[array_item] %}
                                         {% include "partials/button.html" %}
                                     {% endwith %}
                                 </div>

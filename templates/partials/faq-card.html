@@ -1,7 +1,13 @@
 {% set faq_content = [
-    {"title": "How do I access the nodes?", "content": 'Navigate to the <a href="node.html">Nodes page</a> to view the nodes that are available in the network. <br/>Depending on which node you would like to access you can register for an account, go to the signin page, or inspect any of the services that the node provides from here.', "link": ""},
-    {"title": "What kind of data is available?", "content": "The Marble network makes available various types of climate data including earth observation data, climate model projections, and many more. To see which data is hosted at a given node, check out that node's STAC catalog", "link": ""},
-    {"title": "Are the services free?", "content": "Yes! You will not be asked to pay for access to the Marble network or any of its nodes.", "link": ""}
+    {"title": "How do I access the nodes?",
+    "content": 'Navigate to the <a href="node.html">Nodes page</a> to view the nodes that are available in the network. <br/>Depending on which node you would like to access you can register for an account, go to the signin page, or inspect any of the services that the node provides from here.',
+    "link": "https://discourse.marbleclimate.com/faq#agreeable"},
+    {"title": "What kind of data is available?",
+    "content": "The Marble network makes available various types of climate data including earth observation data, climate model projections, and many more. To see which data is hosted at a given node, check out that node's STAC catalog",
+    "link": "https://redoak.cs.toronto.edu/stac-browser/"},
+    {"title": "Are the services free?",
+    "content": "Yes! You will not be asked to pay for access to the Marble network or any of its nodes.",
+    "link": "node.html"}
 ] %}
 
 <div class="container-fluid content-section">
@@ -24,11 +30,12 @@
                                 <h6> {{ content["title"] }}</h6>
                             </div>
                             <div>
-                                <a href="{{ content['link'] }}">
+
                                     {% with button_type = "single_action_arrow"%}
+                                        {% set button_href = content['link'] %}
                                         {% include "partials/button.html" %}
                                     {% endwith %}
-                                </a>
+
                             </div>
                         </div>
                         <div class="flex-row">
