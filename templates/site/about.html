@@ -58,22 +58,7 @@
         {% include "partials/committee.html" %}
     {% endwith %}
 
-        {% with %}
-        {% set title="FAQ"%}
-        {% set lead_in_text = "Find answers to common questions about Marble services." %}
-        {% set section_content = "" %}
-        {% set faq_title= ["How do I access the nodes?", "What kind of data is available?", "Are the services free?"] %}
-        {% set faq_content = ["We offer a range of nodes to access datasets for research purposes.
-            To access nodes simply sign up through our nodes page.  Once registered you will access to all
-            datasets available for climate change analysis.", "We offer a range of nodes to access datasets for research purposes.
-            To access nodes simply sign up through our nodes page.  Once registered you will access to all
-            datasets available for climate change analysis.", "We offer a range of nodes to access datasets for research purposes.
-            To access nodes simply sign up through our nodes page.  Once registered you will access to all
-            datasets available for climate change analysis."] %}
-        {% set faq_link = [] %}
-
-        {% include "partials/faq-card.html" %}
-    {% endwith %}
+    {% include "partials/faq-card.html" %}
 
     {% with %}
         {% include "partials/extras.html" %}
