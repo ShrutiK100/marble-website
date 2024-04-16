@@ -13,9 +13,22 @@ const converters = {
     },
     "status":(val) =>{
         let node_status = document.createElement("span")
-        node_status.innerText = val;
+        const first_letter = val.charAt(0);
+        const first_letter_capitalize = first_letter.toUpperCase();
+        const remaining_word = val.slice(1);
+        const full_word = first_letter_capitalize + remaining_word
+        node_status.innerText = full_word;
         node_status.classList.add(val === "online" ? "node-online" : "node-offline")
         return node_status
+    },
+    "registration_status":(val) => {
+        let registration_status_elem = document.getElementById("registration_status");
+        registration_status_elem.classList.add("error-text");
+        const first_letter = val.charAt(0);
+        const first_letter_capitalize = first_letter.toUpperCase();
+        const remaining_word = val.slice(1);
+        const full_word = first_letter_capitalize + remaining_word
+        return full_word;
     },
     "links": (val, node_info) => {
         const found_links = {}
@@ -51,12 +64,14 @@ const converters = {
             const link_elem = node_card.getElementById("node-card-template-link")
             const doc_elem = node_card.getElementById("node-card-template-doc")
 
+
             name_elem.id = `node-card-${index}-name`
             desc_elem.id = `node-card-${index}-description`
             link_elem.id = `node-card-${index}-link`
             doc_elem.id = `node-card-${index}-doc`
 
-            name_elem.innerText = service.name
+            name_elem.innerText = service.name.toUpperCase();
+
             desc_elem.innerText = service.description
             service.links.forEach(link => {
                 if (link.rel === "service") {
@@ -73,9 +88,15 @@ const converters = {
 
 const nodeImageBackground = [
     "images/nodes/node-redoak-planet.png",
-    "images/nodes/node-pavics-planet.jpg",
-    "images/nodes/node-hirondelle-planet.jpg"
+    "images/nodes/node-pavics-planet.png",
+    "images/nodes/node-hirondelle-planet.png"
 ];
+
+const nodeBackgroundClass=[
+    "node-redoak-background",
+    "node-pavics-background",
+"node-hirondelle-background"
+]
 
 document.addEventListener("DOMContentLoaded", function () {
     const githubURL = "{{ node_registry_url }}";
@@ -98,13 +119,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Node Menu
         // If number of nodes larger than initial_node_count, create a menu with these first nodes, and create a dropdown
         // for the rest. If not, just create a menu with the nodes in the node registry
-        const initial_node_count = 2;
+        const initial_node_count = 3;
         node_keys.forEach((key, index) => {
-            const node_menu_item = document.createElement('a');
+            const node_menu_item = document.createElement('h3');
             node_menu_item.setAttribute('onclick', 'getNode(' + '"'+ key +'"' + ')');
             node_menu_item.innerText = json[key].name;
             if (index < initial_node_count) {
-                const h3_node_menu_item = document.createElement("h3");
+                const h3_node_menu_item = document.createElement("a");
+                h3_node_menu_item.setAttribute("tabindex",  '"' + index +'"' );
                 h3_node_menu_item.classList.add("node-menu-item")
                 h3_node_menu_item.appendChild(node_menu_item)
                 menu_elem.insertBefore(h3_node_menu_item, node_dropdown_container);
@@ -122,6 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
+//node name to lowercase
+//build string for class name
+//assign class as needed?
+//store class name in array?
 function getNode(node_id){
     const githubURL = "{{ node_registry_url }}";
 
@@ -131,12 +157,17 @@ function getNode(node_id){
         const node_keys = Object.keys(json);
 
         let image = document.getElementById("nodeImage");
-        image.src = nodeImageBackground[node_keys.indexOf(node_id) % nodeImageBackground.length]
+        image.src = nodeImageBackground[node_keys.indexOf(node_id) % nodeImageBackground.length];
+
         Object.entries(node_info).forEach(([key, val]) => {
             const elem = document.getElementById(key);
             const converted_val = (converters[key] || converters["_default"])(val, node_info)
+
             if (elem !== null) {
+
                 elem.replaceChildren(converted_val);
+
+
             }
         })
 
