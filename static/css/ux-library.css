@@ -371,6 +371,10 @@ h6{
     color: var(--white);
 }
 
+.value-statement{
+    margin-top: 60px;
+}
+
 .banner-lead-in-text{
     margin-top: 50px;
 }
@@ -886,4 +890,10 @@ h6{
 
 .primary-alt{
     background-color: var(--primary-alt);
+}
+
+.inactive-link{
+    color: var(--gray-500);
+    text-decoration: none;
+    cursor: default;
 }
