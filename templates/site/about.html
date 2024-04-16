@@ -8,7 +8,7 @@
         {% set banner_background_class= "banner-image-about" %}
         {% set banner_title_class = "banner-title-about" %}
         {% set page_slogan = "Unleash Climate Insights" %}
-        {%  set value_statement = "" %}
+        {%  set value_statement = "Facilitating collaboration and exploration of climate science" %}
 
         {% include "partials/banner.html" %}
     {% endwith %}
@@ -34,7 +34,7 @@
 
     {% with about_github = true %}
         {% set title = "Data Analytics for Canadian Climate Services" %}
-        {% set content = "<p>Marble is developed by Data Analytics for Canadian Climate Services (DACCS) collaboration.
+        {% set content = "<p>Marble is developed by <a class='paragraph-href' href='https://daccs.ca/' target='_blank'>Data Analytics for Canadian Climate Services (DACCS)</a> collaboration.
         DACCS is a partnerships between universities and research institutions across Canada. </p>
 
         <p>Marble will make such climate data analyses cheap, quick, efficient, and reproducible so that they can be
@@ -43,12 +43,6 @@
 
         {% include "partials/general-content.html" %}
     {% endwith %}
-
-       <div>
-
-        </div>
-
-
 
     {% with %}
         {% set title = "Who Are We?" %}
