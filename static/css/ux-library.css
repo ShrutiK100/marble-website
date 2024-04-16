@@ -212,6 +212,9 @@ h6{
     letter-spacing: 0.15px;
 }
 
+.error-text{
+    color: var(--error);
+}
 /*UI Components*/
 /*Buttons*/
 
@@ -614,6 +617,10 @@ h6{
     margin-bottom: 27px;
 }
 
+.node-info-left{
+    margin-top: 30px;
+}
+
 .node-info-text{
     color: var(--text-on-dark);
 }
@@ -639,6 +646,10 @@ h6{
     color: var(--text-on-surface);
     text-decoration: none;
     cursor: pointer;
+}
+
+.node-menu-item:focus{
+    color: var(--primary);
 }
 
 .dropdown-menu-item{
@@ -680,6 +691,18 @@ h6{
 
 .node-image-background{
     background-color: var(--background-black);
+}
+
+.node-redoak-background{
+    background-image: url("../images/nodes/node-redoak-planet.png");
+}
+
+.node-pavics-background{
+    background-image: url("../images/nodes/node-pavics-planet.png");
+}
+
+.node-hirondelle-background{
+    background-image: url("../images/nodes/node-hirondelle-planet.png");
 }
 
 .node-name{
@@ -777,11 +800,16 @@ h6{
 }
 
 .profile-image{
-    max-width: 200px;
+    width: 200px;
 }
 
 .profile-entry{
-    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+.profile-social-media{
+
+    margin-right: 30px;
 }
 
 .profile-icon-primary{
@@ -816,11 +844,20 @@ h6{
     color: var(--primary);
 }
 
+.scientific-committee-container{
+    width: 75%;
+}
+
 .committee-card{
-    width: 200px;
+    width: 210px;
+    max-height: 400px;
     margin-top: 60px;
     margin-left: 70px;
     margin-right: 70px;
+}
+
+.committee-inner-card{
+    max-height: 300px;
 }
 
 /*Footer*/
@@ -838,11 +875,19 @@ h6{
     width: 95%;
 }
 
+.first-funder-logo{
+    width: 20%;
+}
+
 .funder-logo{
     min-width: 100px;
     max-width: 200px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.copyright{
+    padding-top: 50px;
 }
 
 /*Colours Used*/
@@ -881,7 +926,11 @@ h6{
 }
 
 .text-on-primary{
-    color: var( --text-on-primary);
+    color: var(--text-on-primary);
+}
+
+.text-on-dark{
+    color: var(--text-on-dark);
 }
 
 .primary{
