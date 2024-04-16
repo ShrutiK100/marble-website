@@ -125,64 +125,71 @@
 
 <div class = "d-flex flex-column flex-lg-row justify-content-center">
     {% for entry in executive_commitee_data %}
-        <div class="d-flex flex-wrap committee-card">
-            <div class="d-flex flex-column">
-                <div class="d-flex flex-column">
-                    <img class="img-fluid profile-image" src=" {{ entry["image"] }} ">
-                    <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
+        <table class="table-responsive">
+            <tr><td>
+                <div class="d-flex flex-wrap committee-card">
+                        <div class="d-flex flex-column">
+                            <img class="img-fluid profile-image" src=" {{ entry["image"] }} ">
+                            <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
 
-                    {% for description in entry["descriptions"] %}
-                        {%  if description["title"] != ""  %}
-                            <p>{{ description["title"] }}</p>
-                        {% endif %}
+                            {% for description in entry["descriptions"] %}
+                                {%  if description["title"] != ""  %}
+                                    <p>{{ description["title"] }}</p>
+                                {% endif %}
 
-                        {%  if description["expertise"] != ""  %}
-                            <p>{{ description["expertise"] }}</p>
-                        {% endif %}
-                    {% endfor %}
+                                {%  if description["expertise"] != ""  %}
+                                    <p>{{ description["expertise"] }}</p>
+                                {% endif %}
+                            {% endfor %}
+
+
+
+
+                        {% for link in entry["links"] %}
+                            {% if (link["icon-class"] == "fa-solid fa-user") %}
+                                {% if link["href"] == "" %}
+                                    {% set icon_colour_class = "profile-icon-grey" %}
+                                {% else %}
+                                    {% set icon_colour_class = "profile-icon-primary" %}
+                                {% endif %}
+                                <div class="d-flex flex-column">
+                                    <a class="marble-github-link pe-1 profile-entry {{ icon_colour_class }}" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                                    <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
+                                    </a>
+                                </div>
+                           {% endif %}
+                        {% endfor %}
+
+                        {% for org_entry in entry["organization"] %}
+                            <div class="d-flex flex-column">
+                                <a class="marble-github-link pe-1 profile-entry" href="{{ org_entry["href"] }}" alt="{{ org_entry["name"] }}" target="_blank">
+                                <i class='{{ org_entry["icon-class"] }}'></i> {{ org_entry["name"] }}
+                                </a>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
 
                 </div>
-
-
-                {% for link in entry["links"] %}
-                    {% if (link["icon-class"] == "fa-solid fa-user") %}
-                        {% if link["href"] == "" %}
-                            {% set icon_colour_class = "profile-icon-grey" %}
-                        {% else %}
-                            {% set icon_colour_class = "profile-icon-primary" %}
-                        {% endif %}
-                        <div class="d-flex flex-column">
-                            <a class="marble-github-link pe-1 profile-entry {{ icon_colour_class }}" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
-                            <i class='{{ link["icon-class"] }}'></i> {{ link["text"] }}
-                            </a>
-                        </div>
-                   {% endif %}
-                {% endfor %}
-
-                {% for org_entry in entry["organization"] %}
-                    <div class="d-flex flex-column">
-                        <a class="marble-github-link pe-1 profile-entry" href="{{ org_entry["href"] }}" alt="{{ org_entry["name"] }}" target="_blank">
-                        <i class='{{ org_entry["icon-class"] }}'></i> {{ org_entry["name"] }}
-                        </a>
-                    </div>
-                {% endfor %}
-
-             </div>
-
-            {% for link in entry["links"] %}
+             </td></tr>
+             <tr><td class="align-bottom">
+                  {% for link in entry["links"] %}
+                      <div class="d-flex flex-row justify-content-center profile-entry">
                 {% if link["icon-class"] != "fa-solid fa-user" %}
                     {% if link["href"] == "" %}
                         {% set icon_colour_class = "profile-icon-grey" %}
                     {% else %}
                         {% set icon_colour_class = "profile-icon-primary" %}
                     {% endif %}
-                <div class="d-flex flex-row">
-                    <a class="marble-github-link pe-1 profile-entry" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+
+                    <a class="marble-github-link pe-1 profile-social-media" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
                     <i class='{{ link["icon-class"] }} {{ icon_colour_class }}'></i> {{ link["text"] }}
                     </a>
                 </div>
                 {% endif %}
             {% endfor %}
-        </div>
+        </td></tr>
+        </table>
     {% endfor %}
 </div>
