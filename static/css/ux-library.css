@@ -477,6 +477,10 @@ h6{
     text-decoration: none;
 }
 
+.hero-menu a:hover {
+    color: var(--primary);
+}
+
 .hero-menu ul{
     padding-left: 0px;
     list-style-type: none;
