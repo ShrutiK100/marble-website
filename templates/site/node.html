@@ -57,7 +57,9 @@
                     <div id="nodeInfoBottom" class="d-flex flex-row justify-content-between">
                         <div class="d-flex flex-column">
                             <div id="nodeName" class="node-main-info node-info-text">
-                                <a id="node-name-link" href=""><h2 id="name" class="node-name"></h2></a>
+                                <a id="node-name-link" class="undecorated-link" href="">
+                                    <h2 id="name" class="node-name"></h2>
+                                </a>
                             </div>
                             <div id="nodeDescription" class="node-main-info node-info-text">
                                <div id="description"></div>
@@ -90,8 +92,25 @@
                 <div class="d-flex justify-content-center">
                    <h3 id="servicesTitle" class="services-title h3-title-margin"></h3>
                 </div>
-
                 <div id="services" class="d-flex flex-column flex-lg-row justify-content-center w-100 node-services-div" ></div>
+                    <template id="node-card-template">
+                        <div class="d-flex flex-column node-card">
+                            <h5 id="node-card-template-name">stac</h5>
+                            <p id="node-card-template-description">Searchable spatiotemporal metadata describing climate and Earth observation datasets.</p>
+                            <div class="align-items-end mt-auto card-button-margin">
+                                <a id="node-card-template-link" class="text-primary border border-dark rounded caption node-card-link-button"
+                                    rel="service" type="application/json" href="https://redoak.cs.toronto.edu/stac/">
+                                    Link
+                                </a>
+                                <a id="node-card-template-doc" class="text-primary border border-dark rounded caption node-card-doc-button"
+                                    rel="service-doc" type="text/html"
+                                    href="https://github.com/radiantearth/stac-api-spec/tree/v1.0.0">
+                                    Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                </div>
            </div>
        </div>
     </div>

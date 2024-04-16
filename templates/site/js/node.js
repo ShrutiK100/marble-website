@@ -1,6 +1,12 @@
 const converters = {
     "_default": (val) => val,
-    "contact": (val) => `mailto:${val}`,
+    "contact": (val) => {
+        mailto_link = document.createElement("a")
+        mailto_link.setAttribute("href", `mailto:${val}`)
+        mailto_link.classList.add("undecorated-link")
+        mailto_link.innerText = val
+        return mailto_link
+    },
     "date_added": (val) => {
         let date = new Date(val);
         return date.toLocaleDateString();
@@ -32,68 +38,31 @@ const converters = {
         })
     },
     "services": (val) => {
-
         const services_row = document.createElement("div");
         services_row.id = "nodeServices";
         services_row.classList.add("d-flex", "flex-wrap", "justify-content-start");
 
         val.forEach( service => {
-            const node_card = document.createElement("div");
-            node_card.classList.add("d-flex", "flex-column", "node-card");
+            const node_card_template = document.getElementById("node-card-template")
+            const node_card = node_card_template.content.cloneNode(true);
 
-            const node_heading= document.createElement("h5");
-            const node_card_content = document.createElement("p");
+            const name_elem = node_card.getElementById("node-card-template-name")
+            const desc_elem = node_card.getElementById("node-card-template-description")
+            const link_elem = node_card.getElementById("node-card-template-link")
+            const doc_elem = node_card.getElementById("node-card-template-doc")
 
-            const node_card_button_container = document.createElement('div');
-            node_card_button_container.classList.add("align-items-end", "mt-auto", "card-button-margin");
-
-            node_card.appendChild(node_heading);
-            node_card.appendChild(node_card_content);
-            node_card.appendChild(node_card_button_container);
-
-            let service_name = service.name;
-            let description = service.description;
-
-            //Add the service description
-            if (description != ""){
-                const descriptionTextNode = document.createTextNode(description);
-                node_card_content.appendChild(descriptionTextNode);
-            }
-
+            name_elem.innerText = service.name
+            desc_elem.innerText = service.description
             service.links.forEach(link => {
-                let button_label;
-
-                const node_card_href = document.createElement('a');
-                node_card_href.classList.add("text-primary", "border", "border-dark", "rounded");
-
                 if (link.rel === "service") {
-                    button_label = "Link";
-                    node_card_href.classList.add("caption", "node-card-link-button");
-                }
-
-                if (link.rel === "service-doc"){
-                    button_label = "Documentation";
-                    node_card_href.classList.add("caption", "node-card-doc-button");
-                }
-
-                Object.entries(link).forEach(([attr, value]) => node_card_href.setAttribute(attr, value))
-
-                node_heading.innerText = service_name;
-                node_card_href.innerText = button_label;
-
-                if (node_card_href.rel === "service"){
-                    node_card_button_container.appendChild(node_card_href);
-                }
-
-                if (node_card_href.rel === "service-doc"){
-                    node_card_button_container.appendChild(node_card_href);
+                    Object.entries(link).forEach(([attr, value]) => link_elem.setAttribute(attr, value));
+                } else if (link.rel === "service-doc") {
+                    Object.entries(link).forEach(([attr, value]) => doc_elem.setAttribute(attr, value));
                 }
             })
             services_row.appendChild(node_card)
         })
-        let services_div = document.getElementById("services");
-        services_div.innerHTML = "";
-        services_div.append(services_row);
+        return services_row
     }
 }
 
