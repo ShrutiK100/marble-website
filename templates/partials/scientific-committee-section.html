@@ -1,0 +1,158 @@
+ {%  set scientific_commitee_data=[
+            {"name": "Steve Easterbrook",
+            "descriptions": [
+                {
+                    "department": "",
+                    "title": "",
+                    "expertise": "Computer Science, Machine Learning"
+                }
+            ],
+              "organization":[
+                        {
+                            "name": "University of Toronto",
+                            "icon-class": "fa-solid fa-building-columns"
+                        }
+                    ],
+            "image": "images/about/scientific/steve-easterbrook.jpg",
+            "links":
+                [
+                    {
+                        "text": "Profile",
+                        "href": "",
+                        "alt": "University of Toronto",
+                        "icon-class": "fa-solid fa-user"
+                    },
+                    {
+                        "href": "",
+                        "alt": "",
+                        "icon-class": "fab fa-orcid fa-lg"},
+                    {
+                        "href": "",
+                        "alt": "",
+                        "icon-class": "fab fa-researchgate fa-lg"
+                    },
+                    {
+                        "href": "",
+                        "alt": "",
+                        "icon-class": "fab fa-linkedin fa-lg"
+                    },
+                    {
+                        "href": "",
+                        "alt": "GitHub",
+                        "icon-class": "fab fa-github fa-lg"
+                    }
+                ]
+            },
+ {"name": "David Huard",
+    "descriptions":
+        [
+            {
+                "title": "Research Specialist",
+                "expertise": ""
+            }
+        ],
+      "organization":[
+                {
+                    "name": "Ouranos",
+                    "href": "https://www.ouranos.ca/en",
+                    "icon-class": "fa-solid fa-building-columns"
+                }
+            ],
+    "image": "images/about/executive/david-huard.jpg",
+    "links":
+        [
+            {"text": "Profile",
+            "href": "https://www.ouranos.ca/en/equipe#david-huard-408",
+            "alt": "Ouranos",
+            "icon-class": "fa-solid fa-user"
+            },
+            {"href": "",
+            "alt": "",
+            "icon-class": "fab fa-orcid fa-lg"},
+            {"href": "https://www.researchgate.net/profile/David-Huard",
+            "alt": "",
+            "icon-class": "fab fa-researchgate fa-lg"
+            },
+            {"href": "https://www.linkedin.com/in/david-huard/",
+            "alt": "",
+            "icon-class": "fab fa-linkedin fa-lg"
+            },
+            {"href": "https://github.com/huard",
+            "alt": "",
+            "icon-class": "fab fa-github fa-lg"
+            }
+        ]
+    }
+]%}
+
+
+<div class="d-flex justify-content-center">
+<div class="d-flex flex-column flex-lg-row flex-wrap justify-content-start scientific-committee-container">
+    {% for entry in scientific_commitee_data %}
+            <table class="table-responsive">
+            <tr><td>
+            <div class="d-flex flex-column committee-card">
+                <img class="profile-image" src=" {{ entry["image"] }} ">
+                <p class="subtitle-1 profile-entry">{{ entry["name"] }}</p>
+                {% for description in entry["descriptions"] %}
+                    {% if description["department"] != "" %}
+                        <p class="profile-entry">{{ description["department"] }}</p>
+                    {% endif %}
+                    {% if description["title"] != "" %}
+                        <p class="profile-entry">{{ description["title"] }}</p>
+                    {% endif %}
+                    {% if description["expertise"] != "" %}
+                        <p class="profile-entry">{{ description["expertise"] }}</p>
+                    {% endif %}
+                {% endfor %}
+
+                {% for link in entry["links"] %}
+                    {% if (link["icon-class"] == "fa-solid fa-user") %}
+                        {% if link["href"] == "" %}
+                            {% set icon_class = "profile-icon-grey disabled" %}
+                            {% set link_class = "disabled" %}
+                        {% else %}
+                            {% set icon_colour_class = "profile-icon-primary" %}
+                        {% endif %}
+                        <div class="d-flex flex-column profile-entry">
+                            <a class="marble-github-link pe-1 {{ icon_class }}" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                            <i class='{{ link["icon-class"] }} {{ link_class }}'></i> {{ link["text"] }}
+                            </a>
+                        </div>
+                   {% endif %}
+                {% endfor %}
+
+                {% for org_entry in entry["organization"] %}
+                    <div class="d-flex flex-column profile-entry">
+                        <a class="marble-github-link pe-1" href="{{ org_entry["href"] }}" alt="{{ org_entry["name"] }}" target="_blank">
+                        <i class='{{ org_entry["icon-class"] }}'></i> {{ org_entry["name"] }}
+                        </a>
+                    </div>
+                {% endfor %}
+
+
+
+            </div>
+             </td></tr>
+                 <tr><td class="align-bottom">
+                <div class="d-flex flex-row justify-content-center profile-entry">
+                    {% for link in entry["links"] %}
+                        {% if (link["icon-class"] != "fa-solid fa-user") %}
+                            {% if link["href"] == "" %}
+                                {% set icon_colour_class = "profile-icon-grey" %}
+                                {% set link_class = "disabled" %}
+                            {% else %}
+                                {% set icon_colour_class = "profile-icon-primary" %}
+                            {% endif %}
+                                <a class="marble-github-link pe-1 profile-social-media {{ link_class }}" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                                <i class='{{ link["icon-class"] }} {{ icon_colour_class }}'></i> {{ link["text"] }}
+                                </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </td></tr>
+            </table>
+
+    {% endfor %}
+   </div>
+</div>

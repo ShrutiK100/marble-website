@@ -1,0 +1,53 @@
+{% set faq_content = [
+    {"title": "How do I access the nodes?",
+    "content": 'Navigate to the <a href="node.html">Nodes page</a> to view the nodes that are available in the network. <br/>Depending on which node you would like to access you can register for an account, go to the signin page, or inspect any of the services that the node provides from here.',
+    "link": ""},
+    {"title": "What kind of data is available?",
+    "content": "The Marble network makes available various types of climate data including earth observation data, climate model projections, and many more. To see which data is hosted at a given node, check out that node's STAC catalog",
+    "link": ""},
+    {"title": "Are the services free?",
+    "content": "Yes! You will not be asked to pay for access to the Marble network or any of its nodes.",
+    "link": ""}
+] %}
+
+<!-- TODO: add links for FAQ when it is created above -->
+
+<div class="container-fluid content-section">
+    <div class="row mt-5">
+        <div class="container-fluid w-75">
+            <div class="row">
+                <h3 class="h3-title-margin"><a>FAQ</a></h3>
+                <div>
+                    <p class="lead-in-text">Find answers to common questions about Marble services.</p>
+                </div>
+
+                <p>{{ section_content }}</p>
+            </div>
+            {% for content in faq_content %}
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="mb-1 border border-1 rounded faq-card-content">
+                        <div class="d-flex justify-content-between">
+                            <div class="">
+                                <h6> {{ content["title"] }}</h6>
+                            </div>
+                            <div>
+                                {% if content["link"] %}
+                                    {% with button_type = "single_action_arrow"%}
+                                        {% set button_href = content['link'] %}
+                                        {% include "partials/button.html" %}
+                                    {% endwith %}
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        <div class="flex-row">
+                            <p> {{ content["content"]|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

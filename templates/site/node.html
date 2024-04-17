@@ -1,62 +1,118 @@
 {% extends "layouts/main.html" %}
-{% set page_title = "" %}
+{% set page_title = "Nodes" %}
 
 {% block content %}
+    {% with page = "node" %}
+        {% include "partials/menu.html" %}
+    {% endwith %}
+
+{% with page = "node" %}
+    {% set banner_background_class= "banner-image-node" %}
+    {% set banner_title_class = "banner-title-node" %}
+    {% set page_slogan = "<span>Unlocking Data Access and Analysis with</span><br><span>Marble’s Federated Architecture</span>" %}
+    {%  set value_statement = "Marble’s federated architecture empowers data climate investigator to seamlessly
+    access data and analysis tools from any server on the Marble network." %}
+
     {% include "partials/banner.html" %}
-        <div class="container mt-3">
-            <div class="row g-0  d-flex flex-column position-static overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative info-background">
-                <div class="row">
-                    <div class="col-9">
-                        <!--H3 title-->
-                        <div id="affiliation" class="mb-1 text-body-secondary"></div>
-                        <div id="description"></div>
-                        <div class="mt-3">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <div id="url"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Date Added: <span id="date_added"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Status: <span id="status"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Contact: <span id="contact"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Version: <span id="version"></span></td>
-                                </tr>
-                                </tbody>
-                            </table>
+{% endwith %}
+
+
+{% with %}
+    {% set title = "Start a Project" %}
+    {% set content = "Select most suitable node or server to start a project" %}
+
+    {% include "partials/general-content.html" %}
+{% endwith %}
+
+    <div class="container-fluid w-100 g-0">
+        <div class="row">
+            <div id="nodeMenu" class="d-flex justify-content-center node-menu-container">
+                <div id="nodeDropdownContainer" class="d-flex align-items-center h3 node-menu-item" tabindex="3">
+                    Other
+                    <span class="h5 node-dropdown-chevron">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </span>
+                    <div id="nodeDropdownContent" class="node-dropdown-content"></div>
+                </div>
+            </div>
+        </div>
+
+       <div class="row">
+           <div id="nodeInfoDiv">
+               <div id="nodeImageDiv" class="d-flex flex-column node-image-div node-image-background">
+                   <div id="nodeInfoTop" class="d-flex justify-content-start flex-row ">
+                      <div id="nodeInfoLeft" class="node-info-left">
+                       <div id="nodeDateCreated" class="node-info-text">Date Added: <span id="date_added"></span></div>
+                       <div id="nodeStatus" class="node-info-text">Status: <span id="status"></span></div>
+                          <div id="nodeRegistrationStatus" class="node-info-text">Registration Status:
+                              <span id="registration_status" class="mt-3 registration-status-title"></span>
+                          </div>
+                      </div>
+                   </div>
+
+                    <div class="nodeImage mx-auto">
+                       <img id="nodeImage" class="img-fluid" src="">
+                    </div>
+
+                    <div id="nodeInfoBottom" class="d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-column">
+                            <div id="nodeName" class="node-main-info node-info-text">
+                                <a id="node-name-link" class="undecorated-link" href="">
+                                    <h2 id="name" class="node-name"></h2>
+                                </a>
+                            </div>
+                            <div id="nodeDescription" class="node-main-info node-info-text">
+                               <div id="description"></div>
+                            </div>
+                            <div id="nodeRegisterButtons" class="d-flex flex-row node-main-info ">
+                               <div id="registration_link" class="node-register-button">
+                                   <a id="node-registration-link-button" class="body-1 button-transparent node-register-link"
+                                      target="_blank" href="">Register</a>
+                               </div>
+                               <div id="url">
+                                   <a id="node-sign-in-button" class="body-1 button-transparent node-signup-link"
+                                      target="_blank" href="">Sign In</a>
+                               </div>
+                            </div>
+
                         </div>
-                        <div id="registration_status" class="mt-3"></div>
-                        <div id="registration_link"></div>
-                    </div>
-                    <div class="col-3 col-lg-2 d-block d-lg-block">
-                        <img id="image-right" class="w-sm-100 mt-2 px-auto d-block img-fluid mw-25 mh-25" src="" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 mt-2 text-center">
-                        <h4 class="text-decoration-underline">Services Available</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 mb-2">
-                        <div id="services" class="table-responsive border rounded"></div>
-                    </div>
+                        <div>
+                            <div id="nodeContact" class="node-main-info node-info-text">
+                                Contact: <div id="contact"></div>
+                            </div>
+                           <div id="nodeVersion" class="node-info-text">
+                               Version: <div id="version"></div>
+                            </div>
+                        </div>
+                   </div>
                 </div>
            </div>
-        </div>
+
+           <div id="nodeServicesContainer" class="d-flex flex-column justify-content-center node-services-container">
+                <div class="d-flex justify-content-center">
+                   <h3 id="servicesTitle" class="services-title h3-title-margin"></h3>
+                </div>
+                <div id="services" class="d-flex flex-column flex-lg-row justify-content-center w-100 node-services-div" ></div>
+                    <template id="node-card-template">
+                        <div class="d-flex flex-column node-card">
+                            <h5 id="node-card-template-name">stac</h5>
+                            <p id="node-card-template-description">Searchable spatiotemporal metadata describing climate and Earth observation datasets.</p>
+                            <div class="align-items-end mt-auto card-button-margin">
+                                <a id="node-card-template-link" class="text-primary border border-dark rounded caption node-card-link-button"
+                                    rel="service" type="application/json" href="https://redoak.cs.toronto.edu/stac/">
+                                    Link
+                                </a>
+                                <a id="node-card-template-doc" class="text-primary border border-dark rounded caption node-card-doc-button"
+                                    rel="service-doc" type="text/html"
+                                    href="https://github.com/radiantearth/stac-api-spec/tree/v1.0.0">
+                                    Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+           </div>
+       </div>
+    </div>
     <script src="js/node.js"></script>
-    {% include "partials/pictures.html" %}
 {% endblock content %}
