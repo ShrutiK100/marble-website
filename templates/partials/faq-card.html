@@ -1,14 +1,16 @@
 {% set faq_content = [
     {"title": "How do I access the nodes?",
     "content": 'Navigate to the <a href="node.html">Nodes page</a> to view the nodes that are available in the network. <br/>Depending on which node you would like to access you can register for an account, go to the signin page, or inspect any of the services that the node provides from here.',
-    "link": "https://discourse.marbleclimate.com/faq#agreeable"},
+    "link": ""},
     {"title": "What kind of data is available?",
     "content": "The Marble network makes available various types of climate data including earth observation data, climate model projections, and many more. To see which data is hosted at a given node, check out that node's STAC catalog",
-    "link": "https://redoak.cs.toronto.edu/stac-browser/"},
+    "link": ""},
     {"title": "Are the services free?",
     "content": "Yes! You will not be asked to pay for access to the Marble network or any of its nodes.",
-    "link": "node.html"}
+    "link": ""}
 ] %}
+
+<!-- TODO: add links for FAQ when it is created above -->
 
 <div class="container-fluid content-section">
     <div class="row mt-5">
@@ -30,11 +32,12 @@
                                 <h6> {{ content["title"] }}</h6>
                             </div>
                             <div>
-
+                                {% if content["link"] %}
                                     {% with button_type = "single_action_arrow"%}
                                         {% set button_href = content['link'] %}
                                         {% include "partials/button.html" %}
                                     {% endwith %}
+                                {% endif %}
 
                             </div>
                         </div>
