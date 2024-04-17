@@ -179,11 +179,12 @@
                 {% if link["icon-class"] != "fa-solid fa-user" %}
                     {% if link["href"] == "" %}
                         {% set icon_colour_class = "profile-icon-grey" %}
+                        {% set link_class = "disabled" %}
                     {% else %}
                         {% set icon_colour_class = "profile-icon-primary" %}
                     {% endif %}
 
-                    <a class="marble-github-link pe-1 profile-social-media" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
+                    <a class="marble-github-link pe-1 profile-social-media {{ link_class }}" href="{{ link["href"] }}" alt="{{ link["alt"] }}" target="_blank">
                     <i class='{{ link["icon-class"] }} {{ icon_colour_class }}'></i> {{ link["text"] }}
                     </a>
                 </div>
