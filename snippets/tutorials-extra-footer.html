@@ -1,5 +1,5 @@
 <script>
     const path_names = window.location.pathname.split("/")
-    const home_path = path_names.slice(0, path_names.indexOf("tutorials")).join("/")
+    const home_path = path_names.slice(0, path_names.indexOf("tutorials")).join("/") || "/"
     document.getElementsByClassName("logo")[0].href = home_path
 </script>
