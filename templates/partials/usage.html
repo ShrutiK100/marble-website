@@ -1,0 +1,91 @@
+<div class="container-fluid content-section">
+    <div class="row mt-5">
+        <div class="container-fluid gx-0">
+            <div class="row">
+                <div class="container-fluid w-75">
+                    <div class="row">
+                        <h3 class="h3-title-margin"><a>{{ title }}</a></h3>
+                        <div>
+                            <p class="lead-in-text">{{ lead_in_text }}</p>
+                        </div>
+                        <p>{{ section_content }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center mb-5">
+                    <div class="d-flex justify-content-center w-75 usage-menu-container">
+                        <div class="usage-menu-margin"><a id="studentMenuButton" class="mx-2 usage-menu-button"><h3>{{ menu_1 }}</h3></a></div>
+                        <div class="usage-menu-margin"><a id="researcherMenuButton" class="mx-2 usage-menu-button"><h3>{{ menu_2 }}</h3></a></div>
+                        <div class="usage-menu-margin"><a id="hobbyistMenuButton" class="mx-2 usage-menu-button"><h3>{{ menu_3 }}</h3></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- NOTE: The getStartedDisplayArea is the only visible div.  The content divs, studentUser, etc. are swapped
+                 into the display area on click of the menu above -->
+                <div id="getStartedDisplayArea" class="d-flex ">
+
+                </div>
+
+                <div id="studentUser" class="d-none">
+                    <div class="d-flex student-user-image">
+                        <div class="d-flex align-items-end w-100">
+                            <div class="d-flex justify-content-center py-5 w-100 getStartedOpacity">
+                                <div class="student-user-content w-75">
+                                    <h2 class="usage-content-title">{{ student_user_title }}</h2>
+                                    <p>{{ student_user_content|safe }}</p>
+                                    <div class="usage-content-button">
+                                        {% with button_type = "transparent_button" %}
+                                            {%  set button_label = "Explore" %}
+                                            {% set button_href = button_href_student %}
+                                            {% include "partials/button.html" %}
+                                        {% endwith %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div id="researcherUser" class="d-none ">
+
+                    <div class="d-flex researcher-user-image">
+                        <div class="d-flex align-items-end w-100">
+                             <div class="d-flex justify-content-center py-5 w-100 getStartedOpacity">
+                                 <div class="researcher-user-content w-75">
+                                    <h2>{{ researcher_user_title }}</h2>
+                                    <p>{{ researcher_user_content|safe }}</p>
+                                     {% with button_type = "transparent_button" %}
+                                        {%  set button_label = "Explore" %}
+                                        {% set button_href = button_href_researcher %}
+                                        {% include "partials/button.html" %}
+                                     {% endwith %}
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="hobbyistUser" class="d-none ">
+                    <div class="d-flex hobbyist-user-image">
+                        <div class="d-flex align-items-end w-100">
+                            <div class="d-flex justify-content-center py-5 w-100 getStartedOpacity">
+                                 <div class="hobbyist-user-content w-75">
+                                    <h2>{{ hobbyist_user_title }}</h2>
+                                    <p>{{ hobbyist_user_content|safe }}</p>
+                                    {% with button_type = "transparent_button" %}
+                                        {%  set button_label = "Explore" %}
+                                        {% set button_href = button_href_hobbyist %}
+                                        {% include "partials/button.html" %}
+                                    {% endwith %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <script src="js/usage.js"></script>
+    </div>
+</div>

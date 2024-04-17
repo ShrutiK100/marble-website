@@ -1,0 +1,18 @@
+<div>
+        <h3 class="h3-title-margin">{{ useful_links_title }}</h3>
+
+        {% set link_text_array = ["Get started as an admin", "Deploy a node", "Marble Project Website", "Node Registry", "Python Client"] %}
+        {% set link_url_array = ["tutorials/admin/getting-started/getting-started.html",
+        "tutorials/admin/getting-started/installation.html",
+        "https://daccs.ca/",
+        "https://github.com/DACCS-Climate/Marble-node-registry",
+        "https://github.com/DACCS-Climate/marble_client_python"] %}
+
+        {% set array_length = link_text_array|length %}
+
+        <div class="d-flex flex-column">
+            {% for array_item in range(array_length) %}
+                <a class = "useful-link text-primary" href="{{ link_url_array[array_item] }}">{{ link_text_array[array_item] }}</a>
+            {% endfor %}
+        </div>
+</div>
