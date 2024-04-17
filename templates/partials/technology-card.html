@@ -1,0 +1,35 @@
+{% set array_length = section_title|length %}
+{% set link_href = href %}
+<div class="container-fluid content-section">
+    <div class="row mt-5">
+        <div class="container-fluid w-75">
+            <div class="row">
+                <h3 class="h3-title-margin"><a id="technology">{{ title }}</a></h3>
+                <div>
+                    <p class="lead-in-text">{{ lead_in_text }}</p>
+                </div>
+
+            <div>
+                <div class="row">
+                    <div class="d-flex flex-column flex-md-row ">
+                        {% for array_item in range(array_length) %}
+                            <div class="d-flex flex-column technology-card">
+                                <h6 class="technology-title">{{ section_title[array_item] }}</h6>
+                                <p>{{ section_content[array_item] }}</p>
+
+                                <div class="align-items-end mt-auto technology-card-button card-button-margin">
+                                    {% with button_type = "med_action_button"%}
+                                        {% set button_label = "Tutorials" %}
+                                        {% set button_href = link_href[array_item] %}
+                                        {% include "partials/button.html" %}
+                                    {% endwith %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

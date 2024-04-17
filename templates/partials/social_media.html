@@ -1,0 +1,22 @@
+<div class="social-media-section">
+    <h3 class="h3-title-margin">{{ social_media_title }}</h3>
+
+    {% set link_icon_array = ["images/logos/social-media/icon_Linkedin.svg",
+    "images/logos/social-media/icon_Github.svg",
+    "images/logos/social-media/icon_Mastodon.svg",
+    "images/logos/social-media/instagram.svg",
+    "images/logos/social-media/twitter.svg"] %}
+    {% set link_url_array = ["https://www.linkedin.com/company/marbleclimate",
+    "https://github.com/DACCS-Climate",
+    "https://mastodon.social/@marbleclimate",
+    "https://www.instagram.com/marbleclimate",
+    "https://twitter.com/marble_climate"] %}
+
+    {% set array_length = link_icon_array|length %}
+
+    <div>
+        {% for array_item in range(array_length) %}
+            <a href="{{ link_url_array[array_item] }}"><img class="social-media-icon" src="{{ link_icon_array[array_item] }}"></a>
+        {% endfor %}
+    </div>
+</div>

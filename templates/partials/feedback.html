@@ -1,0 +1,11 @@
+<div>
+    <h3 class="h3-title-margin">{{ feedback_title }}</h3>
+    <div class="d-flex flex-column">
+        {% with %}
+            {% set feedback_question = "How can we improve your experience on the website?" %}
+            {% set feedback_url = "https://discourse.marbleclimate.com/t/about-the-site-feedback-category/1" %}
+            {% set button_label = "FEEDBACK" %}
+            {% include "partials/feedback-question.html" %}
+        {% endwith %}
+    </div>
+</div>

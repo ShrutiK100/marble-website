@@ -1,36 +1,57 @@
-<section id="hero" class="page-section first-section text-white">
-    <div id="banner-image" class="d-block d-lg-none bg opacity-30 bg-position-center-center bg-attachment-fixed"></div>
-    <div id="banner-video" class="d-none d-lg-block embed-responsive embed-responsive-16by9">
-      <video loop autoplay muted>
-        <source class="embed-responsive-item" src="{{ banner_video }}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+<section id="hero" class="banner-section first-section text-white">
 
-      <div id="banner-video-overlay"></div>
-    </div>
+    {%  if page == "home" %}
+        <div id="banner-image" class="d-block d-lg-none bg opacity-30 bg-position-center-center bg-attachment-fixed {{ banner_background_class }}"></div>
+        <div id="banner-video" class="d-none d-lg-block embed-responsive embed-responsive-16by9">
+          <video loop autoplay muted>
+            <source class="embed-responsive-item" src="{{ banner_video }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-     <div class="section-container">
+        <div class="banner-overlay-container">
            <div class="container-fluid">
              <div class="row align-items-center">
-
                <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-1">
-                   <h1><span id="banner-title" class="banner-title">{{ page_title }}</span></h1>
+                   <h1><span id="banner-title" class="{{ banner_title_class }}">{{ page_title }}</span></h1>
                    <p class="banner-slogan">{{ page_slogan|default("") }}</p>
                </div>
 
                <aside class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-3 offset-lg-1 hero-menu-wrap">
                  <div class="hero-menu">
-                   <h6 class="quick-start-title">Quick Start</h6>
+                   <h5 class="quick-start-title">Quick Start</h5>
                    <ul>
-                       <li><a href="tutorials.html">Tutorials</a></li>
-                       <li><a href="node.html">Choose a Node</a></li>
-                       <li><a href="datacatalog.html">Discover Data</a></li>
-                       <li><a href="">Forum</a></li>
+                       <li><h6><a href="tutorials/index.html">Tutorials</a></h6></li>
+                       <li><h6><a href="node.html">Choose a Node</a></h6></li>
+                       <li><h6><a href="tutorials/users/catalog/catalog.html">Discover Data</a></h6></li> <!-- TODO: update this to stac-browser when implemented -->
+                       <li><h6><a href="https://discourse.marbleclimate.com" target="_blank">Forum</a></h6></li>
                    </ul>
                  </div>
-
                </aside>
              </div>
          </div>
-     </div>
+        </div>
+    {% else %}
+        {% if page == "node" %}
+            {% set opacity_overlay_class = "banner-overlay-linear-opacity" %}
+        {% else %}
+            {% set opacity_overlay_class = "banner-overlay-opacity" %}
+        {% endif %}
+        <div id="banner-image" class="d-block bg opacity-30 bg-position-center-center bg-attachment-fixed {{ banner_background_class }}"></div>
+        <div class="banner-overlay-container {{ opacity_overlay_class }}">
+           <div class="container-fluid">
+               <div class="d-flex flex-column justify-content-center w-100">
+                   <div class="d-flex justify-content-center w-100">
+                       <div class="d-flex justify-content-center w-75">
+                        <h3 id="banner-title" class="{{ banner_title_class }} text-center">{{ page_slogan|safe }}</h3>
+
+                           </div>
+                    </div>
+                    <div class="d-flex justify-content-center w-100">
+                        <p class="value-statement">{{ value_statement|default("") }}</p>
+                    </div>
+               </div>
+         </div>
+        </div>
+    {% endif %}
 </section>

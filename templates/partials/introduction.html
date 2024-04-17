@@ -1,0 +1,14 @@
+{% set href = link_href %}
+<div class="container-fluid content-section w-75">
+    <div class="row mt-5">
+        <div class="d-flex flex-column">
+            <h3 class="h3-title-margin">{{ title }}</h3>
+            <div>{{ content|safe }}</div>
+        </div>
+         {% with button_type = "reg_action_button"%}
+            {% set button_label = "Learn More" %}
+            {% set button_href = href %}
+            {% include "partials/button.html" %}
+        {% endwith %}
+    </div>
+</div>

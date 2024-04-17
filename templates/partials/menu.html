@@ -1,5 +1,10 @@
-<div class="d-flex justify-content-start justify-content-lg-center">
-    <nav class="navbar navbar-expand-lg menu">
+{%  if page == "home" %}
+    {% set menu_link_class = "menu-link" %}
+{% else %}
+    {% set menu_link_class = "menu-link-white" %}
+{% endif %}
+<div class="d-flex justify-content-start justify-content-lg-center position-relative">
+    <nav class="navbar navbar-expand-lg position-absolute menu">
         <div class="container-fluid">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -11,29 +16,30 @@
                 <div class="col-1">
                     <img id="menu-logo" src="images/logos/marble.png" class="img-fluid ms-4 d-none d-lg-block menu-logo" />
                 </div>
-                <div class="col-10">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="col-10 menu-items">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                         <li class="nav-item">
-                            <a class="p-2 menu-link" aria-current="page" href="index.html">Home</a>
+                            <h6><a id="homeMenuButton" class="p-2 {{ menu_link_class }}" aria-current="page" href="index.html">Home</a></h6>
                         </li>
                         <li class="nav-item">
-                            <a class="p-2 menu-link" href="index.html#technology">Technology</a>
+                            <h6><a id="technologyMenuButton" class="p-2 {{ menu_link_class }}" href="index.html#technology">Technology</a></h6>
                         </li>
                         <li class="nav-item">
-                            <a class="p-2 menu-link" href="nodes.html">Nodes</a>
+                            <h6><a id="nodeMenuButton" class="p-2 {{ menu_link_class }}" href="node.html">Nodes</a></h6>
                         </li>
                         <li class="nav-item">
-                            <a class="p-2 menu-link" href="tutorials/index.html">Tutorials</a>
+                            <h6><a id="tutorialsMenuButton" class="p-2 {{ menu_link_class }}" href="tutorials/index.html">Tutorials</a></h6>
                         </li>
                         <li class="nav-item">
-                            <a class="p-2 menu-link" href="https://discourse.marbleclimate.com" target="_blank">Community</a>
+                            <h6><a id="communityMenuButton" class="p-2 {{ menu_link_class }}" href="https://discourse.marbleclimate.com" target="_blank">Community</a></h6>
                         </li>
                         <li class="nav-item">
-                            <a class="p-2 menu-link" href="about.html">About</a>
+                            <h6><a id="aboutMenuButton" class="p-2 {{ menu_link_class }}" href="about.html">About</a></h6>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
+<script src="js/menu.js"></script>
 </div>

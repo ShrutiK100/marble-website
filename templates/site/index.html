@@ -1,25 +1,110 @@
 {% extends "layouts/main.html" %}
 {% set page_title = "MARBLE" %}
 {% set page_slogan = "" %}
-{% set page_summary = ["Marble is a platform purpose-built for the task of climate data analysis.  Its federated architecture allows users
-                    to access the data and web processing services of any server on the Marble network, effectively eliminating the
-                    technical barriers encountered most often by data analysts and climate researchers - data storage and compute
-                    capability.",
-                    "Marble is the bridge between intricate climate data and the people who seek to
-                    understand it, fostering a community of inquiry and discovery in the realm of climate science."] %}
-{% set banner_video = "video/banner-video.mp4" %}
+
+
 {% block content %}
-    {% include "partials/banner.html" %}
-    {% include "partials/page-summary.html" %}
-    {% with %}
-        {% set title = "Start Your Project" %}
-        {% set lead_text = "Select a node/server/location to begin." %}
-        {% include "partials/section.html" %}
+    {% with page = "home" %}
+        {% include "partials/menu.html" %}
     {% endwith %}
-    {% include "partials/node-content.html" %}
-    {% with %}
-        {% set title = "Learn about Marble" %}
-        {% include "partials/carousel.html" %}
+
+    {% with page = "home"  %}
+        {% set banner_background_class= "banner-image-home" %}
+        {% set banner_title_class = "banner-title-home" %}
+        {% set banner_video = "video/banner-video.mp4" %}
+        {% include "partials/banner.html" %}
     {% endwith %}
-    {% include "partials/pictures.html" %}
+
+    {% with %}
+        {% set title = "About Marble" %}
+        {% set content = "<p>Marble is a network of cloud based web services <a class='paragraph-href' href='node.html'>nodes</a>
+        that provide access to large climate and satellite
+        <a class='paragraph-href' href='https://redoak.cs.toronto.edu/stac-browser/'>data sets</a>.
+        Marble offers cloud-based data analytics that implements
+        <a class='paragraph-href' href='https://www.ogc.org/'>Open Geoscience Consortium
+        (OGC)</a> standards for finding and interacting with data, and an online
+        <a class='paragraph-href' href='https://jupyter.org/'>workspace</a>
+        that includes climate data analytics tools.</p>
+
+        <p>The key principle is to bring the computation to where the data is, rather than vice versa. The platform
+        strives to serve the diverse needs of climate researchers, non-profits, government agencies at all levels,
+        civic minded individuals, educators and journalists, enabling them to study and communicate the impacts of
+        climate change without worrying about the technical logistics.Marble is the bridge between intricate climate
+        data and the people who seek to understand it, fostering a community of inquiry and discovery in the realm of
+        climate science.</p>" %}
+        {% set link_href = "about.html" %}
+
+        {% include "partials/introduction.html" %}
+    {% endwith %}
+
+    {% with %}
+        {% set href = ["tutorials/users/ide/ide.html",
+        "tutorials/users/catalog/catalog.html",
+        "tutorials/users/remote-processing/remote-processing.html"] |default("{{href}}") %}
+        {% set title = "Explore the Technologies" %}
+        {% set section_title = ["Integrated Development Environment", "Data Catalog", "Remote Processing Services"] %}
+        {% set section_content = [
+        "JupyterLab is integrated within the Marble platform as its development environment. It provides users with
+         access to climate based data analytics tools, and allows users to store data analytics results and workflows
+         online.",
+         "SpatioTemporal Asset Catalog (STAC) is integrated within the Marble platform as its data catalog. STAC allows
+         users to discover and access climate data that is available on the Marble network.",
+         "Weaver is a remote processing tool integrated within the Marble platform. Weaver allows users to create
+         and run processes remotely across the Marble network."] %}
+
+        {% include "partials/technology-card.html" %}
+    {% endwith %}
+
+    {% with %}
+        {% set title="Getting Started"%}
+        {% set lead_in_text = "" %}
+        {% set section_content = "Whether you're a student, researcher, or hobbyist, we've got you covered.
+        Before initiating your research journey, take the opportunity to explore services best suited to
+        your individual needs. Explore the diverse array of nodes and their offerings, tailored to cater
+        specifically to your research requirements." %}
+
+        {% set menu_1 = "Student" %}
+        {% set student_user_title = "I'm a Student" %}
+        {% set student_user_content =
+            "<ul>
+                <li>Marble promotes a hands-on learning experience that aligns with real-world scenarios in climate science and data analysis.</li>
+                <li>Marble allows you to work on real-world climate research projects using climate science-oriented datasets and tools.</li>
+                <li>This practical experience is valuable for your academic and professional development.</li>
+                <li>Marble takes care of data storage and processing on its platform, eliminating the need for high-end personal devices.</li>
+            </ul>"
+         %}
+        {% set button_href_student = "node.html" %}
+
+        {% set menu_2 = "Researcher" %}
+        {% set researcher_user_title = "I'm a Researcher" %}
+        {% set researcher_user_content =
+            "<ul>
+                <li>Marble promotes a hands-on learning experience that aligns with real-world scenarios in climate science and data analysis.</li>
+                <li>Marble allows you to work on real-world climate research projects using climate science-oriented datasets and tools.</li>
+                <li>This practical experience is valuable for your academic and professional development.</li>
+                <li>Marble takes care of data storage and processing on its platform, eliminating the need for high-end personal devices.</li>
+            </ul>"
+         %}
+        {% set button_href_researcher = "node.html" %}
+
+        {% set menu_3 = "Hobbyist" %}
+        {% set hobbyist_user_title = "I'm a Hobbyist" %}
+        {% set hobbyist_user_content =
+            "<ul>
+                <li>The JupyterLab work space comes prepackaged with tools geared towards climate data analysis, providing a hassle-free entry point for hobbyists.</li>
+                <li>Marble offers tutorials designed to guide beginners that cover a range of topics, from basic navigation of the STAC catalog to conducting specific analyses using climate data analysis tools</li>
+                <li>SpatioTemporal Asset Catalog (STAC) is a great starting point for hobbyist to familiarize themselves with the available geospatial datasets related to climate science.</li>
+            </ul>"
+         %}
+        {% set button_href_hobbyist = "node.html" %}
+
+        {% include "partials/usage.html" %}
+    {% endwith %}
+
+    {% include "partials/faq-card.html" %}
+
+    {% with %}
+        {% include "partials/extras.html" %}
+    {% endwith %}
+
 {% endblock content %}
