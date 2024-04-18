@@ -161,3 +161,7 @@ cython_debug/
 
 # Mac OS files
 .DS_Store
+
+# Project specific files
+
+templates/site/design-component-preview.html
