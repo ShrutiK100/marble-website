@@ -86,16 +86,10 @@ const converters = {
     }
 }
 
-const nodeImageBackground = [
-    "images/nodes/node-redoak-planet.png",
-    "images/nodes/node-pavics-planet.png",
-    "images/nodes/node-hirondelle-planet.png"
-];
-
 const nodeBackgroundClass=[
-    "node-redoak-background",
-    "node-pavics-background",
-"node-hirondelle-background"
+    "node-planet-background1",
+    "node-planet-background2",
+    "node-planet-background3"
 ]
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -144,30 +138,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
-//node name to lowercase
-//build string for class name
-//assign class as needed?
-//store class name in array?
 function getNode(node_id){
     const githubURL = "{{ node_registry_url }}";
-
+    const imageDivClasses = ["d-flex", "flex-column", "node-image-background"];
     fetch(githubURL).then(resp => resp.json()).then(json => {
 
         const node_info = json[node_id];
         const node_keys = Object.keys(json);
 
-        let image = document.getElementById("nodeImage");
-        image.src = nodeImageBackground[node_keys.indexOf(node_id) % nodeImageBackground.length];
+        let imageDiv = document.getElementById("nodeImageDiv");
+        imageDivClasses.push(nodeBackgroundClass[node_keys.indexOf(node_id) % nodeBackgroundClass.length]);
+        let currentImageDivClasses = imageDiv.classList;
+        imageDiv.classList.remove(...currentImageDivClasses);
+        imageDiv.classList.add(...imageDivClasses);
 
         Object.entries(node_info).forEach(([key, val]) => {
             const elem = document.getElementById(key);
             const converted_val = (converters[key] || converters["_default"])(val, node_info)
 
             if (elem !== null) {
-
                 elem.replaceChildren(converted_val);
-
-
             }
         })
 
