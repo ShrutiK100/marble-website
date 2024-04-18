@@ -1,12 +1,10 @@
+{% set menu_link_class = "menu-link" %}
 {% extends "layouts/main.html" %}
 {% set page_title = "MARBLE" %}
 {% set page_slogan = "" %}
 
 
 {% block content %}
-    {% with page = "home" %}
-        {% include "partials/menu.html" %}
-    {% endwith %}
 
     {% with page = "home"  %}
         {% set banner_background_class= "banner-image-home" %}
