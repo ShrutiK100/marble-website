@@ -29,18 +29,17 @@
             <div id="nodeMenu" class="d-flex justify-content-center node-menu-container">
                 <div id="nodeDropdownContainer" class="d-flex align-items-center h3 node-menu-item" tabindex="3">
                     Other
-                    <span class="h5 node-dropdown-chevron">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </span>
+                    <span class="h5 node-dropdown-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+
                     <div id="nodeDropdownContent" class="node-dropdown-content"></div>
                 </div>
             </div>
         </div>
 
        <div class="row">
-           <div id="nodeInfoDiv">
-               <div id="nodeImageDiv" class="d-flex flex-column node-image-div node-image-background">
-                   <div id="nodeInfoTop" class="d-flex justify-content-start flex-row ">
+           <div id="nodeInfoDiv" class="d-flex">
+               <div id="nodeImageDiv" class="d-flex flex-column node-image-background">
+                   <div id="nodeInfoTop" class="d-flex justify-content-start flex-row h-100 node-info-top">
                       <div id="nodeInfoLeft" class="node-info-left">
                        <div id="nodeDateCreated" class="node-info-text">Date Added: <span id="date_added"></span></div>
                        <div id="nodeStatus" class="node-info-text">Status: <span id="status"></span></div>
@@ -50,12 +49,8 @@
                       </div>
                    </div>
 
-                    <div class="nodeImage mx-auto">
-                       <img id="nodeImage" class="img-fluid" src="">
-                    </div>
-
-                    <div id="nodeInfoBottom" class="d-flex flex-row justify-content-between">
-                        <div class="d-flex flex-column">
+                    <div id="nodeInfoBottom" class="d-flex flex-column flex-lg-row justify-content-between w-100 node-info-bottom">
+                        <div class="d-flex flex-column node-info-bottom-left">
                             <div id="nodeName" class="node-main-info node-info-text">
                                 <a id="node-name-link" class="undecorated-link" href="">
                                     <h2 id="name" class="node-name"></h2>
@@ -74,14 +69,13 @@
                                       target="_blank" href="">Sign In</a>
                                </div>
                             </div>
-
                         </div>
-                        <div>
-                            <div id="nodeContact" class="node-main-info node-info-text">
-                                Contact: <div id="contact"></div>
+                        <div class="d-flex flex-column align-items-start node-info-bottom-right">
+                            <div id="nodeContact" class="mt-auto node-main-info node-info-text">
+                                <p>Contact: <span id="contact"></span></p>
                             </div>
-                           <div id="nodeVersion" class="node-info-text">
-                               Version: <div id="version"></div>
+                           <div id="nodeVersion" class="d-flex node-info-text">
+                               <p>Version: <span id="version"></span></p>
                             </div>
                         </div>
                    </div>
