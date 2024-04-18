@@ -18,7 +18,6 @@
 
     /*Colours*/
     --alert-background: #F6DC3D;
-    --node-redoak-background: #0D1834;
     --background: #FFFFFF;
     --background-black: #000000;
     --background-transparent: transparent;
@@ -115,6 +114,7 @@ p{
     letter-spacing: 0.024px;
 }
 
+/* unused */
 .body-2{
     font-family: var(--main-font-family);
     font-weight: var(--reg-font-weight);
@@ -142,12 +142,6 @@ h3{
     font-size: 48px;
 }
 
-.h3{
-    font-family: var(--main-font-family);
-    font-weight: var(--h3-reg-font-weight);
-    font-size: 48px;
-}
-
 h4{
     font-family: var(--main-font-family);
     font-weight: var(--h4-bold-font-weight);
@@ -161,12 +155,6 @@ h5{
     font-size: 24px;
 }
 
-.h5{
-    font-family: var(--main-font-family);
-    font-weight: var(--reg-font-weight);
-    font-size: 24px;
-}
-
 h6{
     font-family: var(--secondary-font-family);
     font-weight: var(--reg-font-weight);
@@ -175,6 +163,7 @@ h6{
     margin-bottom: 30px;
 }
 
+/*leading-text-1 unused*/
 .subtitle-1, .leading-text-1{
     font-family: var(--main-font-family);
     font-weight: var(--med-font-weight);
@@ -182,6 +171,7 @@ h6{
     letter-spacing: 0.03px;
 }
 
+/*leading-text-2 unused*/
 .subtitle-2, .leading-text-2{
     font-family: var(--main-font-family);
     font-weight: var(--reg-font-weight);
@@ -298,14 +288,6 @@ h6{
     border: none;
 }
 
-.button-single-action-chevron{
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 50px;
-    border: none;
-}
-
 .button-single-action-arrow{
     width: 36px;
     height: 36px;
@@ -355,11 +337,6 @@ h6{
     height: 50px;
 }
 
-/*Alert*/
-.construction-alert{
-    background-color: var(--alert-background);
-}
-
 /*Banner*/
 
 .banner-title-home{
@@ -378,10 +355,6 @@ h6{
     margin-top: 60px;
 }
 
-.banner-lead-in-text{
-    margin-top: 50px;
-}
-
 .bg {
   position: absolute;
   top: 0;
@@ -394,10 +367,6 @@ h6{
 
 .bg-attachment-fixed {
   background-attachment: fixed;
-}
-
-.black-test{
-    background-color: black;
 }
 
 .banner-image-home{
@@ -690,24 +659,8 @@ h6{
     z-index: 1;
 }
 
-.node-image{
-    z-index: -25;
-}
-
 .node-image-background{
     background-color: var(--background-black);
-}
-
-.node-redoak-background{
-    background-image: url("../images/nodes/node-redoak-planet.png");
-}
-
-.node-pavics-background{
-    background-image: url("../images/nodes/node-pavics-planet.png");
-}
-
-.node-hirondelle-background{
-    background-image: url("../images/nodes/node-hirondelle-planet.png");
 }
 
 .node-name{
@@ -861,10 +814,6 @@ h6{
     margin-right: 60px;
 }
 
-.committee-inner-card{
-    max-height: 300px;
-}
-
 /*Footer*/
 
 .footer{
@@ -878,10 +827,6 @@ h6{
 
 .funder-logo-container{
     width: 95%;
-}
-
-.first-funder-logo{
-    width: 20%;
 }
 
 .funder-logo{
@@ -922,10 +867,6 @@ h6{
     background-color: var(--indigo-300);
 }
 
-.palette-background{
-    background-color: var(--white);
-}
-
 .text-primary{
     color: var(--primary);
 }
@@ -938,16 +879,16 @@ h6{
     color: var(--text-on-dark);
 }
 
+/*unused*/
 .primary{
     background-color: var(--primary);
 }
 
+/*unused*/
 .primary-alt{
     background-color: var(--primary-alt);
 }
 
-.inactive-link{
-    color: var(--gray-500);
-    text-decoration: none;
-    cursor: default;
+.registration-status-title{
+    font-weight: bold;
 }
