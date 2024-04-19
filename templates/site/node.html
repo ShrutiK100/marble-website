@@ -2,9 +2,6 @@
 {% set page_title = "Nodes" %}
 
 {% block content %}
-    {% with page = "node" %}
-        {% include "partials/menu.html" %}
-    {% endwith %}
 
 {% with page = "node" %}
     {% set banner_background_class= "banner-image-node" %}
@@ -27,10 +24,11 @@
     <div class="container-fluid w-100 g-0">
         <div class="row">
             <div id="nodeMenu" class="d-flex justify-content-center node-menu-container">
-                <div id="nodeDropdownContainer" class="d-flex align-items-center h3 node-menu-item" tabindex="3">
-                    Other
-                    <span class="h5 node-dropdown-chevron"><i class="fa-solid fa-chevron-down"></i></span>
-
+                <div id="nodeDropdownContainer" class="d-flex align-items-center node-menu-item" tabindex="3">
+                    <h3>Other</h3>
+                    <h5 class="node-dropdown-chevron">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </h5>
                     <div id="nodeDropdownContent" class="node-dropdown-content"></div>
                 </div>
             </div>

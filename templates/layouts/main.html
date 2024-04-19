@@ -8,15 +8,14 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
 
-    <link href="css/daccs-css.css" rel="stylesheet">
-    <link href="css/ux-library.css" rel="stylesheet">
+    <link href="css/marble.css" rel="stylesheet">
 
     <meta charset="UTF-8">
     <title>{{ site_title|default("Marble") }}</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
-
+{% include "partials/menu.html" %}
 {% block content %} {% endblock %}
 {% include "partials/footer.html" %}
 </body>

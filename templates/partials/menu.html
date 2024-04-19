@@ -1,8 +1,4 @@
-{%  if page == "home" %}
-    {% set menu_link_class = "menu-link" %}
-{% else %}
-    {% set menu_link_class = "menu-link-white" %}
-{% endif %}
+{% set menu_link_class = menu_link_class|default("menu-link-white") %}
 <div class="d-flex justify-content-start justify-content-lg-center position-relative">
     <nav class="navbar navbar-expand-lg position-absolute menu">
         <div class="container-fluid">

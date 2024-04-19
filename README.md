@@ -52,5 +52,6 @@ This is how the files are arranged in this repo and how to update them in order 
 - All other directories in the `templates/` directory will not be copied to the build directory but _will_ be used by the templating engine
   - `templates/layouts/` contains files that should be extended by other template files
   - `templates/partials/` contain files that should be included by other template files
+- Files in the `snippets/` directory will not be included in the build directory by default. These files will only be included if they are manually added in the `build.py` script.
 
 The template engine used is [Jinja](https://jinja.palletsprojects.com/en/3.1.x/).

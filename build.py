@@ -2,6 +2,10 @@ import os
 import subprocess
 import shutil
 import argparse
+import tempfile
+from contextlib import contextmanager
+
+import yaml
 from jinja2 import FileSystemLoader, Environment, select_autoescape
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -20,6 +24,24 @@ def filter_site_templates(template, extensions=("js", "html")):
     )
 
 
+@contextmanager
+def tutorials_config_file():
+    extra_footer_file = os.path.join(THIS_DIR, "snippets", "tutorials-extra-footer.html")
+    with open(extra_footer_file) as footer_f:
+        extra_footer_content = footer_f.read()
+    with tempfile.NamedTemporaryFile(mode="w+") as config_f:
+        base_config_file = os.path.join(TUTORIALS_PATH, "tutorials", "_config.yml")
+        with open(base_config_file) as base_config_f:
+            config_yaml = yaml.safe_load(base_config_f)
+            if not config_yaml.get("html"):
+                config_yaml["html"] = {}
+            extra_footer = config_yaml["html"].get("extra_footer", "")
+            extra_footer += f"\n{extra_footer_content}"
+            config_yaml["html"]["extra_footer"] = extra_footer
+            yaml.safe_dump(config_yaml, config_f)
+        yield config_f.name
+
+
 def build_tutorials(build_directory, clean=False):
     if clean:
         subprocess.run(
@@ -31,14 +53,17 @@ def build_tutorials(build_directory, clean=False):
             ],
             check=True,
         )
-    subprocess.run(
-        [
-            "jupyter-book",
-            "build",
-            os.path.join(TUTORIALS_PATH, "tutorials"),
-        ],
-        check=True,
-    )
+    with tutorials_config_file() as config_file:
+        subprocess.run(
+            [
+                "jupyter-book",
+                "build",
+                "--config",
+                config_file,
+                os.path.join(TUTORIALS_PATH, "tutorials"),
+            ],
+            check=True,
+        )
     tutorials_html_dir = os.path.join(build_directory, "tutorials")
     shutil.rmtree(tutorials_html_dir, ignore_errors=True)
     shutil.move(
