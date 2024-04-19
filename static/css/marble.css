@@ -663,6 +663,18 @@ h6{
     background-color: var(--background-black);
 }
 
+.node-redoak-background{
+    background-image: url("../images/nodes/node-redoak-planet.png");
+}
+
+.node-pavics-background{
+    background-image: url("../images/nodes/node-pavics-planet.png");
+}
+
+.node-hirondelle-background{
+    background-image: url("../images/nodes/node-hirondelle-planet.png");
+}
+
 .node-name{
     text-decoration: underline;
 }
@@ -877,16 +889,6 @@ h6{
 
 .text-on-dark{
     color: var(--text-on-dark);
-}
-
-/*unused*/
-.primary{
-    background-color: var(--primary);
-}
-
-/*unused*/
-.primary-alt{
-    background-color: var(--primary-alt);
 }
 
 .registration-status-title{
