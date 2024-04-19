@@ -627,9 +627,10 @@ h6{
 }
 
 .node-menu-container{
-    margin-left: 32px;
+    width: 97%;
+    margin-left: 50px;
     margin-top: 50px;
-    margin-right: 32px;
+    margin-right: 50px;
     margin-bottom: 50px;
     border-bottom: var(--border-black);
     border-bottom-style: solid;
@@ -638,7 +639,7 @@ h6{
 
 .node-menu-item{
     margin-left: 59px;
-    margin-right: 59px;
+    margin-right: 0px;
     color: var(--text-on-surface);
     text-decoration: none;
     cursor: pointer;
@@ -709,15 +710,15 @@ h6{
 }
 
 .node-planet-background1{
-    background-image: url("node-planet1.png");
+    background-image: url("../images/nodes/node-planet1.png");
 }
 
 .node-planet-background2{
-    background-image: url("node-planet2.png");
+    background-image: url("../images/nodes/node-planet2.png");
 }
 
 .node-planet-background3{
-    background-image: url("node-planet3.png");
+    background-image: url("../images/nodes/node-planet3.png");
 }
 
 .node-name{
