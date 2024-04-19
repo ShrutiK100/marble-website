@@ -114,7 +114,6 @@ p{
     letter-spacing: 0.024px;
 }
 
-/* unused */
 .body-2{
     font-family: var(--main-font-family);
     font-weight: var(--reg-font-weight);
@@ -163,7 +162,6 @@ h6{
     margin-bottom: 30px;
 }
 
-/*leading-text-1 unused*/
 .subtitle-1, .leading-text-1{
     font-family: var(--main-font-family);
     font-weight: var(--med-font-weight);
@@ -171,7 +169,6 @@ h6{
     letter-spacing: 0.03px;
 }
 
-/*leading-text-2 unused*/
 .subtitle-2, .leading-text-2{
     font-family: var(--main-font-family);
     font-weight: var(--reg-font-weight);
