@@ -13,10 +13,7 @@ const converters = {
     },
     "status":(val) =>{
         let node_status = document.createElement("span")
-        const first_letter = val.charAt(0);
-        const first_letter_capitalize = first_letter.toUpperCase();
-        const remaining_word = val.slice(1);
-        const full_word = first_letter_capitalize + remaining_word
+        const full_word = capitalize(val);
         node_status.innerText = full_word;
         node_status.classList.add(val === "online" ? "node-online" : "node-offline")
         return node_status
@@ -24,10 +21,7 @@ const converters = {
     "registration_status":(val) => {
         let registration_status_elem = document.getElementById("registration_status");
         registration_status_elem.classList.add("error-text");
-        const first_letter = val.charAt(0);
-        const first_letter_capitalize = first_letter.toUpperCase();
-        const remaining_word = val.slice(1);
-        const full_word = first_letter_capitalize + remaining_word
+        const full_word = capitalize(val);
         return full_word;
     },
     "links": (val, node_info) => {
@@ -53,7 +47,7 @@ const converters = {
     "services": (val) => {
         const services_row = document.createElement("div");
         services_row.id = "nodeServices";
-        services_row.classList.add("d-flex", "flex-wrap", "justify-content-start");
+        services_row.classList.add("d-flex", "flex-wrap", "justify-content-start", "w-75");
 
         val.forEach( (service, index) => {
             const node_card_template = document.getElementById("node-card-template")
@@ -164,4 +158,13 @@ function getNode(node_id){
         let services_title = document.getElementById("servicesTitle");
         services_title.innerText = `Explore All Services by ${node_info["name"]}`;
     })
+}
+
+function capitalize(word){
+    const first_letter = word.charAt(0);
+    const first_letter_capitalize = first_letter.toUpperCase();
+    const remaining_word = word.slice(1);
+    const full_word = first_letter_capitalize + remaining_word;
+
+    return full_word;
 }
