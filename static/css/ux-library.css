@@ -709,15 +709,15 @@ h6{
 }
 
 .node-planet-background1{
-    background-image: url("../images/nodes/node-redoak-planet.png");
+    background-image: url("node-planet1.png");
 }
 
 .node-planet-background2{
-    background-image: url("../images/nodes/node-pavics-planet.png");
+    background-image: url("node-planet2.png");
 }
 
 .node-planet-background3{
-    background-image: url("../images/nodes/node-hirondelle-planet.png");
+    background-image: url("node-planet3.png");
 }
 
 .node-name{
