@@ -13,16 +13,14 @@ const converters = {
     },
     "status":(val) =>{
         let node_status = document.createElement("span")
-        const full_word = capitalize(val);
-        node_status.innerText = full_word;
+        node_status.innerText = capitalize(val);
         node_status.classList.add(val === "online" ? "node-online" : "node-offline")
         return node_status
     },
     "registration_status":(val) => {
         let registration_status_elem = document.getElementById("registration_status");
         registration_status_elem.classList.add("error-text");
-        const full_word = capitalize(val);
-        return full_word;
+        return capitalize(val);
     },
     "links": (val, node_info) => {
         const found_links = {}
@@ -161,10 +159,5 @@ function getNode(node_id){
 }
 
 function capitalize(word){
-    const first_letter = word.charAt(0);
-    const first_letter_capitalize = first_letter.toUpperCase();
-    const remaining_word = word.slice(1);
-    const full_word = first_letter_capitalize + remaining_word;
-
-    return full_word;
+    return word.charAt(0).toUpperCase() + word.slice(1);
 }
