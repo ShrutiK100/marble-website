@@ -891,12 +891,14 @@ h6{
 }
 
 .first-funder-logo{
-    width: 20%;
+    min-width: 200px;
+    max-width: 300px;
+    margin-right: 20px;
 }
 
 .funder-logo{
     min-width: 100px;
-    max-width: 200px;
+    max-width: 150px;
     margin-left: 20px;
     margin-right: 20px;
 }
