@@ -424,7 +424,7 @@ h6{
     padding-bottom: 15px;
     border-bottom: solid;
     border-bottom-width: thin;
-    border-color: var(--black);
+    border-color: var(--white);
 }
 
 .hero-menu{
@@ -467,16 +467,16 @@ h6{
 }
 
 .card-button-margin{
-    margin-top: 30px;
-}
-
-.technology-title{
-    min-width: 409px;
+    margin-top: 50px;
 }
 
 .technology-card{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.technology-card-content{
+    margin-bottom: 50px;
 }
 
 .faq-card-content{
@@ -501,7 +501,7 @@ h6{
     border-bottom: var(--black);
     border-bottom-style: solid;
     border-bottom-width: thin;
-    margin-top: 80px;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
