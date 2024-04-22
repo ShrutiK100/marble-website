@@ -6,11 +6,10 @@
                     <tr><td class="align-top"><div class="about-intro-title"><h3>{{ title }}</h3></div></td><td class="align-top"><div class="about-intro">{{ content|safe }}</div></td></tr>
                 </table>
              </div>
-
         {% else %}
             <div class="d-flex flex-column">
                 <h3 class="h3-title-margin">{{ title }}</h3>
-                <div>{{ content|safe }}</div>
+                <div><p>{{ content|safe }}</p></div>
             </div>
             {% if about_github %}
                 {% with alt_git_hub_link = about_github %}
