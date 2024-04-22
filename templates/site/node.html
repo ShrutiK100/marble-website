@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set page_title = "Nodes" %}
 
+
 {% block content %}
 
 {% with page = "node" %}
@@ -13,12 +14,11 @@
     {% include "partials/banner.html" %}
 {% endwith %}
 
-
 {% with %}
     {% set title = "Start a Project" %}
-    {% set content = "Select most suitable node or server to start a project" %}
+    {% set subtitle = "Select most suitable node or server to start a project" %}
 
-    {% include "partials/general-content.html" %}
+    {% include "partials/general-title-subtitle.html" %}
 {% endwith %}
 
     <div class="container-fluid w-100">
