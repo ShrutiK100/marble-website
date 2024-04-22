@@ -45,7 +45,7 @@ const converters = {
     "services": (val) => {
         const services_row = document.createElement("div");
         services_row.id = "nodeServices";
-        services_row.classList.add("d-flex", "flex-wrap", "justify-content-start", "w-75");
+        services_row.classList.add("d-flex", "flex-wrap", "justify-content-start", "node-services-div");
 
         val.forEach( (service, index) => {
             const node_card_template = document.getElementById("node-card-template")

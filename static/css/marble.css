@@ -730,8 +730,12 @@ h6{
     margin-bottom: 120px;
 }
 
-.node-services-div{
+.services-margin-div{
     margin-top:50px;
+}
+
+.node-services-div{
+    width: 85%;
 }
 
 .node-card{
