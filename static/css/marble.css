@@ -424,7 +424,7 @@ h6{
     padding-bottom: 15px;
     border-bottom: solid;
     border-bottom-width: thin;
-    border-color: var(--black);
+    border-color: var(--white);
 }
 
 .hero-menu{
@@ -467,16 +467,17 @@ h6{
 }
 
 .card-button-margin{
-    margin-top: 30px;
-}
-
-.technology-title{
-    min-width: 409px;
+    margin-top: 50px;
 }
 
 .technology-card{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+}
+
+.technology-card-content{
+    margin-bottom: 50px;
 }
 
 .faq-card-content{
@@ -501,7 +502,7 @@ h6{
     border-bottom: var(--black);
     border-bottom-style: solid;
     border-bottom-width: thin;
-    margin-top: 80px;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
@@ -588,23 +589,15 @@ h6{
     margin-bottom: 27px;
 }
 
-.node-info-left{
-    margin-top: 30px;
-}
-
 .node-info-text{
     color: var(--text-on-dark);
 }
 
-.node-image-div{
-    padding-left: 60px;
-    padding-right: 60px;
-}
-
 .node-menu-container{
-    margin-left: 32px;
+    width: 97%;
+    margin-left: 50px;
     margin-top: 50px;
-    margin-right: 32px;
+    margin-right: 50px;
     margin-bottom: 50px;
     border-bottom: var(--border-black);
     border-bottom-style: solid;
@@ -656,20 +649,43 @@ h6{
     z-index: 1;
 }
 
+.node-info-left{
+    margin-left: 50px;
+}
+
+.node-info-bottom-left{
+    margin-left: 50px;
+}
+
+.node-info-bottom-right{
+    margin-left: 50px;
+    margin-top:30px;
+    margin-right: 50px;
+}
+
 .node-image-background{
+    width: 100%;
+    height: 692px;
+    max-height: 692px;
     background-color: var(--background-black);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-origin: content-box;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
-.node-redoak-background{
-    background-image: url("../images/nodes/node-redoak-planet.png");
+.node-planet-background1{
+    background-image: url("../images/nodes/node-planet1.png");
 }
 
-.node-pavics-background{
-    background-image: url("../images/nodes/node-pavics-planet.png");
+.node-planet-background2{
+    background-image: url("../images/nodes/node-planet2.png");
 }
 
-.node-hirondelle-background{
-    background-image: url("../images/nodes/node-hirondelle-planet.png");
+.node-planet-background3{
+    background-image: url("../images/nodes/node-planet3.png");
 }
 
 .node-name{
@@ -715,8 +731,12 @@ h6{
     margin-bottom: 120px;
 }
 
-.node-services-div{
+.services-margin-div{
     margin-top:50px;
+}
+
+.node-services-div{
+    width: 85%;
 }
 
 .node-card{
@@ -838,9 +858,15 @@ h6{
     width: 95%;
 }
 
+.first-funder-logo{
+    min-width: 200px;
+    max-width: 300px;
+    margin-right: 20px;
+}
+
 .funder-logo{
     min-width: 100px;
-    max-width: 200px;
+    max-width: 150px;
     margin-left: 20px;
     margin-right: 20px;
 }

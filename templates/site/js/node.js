@@ -13,22 +13,14 @@ const converters = {
     },
     "status":(val) =>{
         let node_status = document.createElement("span")
-        const first_letter = val.charAt(0);
-        const first_letter_capitalize = first_letter.toUpperCase();
-        const remaining_word = val.slice(1);
-        const full_word = first_letter_capitalize + remaining_word
-        node_status.innerText = full_word;
+        node_status.innerText = capitalize(val);
         node_status.classList.add(val === "online" ? "node-online" : "node-offline")
         return node_status
     },
     "registration_status":(val) => {
         let registration_status_elem = document.getElementById("registration_status");
         registration_status_elem.classList.add("error-text");
-        const first_letter = val.charAt(0);
-        const first_letter_capitalize = first_letter.toUpperCase();
-        const remaining_word = val.slice(1);
-        const full_word = first_letter_capitalize + remaining_word
-        return full_word;
+        return capitalize(val);
     },
     "links": (val, node_info) => {
         const found_links = {}
@@ -53,7 +45,7 @@ const converters = {
     "services": (val) => {
         const services_row = document.createElement("div");
         services_row.id = "nodeServices";
-        services_row.classList.add("d-flex", "flex-wrap", "justify-content-start");
+        services_row.classList.add("d-flex", "flex-wrap", "justify-content-start", "node-services-div");
 
         val.forEach( (service, index) => {
             const node_card_template = document.getElementById("node-card-template")
@@ -86,16 +78,10 @@ const converters = {
     }
 }
 
-const nodeImageBackground = [
-    "images/nodes/node-redoak-planet.png",
-    "images/nodes/node-pavics-planet.png",
-    "images/nodes/node-hirondelle-planet.png"
-];
-
 const nodeBackgroundClass=[
-    "node-redoak-background",
-    "node-pavics-background",
-"node-hirondelle-background"
+    "node-planet-background1",
+    "node-planet-background2",
+    "node-planet-background3"
 ]
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -144,34 +130,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
-//node name to lowercase
-//build string for class name
-//assign class as needed?
-//store class name in array?
 function getNode(node_id){
     const githubURL = "{{ node_registry_url }}";
-
+    const imageDivClasses = ["d-flex", "flex-column", "node-image-background"];
     fetch(githubURL).then(resp => resp.json()).then(json => {
 
         const node_info = json[node_id];
         const node_keys = Object.keys(json);
 
-        let image = document.getElementById("nodeImage");
-        image.src = nodeImageBackground[node_keys.indexOf(node_id) % nodeImageBackground.length];
+        let imageDiv = document.getElementById("nodeImageDiv");
+        imageDivClasses.push(nodeBackgroundClass[node_keys.indexOf(node_id) % nodeBackgroundClass.length]);
+        let currentImageDivClasses = imageDiv.classList;
+        imageDiv.classList.remove(...currentImageDivClasses);
+        imageDiv.classList.add(...imageDivClasses);
 
         Object.entries(node_info).forEach(([key, val]) => {
             const elem = document.getElementById(key);
             const converted_val = (converters[key] || converters["_default"])(val, node_info)
 
             if (elem !== null) {
-
                 elem.replaceChildren(converted_val);
-
-
             }
         })
 
         let services_title = document.getElementById("servicesTitle");
         services_title.innerText = `Explore All Services by ${node_info["name"]}`;
     })
+}
+
+function capitalize(word){
+    return word.charAt(0).toUpperCase() + word.slice(1);
 }
