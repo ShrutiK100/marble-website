@@ -225,10 +225,6 @@ h6{
     border: none;
 }
 
-.button-reg:hover, .button-med:hover{
-    background-color: var(--indigo-800);
-}
-
 .button-sm{
     width: 75px;
     height: 51px;
@@ -236,7 +232,7 @@ h6{
     border: none;
 }
 
-.button-sm:hover{
+.button-sm:hover, .button-med:hover{
     background-color: var(--background-black);
 }
 
